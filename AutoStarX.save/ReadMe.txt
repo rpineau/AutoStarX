@@ -1,7 +1,7 @@
 AutoStarX Version 1.1
 
 AutoStarX allows you to upgrade the flashrom of your Autostar on Mac OS X
-(497,495, I haven't tested it with other autostar versions).
+(497,495 only for now).
 You need a usb to serial adapter (keyspan, ftdi,...) and of course a Meade 505
 serial cable (or a home made one). 
 

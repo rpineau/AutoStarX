@@ -118,7 +118,7 @@ CFMutableArrayRef SerialPort::GetPortList(io_iterator_t serialPortIterator)
                                                               kCFAllocatorDefault,
                                                               0);
         bsdPathAsCFString = (CFStringRef)IORegistryEntryCreateCFProperty(portService,
-                                                            CFSTR(kIOCalloutDeviceKey),
+                                                            CFSTR(kIODialinDeviceKey),		//kIOCalloutDeviceKey
                                                             kCFAllocatorDefault,
                                                             0);
 		// create a MutableArray with the names of the port (System and bsd path)
@@ -216,14 +216,17 @@ bool SerialPort::OpenSerialPort(const char *bsdPath, int speed)
     cfsetspeed(&options, speed); 	// Set speed  
     
 	// Use 8N1
-    options.c_cflag &= ~CSIZE;					// Mask the character size bits
     options.c_cflag &= ~(PARENB);				// clear parity enable
     options.c_cflag &= ~(CSTOPB);				// one stop bit
-    options.c_cflag |= (CS8 | CREAD | CLOCAL);	// 8bit, enable receiver, local line
-    options.c_iflag &= ~(IXON | IXOFF | IXANY);			// no sw flow control
-    options.c_iflag &= ~(INPCK);				// disable input parity checking
-    options.c_iflag |= IGNBRK;					// ignore break
+    options.c_cflag &= ~CSIZE;					// Mask the character size bits
+    options.c_cflag |= (CS8 );					// 8bit,
+
     options.c_cflag &= ~CRTSCTS;				// no hw flow control
+    options.c_iflag &= ~(IXON | IXOFF | IXANY);	// no sw flow control
+	
+	options.c_cflag |= ( CREAD | CLOCAL);		// enable receiver, local line
+    // options.c_iflag &= ~(INPCK);				// disable input parity checkinga
+    // options.c_iflag |= IGNBRK;					// ignore break
 	    
     // Cause the new options to take effect immediately.
     if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
