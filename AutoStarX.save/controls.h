@@ -16,6 +16,9 @@
 #define kDlgRomFile	'rmfl'
 #define kDlgRomFileID	1002
 
+#define kDlgFileRomOpen	'ropn'
+#define kDlgFileRomOpenID	1003
+
 #define kDlgUnitVersion	'uver'
 #define kDlgUnitVersionID	1004
 
@@ -36,4 +39,10 @@
 
 #define kDlgFileRomVersion	'frvs'
 #define kDlgFileRomVersiontID	1010
+
+#define kDlgQuit	'quit'
+#define kDlgQuitID	1011
+
+
+
 

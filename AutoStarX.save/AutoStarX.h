@@ -65,6 +65,13 @@ private:
 	WindowRef 		mWindow;
 	EventHandlerUPP	mWindowProcHandler;
 	EventHandlerUPP	mControlProcHandler;
+
+// timer & thread
+    EventLoopTimerRef mTimer;
+    ThreadID mFlashthreadID;
+    SInt32  mNumberOfRunningThreads;
+    bool    mThreadDone;
+    
 // dialog control Ref
 	ControlRef	mSerialPort;
 	ControlRef	mRomFile;
@@ -75,7 +82,10 @@ private:
 	ControlRef	mFlashButton;
 	ControlRef	mConnectButton;
 	ControlRef	mFileRomVersion;
-
+	ControlRef	mQuit;
+	ControlRef	mRomOpen;
+    
+    
     //Serial port data
     CFMutableArrayRef   mPortArray;
     SerialPort  mPorts;
@@ -93,5 +103,8 @@ private:
     virtual void AutoStarConnect();
     virtual void AutoStarDisconnect();
     virtual void ErrorAlert(CFStringRef error);
+    virtual void Flash();
+    static pascal void FlashThread(void *userData);
+    static	pascal	void	MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *inUserData );
 	
 };

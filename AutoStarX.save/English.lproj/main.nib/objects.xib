@@ -160,7 +160,7 @@
     <reference idRef="151"/>
     <reference idRef="152"/>
     <object class="IBCarbonWindow" id="166">
-      <string name="windowRect">232 353 551 740 </string>
+      <string name="windowRect">295 458 614 845 </string>
       <string name="title">AutoStarX</string>
       <object name="rootControl" class="IBCarbonRootControl" id="167">
         <string name="bounds">0 0 319 387 </string>
@@ -269,11 +269,14 @@
             </object>
           </object>
           <object class="IBCarbonStaticText" id="206">
-            <string name="bounds">283 20 299 134 </string>
-            <string name="viewFrame">20 283 114 16 </string>
+            <string name="bounds">283 10 299 134 </string>
+            <string name="viewFrame">10 283 124 16 </string>
             <ostype name="controlSignature">fsts</ostype>
             <int name="controlID">1006</int>
+            <boolean name="small">TRUE</boolean>
+            <int name="controlSize">1</int>
             <string name="title">Flashing autostar</string>
+            <int name="justification">-1</int>
           </object>
           <object class="IBCarbonStaticText" id="207">
             <string name="bounds">20 20 36 93 </string>
@@ -292,6 +295,8 @@
           <object class="IBCarbonButton" id="219">
             <string name="bounds">243 297 263 367 </string>
             <string name="viewFrame">297 243 70 20 </string>
+            <ostype name="controlSignature">quit</ostype>
+            <int name="controlID">1011</int>
             <string name="title">Quit</string>
             <ostype name="command">quit</ostype>
           </object>

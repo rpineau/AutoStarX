@@ -16,8 +16,7 @@
 			8D0C4E890486CD37000505A6,
 		);
 		breakpoints = (
-			93C307F807678FE900889005,
-			93C307FC0767905C00889005,
+			9391062D076D35F8003DF1AD,
 		);
 		codeSenseManager = 9377B1410763CDEF00C57F77;
 		executables = (
@@ -96,7 +95,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 124415251;
+			PBXPerProjectTemplateStateSaveDate = 124589785;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -273,13 +272,21 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 124415251;
+			PBXWorkspaceStateSaveDate = 124589785;
 		};
 		perUserProjectItems = {
-			9312B575076A6DAA0070B558 = 9312B575076A6DAA0070B558;
-			9312B576076A6DAA0070B558 = 9312B576076A6DAA0070B558;
-			93B8BE71076A5F1700D327FA = 93B8BE71076A5F1700D327FA;
-			93B8BE72076A5F1700D327FA = 93B8BE72076A5F1700D327FA;
+			9391048E076D1FDA003DF1AD = 9391048E076D1FDA003DF1AD;
+			939105A6076D2EAE003DF1AD = 939105A6076D2EAE003DF1AD;
+			9391060F076D3324003DF1AD = 9391060F076D3324003DF1AD;
+			93910624076D357C003DF1AD = 93910624076D357C003DF1AD;
+			9391062B076D35E1003DF1AD = 9391062B076D35E1003DF1AD;
+			9391062F076D3643003DF1AD = 9391062F076D3643003DF1AD;
+			939106C6076D3D3B003DF1AD = 939106C6076D3D3B003DF1AD;
+			939106C7076D3D3B003DF1AD = 939106C7076D3D3B003DF1AD;
+			939106C9076D3D3B003DF1AD = 939106C9076D3D3B003DF1AD;
+			939106CA076D3D3B003DF1AD = 939106CA076D3D3B003DF1AD;
+			939106CC076D3D3B003DF1AD = 939106CC076D3D3B003DF1AD;
+			939106CE076D3D3B003DF1AD = 939106CE076D3D3B003DF1AD;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -290,26 +297,6 @@
 		executables = (
 			9377B1330763CDD900C57F77,
 		);
-	};
-	9312B575076A6DAA0070B558 = {
-		fRef = 9377B14D0763CE7A00C57F77;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 244";
-		rLen = 0;
-		rLoc = 6872;
-		rType = 0;
-		vrLen = 1076;
-		vrLoc = 6513;
-	};
-	9312B576076A6DAA0070B558 = {
-		fRef = 9377B1450763CE6400C57F77;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 29";
-		rLen = 0;
-		rLoc = 575;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 161;
 	};
 	9377B1330763CDD900C57F77 = {
 		activeArgIndex = 2147483647;
@@ -362,25 +349,25 @@
 	};
 	9377B1450763CE6400C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 1358}}";
-			sepNavSelRange = "{575, 0}";
-			sepNavVisRect = "{{0, 140}, {711, 428}}";
-			sepNavWindowFrame = "{{828, 324}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 1540}}";
+			sepNavSelRange = "{1477, 11}";
+			sepNavVisRect = "{{0, 1112}, {711, 428}}";
+			sepNavWindowFrame = "{{750, 253}, {750, 558}}";
 		};
 	};
 	9377B1460763CE6400C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 559}}";
-			sepNavSelRange = "{706, 21}";
-			sepNavVisRect = "{{0, 131}, {711, 428}}";
-			sepNavWindowFrame = "{{562, 17}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 685}}";
+			sepNavSelRange = "{805, 8}";
+			sepNavVisRect = "{{0, 257}, {711, 428}}";
+			sepNavWindowFrame = "{{712, 179}, {750, 558}}";
 		};
 	};
 	9377B14D0763CE7A00C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1016, 7125}}";
-			sepNavSelRange = "{6872, 0}";
-			sepNavVisRect = "{{0, 3318}, {711, 428}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1099, 9337}}";
+			sepNavSelRange = "{18731, 0}";
+			sepNavVisRect = "{{0, 8371}, {1099, 938}}";
 			sepNavWindowFrame = "{{42, 294}, {750, 558}}";
 		};
 	};
@@ -392,38 +379,210 @@
 			sepNavWindowFrame = "{{65, 273}, {750, 558}}";
 		};
 	};
-	93B8BE71076A5F1700D327FA = {
-		fRef = 9377B1450763CE6400C57F77;
+	9377B14F0763CE7A00C57F77 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {711, 5949}}";
+			sepNavSelRange = "{10368, 15}";
+			sepNavVisRect = "{{0, 4341}, {711, 428}}";
+			sepNavWindowFrame = "{{780, 450}, {750, 558}}";
+		};
+	};
+	93910458076D18D0003DF1AD = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = CatSearchThread.c;
+		path = /usr/src/GrabBag/CatSearchThread.c;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1130, 4647}}";
+			sepNavSelRange = "{4001, 0}";
+			sepNavVisRect = "{{0, 2878}, {816, 832}}";
+			sepNavWindowFrame = "{{395, 86}, {855, 962}}";
+		};
+	};
+	9391048E076D1FDA003DF1AD = {
+		fRef = 9377B1460763CE6400C57F77;
 		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 29";
+		name = "controls.h: kDlgFileRomVersiontID";
 		rLen = 0;
-		rLoc = 575;
+		rLoc = 360;
 		rType = 0;
-		vrLen = 574;
-		vrLoc = 161;
+		vrLen = 597;
+		vrLoc = 129;
 	};
-	93B8BE72076A5F1700D327FA = {
-		fRef = 9377B14D0763CE7A00C57F77;
+	93910498076D202C003DF1AD = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = Main.c;
+		path = /usr/src/GrabBag/Main.c;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1274, 12445}}";
+			sepNavSelRange = "{14114, 36}";
+			sepNavVisRect = "{{0, 4440}, {1222, 766}}";
+			sepNavWindowFrame = "{{571, 19}, {1261, 896}}";
+		};
+	};
+	939105A6076D2EAE003DF1AD = {
+		fRef = 93910498076D202C003DF1AD;
 		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 244";
-		rLen = 0;
-		rLoc = 6872;
+		name = Thread;
+		rLen = 6;
+		rLoc = 6742;
 		rType = 0;
-		vrLen = 1076;
-		vrLoc = 6513;
+		vrLen = 1553;
+		vrLoc = 22988;
 	};
-	93C307F807678FE900889005 = {
-		fileReference = 9377B14D0763CE7A00C57F77;
-		functionName = "AutoStarX::~AutoStarX()";
-		isa = PBXFileBreakpoint;
-		lineNumber = 97;
-		state = 1;
+	9391060F076D3324003DF1AD = {
+		fRef = 93910458076D18D0003DF1AD;
+		isa = PBXTextBookmark;
+		name = "CatSearchThread.c: 282";
+		rLen = 0;
+		rLoc = 12199;
+		rType = 0;
+		vrLen = 2274;
+		vrLoc = 9655;
 	};
-	93C307FC0767905C00889005 = {
+	93910624076D357C003DF1AD = {
+		fRef = 93910625076D357C003DF1AD;
+		isa = PBXTextBookmark;
+		rLen = 0;
+		rLoc = 2147483647;
+		rType = 0;
+	};
+	93910625076D357C003DF1AD = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Main.h;
+		path = /usr/src/GrabBag/Main.h;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {711, 1259}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 604}, {711, 428}}";
+			sepNavWindowFrame = "{{157, 489}, {750, 558}}";
+		};
+	};
+	9391062A076D35E1003DF1AD = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = AutoStarX.cpp;
+		path = /usr/src/AutoStarX/AutoStarX.cpp;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1099, 9337}}";
+			sepNavSelRange = "{18731, 0}";
+			sepNavVisRect = "{{0, 8371}, {1099, 938}}";
+			sepNavWindowFrame = "{{113, 99}, {1138, 1068}}";
+		};
+	};
+	9391062B076D35E1003DF1AD = {
+		fRef = 9391062A076D35E1003DF1AD;
+		isa = PBXTextBookmark;
+		rLen = 0;
+		rLoc = 257;
+		rType = 1;
+	};
+	9391062D076D35F8003DF1AD = {
 		fileReference = 9377B14D0763CE7A00C57F77;
 		functionName = "AutoStarX::buttonHandler()";
 		isa = PBXFileBreakpoint;
-		lineNumber = 146;
+		lineNumber = 194;
 		state = 1;
+	};
+	9391062F076D3643003DF1AD = {
+		fRef = 9377B1450763CE6400C57F77;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 74";
+		rLen = 0;
+		rLoc = 1494;
+		rType = 0;
+		vrLen = 689;
+		vrLoc = 1226;
+	};
+	939106C6076D3D3B003DF1AD = {
+		fRef = 9377B14D0763CE7A00C57F77;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 663";
+		rLen = 0;
+		rLoc = 18731;
+		rType = 0;
+		vrLen = 2348;
+		vrLoc = 16387;
+	};
+	939106C7076D3D3B003DF1AD = {
+		fRef = 939106C8076D3D3B003DF1AD;
+		isa = PBXTextBookmark;
+		name = "SetThemeCursor( kThemeArrowCursor );";
+		rLen = 36;
+		rLoc = 14114;
+		rType = 0;
+		vrLen = 1618;
+		vrLoc = 13119;
+	};
+	939106C8076D3D3B003DF1AD = {
+		isa = PBXFileReference;
+		name = Main.c;
+		path = /usr/src/GrabBag/Main.c;
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	939106C9076D3D3B003DF1AD = {
+		fRef = 9377B1450763CE6400C57F77;
+		isa = PBXTextBookmark;
+		name = mThreadDone;
+		rLen = 11;
+		rLoc = 1477;
+		rType = 0;
+		vrLen = 794;
+		vrLoc = 1616;
+	};
+	939106CA076D3D3B003DF1AD = {
+		fRef = 939106CB076D3D3B003DF1AD;
+		isa = PBXTextBookmark;
+		name = "(null): 89";
+		rLen = 0;
+		rLoc = 4001;
+		rType = 0;
+		vrLen = 2168;
+		vrLoc = 9386;
+	};
+	939106CB076D3D3B003DF1AD = {
+		isa = PBXFileReference;
+		name = CatSearchThread.c;
+		path = /usr/src/GrabBag/CatSearchThread.c;
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	939106CC076D3D3B003DF1AD = {
+		fRef = 939106CD076D3D3B003DF1AD;
+		isa = PBXTextBookmark;
+		name = "(null): 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 723;
+		vrLoc = 2549;
+	};
+	939106CD076D3D3B003DF1AD = {
+		isa = PBXFileReference;
+		name = Main.h;
+		path = /usr/src/GrabBag/Main.h;
+		refType = 0;
+		sourceTree = "<absolute>";
+	};
+	939106CE076D3D3B003DF1AD = {
+		fRef = 9377B1460763CE6400C57F77;
+		isa = PBXTextBookmark;
+		name = kDlgQuit;
+		rLen = 8;
+		rLoc = 805;
+		rType = 0;
+		vrLen = 543;
+		vrLoc = 306;
 	};
 }

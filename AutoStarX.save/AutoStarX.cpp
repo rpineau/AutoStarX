@@ -32,7 +32,10 @@ AutoStarX::AutoStarX()
     bConnected=false;
     bFilename=false;
     newRom=NULL;
-	
+	mThreadDone=false;
+    
+    InitCursor();
+    
     // Create a Nib reference passing the name of the nib file (without the .nib extension)
     // CreateNibReference only searches into the application bundle.
     err = CreateNibReference(CFSTR("main"), &nibRef);
@@ -50,6 +53,7 @@ AutoStarX::AutoStarX()
 
     // We don't need the nib reference anymore.
     DisposeNibReference(nibRef);
+    
 	// Init controls in window
 	InitializeControls();
     	
@@ -75,6 +79,10 @@ AutoStarX::AutoStarX()
 							this,
 							NULL);
 
+     
+    // Event Loop Timer to idle controls 5 times a second.
+    InstallEventLoopTimer( GetCurrentEventLoop(), 0, 0, NewEventLoopTimerUPP( MainRunLoopForThreadedApps ), this, &mTimer );
+
 
     // The window was created hidden so show it.
     ShowWindow(mWindow);
@@ -91,7 +99,7 @@ CantGetNibRef:
 }
 
 AutoStarX::~AutoStarX()
-{
+{        
     if(bConnected)
         AutoStarDisconnect();
 	if(newRom)
@@ -146,11 +154,7 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 				if(self->newRom)
 					delete self->newRom;
 				self->newRom= new ROM;
-				
-                // set the progress bar max length.. need to be set to the actual data size to be flashed
-                SetControl32BitMaximum(self->mFlashProgress, (SInt32)self->mfSize);
-                // just for testing... should bet set to 0 latter                
-                SetControl32BitValue(self->mFlashProgress, (SInt32)self->mfSize/2);
+                
                 // we need to load the file in memory here
                 FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
 				//set the version in the control
@@ -163,6 +167,7 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
                 err=FSClose(self->mROMFileHandle);
                 if(self->bConnected)
                     ActivateControl(self->mFlashButton);
+                self->bFilename=true;
 				break;
 				}
 				
@@ -171,6 +176,7 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 				break;
 
 		case 'Flsh':  // start the flashing of the AutoStarX
+                self->Flash();
 				result=0;
 				break;
 
@@ -181,7 +187,16 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
                     self->AutoStarConnect();
 				result=0;
 				break;
+        case 'quit' :
+                if ( self->mNumberOfRunningThreads > 0 )
+                    {
+                    result=0; //don't proces quit while flashing
+                    }
+                else
+                    self->mThreadDone=true;
+                break;
 		}
+    printf("control events\n");
 		
 	return (result);
 
@@ -199,10 +214,52 @@ pascal OSStatus AutoStarX::windowHandler(EventHandlerCallRef myHandler, EventRef
 
 	// if the window is closed, quit the application
     if(GetEventKind(event) == kEventWindowClosed)
+        {
         result=ProcessHICommand(&quitCommand);
-    
+        }
+    printf("window events\n");
     return result;
 }
+
+
+//	Main Event Loop
+// taken from developer sample
+// 
+
+pascal void AutoStarX::MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *userData )
+{
+	OSStatus		err;
+	EventRef		theEvent;
+	EventTimeout	timeToWaitForEvent;
+	EventTargetRef	theTarget			= GetEventDispatcherTarget();
+
+	// get a pointer to the object itself to be able to access private member variable and functions
+    AutoStarX* self = static_cast<AutoStarX*>(userData);
+    	
+	do
+	{
+	    if (self->mNumberOfRunningThreads == 0 )
+	        timeToWaitForEvent	= kEventDurationForever;
+	    else
+	        timeToWaitForEvent	= kEventDurationNoWait;
+	    
+	    err = ReceiveNextEvent( 0, NULL, timeToWaitForEvent, true, &theEvent );
+	    
+	    if ( err == noErr )
+	    {
+	        (void) SendEventToEventTarget( theEvent, theTarget );
+	        ReleaseEvent( theEvent );
+	    }
+	    else if ( err == eventLoopTimedOutErr )
+	    {
+	        err = noErr;
+	    }
+	    if ( self->mNumberOfRunningThreads > 0 )
+	        (void) YieldToAnyThread();
+												//	eventLoopQuitErr may be sent to wake up the queue and does not necessarily
+	} while ( self->mThreadDone == false );				//	mean 'quit', we handle the Quit case from our AppleEvent handler
+}
+
 
 //
 // Initialize the controls and lookup the serial ports
@@ -254,7 +311,6 @@ void AutoStarX::InitializeControls()
 	ctrlID.signature = kDlgFlash;
 	err=GetControlByID(mWindow, &ctrlID, &mFlashButton);
 	DeactivateControl(mFlashButton);
-	//				err=ActivateControl(mFlashButton);
 
 	// Connect button
 	ctrlID.id = kDlgConnectID;
@@ -268,6 +324,16 @@ void AutoStarX::InitializeControls()
 	ctrlID.signature = kDlgFileRomVersion;
 	err=GetControlByID(mWindow, &ctrlID, &mFileRomVersion);
 	SetControlData (mFileRomVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
+
+	// Browse button
+	ctrlID.id = kDlgFileRomOpenID;
+	ctrlID.signature = kDlgFileRomOpen;
+	err=GetControlByID(mWindow, &ctrlID, &mRomOpen);
+
+	// Quit button
+	ctrlID.id = kDlgQuitID;
+	ctrlID.signature = kDlgQuit;
+	err=GetControlByID(mWindow, &ctrlID, &mQuit);
 
 
 }
@@ -506,3 +572,95 @@ void AutoStarX::ErrorAlert(CFStringRef error)
 	CreateStandardAlert(kAlertStopAlert,error,CFSTR("The AutoStarX isn't responding. Check connections and be sure to select the correct serial port."),NULL, &alert);
 	RunStandardAlert(alert, NULL, NULL);
 }
+
+
+void AutoStarX::Flash()
+{
+    OSErr result;
+    
+    // set the progress bar max length and initial value 
+    // page 0 and 1 aren't writen
+    // the top 512 bytes of each page aren't writen
+    // pages 30 and 31 are for garbage collection (pages $1E and $1F)
+    // if page is all $FF, do not write
+    // so we have 30 pages x 32K (minus the 512 bytes)
+    // so 30x(32768-512) = 967680 byte to write
+    SetControl32BitMaximum(mFlashProgress, 967680);
+
+    // create the falshing thread
+    result = NewThread( kCooperativeThread, NewThreadEntryUPP( (ThreadEntryProcPtr) &FlashThread ), this, 0, kCreateIfNeeded, nil, &mFlashthreadID );
+
+    if(result == noErr) // thread created ok
+        {
+        mNumberOfRunningThreads++;
+        // disable the controls until we're done with the flashing
+        DeactivateControl(mFlashButton);
+        DeactivateControl(mConnectButton);
+        DeactivateControl(mRomOpen);
+        DeactivateControl(mQuit);
+        }
+    YieldToAnyThread();
+}
+
+
+pascal void AutoStarX::FlashThread(void *userData)
+{
+    int doublepages;
+    int page;
+    int i;
+    SInt32 progress;
+    char    status[255];
+    
+    int blockSize=16;
+    
+     // get a pointer to the object itself to be able to access private member variable and functions
+    AutoStarX* self = static_cast<AutoStarX*>(userData);
+    
+    SetThemeCursor( kThemeSpinningCursor );
+    
+    progress=0;
+    SetControl32BitValue(self->mFlashProgress, progress);
+    Draw1Control(self->mFlashProgress);
+    
+    // we start on page 2 so it's double page 1 and write 2 pages as we need to erase a double page each time
+    for( doublepages=1;doublepages<16;doublepages++)
+        {
+        // erase double page
+
+        // start write page 1
+        page=doublepages*2;
+        sprintf(status,"writing page : %u/32\n", page+1);
+        SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
+        // we write "blocksize" byte each time
+        for(i=0;i<32256;i+=blockSize)
+            {
+            progress+=blockSize;
+            SetControl32BitValue(self->mFlashProgress, progress);
+            Draw1Control(self->mFlashProgress);
+            YieldToAnyThread();	
+            }
+        // start write page 2
+        page=(doublepages*2)+1;
+        sprintf(status,"writing page : %u/32\n", page+1);
+        SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
+        // we write "blocksize" byte each time
+        for(i=0;i<32256;i+=blockSize)
+            {
+            progress+=blockSize;
+            SetControl32BitValue(self->mFlashProgress, progress);
+            Draw1Control(self->mFlashProgress);
+            YieldToAnyThread();	
+            }
+        }
+    //reactivate controls
+    ActivateControl(self->mFlashButton);
+    ActivateControl(self->mConnectButton);
+    ActivateControl(self->mRomOpen);
+    ActivateControl(self->mQuit);
+    // quiting the trhread
+    SetThemeCursor( kThemeArrowCursor );
+    self->mNumberOfRunningThreads--;
+    SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
+
+}
+
