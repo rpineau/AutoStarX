@@ -16,10 +16,6 @@
 			8D0C4E890486CD37000505A6,
 		);
 		breakpoints = (
-			9391062D076D35F8003DF1AD,
-			93F99B27076E75D00057664E,
-			93F99B29076E75D40057664E,
-			93F99B2B076E760A0057664E,
 		);
 		codeSenseManager = 9377B1410763CDEF00C57F77;
 		executables = (
@@ -98,7 +94,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 124678154;
+			PBXPerProjectTemplateStateSaveDate = 124682683;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -275,7 +271,7 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 124678154;
+			PBXWorkspaceStateSaveDate = 124682683;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -355,8 +351,8 @@
 	9377B14D0763CE7A00C57F77 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1016, 9911}}";
-			sepNavSelRange = "{16763, 0}";
-			sepNavVisRect = "{{0, 8970}, {711, 428}}";
+			sepNavSelRange = "{11200, 0}";
+			sepNavVisRect = "{{0, 5907}, {711, 428}}";
 			sepNavWindowFrame = "{{19, 315}, {750, 558}}";
 		};
 	};
@@ -375,33 +371,5 @@
 			sepNavVisRect = "{{0, 4341}, {711, 428}}";
 			sepNavWindowFrame = "{{780, 450}, {750, 558}}";
 		};
-	};
-	9391062D076D35F8003DF1AD = {
-		fileReference = 9377B14D0763CE7A00C57F77;
-		functionName = "AutoStarX::buttonHandler()";
-		isa = PBXFileBreakpoint;
-		lineNumber = 194;
-		state = 1;
-	};
-	93F99B27076E75D00057664E = {
-		fileReference = 9377B14D0763CE7A00C57F77;
-		functionName = "AutoStarX::FlashThread()";
-		isa = PBXFileBreakpoint;
-		lineNumber = 668;
-		state = 1;
-	};
-	93F99B29076E75D40057664E = {
-		fileReference = 9377B14D0763CE7A00C57F77;
-		functionName = "AutoStarX::FlashThread()";
-		isa = PBXFileBreakpoint;
-		lineNumber = 651;
-		state = 1;
-	};
-	93F99B2B076E760A0057664E = {
-		fileReference = 9377B14D0763CE7A00C57F77;
-		functionName = "AutoStarX::FlashThread()";
-		isa = PBXFileBreakpoint;
-		lineNumber = 646;
-		state = 1;
 	};
 }

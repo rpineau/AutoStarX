@@ -412,7 +412,9 @@ void AutoStarX::AutoStarConnect()
         }
         
     bConnected=true;
-
+	// flush all data before starting
+	mPorts.ReadData(ioBuffer,64);
+	
     // check AutoStarX status : cmd=0x06
     cmd[0]=0x06;    // ^F (1 byte response)
     cmd[1]=0;
@@ -607,7 +609,7 @@ pascal void AutoStarX::FlashThread(void *userData)
 {
     int doublepages;
     int page;
-    int i;
+    int i,j;
     SInt32 progress;
     char status[64];
 	char cmd[69];	// 5 byte command + 64 byte of data maximum
@@ -616,12 +618,11 @@ pascal void AutoStarX::FlashThread(void *userData)
     char *ff_data;
 	int	addr;
 	int erase_dbl_page;
-	int a,b;
 	
      // get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
 
-    // recomended block size is 64 byte
+    // recomended block size is 64 byte (0x40)
 	blockSize=64;
 	
     SetThemeCursor( kThemeSpinningCursor );
@@ -646,52 +647,49 @@ pascal void AutoStarX::FlashThread(void *userData)
 				break;
 			}
 			
-		if(erase_dbl_page)
+		if(!erase_dbl_page)
 			{
 			YieldToAnyThread();
 			continue;
 			}
         // erase double page
+		for(j=0;j<2;j++)
+			{
+			// start write page 1
+			addr=0x8000;
+			page=doublepages*2+j;
+			sprintf(status,"writing page : %u/32\n", page+1);
+			SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
+			// we write "blocksize" byte each time
+			for(i=0;i<32768;i+=blockSize)		
+				{								
+				progress+=blockSize;
+				// we need to avoid the 512 byte of eeprom at B600-B7FF
+				// it should be mark by all FF in the file but testing for it is safer
+				if( (addr>0xB5FF) && (addr<0xB800) )
+					{
+					// increment addr
+					addr+=blockSize;
+					YieldToAnyThread();
+					continue;
+					}
+				// we don't write block that are all $FF
+				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,blockSize))
+					{
+					YieldToAnyThread();
+					continue;
+					}
+				// write data
 				
-        // start write page 1
-		addr=0x8000;
-        page=doublepages*2;
-        sprintf(status,"writing page : %u/32\n", page+1);
-        SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
-        // we write "blocksize" byte each time
-        for(i=0;i<32768;i+=blockSize)		
-            {								
-            progress+=blockSize;
-			// we need to avoid the 512 byte of eeprom at B600-B7FF
-			// it should be mark by all FF in the file but testing for it is safer
-			if( (addr>=0xb600) && (addr<=0xb7ff) )
-				{
-				YieldToAnyThread();
-				continue;
+				// increment addr
+				addr+=blockSize;
+				
+				SetControl32BitValue(self->mFlashProgress, progress);
+				Draw1Control(self->mFlashProgress);
+				YieldToAnyThread();	
 				}
-			// we don't write block that are all $FF
-			if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,blockSize))
-				{
-				YieldToAnyThread();
-				continue;
-				}
-            SetControl32BitValue(self->mFlashProgress, progress);
-            Draw1Control(self->mFlashProgress);
-            YieldToAnyThread();	
-            }
-        // start write page 2
-		addr=0x8000;
-        page=(doublepages*2)+1;
-        sprintf(status,"writing page : %u/32\n", page+1);
-        SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
-        // we write "blocksize" byte each time
-        for(i=0;i<32256;i+=blockSize)
-            {
-            progress+=blockSize;
-            SetControl32BitValue(self->mFlashProgress, progress);
-            Draw1Control(self->mFlashProgress);
-            YieldToAnyThread();	
-            }
+			}
+			
         }
     //reactivate controls
     ActivateControl(self->mFlashButton);
