@@ -10,6 +10,7 @@
 #include <Carbon/Carbon.h>
 
 #include "controls.h"
+//  #define __TEST
 
 // constant
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
@@ -121,6 +122,7 @@ private:
     virtual void SetSerialPortsControls(ControlRef control);
     virtual void AutoStarConnect();
     virtual void AutoStarDisconnect();
+    virtual void AutoStarReset();
     virtual void ErrorAlert(CFStringRef error);
     virtual void ErrorAlert(CFStringRef error, CFStringRef comment);
     virtual void ActivateControls();

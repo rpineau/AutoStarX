@@ -286,14 +286,13 @@
                 <int name="initialValue">50</int>
               </object>
               <object class="IBCarbonStaticText" id="206">
-                <string name="bounds">283 11 299 127 </string>
-                <string name="viewFrame">20 20 116 16 </string>
+                <string name="bounds">283 21 299 139 </string>
+                <string name="viewFrame">30 20 118 16 </string>
                 <ostype name="controlSignature">fsts</ostype>
                 <int name="controlID">1006</int>
                 <boolean name="small">TRUE</boolean>
                 <int name="controlSize">1</int>
-                <string name="title">Flashing autostar</string>
-                <int name="justification">-1</int>
+                <string name="title">Writing page 32/32</string>
               </object>
             </array>
             <ostype name="controlSignature">thrp</ostype>
@@ -355,7 +354,7 @@
         </object>
         <object class="IBCarbonStaticText" id="246">
           <string name="bounds">116 103 132 217 </string>
-          <string name="title">Version 1.0</string>
+          <string name="title">Version 1.1</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="247">
@@ -365,8 +364,8 @@
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="248">
-          <string name="bounds">140 62 156 258 </string>
-          <string name="title">Copyright RTI-Zone 2004</string>
+          <string name="bounds">140 51 156 270 </string>
+          <string name="title">Copyright RTI-Zone 2004-2005</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonPicture" id="250">
@@ -376,7 +375,7 @@
       </array>
     </object>
     <object class="IBCarbonWindow" id="244">
-      <string name="windowRect">535 1039 735 1359 </string>
+      <string name="windowRect">496 711 696 1031 </string>
       <string name="title">About AutoStarX</string>
       <reference name="rootControl" idRef="243"/>
       <boolean name="receiveUpdates">FALSE</boolean>

@@ -168,7 +168,7 @@ bool SerialPort::OpenSerialPort(const char *bsdPath, int speed)
                bsdPath, strerror(errno), errno);
 		if (fileDescriptor != -1)
 			close(fileDescriptor);    
-		return -1;
+		return false;
 		}
 
     // Note that open() follows POSIX semantics: multiple open() calls to the same file will succeed
@@ -321,7 +321,7 @@ bool SerialPort::ReadData(Byte * dataIn, int length)
     totalRead=0;
     timeout=0;
     nByte=0;
-    while( (nByte=read(mSerialPortHandle,bufptr,length-nByte))<=length)
+    while( (nByte=read(mSerialPortHandle,bufptr,length-totalRead))<length)
         {
         bufptr+=nByte;
         totalRead+=nByte;
@@ -360,7 +360,7 @@ bool SerialPort:: SendData(Byte * dataOut, int length)
     timeout=0;
     nByte=0;
     // send the data
-	while( (nByte=write(mSerialPortHandle,bufptr,length-nByte))<=length)
+	while( (nByte=write(mSerialPortHandle,bufptr,length-totalWriten))<length)
 		{
 		if (nByte<0)
 			{
@@ -385,7 +385,7 @@ bool SerialPort:: SendData(Byte * dataOut, int length)
             return false;
 		
 		}
-    tcdrain(mSerialPortHandle); 
+    // tcdrain(mSerialPortHandle); 
 
 	return true;
 }

@@ -116,7 +116,11 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 	GetEventParameter(event, kEventParamDirectObject, typeHICommand, NULL, sizeof(HICommand),NULL,&commandStruct);
 	
 	CommandID=commandStruct.commandID;
-	
+
+#ifdef __TEST
+	printf("command ID %ul\n",CommandID);
+#endif
+
 	// execute the command
 	switch(CommandID)
 		{
@@ -216,7 +220,7 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				SelectWindow (self->mAbout);    
 				result=noErr;
 				break;
-				
+
 		}
 	return (result);
 
@@ -575,7 +579,7 @@ void AutoStarX::InitializeControls()
     
 	
     // Flashing Progress Pane
-	ctrlID.id = kDlgProgressPantID;
+	ctrlID.id = kDlgProgressPanID;
 	ctrlID.signature = kDlgProgressPan;
     HIViewFindByID(HIViewGetRoot(mWindow), ctrlID, &mProgressPane);
     
@@ -665,6 +669,7 @@ void AutoStarX::AutoStarConnect()
     // open port at 9600  
     if(! mPorts->OpenSerialPort(bsdPath, 9600))
         { // error opening port
+        ErrorAlert(CFSTR("Communication error !"),CFSTR("The serial port is used by another application"));
         return;
         }
         
@@ -824,6 +829,61 @@ void AutoStarX::AutoStarDisconnect()
 
 }
 
+
+void AutoStarX::AutoStarReset()
+{
+    Byte cmd[16];
+    int timeout;
+    Byte ioBuffer[64];
+    
+    cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
+    cmd[1]=0;
+    mPorts->SendData(cmd,1);
+
+    // wait for the "X" from the autostar boot (~ 10 secondes)
+	timeout=0;
+    while(!mPorts->ReadData(ioBuffer,1))
+		{
+        timeout++;
+        if(timeout==15) // 15 secondes !!!!!
+            {
+            ErrorAlert(CFSTR("Communication error !"),CFSTR("The autostar doesn't respond to the reset command"));
+            AutoStarDisconnect();
+            return;
+            }
+		}
+
+
+
+    
+    // get ROM version :GVN#
+    cmd[0]=':';    // ask for ROM version (5 bytes response)
+    cmd[1]='G';
+    cmd[2]='V';
+    cmd[3]='N';
+    cmd[4]='#';
+    
+    if(!mPorts->SendData(cmd,5))
+		{
+		AutoStarDisconnect();
+        ErrorAlert(CFSTR("Write error !"));
+        return;
+		}
+		
+	if(!mPorts->ReadData(ioBuffer,5))
+		{
+		AutoStarDisconnect();
+        ErrorAlert(CFSTR("Read error !"));
+        return;
+		}
+		
+    // set the rom version control to the AutoStarX current version
+    SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
+
+}
+
+
+
 void AutoStarX::ErrorAlert(CFStringRef error)
 {
 
@@ -855,10 +915,6 @@ void *AutoStarX::setupFlash(void *p)
     return params;
 }
 
-void AutoStarX::termFlash(void *p)
-{
-    delete (GeneralTaskWorkParamsPtr)p;
-}
 
 pascal OSStatus AutoStarX::Flash(void *userData)
 {
@@ -872,28 +928,32 @@ pascal OSStatus AutoStarX::Flash(void *userData)
     Byte *ff_data;
 	unsigned short addr;
 	int erase_dbl_page;
-	
+    
     GeneralTaskWorkParamsPtr params=(GeneralTaskWorkParamsPtr)userData;
     
      // get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(((GeneralTaskWorkParamsPtr)userData)->myClass);
 
     self->bFlashing=true;
-
     // recomended block size is 64 byte (0x40)
 	blockSize=64;
 	
     ff_data=new Byte[blockSize];
 	memset(ff_data,0xff,blockSize);
     progress=0;
+
+#ifndef __TEST
+
     // we start on page 2 so it's double page 1 and write 2 pages as we need to erase a double page each time
     for( doublepages=1;doublepages<16;doublepages++)
         {
+        // update the progress bar and status
+        self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);	
 
 		// we need to test if the page is full set to $FF 
 		// and if yes not erase it a go to the next double page
 		erase_dbl_page=0;
-		for(i=0;i<32768;i++)
+		for(i=0;i<32768;i+=blockSize)
 			{
 			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,blockSize);
 			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,blockSize);
@@ -902,12 +962,11 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 			}
 			
 		if(!erase_dbl_page)
-			{
-			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
+            {
+            progress+=(32768*2);
 			continue;
-			}
+            }
         // erase double page
-		
 		cmd[0]=0x45;    // E (1 byte response)
 		cmd[1]=doublepages;
 		cmd[2]=0;
@@ -946,10 +1005,11 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 			// start write page
 			addr=0x8000;
 			page=doublepages*2+j;
-            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 			// we write "blocksize" byte each time
 			for(i=0;i<32768;i+=blockSize)		
-				{								
+				{
+                // update the progress bar and status								
+                self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 				progress+=blockSize;
 				// we need to avoid the 512 byte of eeprom at B600-B7FF
 				// it should be mark by all FF in the file but testing for it is safer
@@ -957,7 +1017,6 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 					{
 					// increment addr
 					addr+=blockSize;
-					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 					continue;
 					}
 				// we don't write block that are all $FF
@@ -965,7 +1024,6 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 					{
 					// increment addr
 					addr+=blockSize;
-					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 					continue;
 					}
 				// write data
@@ -1011,23 +1069,41 @@ pascal OSStatus AutoStarX::Flash(void *userData)
                     delete ff_data;
 					return kNSLSchedulerError;
 					}
-				
 				// increment addr
 				addr+=blockSize;
 				
-                self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);	
 				}
 			}
 			
         }
-    //reactivate controls
-    self->ActivateControls();
+
+#endif				
+
+    
     // quiting the trhread
     self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, 33);
     self->bFlashing=false;
     delete ff_data;
+
+    //reactivate controls
+    self->ActivateControls();
+
+	// iteration is finished, we send the appropriate event to the main thread.
+	self->SendEventToUI(kEventTerminateThread, (GeneralTaskWorkParamsPtr)params, 0, 33);
+    
     return noErr;
 }
+
+
+void AutoStarX::termFlash(void *p)
+{
+         // get a pointer to the object itself to be able to access private member variable and functions
+    AutoStarX* self = static_cast<AutoStarX*>(((GeneralTaskWorkParamsPtr)p)->myClass);
+    self->AutoStarReset();
+    
+    delete (GeneralTaskWorkParamsPtr)p;
+}
+
 
 void AutoStarX::ActivateControls()
 {
