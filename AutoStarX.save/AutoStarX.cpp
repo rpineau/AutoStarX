@@ -217,12 +217,12 @@ pascal OSStatus AutoStarX::windowHandler(EventHandlerCallRef myHandler, EventRef
         {
         result=ProcessHICommand(&quitCommand);
         }
-    printf("window events\n");
     return result;
 }
 
 
-//	Main Event Loop
+//
+// Main Event Loop for threaded Apps
 // taken from developer sample
 // 
 
@@ -396,7 +396,7 @@ void AutoStarX::AutoStarConnect()
 	SInt16	alertOut;
 	
     char bsdPath[255];
-    char ioBuffer[255];
+    char ioBuffer[64];
     char cmd[2];
 	
     // Get current selected port index
@@ -609,15 +609,24 @@ pascal void AutoStarX::FlashThread(void *userData)
     int page;
     int i;
     SInt32 progress;
-    char    status[255];
-    
-    int blockSize=16;
-    
+    char status[64];
+	char cmd[69];	// 5 byte command + 64 byte of data maximum
+    char data[32];
+    int blockSize;
+    char *ff_data;
+	int	addr;
+	int erase_dbl_page;
+	int a,b;
+	
      // get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
-    
+
+    // recomended block size is 64 byte
+	blockSize=64;
+	
     SetThemeCursor( kThemeSpinningCursor );
-    
+    ff_data=new char[blockSize];
+	memset(ff_data,0xff,blockSize);
     progress=0;
     SetControl32BitValue(self->mFlashProgress, progress);
     Draw1Control(self->mFlashProgress);
@@ -625,21 +634,53 @@ pascal void AutoStarX::FlashThread(void *userData)
     // we start on page 2 so it's double page 1 and write 2 pages as we need to erase a double page each time
     for( doublepages=1;doublepages<16;doublepages++)
         {
-        // erase double page
 
+		// we need to test if the page is full set to $FF 
+		// and if yes not erase it a go to the next double page
+		erase_dbl_page=0;
+		for(i=0;i<32768;i++)
+			{
+			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,blockSize);
+			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,blockSize);
+			if(erase_dbl_page)
+				break;
+			}
+			
+		if(erase_dbl_page)
+			{
+			YieldToAnyThread();
+			continue;
+			}
+        // erase double page
+				
         // start write page 1
+		addr=0x8000;
         page=doublepages*2;
         sprintf(status,"writing page : %u/32\n", page+1);
         SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
         // we write "blocksize" byte each time
-        for(i=0;i<32256;i+=blockSize)
-            {
+        for(i=0;i<32768;i+=blockSize)		
+            {								
             progress+=blockSize;
+			// we need to avoid the 512 byte of eeprom at B600-B7FF
+			// it should be mark by all FF in the file but testing for it is safer
+			if( (addr>=0xb600) && (addr<=0xb7ff) )
+				{
+				YieldToAnyThread();
+				continue;
+				}
+			// we don't write block that are all $FF
+			if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,blockSize))
+				{
+				YieldToAnyThread();
+				continue;
+				}
             SetControl32BitValue(self->mFlashProgress, progress);
             Draw1Control(self->mFlashProgress);
             YieldToAnyThread();	
             }
         // start write page 2
+		addr=0x8000;
         page=(doublepages*2)+1;
         sprintf(status,"writing page : %u/32\n", page+1);
         SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
@@ -661,6 +702,6 @@ pascal void AutoStarX::FlashThread(void *userData)
     SetThemeCursor( kThemeArrowCursor );
     self->mNumberOfRunningThreads--;
     SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
-
+	delete ff_data;
 }
 

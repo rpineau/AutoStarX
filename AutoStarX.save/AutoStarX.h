@@ -105,6 +105,6 @@ private:
     virtual void ErrorAlert(CFStringRef error);
     virtual void Flash();
     static pascal void FlashThread(void *userData);
-    static	pascal	void	MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *inUserData );
+    static pascal void MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *inUserData );
 	
 };
