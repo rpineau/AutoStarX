@@ -286,33 +286,12 @@
 			PBXWorkspaceStateSaveDate = 126143450;
 		};
 		perUserProjectItems = {
-			930402270784B2F3005EDDEE = 930402270784B2F3005EDDEE;
 			930402BD0784CB4C005EDDEE = 930402BD0784CB4C005EDDEE;
 			930402BE0784CB4C005EDDEE = 930402BE0784CB4C005EDDEE;
 			930402BF0784CB4C005EDDEE = 930402BF0784CB4C005EDDEE;
-			930CDC600784CBDE00394B69 = 930CDC600784CBDE00394B69;
-			930CDC610784CBDE00394B69 = 930CDC610784CBDE00394B69;
-			930CDC620784CBDE00394B69 = 930CDC620784CBDE00394B69;
-			930CDC660784CBE500394B69 = 930CDC660784CBE500394B69;
-			930CDC670784CBE500394B69 = 930CDC670784CBE500394B69;
-			930CDC680784CBE500394B69 = 930CDC680784CBE500394B69;
-			930CDC690784CC9C00394B69 = 930CDC690784CC9C00394B69;
-			930CDC6A0784CC9C00394B69 = 930CDC6A0784CC9C00394B69;
-			930CDC6B0784CC9C00394B69 = 930CDC6B0784CC9C00394B69;
-			930CDC6C0784CD5200394B69 = 930CDC6C0784CD5200394B69;
-			930CDC6D0784CD5200394B69 = 930CDC6D0784CD5200394B69;
-			930CDC6E0784CD5200394B69 = 930CDC6E0784CD5200394B69;
-			930CDC6F0784CD5500394B69 = 930CDC6F0784CD5500394B69;
-			930CDC700784CD5500394B69 = 930CDC700784CD5500394B69;
-			930CDC710784CD5500394B69 = 930CDC710784CD5500394B69;
-			930CDC720784D0CA00394B69 = 930CDC720784D0CA00394B69;
-			930CDC730784D0CA00394B69 = 930CDC730784D0CA00394B69;
-			930CDC740784D0CA00394B69 = 930CDC740784D0CA00394B69;
-			930CDC760784D0FE00394B69 = 930CDC760784D0FE00394B69;
-			930CDC770784D0FE00394B69 = 930CDC770784D0FE00394B69;
-			930CDC780784D0FE00394B69 = 930CDC780784D0FE00394B69;
-			9372369607815B9500288AA8 = 9372369607815B9500288AA8;
-			9372369707815B9500288AA8 = 9372369707815B9500288AA8;
+			930CDC7C0784D13900394B69 = 930CDC7C0784D13900394B69;
+			930CDC7D0784D13900394B69 = 930CDC7D0784D13900394B69;
+			930CDC7E0784D13900394B69 = 930CDC7E0784D13900394B69;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -331,21 +310,6 @@
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
-	};
-	930402260784B2F3005EDDEE = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = AutoStarX.cpp;
-		path = /usr/src/AutoStarX/AutoStarX.cpp;
-		refType = 0;
-		sourceTree = "<absolute>";
-	};
-	930402270784B2F3005EDDEE = {
-		fRef = 930402260784B2F3005EDDEE;
-		isa = PBXTextBookmark;
-		rLen = 1;
-		rLoc = 1016;
-		rType = 1;
 	};
 	930402BD0784CB4C005EDDEE = {
 		fRef = 93E5E4EA077526CC00F37742;
@@ -388,159 +352,10 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1328, 58855}}";
 			sepNavSelRange = "{125177, 105}";
 			sepNavVisRect = "{{0, 48650}, {711, 428}}";
+			sepNavWindowFrame = "{{65, 573}, {750, 558}}";
 		};
 	};
-	930CDC600784CBDE00394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC610784CBDE00394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 1018";
-		rLen = 0;
-		rLoc = 30738;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC620784CBDE00394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	930CDC660784CBE500394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 978";
-		rLen = 0;
-		rLoc = 29437;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC670784CBE500394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC680784CBE500394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	930CDC690784CC9C00394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 978";
-		rLen = 0;
-		rLoc = 29437;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC6A0784CC9C00394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC6B0784CC9C00394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	930CDC6C0784CD5200394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 978";
-		rLen = 0;
-		rLoc = 29437;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC6D0784CD5200394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC6E0784CD5200394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	930CDC6F0784CD5500394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 978";
-		rLen = 0;
-		rLoc = 29437;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC700784CD5500394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC710784CD5500394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	930CDC720784D0CA00394B69 = {
+	930CDC7C0784D13900394B69 = {
 		fRef = 93E5E4EE077526FC00F37742;
 		isa = PBXTextBookmark;
 		name = "AutoStarX.cpp: 1004";
@@ -550,7 +365,7 @@
 		vrLen = 1606;
 		vrLoc = 29155;
 	};
-	930CDC730784D0CA00394B69 = {
+	930CDC7D0784D13900394B69 = {
 		fRef = 93E5E4EA077526CC00F37742;
 		isa = PBXTextBookmark;
 		name = "AutoStarX.h: 6";
@@ -560,8 +375,8 @@
 		vrLen = 637;
 		vrLoc = 0;
 	};
-	930CDC740784D0CA00394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
+	930CDC7E0784D13900394B69 = {
+		fRef = 930CDC7F0784D13900394B69;
 		isa = PBXTextBookmark;
 		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
 		rLen = 105;
@@ -570,59 +385,8 @@
 		vrLen = 817;
 		vrLoc = 124775;
 	};
-	930CDC760784D0FE00394B69 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 6";
-		rLen = 0;
-		rLoc = 125;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	930CDC770784D0FE00394B69 = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 1004";
-		rLen = 0;
-		rLoc = 30138;
-		rType = 0;
-		vrLen = 1606;
-		vrLoc = 29155;
-	};
-	930CDC780784D0FE00394B69 = {
-		fRef = 930402C00784CB4C005EDDEE;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	9372369607815B9500288AA8 = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 13";
-		rLen = 0;
-		rLoc = 187;
-		rType = 0;
-		vrLen = 620;
-		vrLoc = 0;
-	};
-	9372369707815B9500288AA8 = {
-		fRef = 9372369807815B9500288AA8;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	9372369807815B9500288AA8 = {
+	930CDC7F0784D13900394B69 = {
 		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
 		name = Controls.h;
 		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
 		refType = 0;
@@ -706,7 +470,7 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1514, 15875}}";
 			sepNavSelRange = "{30138, 0}";
 			sepNavVisRect = "{{0, 13580}, {857, 663}}";
-			sepNavWindowFrame = "{{662, 303}, {1045, 560}}";
+			sepNavWindowFrame = "{{482, 179}, {896, 793}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 = {
