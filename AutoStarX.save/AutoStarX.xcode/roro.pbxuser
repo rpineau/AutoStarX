@@ -106,7 +106,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 128806461;
+			PBXPerProjectTemplateStateSaveDate = 128809642;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -283,7 +283,11 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 128806461;
+			PBXWorkspaceStateSaveDate = 128809642;
+		};
+		perUserProjectItems = {
+			93A7ED1407AD7AAE00FDEC35 = 93A7ED1407AD7AAE00FDEC35;
+			93A7ED2C07AD7B4700FDEC35 = 93A7ED2C07AD7B4700FDEC35;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -360,6 +364,20 @@
 			sepNavWindowFrame = "{{729, 105}, {750, 558}}";
 		};
 	};
+	93A7ED1407AD7AAE00FDEC35 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXBookmark;
+	};
+	93A7ED2C07AD7B4700FDEC35 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX::AutoStarConnect";
+		rLen = 26;
+		rLoc = 20980;
+		rType = 0;
+		vrLen = 1272;
+		vrLoc = 21401;
+	};
 	93E5E4E9077526CC00F37742 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 428}}";
@@ -378,17 +396,17 @@
 	};
 	93E5E4EE077526FC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 16015}}";
-			sepNavSelRange = "{24371, 0}";
-			sepNavVisRect = "{{0, 9463}, {1126, 907}}";
-			sepNavWindowFrame = "{{482, 179}, {896, 793}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 15903}}";
+			sepNavSelRange = "{20980, 26}";
+			sepNavVisRect = "{{0, 9373}, {857, 663}}";
+			sepNavWindowFrame = "{{197, 146}, {896, 793}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 6005}}";
-			sepNavSelRange = "{11434, 15}";
-			sepNavVisRect = "{{0, 5180}, {711, 428}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 5991}}";
+			sepNavSelRange = "{11612, 0}";
+			sepNavVisRect = "{{0, 3971}, {711, 428}}";
 			sepNavWindowFrame = "{{339, 560}, {750, 558}}";
 		};
 	};

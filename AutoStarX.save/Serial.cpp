@@ -392,7 +392,6 @@ bool SerialPort:: SendData(Byte * dataOut, int length)
             return false;
 		
 		}
-    // tcdrain(mSerialPortHandle); 
 
 	return true;
 }
