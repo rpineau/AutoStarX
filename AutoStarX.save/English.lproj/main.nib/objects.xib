@@ -4,7 +4,7 @@
   <object name="rootObject" class="NSCustomObject" id="1">
     <string name="customClass">NSApplication</string>
   </object>
-  <array count="62" name="allObjects">
+  <array count="64" name="allObjects">
     <object class="IBCarbonMenu" id="29">
       <string name="title">main</string>
       <array count="4" name="items">
@@ -345,8 +345,8 @@
     <reference idRef="231"/>
     <reference idRef="232"/>
     <object class="IBCarbonRootControl" id="243">
-      <string name="bounds">0 0 294 321 </string>
-      <array count="10" name="subviews">
+      <string name="bounds">0 0 352 320 </string>
+      <array count="12" name="subviews">
         <object class="IBCarbonStaticText" id="245">
           <string name="bounds">164 103 180 217 </string>
           <string name="title">Rodolphe Pineau</string>
@@ -354,7 +354,7 @@
         </object>
         <object class="IBCarbonStaticText" id="246">
           <string name="bounds">116 103 132 217 </string>
-          <string name="title">Version 1.3</string>
+          <string name="title">Version 1.4</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="247">
@@ -377,7 +377,7 @@
           <string name="title">Thanks to :</string>
         </object>
         <object class="IBCarbonStaticText" id="255">
-          <string name="bounds">219 98 232 270 </string>
+          <string name="bounds">214 98 227 270 </string>
           <boolean name="small">TRUE</boolean>
           <int name="controlSize">1</int>
           <string name="title">- Richard &apos;Dick&apos; Seymour</string>
@@ -389,21 +389,33 @@
           <string name="title">- Mike Weasner</string>
         </object>
         <object class="IBCarbonStaticText" id="257">
-          <string name="bounds">252 98 265 270 </string>
+          <string name="bounds">256 98 269 270 </string>
           <boolean name="small">TRUE</boolean>
           <int name="controlSize">1</int>
           <string name="title">- Don Soria</string>
         </object>
         <object class="IBCarbonStaticText" id="258">
-          <string name="bounds">267 98 280 270 </string>
+          <string name="bounds">277 98 290 270 </string>
           <boolean name="small">TRUE</boolean>
           <int name="controlSize">1</int>
           <string name="title">- Donald Davenport</string>
         </object>
+        <object class="IBCarbonStaticText" id="259">
+          <string name="bounds">298 98 311 270 </string>
+          <boolean name="small">TRUE</boolean>
+          <int name="controlSize">1</int>
+          <string name="title">- John Hallett</string>
+        </object>
+        <object class="IBCarbonStaticText" id="260">
+          <string name="bounds">319 98 332 270 </string>
+          <boolean name="small">TRUE</boolean>
+          <int name="controlSize">1</int>
+          <string name="title">- Laurence L Plate Jr</string>
+        </object>
       </array>
     </object>
     <object class="IBCarbonWindow" id="244">
-      <string name="windowRect">351 472 645 793 </string>
+      <string name="windowRect">214 428 566 748 </string>
       <string name="title">About AutoStarX</string>
       <reference name="rootControl" idRef="243"/>
       <boolean name="receiveUpdates">FALSE</boolean>
@@ -426,8 +438,10 @@
     <reference idRef="256"/>
     <reference idRef="257"/>
     <reference idRef="258"/>
+    <reference idRef="259"/>
+    <reference idRef="260"/>
   </array>
-  <array count="62" name="allParents">
+  <array count="64" name="allParents">
     <reference idRef="1"/>
     <reference idRef="29"/>
     <reference idRef="127"/>
@@ -490,6 +504,8 @@
     <reference idRef="243"/>
     <reference idRef="243"/>
     <reference idRef="243"/>
+    <reference idRef="243"/>
+    <reference idRef="243"/>
   </array>
   <dictionary count="4" name="nameTable">
     <string>About</string>
@@ -501,5 +517,5 @@
     <string>MenuBar</string>
     <reference idRef="29"/>
   </dictionary>
-  <unsigned_int name="nextObjectID">259</unsigned_int>
+  <unsigned_int name="nextObjectID">262</unsigned_int>
 </object>

@@ -1003,10 +1003,10 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		for(j=0;j<2;j++)
 			{
 			// start write page
-			addr=0x8040;
+			addr=0x8000;
 			page=doublepages*2+j;
 			// we write "BLOCKSIZE" byte each time
-			for(i=64;i<32768;i+=BLOCKSIZE)		
+			for(i=0;i<32768;i+=BLOCKSIZE)		
 				{
                 // update the progress bar and status								
                 self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
