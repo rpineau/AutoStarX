@@ -82,9 +82,7 @@ OSErr SerialPort::FindPorts(io_iterator_t *matchingServices)
         {
         printf("IOServiceGetMatchingServices returned %d\n", kernResult);
         }
-        
-exit:
-    return kernResult;
+	return kernResult;
 }
 
 
@@ -157,7 +155,6 @@ CFMutableArrayRef SerialPort::GetPortList(io_iterator_t serialPortIterator)
 bool SerialPort::OpenSerialPort(const char *bsdPath, int speed)
 {
     int 		fileDescriptor = -1;
-    int 		handshake;
     struct termios	options;
     
     // Open the serial port read/write, with no controlling terminal, and don't wait for a connection.

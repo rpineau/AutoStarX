@@ -45,26 +45,21 @@ class AutoStarX {
 public:
     AutoStarX();
     virtual ~AutoStarX();
-    // virtual OSStatus initNIB();
-    // virtual void run();
 
     // CallBack Functions
     static pascal OSStatus buttonHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
     static pascal OSStatus windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
-
+    static pascal OSStatus aboutWindowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
 
     
 private:
-// internal data
-	FSSpec mFileSpec;
-	short mROMFileHandle;
-	FSRef mROMfileRef;
-	UInt8 mRomFullPath[255];
-    long mfSize;
 // Window
 	WindowRef 		mWindow;
+	WindowRef 		mAbout;
+	
 	EventHandlerUPP	mWindowProcHandler;
 	EventHandlerUPP	mControlProcHandler;
+	EventHandlerUPP	mAboutProcHandler;
 
 // timer & thread
     EventLoopTimerRef mTimer;
@@ -88,7 +83,7 @@ private:
     
     //Serial port data
     CFMutableArrayRef   mPortArray;
-    SerialPort  mPorts;
+    SerialPort  *mPorts;
    
     bool    bConnected;
     bool    bFilename;
@@ -96,6 +91,13 @@ private:
 	// ROM data to be flashed.
 	
 	ROM *newRom;
+
+// internal data
+	FSSpec mFileSpec;
+	short mROMFileHandle;
+	FSRef mROMfileRef;
+	UInt8 *mRomFullPath;
+    long mfSize;
 	
     // other function
     virtual void InitializeControls();

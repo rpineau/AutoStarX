@@ -50,7 +50,10 @@ AutoStarX::AutoStarX()
     // InterfaceBuilder when the nib is created.
     err = CreateWindowFromNib(nibRef, CFSTR("MainWindow"), &mWindow);
     require_noerr( err, CantCreateWindow );
-
+	
+	err = CreateWindowFromNib(nibRef, CFSTR("About"), &mAbout);
+    require_noerr( err, CantCreateWindow );
+	
     // We don't need the nib reference anymore.
     DisposeNibReference(nibRef);
     
@@ -63,6 +66,15 @@ AutoStarX::AutoStarX()
 	mWindowProcHandler=NewEventHandlerUPP( &windowHandler);
 
 	err=InstallEventHandler(GetWindowEventTarget(mWindow),
+							mWindowProcHandler,
+							GetEventTypeCount(WindowEventList),
+							WindowEventList,
+							this,
+							NULL);
+
+	mWindowProcHandler=NewEventHandlerUPP( &aboutWindowHandler);
+
+	err=InstallEventHandler(GetWindowEventTarget(mAbout),
 							mWindowProcHandler,
 							GetEventTypeCount(WindowEventList),
 							WindowEventList,
@@ -104,6 +116,10 @@ AutoStarX::~AutoStarX()
         AutoStarDisconnect();
 	if(newRom)
 		delete newRom;
+	if(mRomFullPath)
+		delete mRomFullPath;
+	
+	delete mPorts;
 }
 
 
@@ -131,6 +147,9 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 				{
 				self->mFileSpec=Fselector.FileSelect();
 				FSpMakeFSRef(&self->mFileSpec,&self->mROMfileRef);
+				if(self->mRomFullPath)
+					delete self->mRomFullPath;
+				self->mRomFullPath=new UInt8[255];
 				FSRefMakePath(&self->mROMfileRef, self->mRomFullPath,255);
 				// set the rom file path control to the full file path
 				SetControlData (self->mRomFile, 
@@ -142,13 +161,13 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 				err=FSpOpenDF(&self->mFileSpec, fsRdPerm ,&self->mROMFileHandle);
 				if(err)
 					{
-                    return -1;
+                    break;
                     }
                 // get file size    
                 err=GetEOF(self->mROMFileHandle,&self->mfSize);
 				if(err)
 					{
-                    return -1;
+                   break;
                     }
 				
 				if(self->newRom)
@@ -172,12 +191,12 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 				}
 				
 		case 'Port':
-				result=0;
+				result=noErr;
 				break;
 
 		case 'Flsh':  // start the flashing of the AutoStarX
                 self->Flash();
-				result=0;
+				result=noErr;
 				break;
 
 		case 'Cnct': // connect to the AutoStarX on the selected serial port
@@ -185,18 +204,24 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
                     self->AutoStarDisconnect();
                 else
                     self->AutoStarConnect();
-				result=0;
+				result=noErr;
 				break;
         case 'quit' :
                 if ( self->mNumberOfRunningThreads > 0 )
                     {
-                    result=0; //don't proces quit while flashing
+                    result=noErr; //don't proces quit while flashing
                     }
                 else
                     self->mThreadDone=true;
                 break;
+		case 'abou':
+				ShowWindow (self->mAbout);
+				SelectWindow (self->mAbout);    
+				result=noErr;
+				break;
+				
 		}
-    printf("control events\n");
+    // printf("control events\n");
 		
 	return (result);
 
@@ -208,14 +233,25 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 pascal OSStatus AutoStarX::windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
 {
     OSStatus result=eventNotHandledErr;
+	// if the window is closed, quit the application
+    if(GetEventKind(event) == kEventWindowClosed)
+        {
+        result=ProcessHICommand(&quitCommand);
+        }
+    return result;
+}
 
+pascal OSStatus AutoStarX::aboutWindowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
+{
+    OSStatus result=eventNotHandledErr;
+	
 	// get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
 
 	// if the window is closed, quit the application
     if(GetEventKind(event) == kEventWindowClosed)
         {
-        result=ProcessHICommand(&quitCommand);
+        HideWindow(self->mAbout);
         }
     return result;
 }
@@ -316,7 +352,7 @@ void AutoStarX::InitializeControls()
 	ctrlID.id = kDlgConnectID;
 	ctrlID.signature = kDlgConnect;
 	err=GetControlByID(mWindow, &ctrlID, &mConnectButton);
-    if(mPorts.getCount()<1)
+    if(mPorts->getCount()<1)
         DeactivateControl(mConnectButton);
 
 	// File ROM version
@@ -350,23 +386,25 @@ void AutoStarX::SetSerialPortsControls(ControlRef control)
 	io_iterator_t matchingServices;
     MenuRef SerialPopup;
     
+	mPorts= new SerialPort;
+	
     // find available serial ports
-	err=mPorts.FindPorts(&matchingServices);
+	err=mPorts->FindPorts(&matchingServices);
 	if(err != noErr)
         {
         DeactivateControl(control);
         return;
         }
 
-    mPorts.GetPortList(matchingServices);
+    mPorts->GetPortList(matchingServices);
 
 	//create menu from available serial devices
-    numItems=mPorts.getCount();
+    numItems=mPorts->getCount();
 	CreateNewMenu(kDlgSerialPortID,0,&SerialPopup);
     for(i=0;i<numItems;i++)
         {
             AppendMenuItemTextWithCFString (SerialPopup,
-											mPorts.getPortName(i),
+											mPorts->getPortName(i),
 											0,
 											0,
 											NULL);
@@ -393,7 +431,6 @@ void AutoStarX::SetSerialPortsControls(ControlRef control)
 void AutoStarX::AutoStarConnect()
 {
     SInt32 index;
-	SInt16	alertOut;
 	
     char bsdPath[255];
     Byte ioBuffer[64];
@@ -403,29 +440,29 @@ void AutoStarX::AutoStarConnect()
     index=GetControl32BitValue(mSerialPort);
 
     //get the bsd path at index -1 (index are going from 1 to n in the popup but from 0 to n-1 in the array)
-    CFStringGetCString(mPorts.getPortPath(index-1),bsdPath,255,kCFStringEncodingASCII);
+    CFStringGetCString(mPorts->getPortPath(index-1),bsdPath,255,kCFStringEncodingASCII);
 
     // open port at 9600  
-    if(! mPorts.OpenSerialPort(bsdPath, 9600))
+    if(! mPorts->OpenSerialPort(bsdPath, 9600))
         { // error opening port
         return;
         }
         
     bConnected=true;
 	// flush all data before starting
-	mPorts.ReadData(ioBuffer,64);
+	mPorts->ReadData(ioBuffer,64);
 	
     // check AutoStarX status : cmd=0x06
     cmd[0]=0x06;    // ^F (1 byte response)
     cmd[1]=0;
-    if(!mPorts.SendData(cmd,1))
+    if(!mPorts->SendData(cmd,1))
 		{
 		AutoStarDisconnect();		
 		ErrorAlert(CFSTR("Write error !"));
         return;
 		}
 
-	if(!mPorts.ReadData(ioBuffer,1))
+	if(!mPorts->ReadData(ioBuffer,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Read error !"));
@@ -437,14 +474,14 @@ void AutoStarX::AutoStarConnect()
         // switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)
         cmd[1]=0;
-		if(!mPorts.SendData(cmd,1))
+		if(!mPorts->SendData(cmd,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Write error !"));
             return;
 			}
 			
-		if(!mPorts.ReadData(ioBuffer,1))
+		if(!mPorts->ReadData(ioBuffer,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Read error !"));
@@ -458,20 +495,20 @@ void AutoStarX::AutoStarConnect()
 	// switch to 125Kbaud ---> apparently not a standar speed .. will probably never work on mac
 	// but we can test just in case..
 	// does serial port support 125Kbauds?
-	if(mPorts.SetSpeed(125000))
+	if(mPorts->SetSpeed(125000))
 		{
-		mPorts.SetSpeed(9600);  //switch back to 9600 to send the F command
+		mPorts->SetSpeed(9600);  //switch back to 9600 to send the F command
         
 		cmd[0]=0x46;    // F (1 byte response)
 		cmd[1]=0;
-		if(!mPorts.SendData(cmd,1))
+		if(!mPorts->SendData(cmd,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Write error !"));
             return;
 			}
 			
-		if(!mPorts.ReadData(ioBuffer,1))
+		if(!mPorts->ReadData(ioBuffer,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Read error !"));
@@ -481,7 +518,7 @@ void AutoStarX::AutoStarConnect()
 		// check if answer is "Y"
 		if(ioBuffer[0]=='Y') // ok to switch to 125K
 			{
-			if(!mPorts.SetSpeed(125000))
+			if(!mPorts->SetSpeed(125000))
 				{
 				AutoStarDisconnect();
 				ErrorAlert(CFSTR("Error switching to high speed !"));
@@ -493,14 +530,14 @@ void AutoStarX::AutoStarConnect()
     // get device type (495, 497, ....)
     cmd[0]='T';    // ask for AutoStarX type 0x0F=497 0x0A=495 0x05=??? (1 byte response)
     cmd[1]=0;
-    if(!mPorts.SendData(cmd,1))
+    if(!mPorts->SendData(cmd,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Write error !"));
         return;
 		}
 	
-	if(!mPorts.ReadData(ioBuffer,1))
+	if(!mPorts->ReadData(ioBuffer,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Read error !"));
@@ -525,14 +562,14 @@ void AutoStarX::AutoStarConnect()
     // get ROM version
     cmd[0]='V';    // ask for ROM version (4 bytes response)
     cmd[1]=0;
-    if(!mPorts.SendData(cmd,1))
+    if(!mPorts->SendData(cmd,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Write error !"));
         return;
 		}
 		
-	if(!mPorts.ReadData(ioBuffer,4))
+	if(!mPorts->ReadData(ioBuffer,4))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Read error !"));
@@ -556,8 +593,8 @@ void AutoStarX::AutoStarDisconnect()
     
     cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
     cmd[1]=0;
-    mPorts.SendData(cmd,1);
-    mPorts.CloseSerialPort();
+    mPorts->SendData(cmd,1);
+    mPorts->CloseSerialPort();
     bConnected=false;
     DeactivateControl(mFlashButton);
     ActivateControl(mSerialPort);
@@ -657,14 +694,14 @@ pascal void AutoStarX::FlashThread(void *userData)
 		cmd[0]=0x45;    // E (1 byte response)
 		cmd[1]=doublepages;
 		cmd[2]=0;
-		if(!self->mPorts.SendData(cmd,2))
+		if(!self->mPorts->SendData(cmd,2))
 			{
 			self->AutoStarDisconnect();
 			self->ErrorAlert(CFSTR("Write error !"));
             return;
 			}
 			
-		if(!self->mPorts.ReadData(ioBuffer,1))
+		if(!self->mPorts->ReadData(ioBuffer,1))
 			{
 			self->AutoStarDisconnect();
 			self->ErrorAlert(CFSTR("Read error !"));
@@ -714,14 +751,14 @@ pascal void AutoStarX::FlashThread(void *userData)
 				cmd[3]=(char)(addr&0xFF);		// LOW part address
 				cmd[4]=(char)blockSize;			// nb byte
 				memcpy(&cmd[5],&(self->newRom->pages[page][i]),blockSize);
-				if(!self->mPorts.SendData(cmd,69))
+				if(!self->mPorts->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
 					self->ErrorAlert(CFSTR("Write error !"));
 					return;
 					}
 					
-				if(!self->mPorts.ReadData(ioBuffer,1))
+				if(!self->mPorts->ReadData(ioBuffer,1))
 					{
 					self->AutoStarDisconnect();
 					self->ErrorAlert(CFSTR("Read error !"));

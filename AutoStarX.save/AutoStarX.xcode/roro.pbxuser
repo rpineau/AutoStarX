@@ -5,7 +5,7 @@
 			sepNavIntBoundsRect = "{{0, 0}, {711, 428}}";
 			sepNavSelRange = "{103, 0}";
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
-			sepNavWindowFrame = "{{19, 615}, {750, 558}}";
+			sepNavWindowFrame = "{{504, 181}, {750, 558}}";
 		};
 	};
 	20286C28FDCF999611CA2CEA = {
@@ -94,7 +94,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 124935781;
+			PBXPerProjectTemplateStateSaveDate = 125025465;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -271,7 +271,7 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 124935781;
+			PBXWorkspaceStateSaveDate = 125025465;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -334,10 +334,10 @@
 	};
 	9377B1450763CE6400C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 1540}}";
-			sepNavSelRange = "{577, 4}";
-			sepNavVisRect = "{{0, 196}, {711, 428}}";
-			sepNavWindowFrame = "{{614, 143}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {760, 1568}}";
+			sepNavSelRange = "{184, 0}";
+			sepNavVisRect = "{{0, 569}, {760, 657}}";
+			sepNavWindowFrame = "{{429, 65}, {799, 787}}";
 		};
 	};
 	9377B1460763CE6400C57F77 = {
@@ -351,16 +351,16 @@
 	9377B1480763CE6400C57F77 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 923}}";
-			sepNavSelRange = "{1275, 0}";
-			sepNavVisRect = "{{0, 495}, {711, 428}}";
+			sepNavSelRange = "{724, 2}";
+			sepNavVisRect = "{{0, 353}, {711, 428}}";
 			sepNavWindowFrame = "{{65, 273}, {750, 558}}";
 		};
 	};
 	9377B14D0763CE7A00C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1016, 10877}}";
-			sepNavSelRange = "{21408, 0}";
-			sepNavVisRect = "{{0, 9654}, {701, 597}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1016, 11395}}";
+			sepNavSelRange = "{19585, 0}";
+			sepNavVisRect = "{{0, 9915}, {711, 428}}";
 			sepNavWindowFrame = "{{127, 151}, {740, 727}}";
 		};
 	};
@@ -374,9 +374,9 @@
 	};
 	9377B14F0763CE7A00C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 5949}}";
-			sepNavSelRange = "{10790, 0}";
-			sepNavVisRect = "{{0, 4637}, {711, 428}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 5907}}";
+			sepNavSelRange = "{4802, 0}";
+			sepNavVisRect = "{{0, 2019}, {711, 428}}";
 			sepNavWindowFrame = "{{88, 252}, {750, 558}}";
 		};
 	};

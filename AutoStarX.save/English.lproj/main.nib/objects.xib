@@ -4,17 +4,17 @@
   <object name="rootObject" class="NSCustomObject" id="1">
     <string name="customClass">NSApplication</string>
   </object>
-  <array count="54" name="allObjects">
+  <array count="58" name="allObjects">
     <object class="IBCarbonMenu" id="29">
       <string name="title">main</string>
       <array count="4" name="items">
         <object class="IBCarbonMenuItem" id="185">
-          <string name="title">Foo</string>
+          <string name="title">AutoStarX</string>
           <object name="submenu" class="IBCarbonMenu" id="184">
             <string name="title">Foo</string>
             <array count="1" name="items">
               <object class="IBCarbonMenuItem" id="187">
-                <string name="title">About Foo</string>
+                <string name="title">About AutoStarX</string>
                 <int name="keyEquivalentModifier">0</int>
                 <ostype name="command">abou</ostype>
               </object>
@@ -315,6 +315,7 @@
       <boolean name="isResizable">FALSE</boolean>
       <boolean name="hasVerticalZoom">FALSE</boolean>
       <boolean name="compositing">TRUE</boolean>
+      <int name="themeBrush">1</int>
       <int name="windowPosition">1</int>
       <boolean name="hideOnFullScreen">TRUE</boolean>
     </object>
@@ -348,16 +349,46 @@
     <reference idRef="219"/>
     <reference idRef="221"/>
     <object class="IBCarbonWindow" id="222">
-      <string name="windowRect">526 560 806 947 </string>
+      <string name="windowRect">387 440 600 743 </string>
       <string name="title">About</string>
       <object name="rootControl" class="IBCarbonRootControl" id="223">
-        <string name="bounds">0 0 280 387 </string>
-        <string name="viewFrame">0 0 387 280 </string>
+        <string name="bounds">0 0 213 303 </string>
+        <string name="viewFrame">0 0 303 213 </string>
+        <array count="4" name="subviews">
+          <object class="IBCarbonStaticText" id="233">
+            <string name="bounds">105 117 121 187 </string>
+            <string name="viewFrame">117 105 70 16 </string>
+            <int name="fontStyle">4</int>
+            <string name="title">AutoStarX</string>
+            <int name="justification">1</int>
+          </object>
+          <object class="IBCarbonStaticText" id="234">
+            <string name="bounds">153 53 169 249 </string>
+            <string name="viewFrame">53 153 196 16 </string>
+            <string name="title">Copyright RTI-Zone 2004</string>
+            <int name="justification">1</int>
+          </object>
+          <object class="IBCarbonStaticText" id="235">
+            <string name="bounds">177 94 193 208 </string>
+            <string name="viewFrame">94 177 114 16 </string>
+            <string name="title">Rodolphe Pineau</string>
+            <int name="justification">1</int>
+          </object>
+          <object class="IBCarbonStaticText" id="236">
+            <string name="bounds">129 94 145 208 </string>
+            <string name="viewFrame">94 129 114 16 </string>
+            <string name="title">Version 1.0</string>
+            <int name="justification">1</int>
+          </object>
+        </array>
       </object>
       <boolean name="receiveUpdates">FALSE</boolean>
+      <boolean name="hasCollapseBox">FALSE</boolean>
+      <boolean name="hasHorizontalZoom">FALSE</boolean>
       <boolean name="isResizable">FALSE</boolean>
+      <boolean name="hasVerticalZoom">FALSE</boolean>
       <boolean name="compositing">TRUE</boolean>
-      <int name="carbonWindowClass">4</int>
+      <int name="themeBrush">1</int>
       <boolean name="isConstrained">FALSE</boolean>
     </object>
     <reference idRef="223"/>
@@ -366,8 +397,12 @@
     <reference idRef="228"/>
     <reference idRef="231"/>
     <reference idRef="232"/>
+    <reference idRef="233"/>
+    <reference idRef="234"/>
+    <reference idRef="235"/>
+    <reference idRef="236"/>
   </array>
-  <array count="54" name="allParents">
+  <array count="58" name="allParents">
     <reference idRef="1"/>
     <reference idRef="29"/>
     <reference idRef="131"/>
@@ -422,6 +457,10 @@
     <reference idRef="225"/>
     <reference idRef="225"/>
     <reference idRef="225"/>
+    <reference idRef="223"/>
+    <reference idRef="223"/>
+    <reference idRef="223"/>
+    <reference idRef="223"/>
   </array>
   <dictionary count="4" name="nameTable">
     <string>About</string>
@@ -433,5 +472,5 @@
     <string>MenuBar</string>
     <reference idRef="29"/>
   </dictionary>
-  <unsigned_int name="nextObjectID">233</unsigned_int>
+  <unsigned_int name="nextObjectID">237</unsigned_int>
 </object>

@@ -274,7 +274,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>477 287 963 591 0 0 1440 878 </string>
+						<string>295 287 963 591 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -311,7 +311,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {754, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>477 287 963 591 0 0 1440 878 </string>
+								<string>295 287 963 591 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -333,7 +333,7 @@
 								<key>Frame</key>
 								<string>{{0, 7}, {754, 542}}</string>
 								<key>RubberWindowFrame</key>
-								<string>477 287 963 591 0 0 1440 878 </string>
+								<string>295 287 963 591 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -357,9 +357,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>93AE61C7077260360051B1DC</string>
+				<string>93A33A900773BCC800D0961D</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>93AE61C8077260360051B1DC</string>
+				<string>93A33A910773BCC800D0961D</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -387,17 +387,16 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>93C307EB07678DD200889005</string>
-		<string>93AE623F0772680E0051B1DC</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>93AE62400772680E0051B1DC</string>
-		<string>93AE62410772680E0051B1DC</string>
-		<string>93AE61CB077260360051B1DC</string>
+		<string>93A33B0B0773C3FD00D0961D</string>
+		<string>93A33B130773C68300D0961D</string>
+		<string>93A33A960773BD7600D0961D</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
+		<string>93A33A970773BD7600D0961D</string>
+		<string>93A33B080773C22800D0961D</string>
 		<string>/usr/src/AutoStarX/AutoStarX.xcode</string>
 	</array>
 	<key>WindowString</key>
-	<string>477 287 963 591 0 0 1440 878 </string>
+	<string>295 287 963 591 0 0 1440 878 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
@@ -435,7 +434,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {751, 128}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1006 576 751 413 0 0 1920 1178 </string>
+								<string>593 356 751 413 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -461,7 +460,7 @@
 								<key>Frame</key>
 								<string>{{0, 135}, {751, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1006 576 751 413 0 0 1920 1178 </string>
+								<string>593 356 751 413 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -483,19 +482,19 @@
 			<true/>
 			<key>TableOfContents</key>
 			<array>
-				<string>93D5CE170763D7220094C888</string>
-				<string>9391048A076D1F77003DF1AD</string>
+				<string>93A33B0B0773C3FD00D0961D</string>
+				<string>93A33B0C0773C3FD00D0961D</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.build</string>
 			<key>WindowString</key>
-			<string>1006 576 751 413 0 0 1920 1178 </string>
+			<string>593 356 751 413 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
-			<string>93D5CE170763D7220094C888</string>
+			<string>93A33B0B0773C3FD00D0961D</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -843,9 +842,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>93AE61C9077260360051B1DC</string>
+				<string>93A33A920773BCC800D0961D</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>93AE61CA077260360051B1DC</string>
+				<string>93A33A930773BCC800D0961D</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
