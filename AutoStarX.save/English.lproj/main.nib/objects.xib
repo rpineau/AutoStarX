@@ -4,7 +4,7 @@
   <object name="rootObject" class="NSCustomObject" id="1">
     <string name="customClass">NSApplication</string>
   </object>
-  <array count="60" name="allObjects">
+  <array count="61" name="allObjects">
     <object class="IBCarbonMenu" id="29">
       <string name="title">main</string>
       <array count="4" name="items">
@@ -144,7 +144,7 @@
     <reference idRef="151"/>
     <reference idRef="152"/>
     <object class="IBCarbonWindow" id="166">
-      <string name="windowRect">347 843 666 1230 </string>
+      <string name="windowRect">717 952 1036 1339 </string>
       <string name="title">AutoStarX</string>
       <object name="rootControl" class="IBCarbonRootControl" id="167">
         <string name="bounds">0 0 319 387 </string>
@@ -346,7 +346,7 @@
     <reference idRef="232"/>
     <object class="IBCarbonRootControl" id="243">
       <string name="bounds">0 0 294 321 </string>
-      <array count="8" name="subviews">
+      <array count="9" name="subviews">
         <object class="IBCarbonStaticText" id="245">
           <string name="bounds">164 103 180 217 </string>
           <string name="title">Rodolphe Pineau</string>
@@ -354,7 +354,7 @@
         </object>
         <object class="IBCarbonStaticText" id="246">
           <string name="bounds">116 103 132 217 </string>
-          <string name="title">Version 1.1b</string>
+          <string name="title">Version 1.2</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="247">
@@ -373,20 +373,26 @@
           <int name="contentResID">100</int>
         </object>
         <object class="IBCarbonStaticText" id="254">
-          <string name="bounds">204 98 220 222 </string>
-          <string name="title">Credits : Thanks to</string>
+          <string name="bounds">195 63 211 187 </string>
+          <string name="title">Thanks to :</string>
         </object>
         <object class="IBCarbonStaticText" id="255">
-          <string name="bounds">228 98 241 270 </string>
+          <string name="bounds">219 98 232 270 </string>
           <boolean name="small">TRUE</boolean>
           <int name="controlSize">1</int>
           <string name="title">- Richard &apos;Dick&apos; Seymour</string>
         </object>
         <object class="IBCarbonStaticText" id="256">
-          <string name="bounds">244 98 257 270 </string>
+          <string name="bounds">235 98 248 270 </string>
           <boolean name="small">TRUE</boolean>
           <int name="controlSize">1</int>
           <string name="title">- Mike Weasner</string>
+        </object>
+        <object class="IBCarbonStaticText" id="257">
+          <string name="bounds">252 98 265 270 </string>
+          <boolean name="small">TRUE</boolean>
+          <int name="controlSize">1</int>
+          <string name="title">- Don Soria</string>
         </object>
       </array>
     </object>
@@ -412,8 +418,9 @@
     <reference idRef="254"/>
     <reference idRef="255"/>
     <reference idRef="256"/>
+    <reference idRef="257"/>
   </array>
-  <array count="60" name="allParents">
+  <array count="61" name="allParents">
     <reference idRef="1"/>
     <reference idRef="29"/>
     <reference idRef="127"/>
@@ -474,6 +481,7 @@
     <reference idRef="243"/>
     <reference idRef="243"/>
     <reference idRef="243"/>
+    <reference idRef="243"/>
   </array>
   <dictionary count="4" name="nameTable">
     <string>About</string>
@@ -485,5 +493,5 @@
     <string>MenuBar</string>
     <reference idRef="29"/>
   </dictionary>
-  <unsigned_int name="nextObjectID">257</unsigned_int>
+  <unsigned_int name="nextObjectID">258</unsigned_int>
 </object>

@@ -225,8 +225,12 @@ bool SerialPort::OpenSerialPort(const char *bsdPath, int speed)
     options.c_iflag &= ~(IXON | IXOFF | IXANY);	// no sw flow control
 	
 	options.c_cflag |= ( CREAD | CLOCAL);		// enable receiver, local line
-    // options.c_iflag &= ~(INPCK);				// disable input parity checkinga
-    // options.c_iflag |= IGNBRK;					// ignore break
+    options.c_iflag &= ~(INPCK);				// disable input parity checkinga
+    options.c_iflag |= IGNBRK;					// ignore break
+    
+    // RAW outout and input
+    options.c_oflag &= ~OPOST;
+    options.c_iflag &= ~(ICANON | ECHO | ECHOE | ISIG);
 	    
     // Cause the new options to take effect immediately.
     if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
