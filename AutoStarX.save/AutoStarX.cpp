@@ -675,12 +675,11 @@ void AutoStarX::AutoStarConnect()
         }
         
     bConnected=true;
-    bSafeLoad=false;
+    bSafeLoad=true;
 	// flush all data before starting
 	mPorts->ReadData(ioBuffer,64);
 
-	i=0;
-    do
+    for(i=0;i<11;i++)
         {
         // check AutoStarX status : cmd=0x06
         cmd[0]=0x06;    // ^F (1 byte response)
@@ -699,20 +698,13 @@ void AutoStarX::AutoStarConnect()
             return;
             }
  
-        if(ioBuffer[0]=='?')
-            i++;
-        else
+        if(ioBuffer[0]!='?')
             {
-            i=0;
+            bSafeLoad=false;
             break;
             }            
 
-        if(i>10)
-            {
-            bSafeLoad=true;
-            break;
-            }
-        } while(true);
+        } 
 
     if(ioBuffer[0]!='D' && !bSafeLoad) // not in download mode
         {
@@ -1011,10 +1003,10 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		for(j=0;j<2;j++)
 			{
 			// start write page
-			addr=0x8000;
+			addr=0x8040;
 			page=doublepages*2+j;
 			// we write "BLOCKSIZE" byte each time
-			for(i=0;i<32768;i+=BLOCKSIZE)		
+			for(i=64;i<32768;i+=BLOCKSIZE)		
 				{
                 // update the progress bar and status								
                 self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
