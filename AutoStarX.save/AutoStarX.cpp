@@ -32,24 +32,21 @@ AutoStarX::AutoStarX()
     bConnected=false;
     bFilename=false;
     newRom=NULL;
-	mThreadDone=false;
-    
+    mRomFullPath=NULL;    
+    bFlashing=false;    
     InitCursor();
     
     // Create a Nib reference passing the name of the nib file (without the .nib extension)
     // CreateNibReference only searches into the application bundle.
     err = CreateNibReference(CFSTR("main"), &mNibRef);
-    require_noerr( err, CantGetNibRef );
     
     // Once the nib reference is created, set the menu bar. "MainMenu" is the name of the menu bar
     // object. This name is set in InterfaceBuilder when the nib is created.
     err = SetMenuBarFromNib(mNibRef, CFSTR("MenuBar"));
-    require_noerr( err, CantSetMenuBar );
     
     // Then create a window. "MainWindow" is the name of the window object. This name is set in 
     // InterfaceBuilder when the nib is created.
     err = CreateWindowFromNib(mNibRef, CFSTR("MainWindow"), &mWindow);
-    require_noerr( err, CantCreateWindow );
 	
 	
     
@@ -80,20 +77,12 @@ AutoStarX::AutoStarX()
 							NULL);
 
      
-    // Event Loop Timer to idle controls 5 times a second.
-    InstallEventLoopTimer( GetCurrentEventLoop(), 0, 0, NewEventLoopTimerUPP( MainRunLoopForThreadedApps ), this, &mTimer );
-
 
     // The window was created hidden so show it.
     ShowWindow(mWindow);
 
     // Call the event loop
     RunApplicationEventLoop();
-
-
-CantCreateWindow:
-CantSetMenuBar:
-CantGetNibRef:
 
 	return;
 }
@@ -113,7 +102,7 @@ AutoStarX::~AutoStarX()
 
 pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
 {
-	HICommand commandStruct;
+	HICommandExtended commandStruct;
 	UInt32	CommandID;
 	OSStatus result=eventNotHandledErr;
 	OSErr err;
@@ -183,8 +172,20 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				break;
 
 		case 'Flsh':  // start the flashing of the AutoStarX
-                self->Flash();
-				result=noErr;
+                result=self->HIObjectThreadControllerCreate(self, setupFlash, Flash, termFlash, 967680, NULL, NULL);
+                if(result==noErr)
+                    {
+                    // set the progress bar max length and initial value 
+                    // page 0 and 1 aren't writen
+                    // the top 512 bytes of each page aren't writen
+                    // pages 30 and 31 are for garbage collection (pages $1E and $1F)
+                    // if page is all $FF, do not write
+                    // so we have 30 pages x 32K (minus the 512 bytes)
+                    // so 30x(32768-512) = 967680 byte to write
+                    SetControl32BitMaximum(self->mFlashProgress, 967680);
+                    self->DeActivateControls();
+                    }
+                result=noErr;
 				break;
 
 		case 'Cnct': // connect to the AutoStarX on the selected serial port
@@ -195,12 +196,10 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				result=noErr;
 				break;
         case 'quit' :
-                if ( self->mNumberOfRunningThreads > 0 )
+                if ( self->bFlashing )
                     {
                     result=noErr; //don't proces quit while flashing
                     }
-                else
-                    self->mThreadDone=true;
                 break;
 		case 'abou':
                 DisableMenuCommand( NULL, kHICommandAbout );
@@ -219,8 +218,6 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				break;
 				
 		}
-    // printf("control events\n");
-		
 	return (result);
 
 }
@@ -237,10 +234,8 @@ pascal OSStatus AutoStarX::windowHandler(EventHandlerCallRef myHandler, EventRef
 	// if the window is closed, quit the application
     if(GetEventKind(event) == kEventWindowClosed)
         {
-        if ( self->mNumberOfRunningThreads > 0 )
+        if ( self->bFlashing )
             result=noErr; //don't proces quit while flashing
-        else
-            self->mThreadDone=true;
         result=ProcessHICommand(&quitCommand);
         }
     return result;
@@ -264,44 +259,252 @@ pascal OSStatus AutoStarX::aboutWindowHandler(EventHandlerCallRef myHandler, Eve
 }
 
 
-//
-// Main Event Loop for threaded Apps
-// taken from developer sample
-// 
-
-pascal void AutoStarX::MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *userData )
+// Creating our thread controller object
+// This is mostly setting up the Initialization event with the parameters
+OSStatus AutoStarX::HIObjectThreadControllerCreate(
+	AutoStarX *myClass,
+	SetUpProc inSetUpProc,
+	TaskProc inEntryPoint,
+	TermProc inTermProc,
+	SInt32 inKnownEnd,
+	HIViewRef * outHIThreadPane,
+	HIObjectRef * outHIObjectThreadController)
 {
-	OSStatus		err;
-	EventRef		theEvent;
-	EventTimeout	timeToWaitForEvent;
-	EventTargetRef	theTarget			= GetEventDispatcherTarget();
+    OSStatus status = noErr;
+    EventRef theInitializeEvent = NULL;
+    ThreadControllerData * myData = NULL;
+    HIObjectRef hiObject;
 
-	// get a pointer to the object itself to be able to access private member variable and functions
-    AutoStarX* self = static_cast<AutoStarX*>(userData);
-    	
-	do
-	{
-	    if (self->mNumberOfRunningThreads == 0 )
-	        timeToWaitForEvent	= kEventDurationForever;
-	    else
-	        timeToWaitForEvent	= kEventDurationNoWait;
-	    
-	    err = ReceiveNextEvent( 0, NULL, timeToWaitForEvent, true, &theEvent );
-	    
-	    if ( err == noErr )
-	    {
-	        (void) SendEventToEventTarget( theEvent, theTarget );
-	        ReleaseEvent( theEvent );
-	    }
-	    else if ( err == eventLoopTimedOutErr )
-	    {
-	        err = noErr;
-	    }
-	    if ( self->mNumberOfRunningThreads > 0 )
-	        (void) YieldToAnyThread();
-												//	eventLoopQuitErr may be sent to wake up the queue and does not necessarily
-	} while ( self->mThreadDone == false );				//	mean 'quit', we handle the Quit case from our AppleEvent handler
+    status = CreateEvent(NULL, kEventClassHIObject, kEventHIObjectInitialize, GetCurrentEventTime(), kEventAttributeUserEvent, &theInitializeEvent);
+    status = SetEventParameter(theInitializeEvent, 'TCCL', typeVoidPtr, sizeof(myClass), &myClass);
+    status = SetEventParameter(theInitializeEvent, 'TCSU', typeVoidPtr, sizeof(inSetUpProc), &inSetUpProc);
+    status = SetEventParameter(theInitializeEvent, 'TCEP', typeVoidPtr, sizeof(inEntryPoint), &inEntryPoint);
+    status = SetEventParameter(theInitializeEvent, 'TCTP', typeVoidPtr, sizeof(inTermProc), &inTermProc);
+    status = SetEventParameter(theInitializeEvent, 'TCKE', typeSInt32, sizeof(inKnownEnd), &inKnownEnd);
+
+    status = HIObjectCreate(GetThreadControllerClass(), theInitializeEvent, &hiObject);
+
+    myData = (ThreadControllerData *) HIObjectDynamicCast(hiObject, kHIObjectThreadControllerClassID);
+
+    if (theInitializeEvent != NULL)
+        ReleaseEvent(theInitializeEvent);
+    if (outHIThreadPane != NULL)
+        *outHIThreadPane = myData->hiThreadPane;
+    if (outHIObjectThreadController != NULL)
+        *outHIObjectThreadController = hiObject;
+    
+    return status;
 }
+
+
+
+pascal OSStatus AutoStarX::ThreadControllerHandler(EventHandlerCallRef inCaller, EventRef inEvent, void* userData)
+{
+    OSStatus	status = eventNotHandledErr;
+    AutoStarX   *self;
+    ThreadControllerData* myData = (ThreadControllerData*) userData;
+
+    // get a pointer to the object itself to be able to access private member variable and functions
+    if(myData)
+        self = static_cast<AutoStarX*>(myData->myClass);
+
+
+	switch (GetEventClass(inEvent))
+		{
+		case kEventClassHIObject:
+			switch (GetEventKind(inEvent))
+				{
+				case kEventHIObjectConstruct:
+					{
+					myData = (ThreadControllerData*) calloc(1, sizeof(ThreadControllerData));
+					require_string((myData != NULL), exitHandler, "ThreadControllerHandler--kEventHIObjectConstruct--calloc ");
+
+					// get our superclass instance
+					HIObjectRef hiObject;
+					status = GetEventParameter(inEvent, kEventParamHIObjectInstance, typeHIObjectRef, NULL, sizeof(hiObject), NULL, &hiObject);
+					require_noerr_string(status, exitHandler, "ThreadControllerHandler--kEventHIObjectConstruct--GetEventParameter ");
+                    GetEventParameter(inEvent, 'TCCL', typeVoidPtr, NULL, sizeof(myData->myClass), NULL, &myData->myClass);
+					myData->hiObject = hiObject;
+					myData->taskID = NULL;
+					myData->hiThreadPane = NULL;
+					myData->parameters = NULL;
+					// store our instance data into the event
+					status = SetEventParameter(inEvent, kEventParamHIObjectInstance, typeVoidPtr, sizeof(myData), &myData);
+					require_noerr_string(status, exitHandler, "ThreadControllerHandler--kEventHIObjectConstruct--SetEventParameter ");
+					}
+					break;
+
+				case kEventHIObjectInitialize:
+					{
+					// always begin kEventHIObjectInitialize by calling through to the previous handler
+					status = CallNextEventHandler(inCaller, inEvent);
+					// if that succeeded, do our own initialization
+					if (status == noErr)
+						{
+                        GetEventParameter(inEvent, 'TCCL', typeVoidPtr, NULL, sizeof(myData->myClass), NULL, &myData->myClass);
+						GetEventParameter(inEvent, 'TCSU', typeVoidPtr, NULL, sizeof(myData->setUpProc), NULL, &myData->setUpProc);
+						GetEventParameter(inEvent, 'TCEP', typeVoidPtr, NULL, sizeof(myData->entryPoint), NULL, &myData->entryPoint);
+						GetEventParameter(inEvent, 'TCTP', typeVoidPtr, NULL, sizeof(myData->termProc), NULL, &myData->termProc);
+						SInt32 knownEnd;
+						GetEventParameter(inEvent, 'TCKE', typeSInt32, NULL, sizeof(knownEnd), NULL, &knownEnd);
+                        self = static_cast<AutoStarX*>(myData->myClass);
+                        myData->hiThreadPane=self->mProgressPane;
+						// associating the pane and the thread controller
+						SetControlReference(myData->hiThreadPane, (SInt32) myData->hiObject);
+						
+						self->HIObjectThreadControllerStartThread(myData->hiObject);
+						}
+					}
+					break;
+
+				case kEventHIObjectDestruct:
+					{
+					// HIObjectThreadControllerStopThread(myData->hiObject);
+					if (myData->hiThreadPane != NULL)
+						{
+						DisposeControl(myData->hiThreadPane);
+						myData->hiThreadPane = NULL;
+						}
+					free(myData);
+					}
+					break;
+				
+				default:
+					break;
+				}
+			break;
+			
+		case kEventClassHIObjectThreadController:
+			switch (GetEventKind(inEvent))
+				{
+				case kEventUpdateThreadUI:
+					self->UpdateUI(myData);
+					break;
+				
+				case kEventTerminateThread:
+					self->HIObjectThreadControllerTermThread(myData->hiObject);
+					break;
+				
+				default:
+					break;
+				}
+			break;
+		
+		default:
+			break;
+		}
+
+exitHandler:
+	return status;
+}
+
+
+
+
+// Registering our class and setting the handlers
+CFStringRef AutoStarX::GetThreadControllerClass()
+	{
+	static HIObjectClassRef	theClass;
+	
+	if (theClass == NULL)
+		{
+
+		// mThreadControlerProcHandler=NewEventHandlerUPP( &ThreadControllerHandler);
+		HIObjectRegisterSubclass(kHIObjectThreadControllerClassID, NULL, 0,
+                                ThreadControllerHandler,
+								  GetEventTypeCount(kFactoryEvents), kFactoryEvents, NULL, &theClass);
+		}
+	
+	return kHIObjectThreadControllerClassID;
+	}
+
+
+// Starting a thread by calling its setup routine, the Multiprocessing Services API
+// to actually start it, and updating the User Interface.
+OSStatus AutoStarX::HIObjectThreadControllerStartThread(HIObjectRef threadController)
+	{
+	OSStatus status = noErr;
+	ThreadControllerData * myData = (ThreadControllerData *) HIObjectDynamicCast(threadController, kHIObjectThreadControllerClassID);
+	EventTargetRef theTarget = HIObjectGetEventTarget(myData->hiObject);
+	myData->parameters = myData->setUpProc(this);
+	((GeneralTaskWorkParamsPtr)myData->parameters)->threadControllerTarget = theTarget;
+	status = MPCreateTask(myData->entryPoint, myData->parameters, 0, NULL, NULL, NULL, 0, &myData->taskID);
+	UpdateUI(myData);
+	return status;
+	}
+
+void AutoStarX::HIObjectThreadControllerTermThread(HIObjectRef threadController)
+	{
+	ThreadControllerData * myData = (ThreadControllerData *) HIObjectDynamicCast(threadController, kHIObjectThreadControllerClassID);
+	if (myData->taskID != NULL)
+		{
+		myData->taskID = NULL;
+		UpdateUI(myData);
+		myData->termProc(myData->parameters);
+		}
+	}
+
+
+void  AutoStarX::UpdateUI(ThreadControllerData * myData)
+{
+    CFStringRef theCFString;
+
+    GeneralTaskWorkParamsPtr params = (GeneralTaskWorkParamsPtr) myData->parameters;
+
+    SetControl32BitValue(mFlashProgress, params->progress);
+    HIViewSetNeedsDisplay(mFlashProgress, true);
+    switch(params->page)
+        {
+        case 0:
+                theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Idle"), NULL);
+                break;
+        case -1:
+                theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Error"), NULL);
+                ErrorAlert(CFSTR("Communication error !"),CFSTR("The autostar isn't responding to the flashing commands. Check all connections and restart the autostar in safe load mode (press Enter end down close to ? and power on the autostar)"));
+                break;
+        case 33:
+                theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Upgrade done"), NULL);
+                break;
+            
+        default:
+            theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("writing page %u/30"), params->page-1);
+            break;
+        }
+        
+    SetControlData(mFlashStatus, kControlEntireControl, kControlStaticTextCFStringTag, sizeof(CFStringRef), &theCFString);
+    HIViewSetNeedsDisplay(mFlashStatus, true);
+    
+    CFRelease(theCFString);
+}
+/*****************************************************
+*
+* SendEventToUI(kind, params, iterator, result) 
+*
+* Purpose:  Posts an event to the main thread which is handling the User Interface
+*
+* Inputs:   kind      - the kind of event (in this sample code: kEventUpdateThreadUI or kEventTerminateThread)
+*           params    - a pointer to the task params
+*           iterator  - the current value of the iteration index
+*           result    - the current value of the variable being calculated, in this sample code: pi
+*
+*/
+void AutoStarX::SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page)
+	{
+    
+    params->progress = progress;
+	params->page = page;
+    params->myClass=this;
+    
+	EventRef theEvent;
+	CreateEvent(NULL, kEventClassHIObjectThreadController, kind, GetCurrentEventTime(), kEventAttributeUserEvent, &theEvent);
+	SetEventParameter(theEvent, kEventParamPostTarget, typeEventTargetRef, sizeof(params->threadControllerTarget), &params->threadControllerTarget);
+	PostEventToQueue(GetMainEventQueue(), theEvent, kEventPriorityStandard);
+
+	ReleaseEvent(theEvent);
+	}
+
+
+
 
 
 //
@@ -337,18 +540,6 @@ void AutoStarX::InitializeControls()
 	err=GetControlByID(mWindow, &ctrlID, &mRomVersion);
 	SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
 	
-	// Status of the firmware flashing
-	ctrlID.id = kDlgFlashStatusID;
-	ctrlID.signature = kDlgFlashStatus;
-	err=GetControlByID(mWindow, &ctrlID, &mFlashStatus);
-	SetControlData (mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Idle"), "Idle");
-	
-	// Flashing progress bar
-	ctrlID.id = kDlgFlashPogressID;
-	ctrlID.signature = kDlgFlashPogress;
-	err=GetControlByID(mWindow, &ctrlID, &mFlashProgress);
-	SetControl32BitValue(mFlashProgress, (SInt32)0);
-
 	// Flash button
 	ctrlID.id = kDlgFlashID;
 	ctrlID.signature = kDlgFlash;
@@ -377,6 +568,28 @@ void AutoStarX::InitializeControls()
 	ctrlID.id = kDlgQuitID;
 	ctrlID.signature = kDlgQuit;
 	err=GetControlByID(mWindow, &ctrlID, &mQuit);
+
+    
+    
+    /// Progress Pane controls
+    
+	
+    // Flashing Progress Pane
+	ctrlID.id = kDlgProgressPantID;
+	ctrlID.signature = kDlgProgressPan;
+    HIViewFindByID(HIViewGetRoot(mWindow), ctrlID, &mProgressPane);
+    
+	// Flashing progress bar
+	ctrlID.id = kDlgFlashPogressID;
+	ctrlID.signature = kDlgFlashPogress;
+    HIViewFindByID(mProgressPane,ctrlID,&mFlashProgress);
+	SetControl32BitValue(mFlashProgress, (SInt32)0);
+
+	// Status of the firmware flashing
+	ctrlID.id = kDlgFlashStatusID;
+	ctrlID.signature = kDlgFlashStatus;
+    HIViewFindByID(mProgressPane,ctrlID,&mFlashStatus);
+	SetControlData (mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Idle"), "Idle");
 
 
 }
@@ -613,49 +826,46 @@ void AutoStarX::AutoStarDisconnect()
 
 void AutoStarX::ErrorAlert(CFStringRef error)
 {
+
+	ErrorAlert(error,NULL);
+}
+
+void AutoStarX::ErrorAlert(CFStringRef error, CFStringRef comment)
+{
 	DialogRef	alert;
 
-	CreateStandardAlert(kAlertStopAlert,error,CFSTR("The AutoStarX isn't responding. Check connections and be sure to select the correct serial port."),NULL, &alert);
+    if(!comment)
+        CreateStandardAlert(kAlertStopAlert,error,CFSTR("The AutoStarX isn't responding. Check connections and be sure to select the correct serial port."),NULL, &alert);
+    else
+        CreateStandardAlert(kAlertStopAlert,error,comment,NULL, &alert);
+        
 	RunStandardAlert(alert, NULL, NULL);
 }
 
 
-void AutoStarX::Flash()
+
+void *AutoStarX::setupFlash(void *p)
 {
-    OSErr result;
-    
-    // set the progress bar max length and initial value 
-    // page 0 and 1 aren't writen
-    // the top 512 bytes of each page aren't writen
-    // pages 30 and 31 are for garbage collection (pages $1E and $1F)
-    // if page is all $FF, do not write
-    // so we have 30 pages x 32K (minus the 512 bytes)
-    // so 30x(32768-512) = 967680 byte to write
-    SetControl32BitMaximum(mFlashProgress, 967680);
+    AutoStarX* self = static_cast<AutoStarX*>(p);
 
-    // create the falshing thread
-    result = NewThread( kCooperativeThread, NewThreadEntryUPP( (ThreadEntryProcPtr) &FlashThread ), this, 0, kCreateIfNeeded, nil, &mFlashthreadID );
-
-    if(result == noErr) // thread created ok
-        {
-        mNumberOfRunningThreads++;
-        // disable the controls until we're done with the flashing
-        DeactivateControl(mFlashButton);
-        DeactivateControl(mConnectButton);
-        DeactivateControl(mRomOpen);
-        DeactivateControl(mQuit);
-        }
-    YieldToAnyThread();
+    GeneralTaskWorkParamsPtr params=new GeneralTaskWorkParams;
+    params->page=0;
+    params->progress=0;
+    params->myClass=self;
+    return params;
 }
 
+void AutoStarX::termFlash(void *p)
+{
+    delete (GeneralTaskWorkParamsPtr)p;
+}
 
-pascal void AutoStarX::FlashThread(void *userData)
+pascal OSStatus AutoStarX::Flash(void *userData)
 {
 	Byte doublepages;
     int page;
     int i,j;
     SInt32 progress;
-    char status[64];
 	Byte ioBuffer[64];
 	Byte cmd[69];	// 5 byte command + 64 byte of data maximum
     int blockSize;
@@ -663,19 +873,19 @@ pascal void AutoStarX::FlashThread(void *userData)
 	unsigned short addr;
 	int erase_dbl_page;
 	
+    GeneralTaskWorkParamsPtr params=(GeneralTaskWorkParamsPtr)userData;
+    
      // get a pointer to the object itself to be able to access private member variable and functions
-    AutoStarX* self = static_cast<AutoStarX*>(userData);
+    AutoStarX* self = static_cast<AutoStarX*>(((GeneralTaskWorkParamsPtr)userData)->myClass);
+
+    self->bFlashing=true;
 
     // recomended block size is 64 byte (0x40)
 	blockSize=64;
 	
-    SetThemeCursor( kThemeWatchCursor );
     ff_data=new Byte[blockSize];
 	memset(ff_data,0xff,blockSize);
     progress=0;
-    SetControl32BitValue(self->mFlashProgress, progress);
-    Draw1Control(self->mFlashProgress);
-    
     // we start on page 2 so it's double page 1 and write 2 pages as we need to erase a double page each time
     for( doublepages=1;doublepages<16;doublepages++)
         {
@@ -693,7 +903,7 @@ pascal void AutoStarX::FlashThread(void *userData)
 			
 		if(!erase_dbl_page)
 			{
-			YieldToAnyThread();
+			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 			continue;
 			}
         // erase double page
@@ -704,22 +914,30 @@ pascal void AutoStarX::FlashThread(void *userData)
 		if(!self->mPorts->SendData(cmd,2))
 			{
 			self->AutoStarDisconnect();
-			self->ErrorAlert(CFSTR("Write error !"));
-            return;
+			//
+            self->ActivateControls();
+            // quiting the trhread
+            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+            self->bFlashing=false;
+            return kNSLSchedulerError;
 			}
 			
 		if(!self->mPorts->ReadData(ioBuffer,1))
 			{
 			self->AutoStarDisconnect();
-			self->ErrorAlert(CFSTR("Read error !"));
-            return;
+            self->ActivateControls();
+            // quiting the trhread
+            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+            self->bFlashing=false;
+            delete ff_data;
+            return kNSLSchedulerError;
 			}
 			
 		// check if answer is "Y"
 		if(ioBuffer[0]!='Y') // page has been erased
 			{
 			// if not we don't try to write
-			YieldToAnyThread();
+			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 			continue;
 			}
 		
@@ -728,8 +946,7 @@ pascal void AutoStarX::FlashThread(void *userData)
 			// start write page
 			addr=0x8000;
 			page=doublepages*2+j;
-			sprintf(status,"writing page : %u/32\n", (int)(page+1));
-			SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
+            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 			// we write "blocksize" byte each time
 			for(i=0;i<32768;i+=blockSize)		
 				{								
@@ -740,7 +957,7 @@ pascal void AutoStarX::FlashThread(void *userData)
 					{
 					// increment addr
 					addr+=blockSize;
-					YieldToAnyThread();
+					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 					continue;
 					}
 				// we don't write block that are all $FF
@@ -748,7 +965,7 @@ pascal void AutoStarX::FlashThread(void *userData)
 					{
 					// increment addr
 					addr+=blockSize;
-					YieldToAnyThread();
+					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 					continue;
 					}
 				// write data
@@ -761,15 +978,23 @@ pascal void AutoStarX::FlashThread(void *userData)
 				if(!self->mPorts->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
-					self->ErrorAlert(CFSTR("Write error !"));
-					return;
+                    self->ActivateControls();
+                    // quiting the trhread
+                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+                    self->bFlashing=false;
+                    delete ff_data;
+					return kNSLSchedulerError;
 					}
 					
 				if(!self->mPorts->ReadData(ioBuffer,1))
 					{
 					self->AutoStarDisconnect();
-					self->ErrorAlert(CFSTR("Read error !"));
-					return;
+                    self->ActivateControls();
+                    // quiting the trhread
+                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+                    self->bFlashing=false;
+                    delete ff_data;
+                    return kNSLSchedulerError;
 					}
 					
 				// check if answer is "Y"
@@ -777,44 +1002,46 @@ pascal void AutoStarX::FlashThread(void *userData)
 					{
 					// if not we have a problem .. we stop it all
 					self->AutoStarDisconnect();
-					self->ErrorAlert(CFSTR("Error writing data to flash!"));
-					
 					//reactivate controls
-					ActivateControl(self->mFlashButton);
-					ActivateControl(self->mConnectButton);
-					ActivateControl(self->mRomOpen);
-					ActivateControl(self->mQuit);
+                    self->AutoStarDisconnect();
+                    self->ActivateControls();
 					// quiting the trhread
-					SetThemeCursor( kThemeArrowCursor );
-					self->mNumberOfRunningThreads--;
-					SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
-					delete ff_data;
-
-					return;
+                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+                    self->bFlashing=false;
+                    delete ff_data;
+					return kNSLSchedulerError;
 					}
 				
 				// increment addr
 				addr+=blockSize;
 				
-				SetControl32BitValue(self->mFlashProgress, progress);
-				Draw1Control(self->mFlashProgress);
-				YieldToAnyThread();	
+                self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);	
 				}
 			}
 			
         }
     //reactivate controls
-    ActivateControl(self->mFlashButton);
-    ActivateControl(self->mConnectButton);
-    ActivateControl(self->mRomOpen);
-    ActivateControl(self->mQuit);
+    self->ActivateControls();
     // quiting the trhread
-    SetThemeCursor( kThemeArrowCursor );
-    self->mNumberOfRunningThreads--;
-    SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
-	SetControl32BitValue(self->mFlashProgress, 0);
-    Draw1Control(self->mFlashProgress);
-
-	delete ff_data;
+    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, 33);
+    self->bFlashing=false;
+    delete ff_data;
+    return noErr;
 }
 
+void AutoStarX::ActivateControls()
+{
+    ActivateControl(mFlashButton);
+    ActivateControl(mConnectButton);
+    ActivateControl(mRomOpen);
+    ActivateControl(mQuit);
+}
+
+void AutoStarX::DeActivateControls()
+{
+
+    DeactivateControl(mFlashButton);
+    DeactivateControl(mConnectButton);
+    DeactivateControl(mRomOpen);
+    DeactivateControl(mQuit);
+}

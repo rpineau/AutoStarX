@@ -43,6 +43,7 @@
 #define kDlgQuit	'quit'
 #define kDlgQuitID	1011
 
-
+#define kDlgProgressPan	'thrp'
+#define kDlgProgressPantID	1012
 
 

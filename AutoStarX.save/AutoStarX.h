@@ -15,6 +15,25 @@
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
 static const struct HICommand quitCommand={0, kHICommandQuit, {0,0} }; 
 
+#define kHIObjectThreadControllerClassID	CFSTR("com.apple.sample.dts.HIObjectThreadController")
+
+/* ControlKind*/
+enum {
+	kControlKindHIThreadPane = 'thrp'
+};
+
+/* EventClass*/
+enum {
+	kEventClassHIObjectThreadController = 'thrc'
+};
+
+/* Thread Object Events*/
+enum {
+	kEventUpdateThreadUI		= 'UPDT',
+	kEventTerminateThread	= 'TERM'
+};
+
+
 //Data
 static EventTypeSpec ControlEventList[] =
 		{
@@ -30,7 +49,16 @@ static EventTypeSpec AboutWindowEventList[] =
 		{
 		{kEventClassWindow,kEventWindowClosed},
 		};
-        
+
+static EventTypeSpec kFactoryEvents[] =
+    {
+        { kEventClassHIObject, kEventHIObjectConstruct },
+        { kEventClassHIObject, kEventHIObjectDestruct },
+        { kEventClassHIObject, kEventHIObjectInitialize },
+        { kEventClassHIObjectThreadController, kEventUpdateThreadUI },
+        { kEventClassHIObjectThreadController, kEventTerminateThread }
+    };
+                    
 typedef struct ROM {
 	// header
 	Byte key[4];
@@ -42,8 +70,30 @@ typedef struct ROM {
 	
 } ROM;
 
+typedef CALLBACK_API_C( void * , SetUpProc )(void *);
+typedef CALLBACK_API_C( void, TermProc )(void *);
 
- 
+typedef struct
+	{
+	HIObjectRef hiObject;
+	MPTaskID	taskID;
+	SetUpProc	setUpProc;
+	TaskProc	entryPoint;
+	TermProc	termProc;
+	void *		parameters;
+	HIViewRef	hiThreadPane;
+    void *myClass;
+	} ThreadControllerData;
+
+typedef struct
+	{
+	EventTargetRef threadControllerTarget;
+	SInt32 progress;
+	SInt32 page;
+    void *myClass;
+	} GeneralTaskWorkParams, *GeneralTaskWorkParamsPtr;
+
+     
 // main structure for data storage
 
 class AutoStarX {
@@ -56,9 +106,39 @@ public:
     static pascal OSStatus commandHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
     static pascal OSStatus windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
     static pascal OSStatus aboutWindowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
+    static pascal OSStatus ThreadControllerHandler(EventHandlerCallRef inCaller, EventRef inEvent, void* inRefcon);
+    
+    static pascal OSStatus Flash(void *userData);
+    static pascal void *setupFlash(void *p);
+    static pascal void termFlash(void *p);
 
+    virtual void UpdateUI(ThreadControllerData * myData);
     
 private:
+	
+    // other function
+    virtual void InitializeControls();
+    virtual void SetSerialPortsControls(ControlRef control);
+    virtual void AutoStarConnect();
+    virtual void AutoStarDisconnect();
+    virtual void ErrorAlert(CFStringRef error);
+    virtual void ErrorAlert(CFStringRef error, CFStringRef comment);
+    virtual void ActivateControls();
+    virtual void DeActivateControls();
+ 
+    
+    virtual OSStatus HIObjectThreadControllerCreate(AutoStarX *mySelf,
+                                                    SetUpProc inSetUpProc,
+                                                    TaskProc inEntryPoint,
+                                                    TermProc inTermProc,
+                                                    SInt32 inKnownEnd,
+                                                    HIViewRef * outHIThreadPane,
+                                                    HIObjectRef * outHIObjectThreadController);
+
+    virtual OSStatus HIObjectThreadControllerStartThread(HIObjectRef threadController);
+    virtual void HIObjectThreadControllerTermThread(HIObjectRef threadController);
+    virtual CFStringRef GetThreadControllerClass();
+    virtual void SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page);
 
 // Nib reference
     IBNibRef 		mNibRef;	
@@ -69,25 +149,23 @@ private:
 	EventHandlerUPP	mWindowProcHandler;
 	EventHandlerUPP	mControlProcHandler;
 	EventHandlerUPP	mAboutProcHandler;
-
-// timer & thread
-    EventLoopTimerRef mTimer;
-    ThreadID mFlashthreadID;
-    SInt32  mNumberOfRunningThreads;
-    bool    mThreadDone;
+    EventHandlerUPP mThreadControlerProcHandler;
     
 // dialog control Ref
 	ControlRef	mSerialPort;
 	ControlRef	mRomFile;
 	ControlRef	mAStarVersion;
 	ControlRef	mRomVersion;
-	ControlRef	mFlashStatus;
-	ControlRef	mFlashProgress;
 	ControlRef	mFlashButton;
 	ControlRef	mConnectButton;
 	ControlRef	mFileRomVersion;
 	ControlRef	mQuit;
 	ControlRef	mRomOpen;
+
+// HIView controls
+    HIViewRef   mProgressPane;
+	ControlRef	mFlashStatus;
+	ControlRef	mFlashProgress;
     
     
     //Serial port data
@@ -96,7 +174,7 @@ private:
    
     bool    bConnected;
     bool    bFilename;
-
+    bool    bFlashing;
 	// ROM data to be flashed.
 	
 	ROM *newRom;
@@ -108,14 +186,6 @@ private:
 	UInt8 *mRomFullPath;
     long mfSize;
 	
-    // other function
-    virtual void InitializeControls();
-    virtual void SetSerialPortsControls(ControlRef control);
-    virtual void AutoStarConnect();
-    virtual void AutoStarDisconnect();
-    virtual void ErrorAlert(CFStringRef error);
-    virtual void Flash();
-    static pascal void FlashThread(void *userData);
-    static pascal void MainRunLoopForThreadedApps( EventLoopTimerRef inTimer, void *inUserData );
-	
 };
+
+

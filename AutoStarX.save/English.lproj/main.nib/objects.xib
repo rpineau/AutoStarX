@@ -4,7 +4,7 @@
   <object name="rootObject" class="NSCustomObject" id="1">
     <string name="customClass">NSApplication</string>
   </object>
-  <array count="55" name="allObjects">
+  <array count="57" name="allObjects">
     <object class="IBCarbonMenu" id="29">
       <string name="title">main</string>
       <array count="4" name="items">
@@ -144,37 +144,44 @@
     <reference idRef="151"/>
     <reference idRef="152"/>
     <object class="IBCarbonWindow" id="166">
-      <string name="windowRect">212 533 531 920 </string>
+      <string name="windowRect">347 843 666 1230 </string>
       <string name="title">AutoStarX</string>
       <object name="rootControl" class="IBCarbonRootControl" id="167">
         <string name="bounds">0 0 319 387 </string>
-        <array count="9" name="subviews">
+        <string name="viewFrame">0 0 387 319 </string>
+        <array count="8" name="subviews">
           <object class="IBCarbonGroupBox" id="225">
             <string name="bounds">150 20 226 367 </string>
+            <string name="viewFrame">20 150 347 76 </string>
             <array count="5" name="subviews">
               <object class="IBCarbonButton" id="210">
-                <string name="bounds">195 36 215 106 </string>
+                <string name="bounds">193 36 213 106 </string>
+                <string name="viewFrame">16 43 70 20 </string>
                 <ostype name="controlSignature">ropn</ostype>
                 <int name="controlID">1003</int>
-                <string name="title">Browse</string>
+                <string name="title">Open</string>
                 <ostype name="command">open</ostype>
               </object>
               <object class="IBCarbonStaticText" id="226">
                 <string name="bounds">170 40 186 110 </string>
+                <string name="viewFrame">20 20 70 16 </string>
                 <string name="title">File name :</string>
               </object>
               <object class="IBCarbonStaticText" id="228">
                 <string name="bounds">170 113 186 346 </string>
+                <string name="viewFrame">93 20 233 16 </string>
                 <ostype name="controlSignature">rmfl</ostype>
                 <int name="controlID">1002</int>
                 <string name="title">/usr/src/Buld.rom</string>
               </object>
               <object class="IBCarbonStaticText" id="231">
                 <string name="bounds">194 130 210 223 </string>
+                <string name="viewFrame">110 44 93 16 </string>
                 <string name="title">ROM version :</string>
               </object>
               <object class="IBCarbonEditText" id="232">
                 <string name="bounds">195 234 211 343 </string>
+                <string name="viewFrame">214 45 109 16 </string>
                 <ostype name="controlSignature">frvs</ostype>
                 <int name="controlID">1010</int>
                 <boolean name="isUnicode">TRUE</boolean>
@@ -184,17 +191,21 @@
           </object>
           <object class="IBCarbonGroupBox" id="212">
             <string name="bounds">52 20 142 367 </string>
+            <string name="viewFrame">20 52 347 90 </string>
             <array count="4" name="subviews">
               <object class="IBCarbonStaticText" id="213">
                 <string name="bounds">86 36 102 125 </string>
+                <string name="viewFrame">16 34 89 16 </string>
                 <string name="title">Unit Version :</string>
               </object>
               <object class="IBCarbonStaticText" id="214">
                 <string name="bounds">110 36 126 125 </string>
+                <string name="viewFrame">16 58 89 16 </string>
                 <string name="title">ROM version :</string>
               </object>
               <object class="IBCarbonEditText" id="215">
                 <string name="bounds">85 141 101 250 </string>
+                <string name="viewFrame">121 33 109 16 </string>
                 <ostype name="controlSignature">uver</ostype>
                 <int name="controlID">1004</int>
                 <boolean name="enabled">FALSE</boolean>
@@ -204,6 +215,7 @@
               </object>
               <object class="IBCarbonEditText" id="216">
                 <string name="bounds">111 141 127 250 </string>
+                <string name="viewFrame">121 59 109 16 </string>
                 <ostype name="controlSignature">rver</ostype>
                 <int name="controlID">1005</int>
                 <boolean name="enabled">FALSE</boolean>
@@ -214,18 +226,11 @@
             </array>
             <string name="title">AutoStar informations</string>
           </object>
-          <object class="IBCarbonProgressBar" id="200">
-            <string name="bounds">282 141 301 368 </string>
-            <ostype name="controlSignature">prog</ostype>
-            <int name="controlID">1007</int>
-            <boolean name="indeterminate">FALSE</boolean>
-            <int name="initialValue">50</int>
-          </object>
           <object class="IBCarbonPopupButton" id="203">
             <string name="bounds">19 101 39 357 </string>
+            <string name="viewFrame">101 19 256 20 </string>
             <ostype name="controlSignature">srpt</ostype>
             <int name="controlID">1001</int>
-            <int name="fontStyle">200</int>
             <ostype name="command">Port</ostype>
             <object name="menu" class="IBCarbonMenu" id="204">
               <string name="title">Popup:</string>
@@ -238,22 +243,15 @@
               </array>
             </object>
           </object>
-          <object class="IBCarbonStaticText" id="206">
-            <string name="bounds">283 10 299 134 </string>
-            <ostype name="controlSignature">fsts</ostype>
-            <int name="controlID">1006</int>
-            <boolean name="small">TRUE</boolean>
-            <int name="controlSize">1</int>
-            <string name="title">Flashing autostar</string>
-            <int name="justification">-1</int>
-          </object>
           <object class="IBCarbonStaticText" id="207">
             <string name="bounds">20 20 36 93 </string>
+            <string name="viewFrame">20 20 73 16 </string>
             <string name="title">Serial Port :</string>
             <int name="justification">-1</int>
           </object>
           <object class="IBCarbonButton" id="218">
             <string name="bounds">243 142 263 212 </string>
+            <string name="viewFrame">142 243 70 20 </string>
             <ostype name="controlSignature">flsh</ostype>
             <int name="controlID">1008</int>
             <string name="title">Flash</string>
@@ -261,6 +259,7 @@
           </object>
           <object class="IBCarbonButton" id="219">
             <string name="bounds">243 297 263 367 </string>
+            <string name="viewFrame">297 243 70 20 </string>
             <ostype name="controlSignature">quit</ostype>
             <int name="controlID">1011</int>
             <string name="title">Quit</string>
@@ -268,16 +267,46 @@
           </object>
           <object class="IBCarbonButton" id="221">
             <string name="bounds">243 20 263 127 </string>
+            <string name="viewFrame">20 243 107 20 </string>
             <ostype name="controlSignature">cnct</ostype>
             <int name="controlID">1009</int>
             <string name="title">Connect</string>
             <ostype name="command">Cnct</ostype>
           </object>
+          <object class="IBCarbonUserPane" id="253">
+            <string name="bounds">263 -9 319 387 </string>
+            <string name="viewFrame">-9 263 396 56 </string>
+            <array count="2" name="subviews">
+              <object class="IBCarbonProgressBar" id="200">
+                <string name="bounds">282 141 301 368 </string>
+                <string name="viewFrame">150 19 227 19 </string>
+                <ostype name="controlSignature">prog</ostype>
+                <int name="controlID">1007</int>
+                <boolean name="indeterminate">FALSE</boolean>
+                <int name="initialValue">50</int>
+              </object>
+              <object class="IBCarbonStaticText" id="206">
+                <string name="bounds">283 11 299 127 </string>
+                <string name="viewFrame">20 20 116 16 </string>
+                <ostype name="controlSignature">fsts</ostype>
+                <int name="controlID">1006</int>
+                <boolean name="small">TRUE</boolean>
+                <int name="controlSize">1</int>
+                <string name="title">Flashing autostar</string>
+                <int name="justification">-1</int>
+              </object>
+            </array>
+            <ostype name="controlSignature">thrp</ostype>
+            <int name="controlID">1012</int>
+            <int name="featureBits">2</int>
+          </object>
         </array>
       </object>
+      <boolean name="receiveUpdates">FALSE</boolean>
       <boolean name="hasHorizontalZoom">FALSE</boolean>
       <boolean name="isResizable">FALSE</boolean>
       <boolean name="hasVerticalZoom">FALSE</boolean>
+      <boolean name="compositing">TRUE</boolean>
       <int name="themeBrush">1</int>
       <int name="windowPosition">1</int>
       <boolean name="hideOnFullScreen">TRUE</boolean>
@@ -317,35 +346,40 @@
     <reference idRef="231"/>
     <reference idRef="232"/>
     <object class="IBCarbonRootControl" id="243">
-      <string name="bounds">0 0 214 304 </string>
-      <array count="4" name="subviews">
+      <string name="bounds">0 0 200 320 </string>
+      <array count="5" name="subviews">
         <object class="IBCarbonStaticText" id="245">
-          <string name="bounds">178 95 194 209 </string>
+          <string name="bounds">164 103 180 217 </string>
           <string name="title">Rodolphe Pineau</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="246">
-          <string name="bounds">130 95 146 209 </string>
+          <string name="bounds">116 103 132 217 </string>
           <string name="title">Version 1.0</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="247">
-          <string name="bounds">106 117 122 187 </string>
+          <string name="bounds">92 125 108 195 </string>
           <int name="fontStyle">4</int>
           <string name="title">AutoStarX</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="248">
-          <string name="bounds">154 54 170 250 </string>
+          <string name="bounds">140 62 156 258 </string>
           <string name="title">Copyright RTI-Zone 2004</string>
           <int name="justification">1</int>
+        </object>
+        <object class="IBCarbonPicture" id="250">
+          <string name="bounds">15 128 79 192 </string>
+          <int name="contentResID">100</int>
         </object>
       </array>
     </object>
     <object class="IBCarbonWindow" id="244">
-      <string name="windowRect">480 1000 694 1304 </string>
+      <string name="windowRect">535 1039 735 1359 </string>
       <string name="title">About AutoStarX</string>
       <reference name="rootControl" idRef="243"/>
+      <boolean name="receiveUpdates">FALSE</boolean>
       <boolean name="hasCollapseBox">FALSE</boolean>
       <boolean name="hasHorizontalZoom">FALSE</boolean>
       <boolean name="isResizable">FALSE</boolean>
@@ -358,8 +392,10 @@
     <reference idRef="246"/>
     <reference idRef="247"/>
     <reference idRef="248"/>
+    <reference idRef="250"/>
+    <reference idRef="253"/>
   </array>
-  <array count="55" name="allParents">
+  <array count="57" name="allParents">
     <reference idRef="1"/>
     <reference idRef="29"/>
     <reference idRef="127"/>
@@ -389,11 +425,11 @@
     <reference idRef="195"/>
     <reference idRef="147"/>
     <reference idRef="147"/>
-    <reference idRef="167"/>
+    <reference idRef="253"/>
     <reference idRef="167"/>
     <reference idRef="203"/>
     <reference idRef="204"/>
-    <reference idRef="167"/>
+    <reference idRef="253"/>
     <reference idRef="167"/>
     <reference idRef="225"/>
     <reference idRef="167"/>
@@ -415,6 +451,8 @@
     <reference idRef="243"/>
     <reference idRef="243"/>
     <reference idRef="243"/>
+    <reference idRef="243"/>
+    <reference idRef="167"/>
   </array>
   <dictionary count="4" name="nameTable">
     <string>About</string>
@@ -426,5 +464,5 @@
     <string>MenuBar</string>
     <reference idRef="29"/>
   </dictionary>
-  <unsigned_int name="nextObjectID">249</unsigned_int>
+  <unsigned_int name="nextObjectID">254</unsigned_int>
 </object>
