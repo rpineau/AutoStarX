@@ -4,7 +4,7 @@
   <object name="rootObject" class="NSCustomObject" id="1">
     <string name="customClass">NSApplication</string>
   </object>
-  <array count="57" name="allObjects">
+  <array count="60" name="allObjects">
     <object class="IBCarbonMenu" id="29">
       <string name="title">main</string>
       <array count="4" name="items">
@@ -345,8 +345,8 @@
     <reference idRef="231"/>
     <reference idRef="232"/>
     <object class="IBCarbonRootControl" id="243">
-      <string name="bounds">0 0 200 320 </string>
-      <array count="5" name="subviews">
+      <string name="bounds">0 0 294 321 </string>
+      <array count="8" name="subviews">
         <object class="IBCarbonStaticText" id="245">
           <string name="bounds">164 103 180 217 </string>
           <string name="title">Rodolphe Pineau</string>
@@ -354,7 +354,7 @@
         </object>
         <object class="IBCarbonStaticText" id="246">
           <string name="bounds">116 103 132 217 </string>
-          <string name="title">Version 1.1</string>
+          <string name="title">Version 1.1b</string>
           <int name="justification">1</int>
         </object>
         <object class="IBCarbonStaticText" id="247">
@@ -372,10 +372,26 @@
           <string name="bounds">15 128 79 192 </string>
           <int name="contentResID">100</int>
         </object>
+        <object class="IBCarbonStaticText" id="254">
+          <string name="bounds">204 98 220 222 </string>
+          <string name="title">Credits : Thanks to</string>
+        </object>
+        <object class="IBCarbonStaticText" id="255">
+          <string name="bounds">228 98 241 270 </string>
+          <boolean name="small">TRUE</boolean>
+          <int name="controlSize">1</int>
+          <string name="title">- Richard &apos;Dick&apos; Seymour</string>
+        </object>
+        <object class="IBCarbonStaticText" id="256">
+          <string name="bounds">244 98 257 270 </string>
+          <boolean name="small">TRUE</boolean>
+          <int name="controlSize">1</int>
+          <string name="title">- Mike Weasner</string>
+        </object>
       </array>
     </object>
     <object class="IBCarbonWindow" id="244">
-      <string name="windowRect">496 711 696 1031 </string>
+      <string name="windowRect">496 711 790 1032 </string>
       <string name="title">About AutoStarX</string>
       <reference name="rootControl" idRef="243"/>
       <boolean name="receiveUpdates">FALSE</boolean>
@@ -393,8 +409,11 @@
     <reference idRef="248"/>
     <reference idRef="250"/>
     <reference idRef="253"/>
+    <reference idRef="254"/>
+    <reference idRef="255"/>
+    <reference idRef="256"/>
   </array>
-  <array count="57" name="allParents">
+  <array count="60" name="allParents">
     <reference idRef="1"/>
     <reference idRef="29"/>
     <reference idRef="127"/>
@@ -452,6 +471,9 @@
     <reference idRef="243"/>
     <reference idRef="243"/>
     <reference idRef="167"/>
+    <reference idRef="243"/>
+    <reference idRef="243"/>
+    <reference idRef="243"/>
   </array>
   <dictionary count="4" name="nameTable">
     <string>About</string>
@@ -463,5 +485,5 @@
     <string>MenuBar</string>
     <reference idRef="29"/>
   </dictionary>
-  <unsigned_int name="nextObjectID">254</unsigned_int>
+  <unsigned_int name="nextObjectID">257</unsigned_int>
 </object>

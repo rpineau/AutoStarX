@@ -21,9 +21,6 @@
 #include <sys/time.h>
 #include <time.h>
 
-#ifdef __MWERKS__
-#define __CF_USE_FRAMEWORK_INCLUDES__
-#endif
 
 #include <CoreFoundation/CoreFoundation.h>
 

@@ -193,10 +193,10 @@
 						<key>PBXProjectModuleLabel</key>
 						<string>AutoStarX.h</string>
 						<key>bookmark</key>
-						<string>930402BD0784CB4C005EDDEE</string>
+						<string>930CDC760784D0FE00394B69</string>
 						<key>history</key>
 						<array>
-							<string>9372369607815B9500288AA8</string>
+							<string>930402BD0784CB4C005EDDEE</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -231,10 +231,10 @@
 						<key>PBXProjectModuleLabel</key>
 						<string>AutoStarX.cpp</string>
 						<key>bookmark</key>
-						<string>930402BE0784CB4C005EDDEE</string>
+						<string>930CDC770784D0FE00394B69</string>
 						<key>history</key>
 						<array>
-							<string>930402270784B2F3005EDDEE</string>
+							<string>930402BE0784CB4C005EDDEE</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -250,7 +250,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>441 194 896 737 0 0 1920 1178 </string>
+				<string>482 235 896 737 0 0 1920 1178 </string>
 			</dict>
 		</dict>
 		<dict>
@@ -269,10 +269,10 @@
 						<key>PBXProjectModuleLabel</key>
 						<string>Controls.h</string>
 						<key>bookmark</key>
-						<string>930402BF0784CB4C005EDDEE</string>
+						<string>930CDC780784D0FE00394B69</string>
 						<key>history</key>
 						<array>
-							<string>9372369707815B9500288AA8</string>
+							<string>930402BF0784CB4C005EDDEE</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -371,6 +371,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>4</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -440,7 +442,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20506471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Errors &amp; Warnings</string>
+								<string>Detail</string>
 							</dict>
 							<key>GeometryConfiguration</key>
 							<dict>
@@ -471,9 +473,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>930401B90784A028005EDDEE</string>
+				<string>930CDC5E0784CBDE00394B69</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>930401BA0784A028005EDDEE</string>
+				<string>930CDC5F0784CBDE00394B69</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -501,14 +503,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>9304020C0784B0B5005EDDEE</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>9382EB1507813F4C003156AA</string>
-		<string>93C307EB07678DD200889005</string>
-		<string>/usr/src/AutoStarX/AutoStarX.xcode</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>9382EA0B07813378003156AA</string>
 		<string>9382EA0E07813378003156AA</string>
+		<string>/usr/src/AutoStarX/AutoStarX.xcode</string>
 	</array>
 	<key>WindowString</key>
 	<string>953 647 963 531 0 0 1920 1178 </string>
@@ -959,9 +958,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>930401BE0784A028005EDDEE</string>
+				<string>930CDC630784CBDE00394B69</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>930401BF0784A028005EDDEE</string>
+				<string>930CDC640784CBDE00394B69</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
