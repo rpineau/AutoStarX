@@ -14,6 +14,7 @@
 // constant
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
 static const struct HICommand quitCommand={0, kHICommandQuit, {0,0} }; 
+
 //Data
 static EventTypeSpec ControlEventList[] =
 		{
@@ -25,6 +26,11 @@ static EventTypeSpec WindowEventList[] =
 		{kEventClassWindow,kEventWindowClosed},
 		};			
 
+static EventTypeSpec AboutWindowEventList[] =
+		{
+		{kEventClassWindow,kEventWindowClosed},
+		};
+        
 typedef struct ROM {
 	// header
 	Byte key[4];
@@ -47,12 +53,15 @@ public:
     virtual ~AutoStarX();
 
     // CallBack Functions
-    static pascal OSStatus buttonHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
+    static pascal OSStatus commandHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
     static pascal OSStatus windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
     static pascal OSStatus aboutWindowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
 
     
 private:
+
+// Nib reference
+    IBNibRef 		mNibRef;	
 // Window
 	WindowRef 		mWindow;
 	WindowRef 		mAbout;

@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
 AutoStarX::AutoStarX()
 {
-    IBNibRef 		nibRef;	
+    
     OSStatus		err;
     
     // init data
@@ -38,24 +38,20 @@ AutoStarX::AutoStarX()
     
     // Create a Nib reference passing the name of the nib file (without the .nib extension)
     // CreateNibReference only searches into the application bundle.
-    err = CreateNibReference(CFSTR("main"), &nibRef);
+    err = CreateNibReference(CFSTR("main"), &mNibRef);
     require_noerr( err, CantGetNibRef );
     
     // Once the nib reference is created, set the menu bar. "MainMenu" is the name of the menu bar
     // object. This name is set in InterfaceBuilder when the nib is created.
-    err = SetMenuBarFromNib(nibRef, CFSTR("MenuBar"));
+    err = SetMenuBarFromNib(mNibRef, CFSTR("MenuBar"));
     require_noerr( err, CantSetMenuBar );
     
     // Then create a window. "MainWindow" is the name of the window object. This name is set in 
     // InterfaceBuilder when the nib is created.
-    err = CreateWindowFromNib(nibRef, CFSTR("MainWindow"), &mWindow);
+    err = CreateWindowFromNib(mNibRef, CFSTR("MainWindow"), &mWindow);
     require_noerr( err, CantCreateWindow );
 	
-	err = CreateWindowFromNib(nibRef, CFSTR("About"), &mAbout);
-    require_noerr( err, CantCreateWindow );
 	
-    // We don't need the nib reference anymore.
-    DisposeNibReference(nibRef);
     
 	// Init controls in window
 	InitializeControls();
@@ -72,17 +68,9 @@ AutoStarX::AutoStarX()
 							this,
 							NULL);
 
-	mWindowProcHandler=NewEventHandlerUPP( &aboutWindowHandler);
-
-	err=InstallEventHandler(GetWindowEventTarget(mAbout),
-							mWindowProcHandler,
-							GetEventTypeCount(WindowEventList),
-							WindowEventList,
-							this,
-							NULL);
     
     // Control Events Handler
-	mControlProcHandler=NewEventHandlerUPP(&buttonHandler);
+	mControlProcHandler=NewEventHandlerUPP(&commandHandler);
 	
 	err=InstallEventHandler(GetWindowEventTarget(mWindow),
 							mControlProcHandler,
@@ -123,7 +111,7 @@ AutoStarX::~AutoStarX()
 }
 
 
-pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
+pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
 {
 	HICommand commandStruct;
 	UInt32	CommandID;
@@ -215,6 +203,16 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
                     self->mThreadDone=true;
                 break;
 		case 'abou':
+                DisableMenuCommand( NULL, kHICommandAbout );
+                err = CreateWindowFromNib(self->mNibRef, CFSTR("About"), &self->mAbout);
+                self->mAboutProcHandler=NewEventHandlerUPP( &self->aboutWindowHandler);
+                err=InstallEventHandler(GetWindowEventTarget(self->mAbout),
+                                        self->mAboutProcHandler,
+                                        GetEventTypeCount(AboutWindowEventList),
+                                        AboutWindowEventList,
+                                        self,
+                                        NULL);
+
 				ShowWindow (self->mAbout);
 				SelectWindow (self->mAbout);    
 				result=noErr;
@@ -233,9 +231,16 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
 pascal OSStatus AutoStarX::windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData)
 {
     OSStatus result=eventNotHandledErr;
+	// get a pointer to the object itself to be able to access private member variable and functions
+    AutoStarX* self = static_cast<AutoStarX*>(userData);
+
 	// if the window is closed, quit the application
     if(GetEventKind(event) == kEventWindowClosed)
         {
+        if ( self->mNumberOfRunningThreads > 0 )
+            result=noErr; //don't proces quit while flashing
+        else
+            self->mThreadDone=true;
         result=ProcessHICommand(&quitCommand);
         }
     return result;
@@ -252,6 +257,8 @@ pascal OSStatus AutoStarX::aboutWindowHandler(EventHandlerCallRef myHandler, Eve
     if(GetEventKind(event) == kEventWindowClosed)
         {
         HideWindow(self->mAbout);
+        EnableMenuCommand( NULL, kHICommandAbout );
+        result=noErr;
         }
     return result;
 }
