@@ -9,7 +9,7 @@
 		};
 	};
 	20286C28FDCF999611CA2CEA = {
-		activeBuildStyle = 4A9504C5FFE6A39111CA0CBA;
+		activeBuildStyle = 4A9504C6FFE6A39111CA0CBA;
 		activeExecutable = 9377B1330763CDD900C57F77;
 		activeTarget = 8D0C4E890486CD37000505A6;
 		addToTargets = (
@@ -106,7 +106,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 125917717;
+			PBXPerProjectTemplateStateSaveDate = 126132246;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -283,15 +283,15 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 125917717;
+			PBXWorkspaceStateSaveDate = 126132246;
 		};
 		perUserProjectItems = {
-			9372369507815B9500288AA8 = 9372369507815B9500288AA8;
+			930402270784B2F3005EDDEE = 930402270784B2F3005EDDEE;
+			930402BD0784CB4C005EDDEE = 930402BD0784CB4C005EDDEE;
+			930402BE0784CB4C005EDDEE = 930402BE0784CB4C005EDDEE;
+			930402BF0784CB4C005EDDEE = 930402BF0784CB4C005EDDEE;
 			9372369607815B9500288AA8 = 9372369607815B9500288AA8;
 			9372369707815B9500288AA8 = 9372369707815B9500288AA8;
-			93C6CEFE0781539700EE167D = 93C6CEFE0781539700EE167D;
-			93C6CEFF0781539700EE167D = 93C6CEFF0781539700EE167D;
-			93C6CF000781539700EE167D = 93C6CF000781539700EE167D;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -311,22 +311,70 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	9372369507815B9500288AA8 = {
+	930402260784B2F3005EDDEE = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = AutoStarX.cpp;
+		path = /usr/src/AutoStarX/AutoStarX.cpp;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 15875}}";
+			sepNavSelRange = "{30738, 0}";
+			sepNavVisRect = "{{0, 13586}, {857, 663}}";
+			sepNavWindowFrame = "{{441, 138}, {896, 793}}";
+		};
+	};
+	930402270784B2F3005EDDEE = {
+		fRef = 930402260784B2F3005EDDEE;
+		isa = PBXTextBookmark;
+		rLen = 1;
+		rLoc = 1016;
+		rType = 1;
+	};
+	930402BD0784CB4C005EDDEE = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 6";
+		rLen = 0;
+		rLoc = 125;
+		rType = 0;
+		vrLen = 637;
+		vrLoc = 0;
+	};
+	930402BE0784CB4C005EDDEE = {
 		fRef = 93E5E4EE077526FC00F37742;
 		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 682";
+		name = "AutoStarX.cpp: 1018";
 		rLen = 0;
-		rLoc = 21720;
+		rLoc = 30738;
 		rType = 0;
-		vrLen = 903;
-		vrLoc = 20979;
+		vrLen = 1606;
+		vrLoc = 29155;
+	};
+	930402BF0784CB4C005EDDEE = {
+		fRef = 930402C00784CB4C005EDDEE;
+		isa = PBXTextBookmark;
+		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
+		rLen = 105;
+		rLoc = 125177;
+		rType = 0;
+		vrLen = 817;
+		vrLoc = 124775;
+	};
+	930402C00784CB4C005EDDEE = {
+		isa = PBXFileReference;
+		name = Controls.h;
+		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
+		refType = 0;
+		sourceTree = "<absolute>";
 	};
 	9372369607815B9500288AA8 = {
 		fRef = 93E5E4EA077526CC00F37742;
 		isa = PBXTextBookmark;
 		name = "AutoStarX.h: 13";
 		rLen = 0;
-		rLoc = 188;
+		rLoc = 187;
 		rType = 0;
 		vrLen = 620;
 		vrLoc = 0;
@@ -343,10 +391,17 @@
 	};
 	9372369807815B9500288AA8 = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = Controls.h;
 		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
 		refType = 0;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1328, 58855}}";
+			sepNavSelRange = "{125177, 105}";
+			sepNavVisRect = "{{0, 48653}, {711, 428}}";
+			sepNavWindowFrame = "{{65, 573}, {750, 558}}";
+		};
 	};
 	9377B1330763CDD900C57F77 = {
 		activeArgIndex = 2147483647;
@@ -405,50 +460,6 @@
 			sepNavWindowFrame = "{{729, 105}, {750, 558}}";
 		};
 	};
-	93C6CEFE0781539700EE167D = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX::Flash";
-		rLen = 16;
-		rLoc = 27597;
-		rType = 0;
-		vrLen = 842;
-		vrLoc = 32690;
-	};
-	93C6CEFF0781539700EE167D = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 13";
-		rLen = 0;
-		rLoc = 188;
-		rType = 0;
-		vrLen = 620;
-		vrLoc = 0;
-	};
-	93C6CF000781539700EE167D = {
-		fRef = 93C6CF010781539700EE167D;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	93C6CF010781539700EE167D = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = Controls.h;
-		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
-		refType = 0;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1328, 58855}}";
-			sepNavSelRange = "{125177, 105}";
-			sepNavVisRect = "{{0, 48650}, {711, 428}}";
-			sepNavWindowFrame = "{{65, 573}, {750, 558}}";
-		};
-	};
 	93E5E4E9077526CC00F37742 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 428}}";
@@ -459,17 +470,17 @@
 	};
 	93E5E4EA077526CC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 2715}}";
-			sepNavSelRange = "{188, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 2757}}";
+			sepNavSelRange = "{125, 0}";
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
-			sepNavWindowFrame = "{{866, 73}, {750, 558}}";
+			sepNavWindowFrame = "{{690, 13}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 15749}}";
-			sepNavSelRange = "{21720, 0}";
-			sepNavVisRect = "{{0, 9244}, {1006, 430}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 15875}}";
+			sepNavSelRange = "{30738, 0}";
+			sepNavVisRect = "{{0, 13586}, {857, 663}}";
 			sepNavWindowFrame = "{{662, 303}, {1045, 560}}";
 		};
 	};

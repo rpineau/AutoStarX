@@ -920,12 +920,11 @@ void *AutoStarX::setupFlash(void *p)
 pascal OSStatus AutoStarX::Flash(void *userData)
 {
 	Byte doublepages;
-    int page;
+    Byte page;
     int i,j;
     SInt32 progress;
 	Byte ioBuffer[64];
-	Byte cmd[69];	// 5 byte command + 64 byte of data maximum
-    int blockSize;
+	Byte cmd[70];	// 5 byte command + 64 byte of data maximum
     Byte *ff_data;
 	unsigned short addr;
 	int erase_dbl_page;
@@ -936,11 +935,9 @@ pascal OSStatus AutoStarX::Flash(void *userData)
     AutoStarX* self = static_cast<AutoStarX*>(((GeneralTaskWorkParamsPtr)userData)->myClass);
 
     self->bFlashing=true;
-    // recomended block size is 64 byte (0x40)
-	blockSize=64;
 	
-    ff_data=new Byte[blockSize];
-	memset(ff_data,0xff,blockSize);
+    ff_data=new Byte[BLOCKSIZE];
+	memset(ff_data,0xff,BLOCKSIZE);
     progress=0;
 
 #ifndef __TEST
@@ -954,10 +951,10 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		// we need to test if the page is full set to $FF 
 		// and if yes not erase it a go to the next double page
 		erase_dbl_page=0;
-		for(i=0;i<32768;i+=blockSize)
+		for(i=0;i<32768;i+=BLOCKSIZE)
 			{
-			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,blockSize);
-			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,blockSize);
+			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,BLOCKSIZE);
+			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,BLOCKSIZE);
 			if(erase_dbl_page)
 				break;
 			}
@@ -1006,34 +1003,46 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 			// start write page
 			addr=0x8000;
 			page=doublepages*2+j;
-			// we write "blocksize" byte each time
-			for(i=0;i<32768;i+=blockSize)		
+			// we write "BLOCKSIZE" byte each time
+			for(i=0;i<32768;i+=BLOCKSIZE)		
 				{
                 // update the progress bar and status								
                 self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
-				progress+=blockSize;
+
 				// we need to avoid the 512 byte of eeprom at B600-B7FF
 				// it should be mark by all FF in the file but testing for it is safer
 				if( (addr>0xB5FF) && (addr<0xB800) )
 					{
-					// increment addr
-					addr+=blockSize;
+					// set addr after the eeprom, increment i and progress by 512
+                    addr=0xB800;
+                    i+=512-BLOCKSIZE;   // new value for i
+                    progress+=512;
 					continue;
 					}
+
+#ifdef __COM_DEBUG
+                printf("command = %W page =%X addresse=%02X%02X size = %02X\n",page,(Byte)((addr&0xFF00)>>8),(Byte)(addr&0xFF),BLOCKSIZE);
+#endif
+
+				progress+=BLOCKSIZE;
+
 				// we don't write block that are all $FF
-				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,blockSize))
+				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,BLOCKSIZE))
 					{
 					// increment addr
-					addr+=blockSize;
-					continue;
+					addr+=BLOCKSIZE;
+#ifdef __COM_DEBUG
+                    printf("all $FF\n");
+#endif				
+                    continue;
 					}
 				// write data
 				cmd[0]=0x57;    // W (1 byte response)
-				cmd[1]=(char)(page);
-				cmd[2]=(char)((addr&0xFF00)>>8);		// HI part address
-				cmd[3]=(char)(addr&0xFF);		// LOW part address
-				cmd[4]=(char)blockSize;			// nb byte
-				memcpy(&cmd[5],&(self->newRom->pages[page][i]),blockSize);
+				cmd[1]=page;
+				cmd[2]=(Byte)((addr&0xFF00)>>8);		// HI part address
+				cmd[3]=(Byte)(addr&0xFF);		// LOW part address
+				cmd[4]=BLOCKSIZE;			// nb byte
+				memcpy(&cmd[5],&(self->newRom->pages[page][i]),BLOCKSIZE);
 				if(!self->mPorts->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
@@ -1071,7 +1080,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 					return kNSLSchedulerError;
 					}
 				// increment addr
-				addr+=blockSize;
+				addr+=BLOCKSIZE;
 				
 				}
 			}

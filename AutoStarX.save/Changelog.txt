@@ -1,0 +1,6 @@
+Change in version 1.1:
+
+- A few optimizations on the IU update
+- One bug fix in the low level serial routines that might cause
+  data corruptions in some case.
+- Automatic reset of the autostar at the en of the upgrade

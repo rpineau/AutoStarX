@@ -10,7 +10,10 @@
 #include <Carbon/Carbon.h>
 
 #include "controls.h"
-//  #define __TEST
+// #define __TEST
+// #define __COM_DEBUG
+
+#define BLOCKSIZE  0x40
 
 // constant
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
