@@ -357,9 +357,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>93A9D8C0076793360037FAF2</string>
+				<string>93FEA3CF076794A700069182</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>93A9D8C1076793360037FAF2</string>
+				<string>93FEA3D0076794A700069182</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -387,12 +387,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>93A9D8C3076793360037FAF2</string>
+		<string>93FEA3D2076794A700069182</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>93A9D8C6076793360037FAF2</string>
-		<string>/usr/src/AutoStarX/AutoStarX.xcode</string>
 		<string>1C0AD2B3069F1EA900FABCE6</string>
-		<string>93A9D8C7076793360037FAF2</string>
+		<string>/usr/src/AutoStarX/AutoStarX.xcode</string>
+		<string>93FEA3D5076794A700069182</string>
 	</array>
 	<key>WindowString</key>
 	<string>475 287 963 591 0 0 1440 878 </string>
@@ -522,8 +521,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {456, 269}}</string>
-											<string>{{456, 0}, {746, 269}}</string>
+											<string>{{0, 0}, {444, 269}}</string>
+											<string>{{444, 0}, {758, 269}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -586,9 +585,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>93A9D8C2076793360037FAF2</string>
+				<string>93FEA3D1076794A700069182</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>93A9D8C3076793360037FAF2</string>
+				<string>93FEA3D2076794A700069182</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debug</string>
@@ -843,9 +842,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>93A9D8C4076793360037FAF2</string>
+				<string>93FEA3D3076794A700069182</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>93A9D8C5076793360037FAF2</string>
+				<string>93FEA3D4076794A700069182</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>

@@ -153,14 +153,12 @@ pascal OSStatus AutoStarX::buttonHandler(EventHandlerCallRef myHandler, EventRef
                 SetControl32BitValue(self->mFlashProgress, (SInt32)self->mfSize/2);
                 // we need to load the file in memory here
                 FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
-				
 				//set the version in the control
 				SetControlData (self->mFileRomVersion, 
 								kControlEditTextPart, 
 								kControlEditTextTextTag, 
 								4, 
 								self->newRom->version);
-
                 // close the file after reading it
                 err=FSClose(self->mROMFileHandle);
                 if(self->bConnected)
