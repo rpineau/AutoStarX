@@ -184,6 +184,7 @@
                 <string name="viewFrame">214 45 109 16 </string>
                 <ostype name="controlSignature">frvs</ostype>
                 <int name="controlID">1010</int>
+                <boolean name="enabled">FALSE</boolean>
                 <boolean name="isUnicode">TRUE</boolean>
               </object>
             </array>

@@ -65,13 +65,12 @@ static EventTypeSpec kFactoryEvents[] =
                     
 typedef struct ROM {
 	// header
-	Byte key[4];
-	Byte checksum[4];
+	unsigned long key;  // 4 byte
+	unsigned long checksum; // 4 byte
 	Byte version[4];
 	Byte padding[4084];
 	// data pages
-	Byte pages[32][32768];
-	
+	Byte pages[96][32768];  // 32 pages for 495 & 495 , 96 pages for autostar II
 } ROM;
 
 typedef CALLBACK_API_C( void * , SetUpProc )(void *);
@@ -183,7 +182,9 @@ private:
 	// ROM data to be flashed.
 	
 	ROM *newRom;
-
+    int romType;
+    int deviceType;
+    
 // internal data
 	FSSpec mFileSpec;
 	short mROMFileHandle;

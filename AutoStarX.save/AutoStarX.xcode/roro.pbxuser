@@ -9,13 +9,15 @@
 		};
 	};
 	20286C28FDCF999611CA2CEA = {
-		activeBuildStyle = 4A9504C6FFE6A39111CA0CBA;
+		activeBuildStyle = 4A9504C5FFE6A39111CA0CBA;
 		activeExecutable = 9377B1330763CDD900C57F77;
 		activeTarget = 8D0C4E890486CD37000505A6;
 		addToTargets = (
 			8D0C4E890486CD37000505A6,
 		);
 		breakpoints = (
+			93633DB107D290BF009E3AD7,
+			93633DF307D2984E009E3AD7,
 		);
 		codeSenseManager = 9377B1410763CDEF00C57F77;
 		executables = (
@@ -106,7 +108,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 129684228;
+			PBXPerProjectTemplateStateSaveDate = 131238745;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -283,13 +285,13 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 129684228;
+			PBXWorkspaceStateSaveDate = 131238745;
 		};
 		perUserProjectItems = {
-			93131FAB07BAD1DB0098023D = 93131FAB07BAD1DB0098023D;
-			93131FAC07BAD1DB0098023D = 93131FAC07BAD1DB0098023D;
-			93FAACFC07BADD12006851FD = 93FAACFC07BADD12006851FD;
-			93FAACFD07BADD12006851FD = 93FAACFD07BADD12006851FD;
+			93633D7C07D28BB5009E3AD7 = 93633D7C07D28BB5009E3AD7;
+			93633DD107D2923E009E3AD7 = 93633DD107D2923E009E3AD7;
+			93633DFC07D2995E009E3AD7 = 93633DFC07D2995E009E3AD7;
+			93633DFD07D2995E009E3AD7 = 93633DFD07D2995E009E3AD7;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -309,17 +311,7 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	93131FAB07BAD1DB0098023D = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 1024";
-		rLen = 0;
-		rLoc = 31245;
-		rType = 0;
-		vrLen = 1459;
-		vrLoc = 30388;
-	};
-	93131FAC07BAD1DB0098023D = {
+	93633D7C07D28BB5009E3AD7 = {
 		fRef = 93E5E4EA077526CC00F37742;
 		isa = PBXTextBookmark;
 		name = "AutoStarX.h: 14";
@@ -328,6 +320,61 @@
 		rType = 0;
 		vrLen = 637;
 		vrLoc = 0;
+	};
+	93633DB107D290BF009E3AD7 = {
+		fileReference = 93E5E4EE077526FC00F37742;
+		functionName = "AutoStarX::commandHandler()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 192;
+		state = 1;
+	};
+	93633DD007D2923E009E3AD7 = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = AutoStarX.cpp;
+		path = /usr/src/AutoStarX/AutoStarX.cpp;
+		refType = 0;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 16533}}";
+			sepNavSelRange = "{32632, 0}";
+			sepNavVisRect = "{{0, 14470}, {857, 663}}";
+			sepNavWindowFrame = "{{128, 317}, {896, 793}}";
+		};
+	};
+	93633DD107D2923E009E3AD7 = {
+		fRef = 93633DD007D2923E009E3AD7;
+		isa = PBXTextBookmark;
+		rLen = 1;
+		rLoc = 274;
+		rType = 1;
+	};
+	93633DF307D2984E009E3AD7 = {
+		fileReference = 93E5E4EE077526FC00F37742;
+		functionName = "AutoStarX::commandHandler()";
+		isa = PBXFileBreakpoint;
+		lineNumber = 167;
+		state = 1;
+	};
+	93633DFC07D2995E009E3AD7 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93633DFD07D2995E009E3AD7 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 921;
+		vrLoc = 1045;
 	};
 	9377B1330763CDD900C57F77 = {
 		activeArgIndex = 2147483647;
@@ -396,18 +443,18 @@
 	};
 	93E5E4EA077526CC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 2757}}";
-			sepNavSelRange = "{205, 0}";
-			sepNavVisRect = "{{0, 0}, {711, 428}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 2771}}";
+			sepNavSelRange = "{1571, 0}";
+			sepNavVisRect = "{{0, 793}, {711, 428}}";
 			sepNavWindowFrame = "{{621, 75}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 15903}}";
-			sepNavSelRange = "{31846, 0}";
-			sepNavVisRect = "{{0, 13897}, {857, 663}}";
-			sepNavWindowFrame = "{{138, 311}, {896, 793}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 16533}}";
+			sepNavSelRange = "{32632, 0}";
+			sepNavVisRect = "{{0, 14470}, {857, 663}}";
+			sepNavWindowFrame = "{{59, 314}, {896, 793}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 = {
@@ -441,25 +488,5 @@
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
 			sepNavWindowFrame = "{{88, 552}, {750, 558}}";
 		};
-	};
-	93FAACFC07BADD12006851FD = {
-		fRef = 93E5E4EE077526FC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.cpp: 1044";
-		rLen = 0;
-		rLoc = 31846;
-		rType = 0;
-		vrLen = 1468;
-		vrLoc = 30244;
-	};
-	93FAACFD07BADD12006851FD = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = "AutoStarX.h: 14";
-		rLen = 0;
-		rLoc = 205;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
 	};
 }

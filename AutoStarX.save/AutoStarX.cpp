@@ -104,10 +104,10 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 {
 	HICommandExtended commandStruct;
 	UInt32	CommandID;
-	OSStatus result=eventNotHandledErr;
 	OSErr err;
-
+    bool wrong;
 	FileSelector Fselector;
+	OSStatus result=eventNotHandledErr;
 
 	// get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
@@ -154,7 +154,7 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				if(self->newRom)
 					delete self->newRom;
 				self->newRom= new ROM;
-                
+
                 // we need to load the file in memory here
                 FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
 				//set the version in the control
@@ -163,6 +163,20 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 								kControlEditTextTextTag, 
 								4, 
 								self->newRom->version);
+                // what autostar this rom is for ?
+                switch(self->newRom->key)
+                    {
+                        case 0x00000000:    // autostar 495 & 497
+                                self->romType=1;
+                                break;
+                        case 0x00028000:    // autostar II
+                                self->romType=2;
+                                break;
+                        default :           // unknown rom file
+                                self->romType=0xffff;
+                                break;
+                    }
+                
                 // close the file after reading it
                 err=FSClose(self->mROMFileHandle);
                 if(self->bConnected)
@@ -175,20 +189,48 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 				result=noErr;
 				break;
 
-		case 'Flsh':  // start the flashing of the AutoStarX
-                result=self->HIObjectThreadControllerCreate(self, setupFlash, Flash, termFlash, 967680, NULL, NULL);
-                if(result==noErr)
+		case 'Flsh':  // start the flashing of the autostar
+                if(self->deviceType!=0xFFFF && self->romType!=0xFFFF)
                     {
-                    // set the progress bar max length and initial value 
-                    // page 0 and 1 aren't writen
-                    // the top 512 bytes of each page aren't writen
-                    // pages 30 and 31 are for garbage collection (pages $1E and $1F)
-                    // if page is all $FF, do not write
-                    // so we have 30 pages x 32K (minus the 512 bytes)
-                    // so 30x(32768-512) = 967680 byte to write
-                    SetControl32BitMaximum(self->mFlashProgress, 967680);
-                    self->DeActivateControls();
+                    if(self->deviceType==self->romType)
+                        {
+                        wrong=false;
+                        switch(self->deviceType)
+                            {
+                            case 1: // autostar 495 & 497
+                                result=self->HIObjectThreadControllerCreate(self, setupFlash, Flash, termFlash, 967680, NULL, NULL);
+                                if(result==noErr)
+                                    {
+                                    // set the progress bar max length and initial value 
+                                    // page 0 and 1 aren't writen
+                                    // the top 512 bytes of each page aren't writen
+                                    // pages 30 and 31 are for garbage collection (pages $1E and $1F)
+                                    // if page is all $FF, do not write
+                                    // so we have 30 pages x 32K (minus the 512 bytes)
+                                    // so 30x(32768-512) = 967680 byte to write
+                                    SetControl32BitMaximum(self->mFlashProgress, 967680);
+                                    self->DeActivateControls();
+                                    }
+                                break;
+                            
+                            case 2: // autostar II
+                                wrong=false;
+                                break;
+
+                            default:
+                                wrong=true;
+                                break;
+                            }
+                        }
                     }
+                else
+                    wrong=true;
+                    
+                if(wrong)
+                    {
+                    self->ErrorAlert(CFSTR("Wrong device or ROM file!"),CFSTR("The ROM file doesn't correspond to the autostar you're trying to flash. Please verify your ROM file."));
+                    }
+                    
                 result=noErr;
 				break;
 
@@ -750,13 +792,16 @@ void AutoStarX::AutoStarConnect()
         {
         case 0x0f:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
+            deviceType=1;
             break;
             
         case 0x0A:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
+            deviceType=1;
             break;
         default:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
+            deviceType=0xFFFF;
             break;
         }
 
