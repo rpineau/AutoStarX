@@ -160,18 +160,18 @@
     <reference idRef="151"/>
     <reference idRef="152"/>
     <object class="IBCarbonWindow" id="166">
-      <string name="windowRect">295 458 614 845 </string>
+      <string name="windowRect">200 360 519 747 </string>
       <string name="title">AutoStarX</string>
       <object name="rootControl" class="IBCarbonRootControl" id="167">
         <string name="bounds">0 0 319 387 </string>
         <string name="viewFrame">0 0 387 319 </string>
         <array count="9" name="subviews">
           <object class="IBCarbonGroupBox" id="225">
-            <string name="bounds">151 10 227 357 </string>
-            <string name="viewFrame">10 151 347 76 </string>
+            <string name="bounds">150 20 226 367 </string>
+            <string name="viewFrame">20 150 347 76 </string>
             <array count="5" name="subviews">
               <object class="IBCarbonButton" id="210">
-                <string name="bounds">196 26 216 96 </string>
+                <string name="bounds">195 36 215 106 </string>
                 <string name="viewFrame">16 45 70 20 </string>
                 <ostype name="controlSignature">ropn</ostype>
                 <int name="controlID">1003</int>
@@ -179,24 +179,24 @@
                 <ostype name="command">open</ostype>
               </object>
               <object class="IBCarbonStaticText" id="226">
-                <string name="bounds">171 30 187 100 </string>
+                <string name="bounds">170 40 186 110 </string>
                 <string name="viewFrame">20 20 70 16 </string>
                 <string name="title">File name :</string>
               </object>
               <object class="IBCarbonStaticText" id="228">
-                <string name="bounds">171 108 187 341 </string>
-                <string name="viewFrame">98 20 233 16 </string>
+                <string name="bounds">170 113 186 346 </string>
+                <string name="viewFrame">93 20 233 16 </string>
                 <ostype name="controlSignature">rmfl</ostype>
                 <int name="controlID">1002</int>
                 <string name="title">/usr/src/Buld.rom</string>
               </object>
               <object class="IBCarbonStaticText" id="231">
-                <string name="bounds">195 120 211 213 </string>
+                <string name="bounds">194 130 210 223 </string>
                 <string name="viewFrame">110 44 93 16 </string>
                 <string name="title">ROM version :</string>
               </object>
               <object class="IBCarbonEditText" id="232">
-                <string name="bounds">196 224 212 333 </string>
+                <string name="bounds">195 234 211 343 </string>
                 <string name="viewFrame">214 45 109 16 </string>
                 <ostype name="controlSignature">frvs</ostype>
                 <int name="controlID">1010</int>
@@ -206,21 +206,21 @@
             <string name="title">ROM file</string>
           </object>
           <object class="IBCarbonGroupBox" id="212">
-            <string name="bounds">51 10 141 357 </string>
-            <string name="viewFrame">10 51 347 90 </string>
+            <string name="bounds">52 20 142 367 </string>
+            <string name="viewFrame">20 52 347 90 </string>
             <array count="4" name="subviews">
               <object class="IBCarbonStaticText" id="213">
-                <string name="bounds">85 26 101 115 </string>
+                <string name="bounds">86 36 102 125 </string>
                 <string name="viewFrame">16 34 89 16 </string>
                 <string name="title">Unit Version :</string>
               </object>
               <object class="IBCarbonStaticText" id="214">
-                <string name="bounds">109 26 125 115 </string>
+                <string name="bounds">110 36 126 125 </string>
                 <string name="viewFrame">16 58 89 16 </string>
                 <string name="title">ROM version :</string>
               </object>
               <object class="IBCarbonEditText" id="215">
-                <string name="bounds">84 131 100 240 </string>
+                <string name="bounds">85 141 101 250 </string>
                 <string name="viewFrame">121 33 109 16 </string>
                 <ostype name="controlSignature">uver</ostype>
                 <int name="controlID">1004</int>
@@ -230,7 +230,7 @@
                 <boolean name="isUnicode">TRUE</boolean>
               </object>
               <object class="IBCarbonEditText" id="216">
-                <string name="bounds">110 131 126 240 </string>
+                <string name="bounds">111 141 127 250 </string>
                 <string name="viewFrame">121 59 109 16 </string>
                 <ostype name="controlSignature">rver</ostype>
                 <int name="controlID">1005</int>
@@ -285,8 +285,8 @@
             <int name="justification">-1</int>
           </object>
           <object class="IBCarbonButton" id="218">
-            <string name="bounds">242 142 262 212 </string>
-            <string name="viewFrame">142 242 70 20 </string>
+            <string name="bounds">243 142 263 212 </string>
+            <string name="viewFrame">142 243 70 20 </string>
             <ostype name="controlSignature">flsh</ostype>
             <int name="controlID">1008</int>
             <string name="title">Flash</string>

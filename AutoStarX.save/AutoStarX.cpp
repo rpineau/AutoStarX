@@ -396,8 +396,8 @@ void AutoStarX::AutoStarConnect()
 	SInt16	alertOut;
 	
     char bsdPath[255];
-    char ioBuffer[64];
-    char cmd[2];
+    Byte ioBuffer[64];
+    Byte cmd[2];
 	
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
@@ -552,7 +552,7 @@ void AutoStarX::AutoStarConnect()
 
 void AutoStarX::AutoStarDisconnect()
 {
-    char cmd[2];
+    Byte cmd[2];
     
     cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
     cmd[1]=0;
@@ -607,16 +607,16 @@ void AutoStarX::Flash()
 
 pascal void AutoStarX::FlashThread(void *userData)
 {
-    int doublepages;
+	Byte doublepages;
     int page;
     int i,j;
     SInt32 progress;
     char status[64];
-	char cmd[69];	// 5 byte command + 64 byte of data maximum
-    char data[32];
+	Byte ioBuffer[64];
+	Byte cmd[69];	// 5 byte command + 64 byte of data maximum
     int blockSize;
-    char *ff_data;
-	int	addr;
+    Byte *ff_data;
+	unsigned short addr;
 	int erase_dbl_page;
 	
      // get a pointer to the object itself to be able to access private member variable and functions
@@ -625,8 +625,8 @@ pascal void AutoStarX::FlashThread(void *userData)
     // recomended block size is 64 byte (0x40)
 	blockSize=64;
 	
-    SetThemeCursor( kThemeSpinningCursor );
-    ff_data=new char[blockSize];
+    SetThemeCursor( kThemeWatchCursor );
+    ff_data=new Byte[blockSize];
 	memset(ff_data,0xff,blockSize);
     progress=0;
     SetControl32BitValue(self->mFlashProgress, progress);
@@ -653,12 +653,38 @@ pascal void AutoStarX::FlashThread(void *userData)
 			continue;
 			}
         // erase double page
+		
+		cmd[0]=0x45;    // E (1 byte response)
+		cmd[1]=doublepages;
+		cmd[2]=0;
+		if(!self->mPorts.SendData(cmd,2))
+			{
+			self->AutoStarDisconnect();
+			self->ErrorAlert(CFSTR("Write error !"));
+            return;
+			}
+			
+		if(!self->mPorts.ReadData(ioBuffer,1))
+			{
+			self->AutoStarDisconnect();
+			self->ErrorAlert(CFSTR("Read error !"));
+            return;
+			}
+			
+		// check if answer is "Y"
+		if(ioBuffer[0]!='Y') // page has been erased
+			{
+			// if not we don't try to write
+			YieldToAnyThread();
+			continue;
+			}
+		
 		for(j=0;j<2;j++)
 			{
-			// start write page 1
+			// start write page
 			addr=0x8000;
 			page=doublepages*2+j;
-			sprintf(status,"writing page : %u/32\n", page+1);
+			sprintf(status,"writing page : %u/32\n", (int)(page+1));
 			SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen (status), status);
 			// we write "blocksize" byte each time
 			for(i=0;i<32768;i+=blockSize)		
@@ -676,10 +702,52 @@ pascal void AutoStarX::FlashThread(void *userData)
 				// we don't write block that are all $FF
 				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,blockSize))
 					{
+					// increment addr
+					addr+=blockSize;
 					YieldToAnyThread();
 					continue;
 					}
 				// write data
+				cmd[0]=0x57;    // W (1 byte response)
+				cmd[1]=(char)(page);
+				cmd[2]=(char)((addr&0xFF00)>>8);		// HI part address
+				cmd[3]=(char)(addr&0xFF);		// LOW part address
+				cmd[4]=(char)blockSize;			// nb byte
+				memcpy(&cmd[5],&(self->newRom->pages[page][i]),blockSize);
+				if(!self->mPorts.SendData(cmd,69))
+					{
+					self->AutoStarDisconnect();
+					self->ErrorAlert(CFSTR("Write error !"));
+					return;
+					}
+					
+				if(!self->mPorts.ReadData(ioBuffer,1))
+					{
+					self->AutoStarDisconnect();
+					self->ErrorAlert(CFSTR("Read error !"));
+					return;
+					}
+					
+				// check if answer is "Y"
+				if(ioBuffer[0]!='Y') // Data have been writen ?
+					{
+					// if not we have a problem .. we stop it all
+					self->AutoStarDisconnect();
+					self->ErrorAlert(CFSTR("Error writing data to flash!"));
+					
+					//reactivate controls
+					ActivateControl(self->mFlashButton);
+					ActivateControl(self->mConnectButton);
+					ActivateControl(self->mRomOpen);
+					ActivateControl(self->mQuit);
+					// quiting the trhread
+					SetThemeCursor( kThemeArrowCursor );
+					self->mNumberOfRunningThreads--;
+					SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
+					delete ff_data;
+
+					return;
+					}
 				
 				// increment addr
 				addr+=blockSize;
@@ -700,6 +768,9 @@ pascal void AutoStarX::FlashThread(void *userData)
     SetThemeCursor( kThemeArrowCursor );
     self->mNumberOfRunningThreads--;
     SetControlData (self->mFlashStatus, kControlEditTextPart, kControlEditTextTextTag, strlen ("Upgrade done"), "Upgrade done");
+	SetControl32BitValue(self->mFlashProgress, 0);
+    Draw1Control(self->mFlashProgress);
+
 	delete ff_data;
 }
 

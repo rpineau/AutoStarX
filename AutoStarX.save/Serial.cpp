@@ -312,13 +312,13 @@ CFStringRef SerialPort::getPortPath(int index)
 // read "length" byte from the port.
 // return true if all data were read, false on error or timeout
 // 
-bool SerialPort::ReadData(char * dataIn, int length)
+bool SerialPort::ReadData(Byte * dataIn, int length)
 {
     
     int nByte;
     int totalRead;
     int timeout;
-    char *bufptr;
+    Byte *bufptr;
 
     bufptr=dataIn;
     totalRead=0;
@@ -350,13 +350,13 @@ bool SerialPort::ReadData(char * dataIn, int length)
 // Send "length" byte data present in dataOut 
 // return true if data was correctly send
 // 
-bool SerialPort:: SendData(char * dataOut, int length)
+bool SerialPort:: SendData(Byte * dataOut, int length)
 {
     
     int nByte;
     int totalWriten;
     int timeout;
-    char *bufptr;
+    Byte *bufptr;
 
     bufptr=dataOut;
     totalWriten=0;

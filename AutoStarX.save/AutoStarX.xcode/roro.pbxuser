@@ -94,7 +94,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 124682683;
+			PBXPerProjectTemplateStateSaveDate = 124935781;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -271,7 +271,7 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 124682683;
+			PBXWorkspaceStateSaveDate = 124935781;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -335,9 +335,9 @@
 	9377B1450763CE6400C57F77 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 1540}}";
-			sepNavSelRange = "{1975, 6}";
-			sepNavVisRect = "{{0, 223}, {711, 428}}";
-			sepNavWindowFrame = "{{174, 308}, {750, 558}}";
+			sepNavSelRange = "{577, 4}";
+			sepNavVisRect = "{{0, 196}, {711, 428}}";
+			sepNavWindowFrame = "{{614, 143}, {750, 558}}";
 		};
 	};
 	9377B1460763CE6400C57F77 = {
@@ -348,12 +348,20 @@
 			sepNavWindowFrame = "{{712, 179}, {750, 558}}";
 		};
 	};
+	9377B1480763CE6400C57F77 = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {711, 923}}";
+			sepNavSelRange = "{1275, 0}";
+			sepNavVisRect = "{{0, 495}, {711, 428}}";
+			sepNavWindowFrame = "{{65, 273}, {750, 558}}";
+		};
+	};
 	9377B14D0763CE7A00C57F77 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1016, 9911}}";
-			sepNavSelRange = "{11200, 0}";
-			sepNavVisRect = "{{0, 5907}, {711, 428}}";
-			sepNavWindowFrame = "{{19, 315}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1016, 10877}}";
+			sepNavSelRange = "{21408, 0}";
+			sepNavVisRect = "{{0, 9654}, {701, 597}}";
+			sepNavWindowFrame = "{{127, 151}, {740, 727}}";
 		};
 	};
 	9377B14E0763CE7A00C57F77 = {
@@ -367,9 +375,9 @@
 	9377B14F0763CE7A00C57F77 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 5949}}";
-			sepNavSelRange = "{10368, 15}";
-			sepNavVisRect = "{{0, 4341}, {711, 428}}";
-			sepNavWindowFrame = "{{780, 450}, {750, 558}}";
+			sepNavSelRange = "{10790, 0}";
+			sepNavVisRect = "{{0, 4637}, {711, 428}}";
+			sepNavWindowFrame = "{{88, 252}, {750, 558}}";
 		};
 	};
 }
