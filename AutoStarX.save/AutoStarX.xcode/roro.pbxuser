@@ -9,7 +9,7 @@
 		};
 	};
 	20286C28FDCF999611CA2CEA = {
-		activeBuildStyle = 4A9504C6FFE6A39111CA0CBA;
+		activeBuildStyle = 4A9504C5FFE6A39111CA0CBA;
 		activeExecutable = 9377B1330763CDD900C57F77;
 		activeTarget = 8D0C4E890486CD37000505A6;
 		addToTargets = (
@@ -106,7 +106,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 125912247;
+			PBXPerProjectTemplateStateSaveDate = 125917717;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -283,12 +283,12 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 125912247;
+			PBXWorkspaceStateSaveDate = 125917717;
 		};
 		perUserProjectItems = {
-			9382EBAC07814412003156AA = 9382EBAC07814412003156AA;
-			9382EBAD07814412003156AA = 9382EBAD07814412003156AA;
-			93C6CE9A0781456F00EE167D = 93C6CE9A0781456F00EE167D;
+			9372369507815B9500288AA8 = 9372369507815B9500288AA8;
+			9372369607815B9500288AA8 = 9372369607815B9500288AA8;
+			9372369707815B9500288AA8 = 9372369707815B9500288AA8;
 			93C6CEFE0781539700EE167D = 93C6CEFE0781539700EE167D;
 			93C6CEFF0781539700EE167D = 93C6CEFF0781539700EE167D;
 			93C6CF000781539700EE167D = 93C6CF000781539700EE167D;
@@ -310,6 +310,43 @@
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
+	};
+	9372369507815B9500288AA8 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 682";
+		rLen = 0;
+		rLoc = 21720;
+		rType = 0;
+		vrLen = 903;
+		vrLoc = 20979;
+	};
+	9372369607815B9500288AA8 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 13";
+		rLen = 0;
+		rLoc = 188;
+		rType = 0;
+		vrLen = 620;
+		vrLoc = 0;
+	};
+	9372369707815B9500288AA8 = {
+		fRef = 9372369807815B9500288AA8;
+		isa = PBXTextBookmark;
+		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
+		rLen = 105;
+		rLoc = 125177;
+		rType = 0;
+		vrLen = 817;
+		vrLoc = 124775;
+	};
+	9372369807815B9500288AA8 = {
+		isa = PBXFileReference;
+		name = Controls.h;
+		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
+		refType = 0;
+		sourceTree = "<absolute>";
 	};
 	9377B1330763CDD900C57F77 = {
 		activeArgIndex = 2147483647;
@@ -368,61 +405,6 @@
 			sepNavWindowFrame = "{{729, 105}, {750, 558}}";
 		};
 	};
-	9382EBAC07814412003156AA = {
-		fRef = 93E5E4EA077526CC00F37742;
-		isa = PBXTextBookmark;
-		name = kEventTerminateThread;
-		rLen = 21;
-		rLoc = 1336;
-		rType = 0;
-		vrLen = 800;
-		vrLoc = 841;
-	};
-	9382EBAD07814412003156AA = {
-		fRef = 9382EBAE07814412003156AA;
-		isa = PBXTextBookmark;
-		name = "  const void *      inData)                                   AVAILABLE_MAC_OS_X_VERSION_10_0_AND_LATER;\n";
-		rLen = 105;
-		rLoc = 125177;
-		rType = 0;
-		vrLen = 817;
-		vrLoc = 124775;
-	};
-	9382EBAE07814412003156AA = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.h;
-		name = Controls.h;
-		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
-		refType = 0;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1328, 58855}}";
-			sepNavSelRange = "{125177, 105}";
-			sepNavVisRect = "{{0, 48650}, {711, 428}}";
-			sepNavWindowFrame = "{{65, 573}, {750, 558}}";
-		};
-	};
-	93C6CE990781456F00EE167D = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = AutoStarX.cpp;
-		path = /usr/src/AutoStarX/AutoStarX.cpp;
-		refType = 0;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 15749}}";
-			sepNavSelRange = "{27597, 16}";
-			sepNavVisRect = "{{0, 15132}, {1006, 430}}";
-			sepNavWindowFrame = "{{662, 303}, {1045, 560}}";
-		};
-	};
-	93C6CE9A0781456F00EE167D = {
-		fRef = 93C6CE990781456F00EE167D;
-		isa = PBXTextBookmark;
-		rLen = 1;
-		rLoc = 1102;
-		rType = 1;
-	};
 	93C6CEFE0781539700EE167D = {
 		fRef = 93E5E4EE077526FC00F37742;
 		isa = PBXTextBookmark;
@@ -455,10 +437,17 @@
 	};
 	93C6CF010781539700EE167D = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = Controls.h;
 		path = /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Controls.h;
 		refType = 0;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1328, 58855}}";
+			sepNavSelRange = "{125177, 105}";
+			sepNavVisRect = "{{0, 48650}, {711, 428}}";
+			sepNavWindowFrame = "{{65, 573}, {750, 558}}";
+		};
 	};
 	93E5E4E9077526CC00F37742 = {
 		uiCtxt = {
@@ -479,9 +468,9 @@
 	93E5E4EE077526FC00F37742 = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1514, 15749}}";
-			sepNavSelRange = "{27597, 16}";
-			sepNavVisRect = "{{0, 15132}, {1006, 430}}";
-			sepNavWindowFrame = "{{554, 243}, {750, 558}}";
+			sepNavSelRange = "{21720, 0}";
+			sepNavVisRect = "{{0, 9244}, {1006, 430}}";
+			sepNavWindowFrame = "{{662, 303}, {1045, 560}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 = {
