@@ -161,19 +161,17 @@ bool ReadData(Byte * dataIn, int length)
             {
             usleep(100000); // 1/10th of a seconde
             timeout++;
+            if(timeout==10)
+                return false;            
             }
         else
+            {
             timeout=0;
-        
-        if(timeout==10)
-            return false;
-		if(nByte>0)
-			{
-			bufptr+=nByte;
-			totalRead+=nByte;
-			if(length == totalRead)
-				break;
-			}
+            bufptr+=nByte;
+            totalRead+=nByte;
+            if(length == totalRead)
+                break;
+            }
         }
 
     return true;
@@ -198,33 +196,23 @@ bool SendData(Byte * dataOut, int length)
     nByte=0;
     // send the data
 	while( (nByte=write(mSerialPortHandle,bufptr,length-totalWriten))<length)
-		{
-		if (nByte<0)
-			{
-			printf("Error writing data %s(%d).\n", strerror(errno), errno);
-			if (mSerialPortHandle != -1)
-				close(mSerialPortHandle);    
-			return false;
-			}
-
+		{            
         if(nByte<=0)
             {
             usleep(100000); // 1/10th of a seconde
             timeout++;
+            if(timeout==10)
+                return false;
             }
         else
+            {
             timeout=0;
-        
-        if(timeout==10)
-            return false;
-
-		if(nByte>0)
-			{
-			bufptr+=nByte;
-			totalWriten+=nByte;
-			if(length == totalWriten)
-				break;
-			}		
+            bufptr+=nByte;
+            totalWriten+=nByte;
+            if(length == totalWriten)
+                break;
+            }
+		
 		}
 
 	return true;
