@@ -193,7 +193,7 @@
 						<key>PBXProjectModuleLabel</key>
 						<string>AutoStarX.cpp</string>
 						<key>bookmark</key>
-						<string>93E5E57507753AE300F37742</string>
+						<string>93E5E57B07753C9700F37742</string>
 						<key>history</key>
 						<array>
 							<string>93E5E54907752D1500F37742</string>
@@ -231,7 +231,7 @@
 						<key>PBXProjectModuleLabel</key>
 						<string>AutoStarX.h</string>
 						<key>bookmark</key>
-						<string>93E5E57607753AE300F37742</string>
+						<string>93E5E57C07753C9700F37742</string>
 						<key>history</key>
 						<array>
 							<string>93E5E53E07752A9700F37742</string>
@@ -286,8 +286,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -335,10 +333,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>25</integer>
-									<integer>21</integer>
-									<integer>20</integer>
-									<integer>19</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -402,6 +397,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
