@@ -48,6 +48,11 @@ public:
     // virtual OSStatus initNIB();
     // virtual void run();
 
+    // CallBack Functions
+    static pascal OSStatus buttonHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
+    static pascal OSStatus windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
+
+
     
 private:
 // internal data
@@ -82,11 +87,6 @@ private:
 	
 	ROM *newRom;
 	
-    // CallBack Functions
-
-    static pascal OSStatus buttonHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
-    static pascal OSStatus windowHandler(EventHandlerCallRef myHandler, EventRef event, void *userData);
-
     // other function
     virtual void InitializeControls();
     virtual void SetSerialPortsControls(ControlRef control);
