@@ -108,7 +108,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 131238745;
+			PBXPerProjectTemplateStateSaveDate = 131264930;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -285,13 +285,44 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 131238745;
+			PBXWorkspaceStateSaveDate = 131264930;
 		};
 		perUserProjectItems = {
 			93633D7C07D28BB5009E3AD7 = 93633D7C07D28BB5009E3AD7;
 			93633DD107D2923E009E3AD7 = 93633DD107D2923E009E3AD7;
 			93633DFC07D2995E009E3AD7 = 93633DFC07D2995E009E3AD7;
 			93633DFD07D2995E009E3AD7 = 93633DFD07D2995E009E3AD7;
+			93FB8B6B07D2F1A70088D832 = 93FB8B6B07D2F1A70088D832;
+			93FB8B7007D2F1B10088D832 = 93FB8B7007D2F1B10088D832;
+			93FB8B7107D2F1B10088D832 = 93FB8B7107D2F1B10088D832;
+			93FB8B7207D2F1B10088D832 = 93FB8B7207D2F1B10088D832;
+			93FB8B7707D2F1B40088D832 = 93FB8B7707D2F1B40088D832;
+			93FB8B7807D2F1B40088D832 = 93FB8B7807D2F1B40088D832;
+			93FB8B7907D2F1B40088D832 = 93FB8B7907D2F1B40088D832;
+			93FB8B7A07D2F1F00088D832 = 93FB8B7A07D2F1F00088D832;
+			93FB8B7B07D2F1F00088D832 = 93FB8B7B07D2F1F00088D832;
+			93FB8B7C07D2F1F00088D832 = 93FB8B7C07D2F1F00088D832;
+			93FB8B7D07D2F24C0088D832 = 93FB8B7D07D2F24C0088D832;
+			93FB8B7E07D2F24C0088D832 = 93FB8B7E07D2F24C0088D832;
+			93FB8B7F07D2F24C0088D832 = 93FB8B7F07D2F24C0088D832;
+			93FB8B8007D2F78B0088D832 = 93FB8B8007D2F78B0088D832;
+			93FB8B8107D2F78B0088D832 = 93FB8B8107D2F78B0088D832;
+			93FB8B8207D2F78B0088D832 = 93FB8B8207D2F78B0088D832;
+			93FB8B8307D2F7A30088D832 = 93FB8B8307D2F7A30088D832;
+			93FB8B8407D2F7A30088D832 = 93FB8B8407D2F7A30088D832;
+			93FB8B8507D2F7A30088D832 = 93FB8B8507D2F7A30088D832;
+			93FB8B8607D2F7B00088D832 = 93FB8B8607D2F7B00088D832;
+			93FB8B8707D2F7B00088D832 = 93FB8B8707D2F7B00088D832;
+			93FB8B8807D2F7B00088D832 = 93FB8B8807D2F7B00088D832;
+			93FB8B8907D2F7D00088D832 = 93FB8B8907D2F7D00088D832;
+			93FB8B8A07D2F7D00088D832 = 93FB8B8A07D2F7D00088D832;
+			93FB8B8B07D2F7D00088D832 = 93FB8B8B07D2F7D00088D832;
+			93FB8B8C07D2F88D0088D832 = 93FB8B8C07D2F88D0088D832;
+			93FB8B8D07D2F88D0088D832 = 93FB8B8D07D2F88D0088D832;
+			93FB8B8E07D2F88D0088D832 = 93FB8B8E07D2F88D0088D832;
+			93FB8B8F07D2F8990088D832 = 93FB8B8F07D2F8990088D832;
+			93FB8B9007D2F8990088D832 = 93FB8B9007D2F8990088D832;
+			93FB8B9107D2F8990088D832 = 93FB8B9107D2F8990088D832;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77;
 		userBuildSettings = {
@@ -335,12 +366,6 @@
 		path = /usr/src/AutoStarX/AutoStarX.cpp;
 		refType = 0;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 16533}}";
-			sepNavSelRange = "{32632, 0}";
-			sepNavVisRect = "{{0, 14470}, {857, 663}}";
-			sepNavWindowFrame = "{{128, 317}, {896, 793}}";
-		};
 	};
 	93633DD107D2923E009E3AD7 = {
 		fRef = 93633DD007D2923E009E3AD7;
@@ -445,7 +470,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {711, 2771}}";
 			sepNavSelRange = "{1571, 0}";
-			sepNavVisRect = "{{0, 793}, {711, 428}}";
+			sepNavVisRect = "{{0, 784}, {711, 428}}";
 			sepNavWindowFrame = "{{621, 75}, {750, 558}}";
 		};
 	};
@@ -453,15 +478,15 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1514, 16533}}";
 			sepNavSelRange = "{32632, 0}";
-			sepNavVisRect = "{{0, 14470}, {857, 663}}";
+			sepNavVisRect = "{{0, 14462}, {857, 663}}";
 			sepNavWindowFrame = "{{59, 314}, {896, 793}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 5991}}";
-			sepNavSelRange = "{11612, 0}";
-			sepNavVisRect = "{{0, 3971}, {711, 428}}";
+			sepNavIntBoundsRect = "{{0, 0}, {724, 5921}}";
+			sepNavSelRange = "{10861, 0}";
+			sepNavVisRect = "{{0, 4448}, {724, 623}}";
 			sepNavWindowFrame = "{{339, 560}, {750, 558}}";
 		};
 	};
@@ -488,5 +513,309 @@
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
 			sepNavWindowFrame = "{{88, 552}, {750, 558}}";
 		};
+	};
+	93FB8B6B07D2F1A70088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXBookmark;
+	};
+	93FB8B7007D2F1B10088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 395";
+		rLen = 0;
+		rLoc = 11746;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 9977;
+	};
+	93FB8B7107D2F1B10088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B7207D2F1B10088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B7707D2F1B40088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 395";
+		rLen = 0;
+		rLoc = 11746;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 9977;
+	};
+	93FB8B7807D2F1B40088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B7907D2F1B40088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B7A07D2F1F00088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 344";
+		rLen = 0;
+		rLoc = 10603;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 10778;
+	};
+	93FB8B7B07D2F1F00088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B7C07D2F1F00088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B7D07D2F24C0088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 392";
+		rLen = 0;
+		rLoc = 11373;
+		rType = 0;
+		vrLen = 822;
+		vrLoc = 11264;
+	};
+	93FB8B7E07D2F24C0088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B7F07D2F24C0088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8007D2F78B0088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 372";
+		rLen = 0;
+		rLoc = 11166;
+		rType = 0;
+		vrLen = 841;
+		vrLoc = 10820;
+	};
+	93FB8B8107D2F78B0088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B8207D2F78B0088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8307D2F7A30088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "    int nByte;\n    int totalWriten;\n    int timeout;\n    Byte *bufptr;\n\n    bufptr=dataOut;\n    totalWriten=0;\n    timeout=0;\n    nByte=0;\n    // send the data\n\twhile( (nByte=write(mSerialPortHandle,bufptr,length-totalWriten))<length)\n\t\t{            \n        if(nByte<=0)\n            {\n            usleep(100000); // 1/10th of a seconde\n            timeout++;\n            if(timeout==10)\n                return false;\n            }\n        else\n            {\n            timeout=0;\n            bufptr+=nByte;\n            totalWriten+=nByte;\n            if(length == totalWriten)\n                break;\n            }\n\t\t\n\t\t}\n\n\treturn true;\n";
+		rLen = 638;
+		rLoc = 10928;
+		rType = 0;
+		vrLen = 841;
+		vrLoc = 10820;
+	};
+	93FB8B8407D2F7A30088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B8507D2F7A30088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8607D2F7B00088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "    int nByte;\n    int totalRead;\n    int timeout;\n    Byte *bufptr;\n\n    bufptr=dataIn;\n    totalRead=0;\n    timeout=0;\n    nByte=0;\n    while( (nByte=read(mSerialPortHandle,bufptr,length-totalRead))<length)\n        {\n        if(nByte<=0)\n            {\n            usleep(100000); // 1/10th of a seconde\n            timeout++;\n            if(timeout==10)\n                return false;            \n            }\n        else\n            {\n            timeout=0;\n            bufptr+=nByte;\n            totalRead+=nByte;\n            if(length == totalRead)\n                break;\n            }\n        }\n\n    return true;\n";
+		rLen = 620;
+		rLoc = 10146;
+		rType = 0;
+		vrLen = 899;
+		vrLoc = 10082;
+	};
+	93FB8B8707D2F7B00088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B8807D2F7B00088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8907D2F7D00088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "    int nByte;\n    int totalRead;\n    int timeout;\n    Byte *bufptr;\n\n    bufptr=dataIn;\n    totalRead=0;\n    timeout=0;\n    nByte=0;\n    while( (nByte=read(mSerialPortHandle,bufptr,length-totalRead))<length)\n        {\n        if(nByte<=0)\n            {\n            usleep(100000); // 1/10th of a seconde\n            timeout++;\n            if(timeout==10)\n                return false;            \n            }\n        else\n            {\n            timeout=0;\n            bufptr+=nByte;\n            totalRead+=nByte;\n            if(length == totalRead)\n                break;\n            }\n        }\n\n    return true;\n";
+		rLen = 620;
+		rLoc = 10146;
+		rType = 0;
+		vrLen = 899;
+		vrLoc = 10082;
+	};
+	93FB8B8A07D2F7D00088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B8B07D2F7D00088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8C07D2F88D0088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "    int nByte;\n    int totalRead;\n    int timeout;\n    Byte *bufptr;\n\n    bufptr=dataIn;\n    totalRead=0;\n    timeout=0;\n    nByte=0;\n    while( (nByte=read(mSerialPortHandle,bufptr,length-totalRead))<length)\n        {\n        if(nByte<=0)\n            {\n            usleep(100000); // 1/10th of a seconde\n            timeout++;\n            if(timeout==10)\n                return false;            \n            }\n        else\n            {\n            timeout=0;\n            bufptr+=nByte;\n            totalRead+=nByte;\n            if(length == totalRead)\n                break;\n            }\n        }\n\n    return true;\n";
+		rLen = 620;
+		rLoc = 10146;
+		rType = 0;
+		vrLen = 899;
+		vrLoc = 10082;
+	};
+	93FB8B8D07D2F88D0088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B8E07D2F88D0088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
+	};
+	93FB8B8F07D2F8990088D832 = {
+		fRef = 93E5E4EF077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "Serial.cpp: 356";
+		rLen = 0;
+		rLoc = 10861;
+		rType = 0;
+		vrLen = 899;
+		vrLoc = 10082;
+	};
+	93FB8B9007D2F8990088D832 = {
+		fRef = 93E5E4EE077526FC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.cpp: 1053";
+		rLen = 0;
+		rLoc = 32632;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 32160;
+	};
+	93FB8B9107D2F8990088D832 = {
+		fRef = 93E5E4EA077526CC00F37742;
+		isa = PBXTextBookmark;
+		name = "AutoStarX.h: 71";
+		rLen = 0;
+		rLoc = 1571;
+		rType = 0;
+		vrLen = 902;
+		vrLoc = 1045;
 	};
 }
