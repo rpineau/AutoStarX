@@ -465,6 +465,7 @@ void  AutoStarX::UpdateUI(ThreadControllerData * myData)
         case -1:
                 theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Error"), NULL);
                 ErrorAlert(CFSTR("Communication error !"),CFSTR("The autostar isn't responding to the flashing commands. Check all connections and restart the autostar in safe load mode (press Enter end down close to ? and power on the autostar)"));
+                // SendEventToUI(kEventTerminateThread, (GeneralTaskWorkParamsPtr)params, 0, -1);
                 break;
         case 33:
                 theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Upgrade done"), NULL);
@@ -655,11 +656,11 @@ void AutoStarX::SetSerialPortsControls(ControlRef control)
 void AutoStarX::AutoStarConnect()
 {
     SInt32 index;
-	
+	bool bSafeLoad;
     char bsdPath[255];
     Byte ioBuffer[64];
     Byte cmd[2];
-	
+	int i;
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
 
@@ -674,27 +675,46 @@ void AutoStarX::AutoStarConnect()
         }
         
     bConnected=true;
+    bSafeLoad=false;
 	// flush all data before starting
 	mPorts->ReadData(ioBuffer,64);
-	
-    // check AutoStarX status : cmd=0x06
-    cmd[0]=0x06;    // ^F (1 byte response)
-    cmd[1]=0;
-    if(!mPorts->SendData(cmd,1))
-		{
-		AutoStarDisconnect();		
-		ErrorAlert(CFSTR("Write error !"));
-        return;
-		}
 
-	if(!mPorts->ReadData(ioBuffer,1))
-		{
-		AutoStarDisconnect();
-		ErrorAlert(CFSTR("Read error !"));
-        return;
-		}
-		
-    if(ioBuffer[0]!='D') // not in download mode
+	i=0;
+    do
+        {
+        // check AutoStarX status : cmd=0x06
+        cmd[0]=0x06;    // ^F (1 byte response)
+        cmd[1]=0;
+        if(!mPorts->SendData(cmd,1))
+            {
+            AutoStarDisconnect();		
+            ErrorAlert(CFSTR("Write error !"));
+            return;
+            }
+        usleep(100000);
+        if(!mPorts->ReadData(ioBuffer,1))
+            {
+            AutoStarDisconnect();
+            ErrorAlert(CFSTR("Read error !"));
+            return;
+            }
+ 
+        if(ioBuffer[0]=='?')
+            i++;
+        else
+            {
+            i=0;
+            break;
+            }            
+
+        if(i>10)
+            {
+            bSafeLoad=true;
+            break;
+            }
+        } while(true);
+
+    if(ioBuffer[0]!='D' && !bSafeLoad) // not in download mode
         {
         // switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)
@@ -705,7 +725,7 @@ void AutoStarX::AutoStarConnect()
 			ErrorAlert(CFSTR("Write error !"));
             return;
 			}
-			
+		usleep(500000);	
 		if(!mPorts->ReadData(ioBuffer,1))
 			{
 			AutoStarDisconnect();
@@ -715,43 +735,7 @@ void AutoStarX::AutoStarConnect()
 
         }
     // otherwize we are already in download mode !!!!  most probably in safe load
-/*
-	//
-	// switch to 125Kbaud ---> apparently not a standar speed .. will probably never work on mac
-	// but we can test just in case..
-	// does serial port support 125Kbauds?
-	if(mPorts->SetSpeed(125000))
-		{
-		mPorts->SetSpeed(9600);  //switch back to 9600 to send the F command
-        
-		cmd[0]=0x46;    // F (1 byte response)
-		cmd[1]=0;
-		if(!mPorts->SendData(cmd,1))
-			{
-			AutoStarDisconnect();
-			ErrorAlert(CFSTR("Write error !"));
-            return;
-			}
-			
-		if(!mPorts->ReadData(ioBuffer,1))
-			{
-			AutoStarDisconnect();
-			ErrorAlert(CFSTR("Read error !"));
-            return;
-			}
-			
-		// check if answer is "Y"
-		if(ioBuffer[0]=='Y') // ok to switch to 125K
-			{
-			if(!mPorts->SetSpeed(125000))
-				{
-				AutoStarDisconnect();
-				ErrorAlert(CFSTR("Error switching to high speed !"));
-                return;
-				}
-			}
-		}
-*/    
+    
     // get device type (495, 497, ....)
     cmd[0]='T';    // ask for AutoStarX type 0x0F=497 0x0A=495 0x05=??? (1 byte response)
     cmd[1]=0;
@@ -761,7 +745,7 @@ void AutoStarX::AutoStarConnect()
 		ErrorAlert(CFSTR("Write error !"));
         return;
 		}
-	
+	usleep(500000);
 	if(!mPorts->ReadData(ioBuffer,1))
 		{
 		AutoStarDisconnect();
@@ -783,26 +767,34 @@ void AutoStarX::AutoStarConnect()
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
             break;
         }
+
         
-    // get ROM version
-    cmd[0]='V';    // ask for ROM version (4 bytes response)
-    cmd[1]=0;
-    if(!mPorts->SendData(cmd,1))
-		{
-		AutoStarDisconnect();
-		ErrorAlert(CFSTR("Write error !"));
-        return;
-		}
-		
-	if(!mPorts->ReadData(ioBuffer,4))
-		{
-		AutoStarDisconnect();
-		ErrorAlert(CFSTR("Read error !"));
-        return;
-		}
-		
-    // set the rom version control to the AutoStarX current version
-    SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
+     
+    if(!bSafeLoad)
+        {
+        // get ROM version
+        cmd[0]='V';    // ask for ROM version (4 bytes response)
+        cmd[1]=0;
+        if(!mPorts->SendData(cmd,1))
+            {
+            AutoStarDisconnect();
+            ErrorAlert(CFSTR("Write error !"));
+            return;
+            }
+        usleep(500000);    
+        if(!mPorts->ReadData(ioBuffer,4))
+            {
+            AutoStarDisconnect();
+            ErrorAlert(CFSTR("Read error !"));
+            return;
+            }
+        
+        // set the rom version control to the AutoStarX current version
+        SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
+        }
+    else
+        SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, strlen("Safe Load"), "Safe Load");
+    
     DeactivateControl(mSerialPort);
     if(bFilename)
         ActivateControl(mFlashButton);
@@ -964,6 +956,11 @@ pascal OSStatus AutoStarX::Flash(void *userData)
             progress+=(32768*2);
 			continue;
             }
+
+#ifdef __COM_DEBUG
+                printf("command = E doublepage =%X\n",doublepages);
+#endif
+
         // erase double page
 		cmd[0]=0x45;    // E (1 byte response)
 		cmd[1]=doublepages;
@@ -978,7 +975,11 @@ pascal OSStatus AutoStarX::Flash(void *userData)
             self->bFlashing=false;
             return kNSLSchedulerError;
 			}
-			
+#ifdef __COM_DEBUG
+                printf("command = E doublepage =%X command sent\n",doublepages);
+#endif
+        usleep(1000000); // a second
+        
 		if(!self->mPorts->ReadData(ioBuffer,1))
 			{
 			self->AutoStarDisconnect();
@@ -989,6 +990,10 @@ pascal OSStatus AutoStarX::Flash(void *userData)
             delete ff_data;
             return kNSLSchedulerError;
 			}
+
+#ifdef __COM_DEBUG
+                printf("command = E doublepage =%X result= %c\n",doublepages,ioBuffer[0]);
+#endif
 			
 		// check if answer is "Y"
 		if(ioBuffer[0]!='Y') // page has been erased
@@ -997,6 +1002,11 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 			continue;
 			}
+
+#ifdef __COM_DEBUG
+                printf("command = E doublepage =%X   ERASE OK\n",doublepages);
+#endif
+
 		
 		for(j=0;j<2;j++)
 			{
