@@ -715,7 +715,7 @@ void AutoStarX::AutoStarConnect()
 
         }
     // otherwize we are already in download mode !!!!  most probably in safe load
-
+/*
 	//
 	// switch to 125Kbaud ---> apparently not a standar speed .. will probably never work on mac
 	// but we can test just in case..
@@ -751,7 +751,7 @@ void AutoStarX::AutoStarConnect()
 				}
 			}
 		}
-    
+*/    
     // get device type (495, 497, ....)
     cmd[0]='T';    // ask for AutoStarX type 0x0F=497 0x0A=495 0x05=??? (1 byte response)
     cmd[1]=0;
@@ -845,7 +845,7 @@ void AutoStarX::AutoStarReset()
     while(!mPorts->ReadData(ioBuffer,1))
 		{
         timeout++;
-        if(timeout==15) // 15 secondes !!!!!
+        if(timeout==15) // 15 secondes just in case
             {
             ErrorAlert(CFSTR("Communication error !"),CFSTR("The autostar doesn't respond to the reset command"));
             AutoStarDisconnect();
@@ -854,7 +854,8 @@ void AutoStarX::AutoStarReset()
 		}
 
 
-
+    // we flush the port to be sure
+    mPorts->ReadData(ioBuffer,16);
     
     // get ROM version :GVN#
     cmd[0]=':';    // ask for ROM version (5 bytes response)
