@@ -274,6 +274,10 @@
 				8D0C4E8E0486CD37000505A6,
 				93080F630773E9CE00A5E982,
 				93080FA00773EC2C00A5E982,
+				938CEB1E0809AD7600AE2D00,
+				938CEC220809B48600AE2D00,
+				938CEC2C0809B5DB00AE2D00,
+				938CEC3D0809B64600AE2D00,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +300,9 @@
 				93E5E4F0077526FC00F37742,
 				93E5E4F1077526FC00F37742,
 				93E5E4F30775270F00F37742,
+				938CEB200809AD8A00AE2D00,
+				938CEC290809B4A400AE2D00,
+				938CEC2E0809B5FC00AE2D00,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +390,7 @@
 		};
 		9377B1440763CE4F00C57F77 = {
 			children = (
+				938CEB220809ADA000AE2D00,
 				93E5E523077529F400F37742,
 				9377B1460763CE6400C57F77,
 				93E5E51A0775295C00F37742,
@@ -416,6 +424,134 @@
 			settings = {
 			};
 		};
+		938CEB1D0809AD7600AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = SerialPort.h;
+			path = Autostar/SerialPort.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEB1E0809AD7600AE2D00 = {
+			fileRef = 938CEB1D0809AD7600AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEB1F0809AD8A00AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = SerialPort.cpp;
+			path = Autostar/SerialPort.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEB200809AD8A00AE2D00 = {
+			fileRef = 938CEB1F0809AD8A00AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEB210809AD9200AE2D00 = {
+			children = (
+				938CEC2D0809B5FC00AE2D00,
+				938CEC280809B4A400AE2D00,
+				938CEB1F0809AD8A00AE2D00,
+			);
+			isa = PBXGroup;
+			name = Autostar;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEB220809ADA000AE2D00 = {
+			children = (
+				938CEC3C0809B64600AE2D00,
+				938CEC210809B48600AE2D00,
+				938CEC2B0809B5DB00AE2D00,
+				938CEB1D0809AD7600AE2D00,
+			);
+			isa = PBXGroup;
+			name = Autostar;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC210809B48600AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = Autostar.h;
+			path = Autostar/Autostar.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC220809B48600AE2D00 = {
+			fileRef = 938CEC210809B48600AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEC280809B4A400AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = Autostar.cpp;
+			path = Autostar/Autostar.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC290809B4A400AE2D00 = {
+			fileRef = 938CEC280809B4A400AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEC2B0809B5DB00AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = Persist.h;
+			path = Autostar/Persist.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC2C0809B5DB00AE2D00 = {
+			fileRef = 938CEC2B0809B5DB00AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEC2D0809B5FC00AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = Persist.cpp;
+			path = Autostar/Persist.cpp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC2E0809B5FC00AE2D00 = {
+			fileRef = 938CEC2D0809B5FC00AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		938CEC3C0809B64600AE2D00 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = Autoglob.h;
+			path = Autostar/Autoglob.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		938CEC3D0809B64600AE2D00 = {
+			fileRef = 938CEC3C0809B64600AE2D00;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		93E5E4E9077526CC00F37742 = {
 			fileEncoding = 30;
 			isa = PBXFileReference;
@@ -434,6 +570,7 @@
 		};
 		93E5E4ED077526E700F37742 = {
 			children = (
+				938CEB210809AD9200AE2D00,
 				93E5E4F20775270F00F37742,
 				93E5E4EE077526FC00F37742,
 				93E5E4EF077526FC00F37742,
