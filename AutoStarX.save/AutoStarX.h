@@ -6,7 +6,7 @@
  *  Copyright 2004 __MyCompanyName__. All rights reserved.
  *
  */
-#include <unistd.h>
+
 #include <Carbon/Carbon.h>
 
 #include "controls.h"
