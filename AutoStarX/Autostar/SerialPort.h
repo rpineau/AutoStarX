@@ -21,42 +21,23 @@
 #include <sys/time.h>
 #include <time.h>
 
-
-#include <CoreFoundation/CoreFoundation.h>
-
-#include <IOKit/IOKitLib.h>
-#include <IOKit/serial/IOSerialKeys.h>
-#include <IOKit/IOBSD.h>
-
-
-typedef struct ASSerialPort {
-    CFStringRef   PortName;
-    CFStringRef   PortPath;
-} ASSerialPort;
-
-class SerialPort
+class SerialPortIO
 {
 
 public:
-    SerialPort();
-    virtual ~SerialPort();
+    SerialPortIO(const char *bsdPath);
+    virtual ~SerialPortIO();
     
-    virtual OSErr FindPorts(io_iterator_t *matchingServices);
-    virtual CFMutableArrayRef GetPortList(io_iterator_t serialPortIterator);
     virtual bool OpenSerialPort(const char *bsdPath, int speed);
     virtual void CloseSerialPort();
-    virtual SInt32 getCount();
-    virtual CFStringRef getPortName(int index);
-    virtual CFStringRef getPortPath(int index);
     virtual bool SetSpeed(int speed);
     virtual bool SendData(Byte * dataOut, int length);
     virtual bool ReadData(Byte * dataIn, int length);
     
-    //public data
-    CFMutableArrayRef   mPortArray;
     
 private:
     // Hold the original termios attributes so we can reset them
     struct termios mOriginalTTYAttrs;
     int mSerialPortHandle;
+    char *bsdPath;
 };

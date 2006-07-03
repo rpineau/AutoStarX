@@ -16,8 +16,8 @@
 			8D0C4E890486CD37000505A6 /* AutoStarX */,
 		);
 		breakpoints = (
-			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:192 */,
-			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:167 */,
+			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:194 */,
+			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:169 */,
 		);
 		breakpointsGroup = 937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */;
 		codeSenseManager = 9377B1410763CDEF00C57F77 /* Code sense */;
@@ -58,7 +58,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					204,
+					397,
 					20,
 					87,
 					43,
@@ -289,10 +289,12 @@
 			PBXWorkspaceStateSaveDate = 173587009;
 		};
 		perUserProjectItems = {
-			93633D7C07D28BB5009E3AD7 = 93633D7C07D28BB5009E3AD7 /* PBXTextBookmark */;
-			93633DD107D2923E009E3AD7 = 93633DD107D2923E009E3AD7 /* PBXTextBookmark */;
-			93633DFC07D2995E009E3AD7 = 93633DFC07D2995E009E3AD7 /* PBXTextBookmark */;
-			93633DFD07D2995E009E3AD7 = 93633DFD07D2995E009E3AD7 /* PBXTextBookmark */;
+			937D9DD70A58C57200E77F03 /* PBXTextBookmark */ = 937D9DD70A58C57200E77F03 /* PBXTextBookmark */;
+			937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */ = 937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */;
+			937D9DF10A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF10A58C76200E77F03 /* PBXTextBookmark */;
+			937D9DF40A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF40A58C76200E77F03 /* PBXTextBookmark */;
+			937D9DF70A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF70A58C76200E77F03 /* PBXTextBookmark */;
+			937D9DF80A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF80A58C76200E77F03 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77 /* Source Control */;
 		userBuildSettings = {
@@ -312,73 +314,35 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	93633D7C07D28BB5009E3AD7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 14";
-		rLen = 0;
-		rLoc = 205;
-		rType = 0;
-		vrLen = 637;
-		vrLoc = 0;
-	};
-	93633DB107D290BF009E3AD7 /* AutoStarX.cpp:192 */ = {
+	93633DB107D290BF009E3AD7 /* AutoStarX.cpp:194 */ = {
 		isa = PBXFileBreakpoint;
+		actions = (
+		);
 		breakpointStyle = 0;
 		continueAfterActions = 0;
 		delayBeforeContinue = 0;
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::commandHandler()";
-		hitCount = 0;
-		lineNumber = 192;
-		modificationTime = 0;
+		hitCount = 1;
+		lineNumber = 194;
+		location = AutoStarX.ob;
+		modificationTime = 173588336.526762;
 		state = 1;
 	};
-	93633DD007D2923E009E3AD7 /* AutoStarX.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = AutoStarX.cpp;
-		path = /usr/src/AutoStarX/AutoStarX.cpp;
-		sourceTree = "<absolute>";
-	};
-	93633DD107D2923E009E3AD7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93633DD007D2923E009E3AD7 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 274;
-		rType = 1;
-	};
-	93633DF307D2984E009E3AD7 /* AutoStarX.cpp:167 */ = {
+	93633DF307D2984E009E3AD7 /* AutoStarX.cpp:169 */ = {
 		isa = PBXFileBreakpoint;
+		actions = (
+		);
 		breakpointStyle = 0;
 		continueAfterActions = 0;
 		delayBeforeContinue = 0;
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::commandHandler()";
-		hitCount = 0;
-		lineNumber = 167;
-		modificationTime = 0;
+		hitCount = 1;
+		lineNumber = 169;
+		location = AutoStarX.ob;
+		modificationTime = 173588336.596566;
 		state = 1;
-	};
-	93633DFC07D2995E009E3AD7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1053";
-		rLen = 0;
-		rLoc = 32632;
-		rType = 0;
-		vrLen = 1463;
-		vrLoc = 32160;
-	};
-	93633DFD07D2995E009E3AD7 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 71";
-		rLen = 0;
-		rLoc = 1571;
-		rType = 0;
-		vrLen = 921;
-		vrLoc = 1045;
 	};
 	9377B1330763CDD900C57F77 /* AutoStarX */ = {
 		isa = PBXExecutable;
@@ -430,9 +394,78 @@
 		isa = XCBreakpointsBucket;
 		name = "Project Breakpoints";
 		objects = (
-			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:192 */,
-			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:167 */,
+			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:194 */,
+			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:169 */,
 		);
+	};
+	937D9DA20A58C01E00E77F03 /* SerialPort.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {898, 4102}}";
+			sepNavSelRange = "{485, 0}";
+			sepNavVisRect = "{{0, 270}, {898, 717}}";
+			sepNavWindowFrame = "{{726, 23}, {937, 846}}";
+		};
+	};
+	937D9DA50A58C03800E77F03 /* SerialPort.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {898, 717}}";
+			sepNavSelRange = "{901, 0}";
+			sepNavVisRect = "{{0, 0}, {898, 717}}";
+			sepNavWindowFrame = "{{394, 64}, {937, 846}}";
+		};
+	};
+	937D9DD70A58C57200E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'class SerialPort' has no member named 'OpenSerialPort'";
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		rLen = 1;
+		rLoc = 715;
+		rType = 1;
+	};
+	937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: no matching function for call to 'SerialPortIO::CloseSerialPort(int&)'";
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		rLen = 1;
+		rLoc = 30;
+		rType = 1;
+	};
+	937D9DF10A58C76200E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 30";
+		rLen = 0;
+		rLoc = 485;
+		rType = 0;
+		vrLen = 1488;
+		vrLoc = 323;
+	};
+	937D9DF40A58C76200E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = mPort;
+		rLen = 5;
+		rLoc = 489;
+		rType = 0;
+		vrLen = 1219;
+		vrLoc = 201;
+	};
+	937D9DF70A58C76200E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA50A58C03800E77F03 /* SerialPort.h */;
+		rLen = 0;
+		rLoc = "-2147483611";
+		rType = 0;
+	};
+	937D9DF80A58C76200E77F03 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA50A58C03800E77F03 /* SerialPort.h */;
+		name = "SerialPort.h: mSerialPortHandle";
+		rLen = 0;
+		rLoc = 901;
+		rType = 0;
+		vrLen = 924;
+		vrLoc = 0;
 	};
 	93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {
 		uiCtxt = {
@@ -444,26 +477,26 @@
 	};
 	93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 2771}}";
-			sepNavSelRange = "{1571, 0}";
-			sepNavVisRect = "{{0, 793}, {711, 428}}";
-			sepNavWindowFrame = "{{621, 75}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 2786}}";
+			sepNavSelRange = "{4979, 7}";
+			sepNavVisRect = "{{0, 845}, {711, 429}}";
+			sepNavWindowFrame = "{{258, 164}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 16533}}";
-			sepNavSelRange = "{32632, 0}";
-			sepNavVisRect = "{{0, 14470}, {857, 663}}";
-			sepNavWindowFrame = "{{59, 314}, {896, 793}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 16632}}";
+			sepNavSelRange = "{489, 5}";
+			sepNavVisRect = "{{0, 179}, {857, 664}}";
+			sepNavWindowFrame = "{{958, 37}, {896, 793}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 /* Serial.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 5991}}";
-			sepNavSelRange = "{11612, 0}";
-			sepNavVisRect = "{{0, 3971}, {711, 428}}";
-			sepNavWindowFrame = "{{339, 560}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 2450}}";
+			sepNavSelRange = "{202, 0}";
+			sepNavVisRect = "{{0, 0}, {711, 429}}";
+			sepNavWindowFrame = "{{156, 468}, {750, 558}}";
 		};
 	};
 	93E5E4F20775270F00F37742 /* FileSelector.cpp */ = {
@@ -476,10 +509,10 @@
 	};
 	93E5E51A0775295C00F37742 /* Serial.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 881}}";
-			sepNavSelRange = "{539, 0}";
-			sepNavVisRect = "{{0, 0}, {711, 428}}";
-			sepNavWindowFrame = "{{481, 547}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 532}}";
+			sepNavSelRange = "{267, 0}";
+			sepNavVisRect = "{{0, 0}, {711, 429}}";
+			sepNavWindowFrame = "{{982, 566}, {750, 558}}";
 		};
 	};
 	93E5E523077529F400F37742 /* FileSelector.h */ = {

@@ -10,6 +10,7 @@
 
 #include "FileSelector.h"
 #include "Serial.h"
+#include "Autostar/SerialPort.h"
 
 #include "AutoStarX.h"
 
@@ -32,7 +33,8 @@ AutoStarX::AutoStarX()
     bConnected=false;
     bFilename=false;
     newRom=NULL;
-    mRomFullPath=NULL;    
+    mRomFullPath=NULL; 
+    mPortIO=NULL;   
     bFlashing=false;    
     InitCursor();
     
@@ -709,8 +711,9 @@ void AutoStarX::AutoStarConnect()
     //get the bsd path at index -1 (index are going from 1 to n in the popup but from 0 to n-1 in the array)
     CFStringGetCString(mPorts->getPortPath(index-1),bsdPath,255,kCFStringEncodingASCII);
 
+    mPortIO=new SerialPortIO(bsdPath);
     // open port at 9600  
-    if(! mPorts->OpenSerialPort(bsdPath, 9600))
+    if(! mPortIO->OpenSerialPort(bsdPath, 9600))
         { // error opening port
         ErrorAlert(CFSTR("Communication error !"),CFSTR("The serial port is used by another application"));
         return;
@@ -719,21 +722,21 @@ void AutoStarX::AutoStarConnect()
     bConnected=true;
     bSafeLoad=true;
 	// flush all data before starting
-	mPorts->ReadData(ioBuffer,64);
+	mPortIO->ReadData(ioBuffer,64);
 
     for(i=0;i<11;i++)
         {
         // check AutoStarX status : cmd=0x06
         cmd[0]=0x06;    // ^F (1 byte response)
         cmd[1]=0;
-        if(!mPorts->SendData(cmd,1))
+        if(!mPortIO->SendData(cmd,1))
             {
             AutoStarDisconnect();		
             ErrorAlert(CFSTR("Write error !"));
             return;
             }
         usleep(100000);
-        if(!mPorts->ReadData(ioBuffer,1))
+        if(!mPortIO->ReadData(ioBuffer,1))
             {
             AutoStarDisconnect();
             ErrorAlert(CFSTR("Read error !"));
@@ -753,14 +756,14 @@ void AutoStarX::AutoStarConnect()
         // switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)
         cmd[1]=0;
-		if(!mPorts->SendData(cmd,1))
+		if(!mPortIO->SendData(cmd,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Write error !"));
             return;
 			}
 		usleep(500000);	
-		if(!mPorts->ReadData(ioBuffer,1))
+		if(!mPortIO->ReadData(ioBuffer,1))
 			{
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Read error !"));
@@ -773,14 +776,14 @@ void AutoStarX::AutoStarConnect()
     // get device type (495, 497, ....)
     cmd[0]='T';    // ask for AutoStarX type 0x0F=497 0x0A=495 0x05=??? (1 byte response)
     cmd[1]=0;
-    if(!mPorts->SendData(cmd,1))
+    if(!mPortIO->SendData(cmd,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Write error !"));
         return;
 		}
 	usleep(500000);
-	if(!mPorts->ReadData(ioBuffer,1))
+	if(!mPortIO->ReadData(ioBuffer,1))
 		{
 		AutoStarDisconnect();
 		ErrorAlert(CFSTR("Read error !"));
@@ -812,14 +815,14 @@ void AutoStarX::AutoStarConnect()
         // get ROM version
         cmd[0]='V';    // ask for ROM version (4 bytes response)
         cmd[1]=0;
-        if(!mPorts->SendData(cmd,1))
+        if(!mPortIO->SendData(cmd,1))
             {
             AutoStarDisconnect();
             ErrorAlert(CFSTR("Write error !"));
             return;
             }
         usleep(500000);    
-        if(!mPorts->ReadData(ioBuffer,4))
+        if(!mPortIO->ReadData(ioBuffer,4))
             {
             AutoStarDisconnect();
             ErrorAlert(CFSTR("Read error !"));
@@ -847,15 +850,19 @@ void AutoStarX::AutoStarDisconnect()
     
     cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
     cmd[1]=0;
-    mPorts->SendData(cmd,1);
-    mPorts->CloseSerialPort();
+    if (mPortIO!=NULL)
+        {
+        mPortIO->SendData(cmd,1);
+        mPortIO->CloseSerialPort();
+        }
     bConnected=false;
     DeactivateControl(mFlashButton);
     ActivateControl(mSerialPort);
     SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
     SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
     SetControlTitleWithCFString(mConnectButton,CFSTR("Connect"));
-
+    delete mPortIO;
+    mPortIO=NULL;
 }
 
 
@@ -867,11 +874,11 @@ void AutoStarX::AutoStarReset()
     
     cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
     cmd[1]=0;
-    mPorts->SendData(cmd,1);
+    mPortIO->SendData(cmd,1);
 
     // wait for the "X" from the autostar boot (~ 10 secondes)
 	timeout=0;
-    while(!mPorts->ReadData(ioBuffer,1))
+    while(!mPortIO->ReadData(ioBuffer,1))
 		{
         timeout++;
         if(timeout==15) // 15 secondes just in case
@@ -884,7 +891,7 @@ void AutoStarX::AutoStarReset()
 
 
     // we flush the port to be sure
-    mPorts->ReadData(ioBuffer,16);
+    mPortIO->ReadData(ioBuffer,16);
     
     // get ROM version :GVN#
     cmd[0]=':';    // ask for ROM version (5 bytes response)
@@ -893,14 +900,14 @@ void AutoStarX::AutoStarReset()
     cmd[3]='N';
     cmd[4]='#';
     
-    if(!mPorts->SendData(cmd,5))
+    if(!mPortIO->SendData(cmd,5))
 		{
 		AutoStarDisconnect();
         ErrorAlert(CFSTR("Write error !"));
         return;
 		}
 		
-	if(!mPorts->ReadData(ioBuffer,5))
+	if(!mPortIO->ReadData(ioBuffer,5))
 		{
 		AutoStarDisconnect();
         ErrorAlert(CFSTR("Read error !"));
@@ -1002,7 +1009,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		cmd[0]=0x45;    // E (1 byte response)
 		cmd[1]=doublepages;
 		cmd[2]=0;
-		if(!self->mPorts->SendData(cmd,2))
+		if(!self->mPortIO->SendData(cmd,2))
 			{
 			self->AutoStarDisconnect();
 			//
@@ -1017,7 +1024,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 #endif
         usleep(1000000); // a second
         
-		if(!self->mPorts->ReadData(ioBuffer,1))
+		if(!self->mPortIO->ReadData(ioBuffer,1))
 			{
 			self->AutoStarDisconnect();
             self->ActivateControls();
@@ -1090,7 +1097,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 				cmd[3]=(Byte)(addr&0xFF);		// LOW part address
 				cmd[4]=BLOCKSIZE;			// nb byte
 				memcpy(&cmd[5],&(self->newRom->pages[page][i]),BLOCKSIZE);
-				if(!self->mPorts->SendData(cmd,69))
+				if(!self->mPortIO->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
                     self->ActivateControls();
@@ -1101,7 +1108,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 					return kNSLSchedulerError;
 					}
 					
-				if(!self->mPorts->ReadData(ioBuffer,1))
+				if(!self->mPortIO->ReadData(ioBuffer,1))
 					{
 					self->AutoStarDisconnect();
                     self->ActivateControls();

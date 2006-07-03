@@ -175,7 +175,8 @@ private:
     //Serial port data
     CFMutableArrayRef   mPortArray;
     SerialPort  *mPorts;
-   
+    SerialPortIO *mPortIO;
+    
     bool    bConnected;
     bool    bFilename;
     bool    bFlashing;
