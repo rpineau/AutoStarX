@@ -1,0 +1,223 @@
+Things to do:
+
+Short Term
+	- If in safe mode on AS2, remind user that baud rate is set to 9600
+	- Improve Help Text
+	- Seymour Request:  allow drag-and-drop for text files of custom user objects
+	- Change "Yes"-"No" in AutoConnect to "OK"-"Cancel"
+	- Make it so that message windows are children, i.e., not always TOPMOST
+	- Report tour downloading bytes in real time
+	- Add baud rate to status bar
+	- When garbage collection fails, provide a failure status message
+	- Instead of the system generated "Handle is Invalid", how about a more user friendly "Could not open Serial Port"?
+	- Bug: Had version 10F of firmware, started upgrading to 1.2a
+		after 1% complete, error dialog "No Response" popped up, status stayed frozen at %complete,
+		and controls stayed disabled
+	D Prompt user to backup User data before upgrade (Seymour email 8/21)
+
+	*** END 3.61 REVISIONS ***
+	D Look at why initialize handbox after upgrade often fails (AS2)
+	D Investigate 494 being destroyed by ASU
+	D add flag to Tours so you know its extended when retrieving
+	X Save on exit doesnt always work (test installation of WWW setup.exe)
+		= reinstall web file, then run either installation
+	D Seymore Comments to 3.60 beta
+		D spell out comma, colon, etc. in define custom dialog
+		D change Editter to Editor
+		D Change references to Radio Button to Object Type Button
+		D make custom object select dialog modeless, or make it easier to escape
+		D editting screen only accepts 10 characters????
+		D Radio buttons broken on library side??? - no, just Seymoured - made a small change
+		D dismiss "to add new custom catalog..." status message
+		D refer to LX200 cable by its part number
+	D allow slower (9600) baud rate in DOWNLOAD mode
+	D Fix Verify Download mode
+	D Disable Drag & Drop in Real Time Mode
+	D Restart Hbx Menu Item should be on BEFORE connection
+	D Import remembers last object, but doesn't show files (e.g., *.txt )
+	D Import doesn't force you to specify type like it once did
+	D Enable regular (class 19) user objects
+	D Fix Bug: if downloading handbox code, and advanced options clicked, program crashes & says "invalid handle"
+	D Fix bug:  after upgrading AS II, available memory function fails immediately, but
+				after a brief wait, it works OK
+	D Fix bug:	memory leaks if editing item label in listview
+	D Fix bug: cannot import a large number of objects at the same time
+	D if handbox in safe-mode, do not request avail memory
+	D do not allow object data to be up/downloaded in safe mode
+	D if in safe-load mode, dont send restart command
+	D display current COM port
+	D During erasing old objects, provide some status percents
+	D Fix Bug: available handbox memory calculates: 
+			remaining memory - size of collection
+		It should calculate:
+			total memory - size of collection
+	D During a send operation:
+		= after deletecatalog() and forcegarbagecollection(), make sure that
+			the available memory > size of collection being sent
+	D Fix Bug: during erase of 240K or 300K of objects, operation dies and responds
+		"check autostar connection" after about 60-120 seconds.
+		Repeated erases of the data will eventually clear everything out
+	D Fix Bug: cannot upgrade when in safe mode - is this really a bug? or is my handbox fucked?
+			No, it's really a bug
+	D disable sorting columns in real time mode
+	D verify that free memory is being reported acurately
+	D deactivate realtime button during upgrade handbox & safe mode
+	D Color Background of Dialog, for those poor Win95 users who can't use custom images
+	D Disable Transfer Controls during send
+	D Fix bug: safe mode exits after upgrade, even when upgrade fails
+	D After upgrading hbx, update ver info (in Release mode)
+		= God damn it!  It only works if you InitializeConnection() after upgrading,
+			but then the handbox is left in download mode.
+		= added boolean parameter to skip GetVersion(), which forces download mode
+	D Fix Bug: tried sending 270k of data.  It got to deleting tours, spent a long time doing the operation,
+		then just as it moved to the next catalog, it returned with "power cycle autostar" and displayed
+		a status of Out Of Memory, handbox was dead - could not be connected
+		restarting worked.  On subsequent try, it finished OK.
+		I then upped the timeout to 10 minutes, and restarted the operation completely,
+		and it worked, but took 17 minutes to erase the 5 catalogs
+		= talk to Hoot
+	D Fix Bug: on Send command, if handbox cannot be found, it tries to send anyway
+	D LX200: make garbage collection smarter
+	D create special case of upgrading from ver. 1.0b to anything else:
+		= retreive objects from handbox
+		= erase banks 30 - 37
+		= send user objects back
+	D Eliminate Restart Button, restart automatically
+	D update help text
+	D update release notes
+	D OnConnect button should restart handbox
+
+	D FIX BUG: When downloading upgrade from web and upgrading in one step, handbox
+		does not go into download mode and fails.
+	D Don't restart hbx on connect if a transmit is about to follow
+	D remove commas before sending key to handbox
+	D Fix Bug: in CSatelliteDlg, selecting any item will also check asteroids
+	D Add Erase Banks to Options Menu
+	D EnableRedraw(false) for hbx listview during send and retrieve
+	D Fix Bug: FindComPort requires two tries to find it
+	D Add Max Baud Rate Setting
+	D Update HLP file to include how to connect to LX200 Serial Interface Cable
+	D Gray out download from web & garbage collect & load & save to hbx 
+		during handbox transactions
+	D Make Send All to Library function the same way as Send All to Handbox
+	D On Upgrade Hbx Dlg, sort revs from highest to lowest
+	X Add decimal point to version from web, i.e. "1.1A" not "11A" in UpgradeDlg
+		= not necessary, adding decimals to version in header works just fine
+	D Fix Bug: entering new user object, with a magnitude of -x, it appears in
+		listview as +-x
+	D Incorporate new tour format
+
+Medium Term
+	- Add counts of objects imported
+	- Figure out why CImage class does not work in Win95
+	- Rewrite ErrorLogDlg so that it does not use a dialog resource, i.e. use a dlg template 
+		( this will make it truly portable)
+	- Fix bug: if performing a long operation (such as erasing old objects), then tool tips
+		are presented in status bar, status returns to "ready", not last status
+	D Add ability to change User Sites & Name
+		D What to do about Current Site when loading sites from disk?
+			- remember current site, erase sites, load new sites, add back current site
+		D relocate clear presets to 494/497 class
+		D implement similar interface for 494 and 497 classes separately
+		D warn that current object cannot be replaced or deleted
+			- need logic to identify current object and prevent modification(?)
+		D if Edit Field is blank, don't fill with blank characters
+		D need to clarify Lat/Long sign convention
+		D get GMT text out of Time Zone
+		D add delete  button for deleting sites
+	X Can't add new item in empty list with edit pull down menu
+	D Incorporate Support for LX200 User Objects
+		D Update Help Text
+		D GUI Changes
+		D enumerate new user object classes
+		D add new user object commands
+			D when connecting to a 497, change User radio to User Objects
+			D when clicking on an "undefined" userObj, display a status instruction
+			D Decide what to call the default custom classes
+			D add a way to delete a custom user obj definition
+				- if deleting last object in a catalog, warn that catalog definition will be lost  & delete catalog
+			D Make more space in List status bars for catalog names
+			D when entering field names in define dlg, "enter" should add name
+			D Disable for 497
+			D Handle Real-Time Mode
+				D if in RT Mode, and delete all objects, catalog must all be deleted
+				D Plug Big Time leaks!
+			D Transfer Actions
+				D Single Transfer from one list to another
+					= check if source and dest catalogs have same CatalogName and Size. If so,
+						- transfer objects
+						If not,
+						- if dest is default catalog, create the catalog
+						- else warn that data may be lost in transfer
+				D Transfer All Objects from One list to the other
+				D Transfer All User Objects from one list to the other
+					D if handbox is a 497, ONLY transfer UserObj
+					D if no handbox or ASII, iterate through all UserObjXX classes
+						- delete the destination catalog
+						- copy the source catalog to the destination
+			D What to do about different catalog definitions in the handbox and library collections?
+				= perhaps warn that some data may be lost, and make sure all fields are within size limits
+				= transfer all must delete all first
+				= on transfer selected, if catalog does not already exist, update radio button & colomn headings
+			D handle status message a little more generically in RetrieveAllUserData(), i.e. pluralization
+			D if cancel is clicked in Define Dlg, do not proceed to New Dialog
+			D Fix Bug: in RT Mode, enable RT, & User Obj Radio says "Asteroid"
+			D disallow :'s in field descriptions
+			D Also disallow #'s and anything else that might be nasty
+			D insert a space after the field description
+			D restrict the number of characters entered in the edit boxes
+			D when New file selected, reset the custom user obj radio button headings
+			D when a file is loaded, reset the custom user obj radio button headings
+	D Improve Static Message in Edit Dialog
+		= Make note about editing in real time mode losing sort order
+		= tell them what kind of object they are editing
+	D Create restart command in Options menu (per Seymour)
+	D Create "Immediate" Mode 
+		D Create SendOneObject Function
+		D Create DeleteOneObject Function
+		D implement send all buttons
+		D implement refresh buttons
+		D disable "handbox data not saved..." warning on exit
+		D Add support for New command
+		D Add support for Edit command
+		D Add status bar updates for real time transactions
+		D make sure list view EnableRedraw() is implemented properly, e.g. deleting many objects
+		X Chase bug: It occasionally goes into Download Mode by itself (our bug or John's bug?)
+			= hasnt done this since very old versions of the code
+		D GUI Changes: enable RealTimeMode button
+		D Fix Bug: Transfer All - ALL objects does not work
+		D Fix Bug: when transfering all objects to handbox, buttons are not enabled
+		D Fix Bug: when connecting other than through connect button, all buttons are not enabled.
+		X Chase Bug: user Objects get corrupted in real time mode, require garbag collection
+			= hasn't happened in a loooonnnngggg time
+		D test the shit out of it
+		D Write documentation for Real Time Mode
+			D mention when to use it (small transfers)
+			D mention performance comprimise
+			D mention do not use when other operations are being performed
+			D go past warning menu & no scrolling test
+			D verify mode does not apply
+			= while you're at it, change refs to LX90 Autostar to #497
+	X Allow "Add" objects to handbox (with new button)
+	D Remember last selected object type in import dialog box
+	X for LX-200 SetBaud command, if in download mode, check that baud rate is going to 56k
+	D Edited item changes don't always show up. When other item hilighted then update shows up
+	D Create Force Garbage Collection in Options Menu
+
+Long Term
+	- Redo the methods of enabling/disabling buttons, something like:
+		- have several member variable such as
+			= m_currentProcess {DOWNLOADING, TRANSFERING, IDLE...}
+			= m_hbxSafeMode TRUE or FALSE
+			= m_ASType {TYPE_AUTOSTAR, TYPE_AUTOSTARII}
+		- then in the onpaint method, call the same function, which
+			evaluates the state of these 3 variables, and turns buttons
+			on or off as appropriate
+	- allow user to rearrange object order
+		= by drag and drop
+		= by up/down arrow keys
+	- allow user to reorder columns
+	- save column order/width settings to registry
+	- add thread to seek handbox connection repeatedly
+	- copy and paste web data
+	- make graphical buttons

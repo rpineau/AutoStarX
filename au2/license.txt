@@ -1,0 +1,15 @@
+COPYRIGHT(C) 2001-2002 Meade Instruments Corporation.
+
+ALL RIGHTS RESERVED.
+
+ETX is a registered Trademark of Meade Instruments Corporation.
+Windows is a registered Trademark of MicroSoft Corporation.
+
+Information in this document is subject to change without notice and does
+not represent a commitment on the part of Meade Instruments Corporation.
+The software and/or databases described in this document are furnished
+under a license agreement or nondisclosure agreement.  The software
+and/or databases may be used or copied only in accordance with the terms
+of the agreement.  It is against the law to copy the software on any
+medium except as specifically allowed in the license or nondisclosure
+agreement.

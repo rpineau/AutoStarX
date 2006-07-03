@@ -1,0 +1,22 @@
+Autostar II
+- Upgrade handbox
+	= starting with 1.0b
+	= starting with another version
+- Send Objects
+- Receive Objects
+- Version Info reported accurately
+- Available Memory reported accurately
+- Large data transfers successful
+- Sending user objects does not cause any failures
+
+
+Autostar 497
+- Upgrade Handbox
+- Send Objects
+- Receive Objects
+
+
+
+Autostar 494
+- Send Objects
+- Receive Objects

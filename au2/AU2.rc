@@ -1,0 +1,1200 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\AU2.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ETX.ico"
+IDR_AU2TYPE             ICON                    "res\\AU2Doc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_MEADE_LOGO          BITMAP                  "res\\S_S_Setup.bmp"
+IDB_TITLE               BITMAP                  "res\\Title.bmp"
+IDR_TOOLBAR1            BITMAP                  "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_TOOLBAR1 TOOLBAR  17, 17
+BEGIN
+    BUTTON      ID_BUTTON_OPEN
+    BUTTON      ID_BUTTON_WWW
+    BUTTON      ID_BUTTON_CONNECT
+    BUTTON      ID_BUTTON_NEW
+    BUTTON      ID_BUTTON_EDIT
+    BUTTON      ID_BUTTON_BLANK
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Save &Hbx Data...",           ID_FILE_SAVE_HBX
+        MENUITEM "Load Hbx Data...",            ID_FILE_OPEN_HBX
+        MENUITEM "Restore Data",                ID_FILE_RESTORE
+        MENUITEM SEPARATOR
+        MENUITEM "Import...",                   ID_FILE_IMPORT
+        MENUITEM "Get Object Data from WWW...", ID_FILE_WWW
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Edit...",                    ID_EDIT_EDIT
+        MENUITEM "&Delete",                     ID_EDIT_DELETE
+        MENUITEM "&New...",                     ID_EDIT_NEW
+        MENUITEM "Clear Library",               ID_EDIT_CLEAR_LIB
+        MENUITEM "Clear Handbox",               ID_EDIT_CLEAR_HBX
+    END
+    POPUP "Options"
+    BEGIN
+        POPUP "Startup Connect"
+        BEGIN
+            MENUITEM "Connect Only",                ID_OPTIONS_CONNECT
+            MENUITEM "Connect && Retrieve",         ID_OPTIONS_RETRIEVE
+        END
+        MENUITEM "Advanced Startup",            ID_OPTIONS_ADVANCED
+        MENUITEM "Verify Downloads",            ID_OPTIONS_VERIFY
+        MENUITEM "Load Recent File",            ID_OPTIONS_RECENT
+        MENUITEM "Set Com Port...",             ID_OPTIONS_COMPORT
+        POPUP "Set Background"
+        BEGIN
+            MENUITEM "Choose Image...",             ID_OPTIONS_BACKGROUND
+            MENUITEM "Reset Image",                 ID_OPTIONS_BACKGROUND_RESET
+
+        END
+        MENUITEM SEPARATOR
+        POPUP "Max Baud Rate", GRAYED
+        BEGIN
+            MENUITEM "115,000",                     ID_OPTIONS_BAUD_115K
+            MENUITEM "57,600",                      ID_OPTIONS_BAUD_56K
+            , CHECKED
+            MENUITEM "38,400",                      ID_OPTIONS_BAUD_38K
+            MENUITEM "28,800",                      ID_OPTIONS_BAUD_28K
+            MENUITEM "19,200",                      ID_OPTIONS_BAUD_19K
+            MENUITEM "14,400",                      ID_OPTIONS_BAUD_14K
+            MENUITEM "9,600",                       ID_OPTIONS_BAUD_9600
+        END
+    END
+    POPUP "Tools"
+    BEGIN
+        MENUITEM "Restart Handbox",             ID_TOOLS_RESET
+        MENUITEM "Edit User Data...",           ID_TOOLS_USERSITE
+        MENUITEM SEPARATOR
+        MENUITEM "Garbage Collect",             ID_TOOLS_GC, GRAYED
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Advanced",                   ID_VIEW_ADVANCED
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About ASU...",               ID_APP_ABOUT
+    END
+END
+
+IDR_MENU2 MENU 
+BEGIN
+    POPUP "CONTEXT_MENU"
+    BEGIN
+        MENUITEM "Edit...",                     ID_CONTEXT_EDIT
+        MENUITEM "Delete",                      ID_CONTEXT_DELETE
+        MENUITEM "New...",                      ID_CONTEXT_NEW
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About ASU"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "ASU Version Info",IDC_VERSION,39,10,135,11,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2001-2002",IDC_STATIC,39,33,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+    LTEXT           "date info",IDC_STATIC_DATE,39,23,119,8
+END
+
+IDD_EDITOBJECTS DIALOG  0, 0, 275, 260
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Autostar Update Object Editor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,110,50,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,110,70,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,110,90,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,110,110,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,110,130,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,110,150,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,110,170,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,110,190,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,110,210,63,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,110,230,63,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDOK,218,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,218,24,50,14
+    LTEXT           "Edit Existing Object Data or Enter New Data:",
+                    IDC_EDITTERLABEL,7,7,204,35
+    RTEXT           "KeyText",IDC_KEYTEXT,7,50,92,15,SS_CENTERIMAGE
+    RTEXT           "Data1Text",IDC_DATA1TEXT,7,70,92,15,SS_CENTERIMAGE
+    RTEXT           "Data2Text",IDC_DATA2TEXT,7,90,92,15,SS_CENTERIMAGE
+    RTEXT           "Data3Text",IDC_DATA3TEXT,7,110,92,15,SS_CENTERIMAGE
+    RTEXT           "Data4Text",IDC_DATA4TEXT,7,130,92,15,SS_CENTERIMAGE
+    RTEXT           "Data5Text",IDC_DATA5TEXT,7,150,92,15,SS_CENTERIMAGE
+    RTEXT           "Data6Text",IDC_DATA6TEXT,7,170,92,15,SS_CENTERIMAGE
+    RTEXT           "Data7Text",IDC_DATA7TEXT,7,190,92,15,SS_CENTERIMAGE
+    RTEXT           "Data8Text",IDC_DATA8TEXT,7,210,92,15,SS_CENTERIMAGE
+    RTEXT           "Data9Text",IDC_DATA9TEXT,7,230,92,15,SS_CENTERIMAGE
+    CTEXT           "Limits1",IDC_DATA1LIMITS,177,70,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits2",IDC_DATA2LIMITS,177,90,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits3",IDC_DATA3LIMITS,177,110,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits4",IDC_DATA4LIMITS,177,130,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits5",IDC_DATA5LIMITS,177,150,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits6",IDC_DATA6LIMITS,177,170,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits7",IDC_DATA7LIMITS,177,190,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits8",IDC_DATA8LIMITS,177,210,91,15,SS_CENTERIMAGE
+    CTEXT           "Limits9",IDC_DATA9LIMITS,177,230,91,15,SS_CENTERIMAGE
+    CTEXT           "Range Limits:",IDC_STATIC_RANGE,177,50,91,15,
+                    SS_CENTERIMAGE
+END
+
+IDD_AU2_FORM DIALOGEX 0, 0, 388, 242
+STYLE DS_SETFONT | DS_SETFOREGROUND | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      ">>Advanced Functions >>",IDC_ADVANCED,184,32,48,19,
+                    BS_CENTER | BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "&Upgrade Autostar Software Now",IDC_UPGRADE,51,32,126,
+                    19,BS_CENTER | BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "E&xit",ID_EXIT,184,13,48,16
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,247,26,31,19
+    PUSHBUTTON      "Retrieve",IDC_BUTTON_RETRIEVE,278,26,31,19,BS_CENTER
+    PUSHBUTTON      "Send",IDC_BUTTON_SEND,309,26,31,19,BS_CENTER | 
+                    BS_VCENTER
+    CONTROL         "Asteroids",IDC_LASTEROIDSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP,13,74,54,10
+    CONTROL         "Comets",IDC_LCOMETSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,123,74,54,10
+    CONTROL         "Satellites",IDC_LSATELLITESRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,68,74,54,10
+    CONTROL         "User Objects",IDC_LUSEROBJECTSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,123,84,54,11
+    CONTROL         "Landmarks",IDC_LLANDMARKSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,13,84,54,11
+    CONTROL         "Tours",IDC_LTOURSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,68,84,54,11
+    CONTROL         "Asteroids",IDC_HASTEROIDSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP,210,74,54,10
+    CONTROL         "Comets",IDC_HCOMETSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,320,74,54,10
+    CONTROL         "Satellites",IDC_HSATELLITESRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,265,74,54,10
+    CONTROL         "User Objects",IDC_HUSEROBJECTSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,320,84,54,11
+    CONTROL         "Landmarks",IDC_HLANDMARKSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,210,84,54,11
+    CONTROL         "Tours",IDC_HTOURSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,265,84,54,11
+    PUSHBUTTON      "-->",IDC_BUTTON_TOHBX,187,97,14,14,0,0,
+                    HIDC_BUTTON_TOHBX
+    PUSHBUTTON      "<--",IDC_BUTTON_TOLIB,187,111,14,14,0,0,
+                    HIDC_BUTTON_TOLIB
+    PUSHBUTTON      ">>",IDC_BUTTON_TOHBX_ALL,187,139,14,14,0,0,
+                    HIDC_BUTTON_TOHBX_ALL
+    PUSHBUTTON      "<<",IDC_BUTTON_TOLIB_ALL,187,153,14,14,0,0,
+                    HIDC_BUTTON_TOLIB_ALL
+    PUSHBUTTON      ">",IDC_BUTTON_TOHBX_REFRESH,187,180,14,14,0,0,
+                    HIDC_BUTTON_TOHBX_REFRESH
+    PUSHBUTTON      "<",IDC_BUTTON_TOLIB_REFRESH,187,194,14,14,0,0,
+                    HIDC_BUTTON_TOLIB_REFRESH
+    CONTROL         "RealTime     Mode",IDC_REALTIME,"Button",
+                    BS_AUTOCHECKBOX | BS_CENTER | BS_PUSHLIKE | BS_MULTILINE | 
+                    WS_DISABLED | WS_TABSTOP,340,26,35,19
+    GROUPBOX        "Library",IDC_LIBRARY,7,64,173,161
+    GROUPBOX        "Handbox",IDC_HANDBOX,207,64,174,161
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,7,
+                    7,374,227
+    CONTROL         "List1",IDC_LIBRARYLIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,13,97,164,111
+    CONTROL         "List2",IDC_HANDBOXLIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,210,97,164,111
+    GROUPBOX        "Autostar Commands",IDC_STATIC,240,13,141,38
+    CTEXT           "Library Information",IDC_STATIC_LIBRARY1,13,208,84,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Library Information",IDC_STATIC_LIBRARY2,97,208,80,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Handbox Information",IDC_STATIC_HANDBOX1,210,208,75,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Handbox Information",IDC_STATIC_HANDBOX2,285,208,89,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Selected",IDC_LABEL_SELECT,180,86,27,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "All",IDC_LABEL_ALL,180,128,27,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "Refresh",IDC_LABEL_REFRESH,180,169,27,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+END
+
+IDD_AU2_FORM2 DIALOGEX 0, 0, 388, 242
+STYLE DS_SETFONT | WS_CHILD
+FONT 10, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      ">>Advanced Functions >>",IDC_ADVANCED,184,32,48,19,
+                    BS_CENTER | BS_VCENTER | BS_MULTILINE
+    DEFPUSHBUTTON   "&Upgrade Autostar Software Now",IDC_UPGRADE,51,32,126,
+                    19,BS_CENTER | BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "E&xit",ID_EXIT,184,13,48,16
+    PUSHBUTTON      "Connect",IDC_BUTTON_CONNECT,247,32,31,19
+    PUSHBUTTON      "Retrieve",IDC_BUTTON_RETRIEVE,278,32,30,19,BS_CENTER | 
+                    BS_VCENTER
+    PUSHBUTTON      "Send",IDC_BUTTON_SEND,308,32,30,19,BS_CENTER | 
+                    BS_VCENTER
+    CONTROL         "Asteroids",IDC_LASTEROIDSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP,13,74,54,10
+    CONTROL         "Satellites",IDC_LSATELLITESRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,68,74,54,10
+    CONTROL         "Comets",IDC_LCOMETSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,123,74,54,10
+    CONTROL         "Landmarks",IDC_LLANDMARKSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,13,84,54,11
+    CONTROL         "Tours",IDC_LTOURSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,68,84,54,11
+    CONTROL         "User Objects",IDC_LUSEROBJECTSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,123,84,54,11
+    CONTROL         "Asteroids",IDC_HASTEROIDSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP,210,74,54,10
+    CONTROL         "Satellites",IDC_HSATELLITESRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,265,74,54,10
+    CONTROL         "Comets",IDC_HCOMETSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,320,74,54,10
+    CONTROL         "Landmarks",IDC_HLANDMARKSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,210,84,54,11
+    CONTROL         "Tours",IDC_HTOURSRADIO,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,265,84,54,11
+    CONTROL         "User Objects",IDC_HUSEROBJECTSRADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_PUSHLIKE,320,84,54,11
+    PUSHBUTTON      "-->",IDC_BUTTON_TOHBX,188,113,11,11
+    PUSHBUTTON      "<--",IDC_BUTTON_TOLIB,188,124,11,11
+    PUSHBUTTON      ">>",IDC_BUTTON_TOHBX_ALL,188,149,11,11
+    PUSHBUTTON      "<<",IDC_BUTTON_TOLIB_ALL,188,160,11,11
+    PUSHBUTTON      ">",IDC_BUTTON_TOHBX_REFRESH,188,185,11,11
+    PUSHBUTTON      "<",IDC_BUTTON_TOLIB_REFRESH,188,196,11,11
+    CONTROL         "RealTime   Mode",IDC_REALTIME,"Button",BS_AUTOCHECKBOX | 
+                    BS_CENTER | BS_PUSHLIKE | BS_MULTILINE | WS_DISABLED | 
+                    WS_TABSTOP,338,32,36,19
+    GROUPBOX        "Library",IDC_LIBRARY,7,65,175,161
+    GROUPBOX        "Handbox",IDC_HANDBOX,205,65,176,161
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,7,
+                    7,374,223
+    CONTROL         "List1",IDC_LIBRARYLIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,13,96,164,111
+    CONTROL         "List2",IDC_HANDBOXLIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | WS_BORDER | WS_TABSTOP,210,96,164,111
+    GROUPBOX        "Autostar Commands",IDC_STATIC,238,13,143,44
+    CTEXT           "Library Information",IDC_STATIC_LIBRARY1,13,207,84,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Library Information",IDC_STATIC_LIBRARY2,97,207,80,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Handbox Information",IDC_STATIC_HANDBOX1,210,207,75,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Handbox Information",IDC_STATIC_HANDBOX2,285,207,89,12,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "Selected",IDC_LABEL_SELECT,182,102,23,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "All",IDC_LABEL_ALL,182,138,23,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "Refresh",IDC_LABEL_REFRESH,182,174,23,8,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+END
+
+IDD_UPGRADEHBXDLG DIALOGEX 0, 0, 208, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Upgrade Autostar Handbox Software"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,151,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,151,24,50,14
+    LTEXT           "Select the source file to use for upgrading the handbox:",
+                    IDC_STATIC,7,52,194,11
+    CONTROL         "Internet:",IDC_UPGRADE_WWW,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,9,67,45,10
+    CONTROL         "Local:",IDC_UPGRADE_HD,"Button",BS_AUTORADIOBUTTON,9,
+                    101,45,10
+    LTEXT           "Static",IDC_UPGRADE_WWW_TEXT,54,68,142,13,NOT WS_GROUP
+    GROUPBOX        "",IDC_STATIC,7,96,194,86
+    GROUPBOX        "",IDC_STATIC,7,61,194,40
+    LTEXT           "Static",IDC_UPGRADE_HBX_TEXT,7,27,140,13
+    COMBOBOX        IDC_LOCAL_VERS,54,124,142,78,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select from versions on the hard drive:",
+                    IDC_UPGRADE_HD_TEXT,54,102,142,20
+    PUSHBUTTON      "Check WWW for latest version",IDC_BUTTON_CHECK_WWW,54,
+                    83,142,14
+    LTEXT           "",IDC_STATIC_HD_WARNING,14,142,180,38
+    COMBOBOX        IDC_UPGRADE_TYPE,7,7,130,55,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Erase User Banks",IDC_UPGRADE_ERASE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,7,188,120,10
+END
+
+IDD_REPLACE_DLG DIALOG  0, 0, 187, 98
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Confirm Object Replace"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Yes",ID_REPLACE_YES,7,77,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,139,77,40,14
+    DEFPUSHBUTTON   "Yes to &All",ID_REPLACE_YESTOALL,51,77,40,14
+    DEFPUSHBUTTON   "&No",ID_REPLACE_NO,95,77,40,14
+    LTEXT           "Replace the Object:",IDC_STATIC,7,7,106,19
+    LTEXT           "With the Object:",IDC_STATIC,7,41,106,19
+    LTEXT           "",IDC_REPLACE_OBJECT,18,18,159,19
+    LTEXT           "",IDC_REPLACE_WITH,18,53,159,20
+END
+
+IDD_SELECT_DLG DIALOG  0, 0, 148, 89
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,91,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,91,24,50,14
+    LTEXT           "Static",IDC_STATIC_PROMPT,7,7,80,33
+    COMBOBOX        IDC_COMBO,7,70,134,68,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Delete all existing objects first",IDC_CHECK_DELETE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,44,134,10
+    CONTROL         "Only import objects that already exist",
+                    IDC_CHECK_UPDATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    57,134,10
+END
+
+IDD_SATELLITE_DLG DIALOG  0, 0, 254, 190
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Object Download Selection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,200,5,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,200,22,50,14
+    LTEXT           "Select the object files you wish to download:",
+                    IDC_STATIC_SATELLITES,7,10,178,20
+    CONTROL         "Delete all existing objects first",IDC_CHECK_DELETE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,150,158,10
+    CONTROL         "Only import objects that already exist",
+                    IDC_CHECK_UPDATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,
+                    163,158,10
+    CONTROL         "Tree1",IDC_TREE_SATELLITES,"SysTreeView32",
+                    TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | 
+                    TVS_DISABLEDRAGDROP | TVS_NOTOOLTIPS | TVS_CHECKBOXES | 
+                    WS_BORDER | WS_TABSTOP,5,40,245,105
+END
+
+IDD_COMPORT_DLG DIALOG  0, 0, 164, 62
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set COM Port"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,107,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,107,24,50,14
+    EDITTEXT        IDC_COM_EDIT,68,43,20,12,ES_NUMBER
+    CONTROL         "COM1",IDC_COM1,"Button",BS_AUTORADIOBUTTON,7,7,35,10
+    CONTROL         "COM2",IDC_COM2,"Button",BS_AUTORADIOBUTTON,53,7,35,10
+    CONTROL         "COM3",IDC_COM3,"Button",BS_AUTORADIOBUTTON,7,25,35,10
+    CONTROL         "COM4",IDC_COM4,"Button",BS_AUTORADIOBUTTON,53,25,35,10
+    CONTROL         "Other - Specify:",IDC_COM_OTHER,"Button",
+                    BS_AUTORADIOBUTTON,7,44,61,10
+    PUSHBUTTON      "Auto-Detect",IDC_COMPORT_AUTO,107,41,50,14
+END
+
+IDD_ALL_DLG DIALOG  0, 0, 200, 94
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Confirm Object Replace"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,143,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,143,24,50,14
+    LTEXT           "Warning",IDC_STATIC_ALL,7,7,131,35
+    CONTROL         "Asteroids",IDC_CHECK_ALL_ASTEROIDS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,47,45,10
+    CONTROL         "Landmarks",IDC_CHECK_ALL_LANDMARKS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,62,50,10
+    CONTROL         "Satellites",IDC_CHECK_ALL_SATELLITES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,62,47,44,10
+    CONTROL         "Tours",IDC_CHECK_ALL_TOURS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,62,62,34,10
+    CONTROL         "Comets",IDC_CHECK_ALL_COMETS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,111,47,39,10
+    CONTROL         "User Objects",IDC_CHECK_ALL_USEROBJ,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,111,62,55,10
+    CONTROL         "ALL Object Types",IDC_CHECK_ALL_ALL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,77,186,10
+END
+
+IDD_TRANSFERLOG_DLG DIALOG  0, 0, 239, 185
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "File Download Log"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,180,5,50,14
+    CONTROL         "",IDC_RICHEDIT_LOG,"RICHEDIT",TCS_HOTTRACK | 
+                    TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_MULTISELECT | 
+                    WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,7,25,
+                    223,153
+END
+
+IDD_ERRORLOG_DLG DIALOG  0, 0, 239, 185
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,180,5,50,14
+    CONTROL         "",IDC_RICHEDIT_LOG,"RICHEDIT",TCS_HOTTRACK | 
+                    TCS_VERTICAL | TCS_RAGGEDRIGHT | TCS_MULTISELECT | 
+                    WS_BORDER | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,7,25,
+                    223,153
+END
+
+IDD_POPUP_USEROBJ DIALOG  0, 0, 108, 121
+STYLE DS_SETFONT | WS_POPUP | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "SubClasses:",IDC_BUTTON_SELECT,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,0,0,54,11
+    CONTROL         "User Objects",IDC_USEROBJ,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,11,54,11
+    CONTROL         "User Obj20",IDC_USEROBJ20,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,22,54,11
+    CONTROL         "User Obj21",IDC_USEROBJ21,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,33,54,11
+    CONTROL         "User Obj22",IDC_USEROBJ22,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,44,54,11
+    CONTROL         "User Obj23",IDC_USEROBJ23,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,55,54,11
+    CONTROL         "User Obj24",IDC_USEROBJ24,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,66,54,11
+    CONTROL         "User Obj25",IDC_USEROBJ25,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,77,54,11
+    CONTROL         "User Obj26",IDC_USEROBJ26,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,88,54,11
+    CONTROL         "User Obj27",IDC_USEROBJ27,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,99,54,11
+    CONTROL         "User Obj28",IDC_USEROBJ28,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,0,110,54,11
+    CONTROL         "User Obj29",IDC_USEROBJ29,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,0,54,11
+    CONTROL         "User Obj30",IDC_USEROBJ30,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,11,54,11
+    CONTROL         "User Obj31",IDC_USEROBJ31,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,22,54,11
+    CONTROL         "User Ob32",IDC_USEROBJ32,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,33,54,11
+    CONTROL         "User Obj33",IDC_USEROBJ33,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,44,54,11
+    CONTROL         "User Obj34",IDC_USEROBJ34,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,55,54,11
+    CONTROL         "User Obj35",IDC_USEROBJ35,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,66,54,11
+    CONTROL         "User Obj36",IDC_USEROBJ36,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,77,54,11
+    CONTROL         "User Obj37",IDC_USEROBJ37,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,88,54,11
+    CONTROL         "User Obj38",IDC_USEROBJ38,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,99,54,11
+    CONTROL         "User Obj39",IDC_USEROBJ39,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,54,110,54,11
+END
+
+IDD_DEFINECATALOG_DLG DIALOG  0, 0, 186, 215
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Define New User Catalog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_CATNAME,7,29,75,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FIELD,54,70,72,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Add",IDC_FIELD_ADD,40,90,50,14
+    PUSHBUTTON      "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Define up to 6 new fields for this Custom User Object Catalog.",
+                    IDC_STATIC,7,7,118,20
+    LISTBOX         IDC_FIELD_LIST,7,127,172,81,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Remove",IDC_FIELD_REMOVE,94,90,50,14
+    LTEXT           "Field List:",IDC_STATIC,7,113,133,8
+    LTEXT           "Specify Field: (note a total of 15 characters is allowed for the field name and data combined.)",
+                    IDC_STATIC,7,47,172,21
+    CTEXT           "15",IDC_STATIC_FIELD,164,70,15,13,SS_CENTERIMAGE
+    RTEXT           "Length:",IDC_STATIC,130,70,34,13,SS_CENTERIMAGE
+    LTEXT           "Field Name:",IDC_STATIC,7,70,46,13,SS_CENTERIMAGE
+END
+
+IDD_USERSITE_DLG DIALOG  0, 0, 414, 167
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Maintain User & Site Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Send",IDOK,357,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,357,58,50,14
+    GROUPBOX        "Owner Info",IDC_STATIC,7,22,202,139
+    GROUPBOX        "Site Info",IDC_STATIC,215,24,135,137
+    LISTBOX         IDC_LIST_USERSITE,221,52,121,103,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_BUTTON_SITE_ADD,222,34,37,14
+    PUSHBUTTON      "Delete",IDC_BUTTON_SITEDELETE,304,34,37,14
+    PUSHBUTTON      "Edit",IDC_BUTTON_SITEEDIT,263,34,37,14
+    LTEXT           "First Name",IDC_STATIC,14,34,48,12
+    EDITTEXT        IDC_EDIT_USERNAMEFIRST,68,33,136,14,ES_AUTOHSCROLL
+    LTEXT           "Last Name",IDC_STATIC,14,52,48,12
+    EDITTEXT        IDC_EDIT_USERNAMELAST,68,49,136,14,ES_AUTOHSCROLL
+    LTEXT           "Street 1",IDC_STATIC,14,70,48,12
+    EDITTEXT        IDC_EDIT_USERSTREET1,68,68,136,14,ES_AUTOHSCROLL
+    LTEXT           "Street 2",IDC_STATIC,14,89,48,12
+    EDITTEXT        IDC_EDIT_USERSTREET2,68,86,136,14,ES_AUTOHSCROLL
+    LTEXT           "City",IDC_STATIC,14,106,48,12
+    EDITTEXT        IDC_EDIT_USERCITY,68,103,136,14,ES_AUTOHSCROLL
+    LTEXT           "State",IDC_STATIC,14,124,48,12
+    EDITTEXT        IDC_EDIT_USERSTATE,68,121,136,14,ES_AUTOHSCROLL
+    LTEXT           "Post Code",IDC_STATIC,14,142,48,12
+    EDITTEXT        IDC_EDIT_USERPOST,68,140,136,14,ES_AUTOHSCROLL
+    LTEXT           "Serial Number",IDC_STATIC_SERIALNUM,14,7,159,12
+    PUSHBUTTON      "Save",IDC_USER_SAVE,357,24,50,14
+    PUSHBUTTON      "Load",IDC_USER_LOAD,357,41,50,14
+    CONTROL         "Include PEC Tables",IDC_CHECK_PEC,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,213,7,127,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,6,0,0
+ PRODUCTVERSION 3,6,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Autostar Update  Application"
+            VALUE "FileVersion", "3, 6, 0, 0"
+            VALUE "InternalName", "AU2"
+            VALUE "LegalCopyright", "Copyright (C) 2001"
+            VALUE "OriginalFilename", "AU2.EXE"
+            VALUE "ProductName", "AU2 Application"
+            VALUE "ProductVersion", "3, 6, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_EDITOBJECTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        VERTGUIDE, 99
+        VERTGUIDE, 110
+        VERTGUIDE, 173
+        VERTGUIDE, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+        HORZGUIDE, 50
+        HORZGUIDE, 65
+        HORZGUIDE, 70
+        HORZGUIDE, 85
+        HORZGUIDE, 90
+        HORZGUIDE, 105
+        HORZGUIDE, 110
+        HORZGUIDE, 125
+        HORZGUIDE, 130
+        HORZGUIDE, 145
+        HORZGUIDE, 150
+        HORZGUIDE, 165
+        HORZGUIDE, 170
+        HORZGUIDE, 185
+        HORZGUIDE, 190
+        HORZGUIDE, 205
+        HORZGUIDE, 210
+        HORZGUIDE, 225
+        HORZGUIDE, 230
+        HORZGUIDE, 245
+    END
+
+    IDD_AU2_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 381
+        VERTGUIDE, 13
+        VERTGUIDE, 247
+        VERTGUIDE, 278
+        VERTGUIDE, 309
+        VERTGUIDE, 340
+        VERTGUIDE, 374
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+        HORZGUIDE, 26
+        HORZGUIDE, 45
+    END
+
+    IDD_AU2_FORM2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 381
+        VERTGUIDE, 13
+        VERTGUIDE, 177
+        VERTGUIDE, 182
+        VERTGUIDE, 188
+        VERTGUIDE, 205
+        VERTGUIDE, 210
+        VERTGUIDE, 247
+        VERTGUIDE, 278
+        VERTGUIDE, 308
+        VERTGUIDE, 338
+        VERTGUIDE, 374
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+        HORZGUIDE, 13
+        HORZGUIDE, 29
+        HORZGUIDE, 32
+        HORZGUIDE, 51
+        HORZGUIDE, 65
+        HORZGUIDE, 124
+        HORZGUIDE, 160
+        HORZGUIDE, 196
+        HORZGUIDE, 207
+        HORZGUIDE, 226
+    END
+
+    IDD_UPGRADEHBXDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        VERTGUIDE, 7
+        VERTGUIDE, 54
+        VERTGUIDE, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+        HORZGUIDE, 101
+        HORZGUIDE, 124
+        HORZGUIDE, 182
+    END
+
+    IDD_REPLACE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 18
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_SELECT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 141
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_SATELLITE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 247
+        VERTGUIDE, 106
+        VERTGUIDE, 115
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+        HORZGUIDE, 38
+        HORZGUIDE, 43
+    END
+
+    IDD_COMPORT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 157
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_ALL_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        VERTGUIDE, 57
+        VERTGUIDE, 62
+        VERTGUIDE, 106
+        VERTGUIDE, 111
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+        HORZGUIDE, 42
+        HORZGUIDE, 47
+        HORZGUIDE, 57
+        HORZGUIDE, 62
+        HORZGUIDE, 72
+        HORZGUIDE, 77
+    END
+
+    IDD_TRANSFERLOG_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_ERRORLOG_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_POPUP_USEROBJ, DIALOG
+    BEGIN
+        HORZGUIDE, 11
+        HORZGUIDE, 22
+        HORZGUIDE, 33
+        HORZGUIDE, 44
+        HORZGUIDE, 55
+        HORZGUIDE, 66
+        HORZGUIDE, 77
+        HORZGUIDE, 88
+        HORZGUIDE, 99
+        HORZGUIDE, 110
+    END
+
+    IDD_DEFINECATALOG_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+        HORZGUIDE, 70
+        HORZGUIDE, 83
+        HORZGUIDE, 104
+    END
+
+    IDD_USERSITE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 407
+        VERTGUIDE, 14
+        VERTGUIDE, 62
+        VERTGUIDE, 68
+        VERTGUIDE, 160
+        VERTGUIDE, 173
+        VERTGUIDE, 400
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+        HORZGUIDE, 21
+        HORZGUIDE, 24
+        HORZGUIDE, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_UPGRADEHBXDLG DLGINIT
+BEGIN
+    IDC_UPGRADE_TYPE, 0x403, 28, 0
+0x7053, 0x6365, 0x6669, 0x2079, 0x7954, 0x6570, 0x6f20, 0x2066, 0x7541, 
+0x6f74, 0x7473, 0x7261, 0x2e2e, 0x002e, 
+    IDC_UPGRADE_TYPE, 0x403, 28, 0
+0x7541, 0x6f74, 0x7473, 0x7261, 0x2820, 0x3423, 0x3539, 0x202c, 0x3423, 
+0x3739, 0x202c, 0x7465, 0x2e63, 0x0029, 
+    IDC_UPGRADE_TYPE, 0x403, 24, 0
+0x7541, 0x6f74, 0x7473, 0x7261, 0x4920, 0x2049, 0x4c28, 0x3258, 0x3030, 
+0x4720, 0x5350, 0x0029, 
+    IDC_UPGRADE_TYPE, 0x403, 7, 0
+0x4352, 0x3458, 0x3030, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "Autostar Update\n\nASU\nASU Files (*.aud)\n.aud\nASU.Document\nASU Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "AU2"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_MODEL      "Model"
+    ID_INDICATOR_VER        "Ver. 0.0a"
+    ID_INDICATOR_STATUS     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the Advanced Operations window"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ADVANCED        "Show or hide advanced operations"
+    ID_FILE_IMPORT          "Import ROM files"
+    ID_FILE_EXPORT          "Export ROM files"
+    ID_CONTEXT_DELETE       "Delete selected object"
+    ID_CONTEXT_NEW          "Add new object to this list"
+    ID_CONTEXT_EDIT         "Edit selected object"
+    ID_IMPORT_SATELLITE     "Import a Satellites ROM File..."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_OPTIONS_RECENT       "Automatically load most recent file on startup"
+    ID_OPTIONS_CONNECT      "Automatically connect to Autostar when application starts"
+    ID_OPTIONS_ADVANCED     "Start application in advanced view"
+    ID_OPTIONS_VERIFY       "Confirm that data is correctly downloaded to Handbox"
+    ID_OPTIONS_RETRIEVE     "Retrieve objects in handbox automatically at startup"
+    ID_OPTIONS_COMPORT      "Specify the COM Port for the handbox serial connection"
+    ID_OPTIONS_BACKGROUND   "Select the image file for the application background"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_IMPORT_COMET         "Import a Comets ROM File..."
+    ID_IMPORT_LANDMARK      "Import a LandMarks ROM File..."
+    ID_IMPORT_TOUR          "Import a Tour ROM File..."
+    ID_IMPORT_USEROBJECT    "Import a User Objects ROM File..."
+    ID_IMPORT_ASTEROID      "Import an Asteroids ROM File..."
+    ID_FILE_SAVE_HBX        "Save the data currently displayed in the Handbox List to a file"
+    ID_FILE_OPEN_HBX        "Load data from a file and overwrite currently displayed Handbox List"
+    ID_FILE_RESTORE         "Restore from disk the last Handbox list before upload/download"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_WWW_ALL         "Download updated data for Comets, Asteroids and Satellites"
+    ID_FILE_WWW_COMETS      "Download updated data for comets"
+    ID_FILE_WWW_SATELLITES  "Download updated data for Satellites"
+    ID_FILE_WWW_ASTEROIDS_DISTANT 
+                            "Download updated data for distant asteroids"
+    ID_FILE_WWW_ASTEROIDS_BRIGHT "Download updated data for bright asteroids"
+    ID_FILE_WWW_ASTEROIDS_NEO 
+                            "Download updated data for NEO and unusual asteroids"
+    ID_FILE_WWW_ASTEROIDS_CRITICAL 
+                            "Download updated data for critical-list asteroids"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_EDIT            "Edit the selected object(s) data"
+    ID_EDIT_DELETE          "Delete the selected object(s)"
+    ID_EDIT_NEW             "Create a new object in the selected list"
+    ID_EDIT_CLEAR_LIB       "Delete all items in the Library list"
+    ID_EDIT_CLEAR_HBX       "Clear all items from the Handbox List"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_VERSION             "ASU Version 3.8"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_OPTIONS_BAUD_56K     "Set the Maximum Baud Rate of the Handbox to 57,600"
+    ID_OPTIONS_BAUD_38K     "Set the Maximum Baud Rate of the Handbox to 38,400"
+    ID_OPTIONS_BAUD_28K     "Set the Maximum Baud Rate of the Handbox to 28,800"
+    ID_OPTIONS_BAUD_19K     "Set the Maximum Baud Rate of the Handbox to 19,200"
+    ID_OPTIONS_BAUD_14K     "Set the Maximum Baud Rate of the Handbox to 14,400"
+    ID_OPTIONS_BAUD_9600    "Set the Maximum Baud Rate of the Handbox to 9,600"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_TOOLS_GC             "Clean-up user data memory in Autostar II Handbox"
+    ID_TOOLS_RESET          "Power Cycle (Restart) the handbox"
+    ID_TOOLS_USERSITE       "Edit the User Information and Site Data in the handbox"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\AU2.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
