@@ -262,7 +262,14 @@
 							<array>
 								<string>20286C29FDCF999611CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>937D9D6D0A58BCCE00E77F03</string>
+								<string>937D9D6E0A58BCCE00E77F03</string>
+								<string>02345980000FD03B11CA0E72</string>
+								<string>937D9D6F0A58BCCE00E77F03</string>
+								<string>937D9D700A58BCCE00E77F03</string>
 								<string>1C37FABC05509CD000000102</string>
+								<string>1CC0EA4004350EF90041110B</string>
+								<string>02345980000FD03B11CA0E72</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
@@ -290,7 +297,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>658 715 690 397 0 0 1920 1178 </string>
+						<string>575 740 690 397 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -327,7 +334,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {482, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>658 715 690 397 0 0 1920 1178 </string>
+								<string>575 740 690 397 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -347,7 +354,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {482, 351}}</string>
 								<key>RubberWindowFrame</key>
-								<string>658 715 690 397 0 0 1920 1178 </string>
+								<string>575 740 690 397 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -371,9 +378,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>937D9D3A0A58B55B00E77F03</string>
+				<string>937D9D5F0A58BA4C00E77F03</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>937D9D3B0A58B55B00E77F03</string>
+				<string>937D9D600A58BA4C00E77F03</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -507,12 +514,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>937D9D400A58B57500E77F03</string>
 		<string>/usr/src/Dev/AutoStarX/AutoStarX.xcodeproj</string>
+		<string>1C0AD2B3069F1EA900FABCE6</string>
 	</array>
 	<key>WindowString</key>
-	<string>658 715 690 397 0 0 1920 1178 </string>
+	<string>575 740 690 397 0 0 1920 1178 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
@@ -591,7 +598,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>937D9D400A58B57500E77F03</string>
-				<string>937D9D410A58B57500E77F03</string>
+				<string>937D9D610A58BA4C00E77F03</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -946,9 +953,9 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>937D9D420A58B57500E77F03</string>
+				<string>937D9D620A58BA4C00E77F03</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>937D9D430A58B57500E77F03</string>
+				<string>937D9D630A58BA4C00E77F03</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>

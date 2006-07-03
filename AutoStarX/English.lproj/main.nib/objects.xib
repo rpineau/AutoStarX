@@ -275,11 +275,11 @@
             <ostype name="command">Cnct</ostype>
           </object>
           <object class="IBCarbonUserPane" id="253">
-            <string name="bounds">263 -9 319 387 </string>
-            <string name="viewFrame">-9 263 396 56 </string>
+            <string name="bounds">263 0 319 396 </string>
+            <string name="viewFrame">0 263 396 56 </string>
             <array count="2" name="subviews">
               <object class="IBCarbonProgressBar" id="200">
-                <string name="bounds">282 141 301 368 </string>
+                <string name="bounds">282 150 301 377 </string>
                 <string name="viewFrame">150 19 227 19 </string>
                 <ostype name="controlSignature">prog</ostype>
                 <int name="controlID">1007</int>
@@ -287,8 +287,8 @@
                 <int name="initialValue">50</int>
               </object>
               <object class="IBCarbonStaticText" id="206">
-                <string name="bounds">283 21 299 139 </string>
-                <string name="viewFrame">30 20 118 16 </string>
+                <string name="bounds">283 20 299 138 </string>
+                <string name="viewFrame">20 20 118 16 </string>
                 <ostype name="controlSignature">fsts</ostype>
                 <int name="controlID">1006</int>
                 <boolean name="small">TRUE</boolean>
@@ -416,7 +416,7 @@
       </array>
     </object>
     <object class="IBCarbonWindow" id="244">
-      <string name="windowRect">214 428 566 748 </string>
+      <string name="windowRect">674 201 1026 521 </string>
       <string name="title">About AutoStarX</string>
       <reference name="rootControl" idRef="243"/>
       <boolean name="receiveUpdates">FALSE</boolean>
