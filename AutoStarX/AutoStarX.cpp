@@ -36,7 +36,7 @@ AutoStarX::AutoStarX()
     mRomFullPath=NULL; 
     mPortIO=NULL;   
     bFlashing=false;    
-    InitCursor();
+    // InitCursor();
     
     // Create a Nib reference passing the name of the nib file (without the .nib extension)
     // CreateNibReference only searches into the application bundle.

@@ -109,7 +109,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 173587009;
+			PBXPerProjectTemplateStateSaveDate = 181884670;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -286,15 +286,15 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 173587009;
+			PBXWorkspaceStateSaveDate = 181884670;
 		};
 		perUserProjectItems = {
-			937D9DD70A58C57200E77F03 /* PBXTextBookmark */ = 937D9DD70A58C57200E77F03 /* PBXTextBookmark */;
-			937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */ = 937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */;
-			937D9DF10A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF10A58C76200E77F03 /* PBXTextBookmark */;
-			937D9DF40A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF40A58C76200E77F03 /* PBXTextBookmark */;
-			937D9DF70A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF70A58C76200E77F03 /* PBXTextBookmark */;
-			937D9DF80A58C76200E77F03 /* PBXTextBookmark */ = 937D9DF80A58C76200E77F03 /* PBXTextBookmark */;
+			93C14A070AD75A0A004A338F /* PBXTextBookmark */ = 93C14A070AD75A0A004A338F /* PBXTextBookmark */;
+			93C14A080AD7A5B8004A338F /* PBXTextBookmark */ = 93C14A080AD7A5B8004A338F /* PBXTextBookmark */;
+			93C14A090AD7A5B8004A338F /* PBXTextBookmark */ = 93C14A090AD7A5B8004A338F /* PBXTextBookmark */;
+			93C14A0A0AD7A5B8004A338F /* PBXTextBookmark */ = 93C14A0A0AD7A5B8004A338F /* PBXTextBookmark */;
+			93F377810AD613A000F425C3 /* PBXTextBookmark */ = 93F377810AD613A000F425C3 /* PBXTextBookmark */;
+			93F377820AD613A000F425C3 /* PBXTextBookmark */ = 93F377820AD613A000F425C3 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77 /* Source Control */;
 		userBuildSettings = {
@@ -326,7 +326,7 @@
 		hitCount = 1;
 		lineNumber = 194;
 		location = AutoStarX.ob;
-		modificationTime = 173588336.526762;
+		modificationTime = 181884711.49982;
 		state = 1;
 	};
 	93633DF307D2984E009E3AD7 /* AutoStarX.cpp:169 */ = {
@@ -341,7 +341,7 @@
 		hitCount = 1;
 		lineNumber = 169;
 		location = AutoStarX.ob;
-		modificationTime = 173588336.596566;
+		modificationTime = 181884711.512553;
 		state = 1;
 	};
 	9377B1330763CDD900C57F77 /* AutoStarX */ = {
@@ -402,7 +402,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {898, 4102}}";
 			sepNavSelRange = "{485, 0}";
-			sepNavVisRect = "{{0, 270}, {898, 717}}";
+			sepNavVisRect = "{{0, 266}, {898, 717}}";
 			sepNavWindowFrame = "{{726, 23}, {937, 846}}";
 		};
 	};
@@ -414,23 +414,25 @@
 			sepNavWindowFrame = "{{394, 64}, {937, 846}}";
 		};
 	};
-	937D9DD70A58C57200E77F03 /* PBXTextBookmark */ = {
+	93C14A070AD75A0A004A338F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		comments = "error: 'class SerialPort' has no member named 'OpenSerialPort'";
+		comments = "warning: 'FSRead' is deprecated (declared at /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h:7238)";
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		rLen = 1;
-		rLoc = 715;
+		rLoc = 160;
 		rType = 1;
 	};
-	937D9DEB0A58C70B00E77F03 /* PBXTextBookmark */ = {
+	93C14A080AD7A5B8004A338F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		comments = "error: no matching function for call to 'SerialPortIO::CloseSerialPort(int&)'";
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		rLen = 1;
-		rLoc = 30;
-		rType = 1;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = FSRead;
+		rLen = 6;
+		rLoc = 3971;
+		rType = 0;
+		vrLen = 1522;
+		vrLoc = 2757;
 	};
-	937D9DF10A58C76200E77F03 /* PBXTextBookmark */ = {
+	93C14A090AD7A5B8004A338F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
 		name = "SerialPort.cpp: 30";
@@ -440,24 +442,7 @@
 		vrLen = 1488;
 		vrLoc = 323;
 	};
-	937D9DF40A58C76200E77F03 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = mPort;
-		rLen = 5;
-		rLoc = 489;
-		rType = 0;
-		vrLen = 1219;
-		vrLoc = 201;
-	};
-	937D9DF70A58C76200E77F03 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA50A58C03800E77F03 /* SerialPort.h */;
-		rLen = 0;
-		rLoc = "-2147483611";
-		rType = 0;
-	};
-	937D9DF80A58C76200E77F03 /* PBXTextBookmark */ = {
+	93C14A0A0AD7A5B8004A338F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA50A58C03800E77F03 /* SerialPort.h */;
 		name = "SerialPort.h: mSerialPortHandle";
@@ -486,8 +471,8 @@
 	93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1514, 16632}}";
-			sepNavSelRange = "{489, 5}";
-			sepNavVisRect = "{{0, 179}, {857, 664}}";
+			sepNavSelRange = "{3971, 6}";
+			sepNavVisRect = "{{0, 1677}, {857, 664}}";
 			sepNavWindowFrame = "{{958, 37}, {896, 793}}";
 		};
 	};
@@ -522,5 +507,25 @@
 			sepNavVisRect = "{{0, 0}, {711, 428}}";
 			sepNavWindowFrame = "{{88, 552}, {750, 558}}";
 		};
+	};
+	93F377810AD613A000F425C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 30";
+		rLen = 0;
+		rLoc = 485;
+		rType = 0;
+		vrLen = 1488;
+		vrLoc = 323;
+	};
+	93F377820AD613A000F425C3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA50A58C03800E77F03 /* SerialPort.h */;
+		name = "SerialPort.h: mSerialPortHandle";
+		rLen = 0;
+		rLoc = 901;
+		rType = 0;
+		vrLen = 924;
+		vrLoc = 0;
 	};
 }

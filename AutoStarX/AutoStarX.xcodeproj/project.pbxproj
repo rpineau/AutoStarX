@@ -295,6 +295,10 @@
 		93DA2E6B0A58B21D00BB68A6 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPYING_PRESERVES_HFS_DATA = YES;
 			};
 			name = Development;
@@ -302,12 +306,20 @@
 		93DA2E6C0A58B21D00BB68A6 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 			};
 			name = Deployment;
 		};
 		93DA2E6D0A58B21D00BB68A6 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 			};
 			name = Default;
 		};
