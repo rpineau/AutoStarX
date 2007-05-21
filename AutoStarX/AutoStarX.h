@@ -63,15 +63,15 @@ static EventTypeSpec kFactoryEvents[] =
         { kEventClassHIObjectThreadController, kEventTerminateThread }
     };
                     
-typedef struct ROM {
+typedef struct ROM_header {
 	// header
-	unsigned long key;  // 4 byte
+	Byte flag;
+	Byte origin[3];
 	unsigned long checksum; // 4 byte
-	Byte version[4];
-	Byte padding[4084];
-	// data pages
-	Byte pages[96][32768];  // 32 pages for 495 & 495 , 96 pages for autostar II
-} ROM;
+	Byte version[64];
+	Byte filler[4024];
+} ROM_header;
+
 
 typedef CALLBACK_API_C( void * , SetUpProc )(void *);
 typedef CALLBACK_API_C( void, TermProc )(void *);
@@ -182,7 +182,9 @@ private:
     bool    bFlashing;
 	// ROM data to be flashed.
 	
-	ROM *newRom;
+	Byte *newRom;
+	ROM_header *romHeader;
+	
     int romType;
     int deviceType;
     

@@ -154,24 +154,32 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                     }
 				
 				if(self->newRom)
-					delete self->newRom;
-				self->newRom= new ROM;
-
+					{
+					free(self->newRom);
+					self->newRom=NULL;
+					}
+				// Alloc some memory for the file
+				self->newRom=(Byte *)malloc(self->mfSize);
+				memset(self->newRom,0,self->mfSize);
                 // we need to load the file in memory here
                 FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
+				
+				self->romHeader= (ROM_header *) self->newRom;
+
 				//set the version in the control
 				SetControlData (self->mFileRomVersion, 
 								kControlEditTextPart, 
 								kControlEditTextTextTag, 
 								4, 
-								self->newRom->version);
+								self->romHeader->version);
+				
                 // what autostar this rom is for ?
-                switch(self->newRom->key)
+                switch(self->romHeader->origin[1])
                     {
-                        case 0x00000000:    // autostar 495 & 497
+                        case 0x00:    // autostar 495 & 497
                                 self->romType=1;
                                 break;
-                        case 0x00028000:    // autostar II
+                        case 0x80:    // autostar II
                                 self->romType=2;
                                 break;
                         default :           // unknown rom file
@@ -978,7 +986,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 
 #ifndef __TEST
 
-    // we start on page 2 so it's double page 1 and write 2 pages as we need to erase a double page each time
+    // we start on page 2 so it's 1 double page and then write 2 pages as we need to erase a double page each time
     for( doublepages=1;doublepages<16;doublepages++)
         {
         // update the progress bar and status
@@ -989,8 +997,8 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		erase_dbl_page=0;
 		for(i=0;i<32768;i+=BLOCKSIZE)
 			{
-			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,BLOCKSIZE);
-			erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,BLOCKSIZE);
+			//erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,BLOCKSIZE);
+			//erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,BLOCKSIZE);
 			if(erase_dbl_page)
 				break;
 			}
@@ -1081,7 +1089,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 				progress+=BLOCKSIZE;
 
 				// we don't write block that are all $FF
-				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,BLOCKSIZE))
+/*				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,BLOCKSIZE))
 					{
 					// increment addr
 					addr+=BLOCKSIZE;
@@ -1090,13 +1098,14 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 #endif				
                     continue;
 					}
+					*/
 				// write data
 				cmd[0]=0x57;    // W (1 byte response)
 				cmd[1]=page;
 				cmd[2]=(Byte)((addr&0xFF00)>>8);		// HI part address
 				cmd[3]=(Byte)(addr&0xFF);		// LOW part address
 				cmd[4]=BLOCKSIZE;			// nb byte
-				memcpy(&cmd[5],&(self->newRom->pages[page][i]),BLOCKSIZE);
+				// memcpy(&cmd[5],&(self->newRom->pages[page][i]),BLOCKSIZE);
 				if(!self->mPortIO->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
