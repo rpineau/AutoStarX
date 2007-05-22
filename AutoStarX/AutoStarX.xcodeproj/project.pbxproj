@@ -295,7 +295,10 @@
 		93DA2E6B0A58B21D00BB68A6 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPYING_PRESERVES_HFS_DATA = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};

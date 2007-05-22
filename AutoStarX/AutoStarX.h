@@ -7,13 +7,20 @@
  *
  */
 
+#include <math.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/uio.h>
+#include <unistd.h>
+
 #include <Carbon/Carbon.h>
 
 #include "controls.h"
 // #define __TEST
 // #define __COM_DEBUG
 
-#define BLOCKSIZE  0x40
+#define BLOCKSIZE	0x40
+#define PAGESIZE	32768
 
 // constant
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
@@ -143,6 +150,9 @@ private:
     virtual void HIObjectThreadControllerTermThread(HIObjectRef threadController);
     virtual CFStringRef GetThreadControllerClass();
     virtual void SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page);
+	
+	virtual int loadROMFile();
+	
 
 // Nib reference
     IBNibRef 		mNibRef;	
@@ -190,10 +200,15 @@ private:
     
 // internal data
 	FSSpec mFileSpec;
-	short mROMFileHandle;
+	SInt16 mROMFileHandle;
 	FSRef mROMfileRef;
-	UInt8 *mRomFullPath;
-    long mfSize;
+	char *mRomFullPath;
+    int mfSize;
+	int romSize;
+	struct stat f_stat;
+	int nbPages;
+	int startPage;
+	
 	
 };
 

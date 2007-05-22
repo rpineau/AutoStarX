@@ -16,10 +16,10 @@
 			8D0C4E890486CD37000505A6 /* AutoStarX */,
 		);
 		breakpoints = (
-			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:202 */,
-			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:177 */,
-			9378A2C20C00FEC80009217D /* AutoStarX.cpp:961 */,
-			93519E870C011AEF00E0542A /* AutoStarX.cpp:167 */,
+			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:134 */,
+			9378A2C20C00FEC80009217D /* AutoStarX.cpp:974 */,
+			9391F6170C035CDA001900CF /* AutoStarX.cpp:134 */,
+			9343E9720C037A4700A471F8 /* AutoStarX.cpp:665 */,
 		);
 		breakpointsGroup = 937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */;
 		codeSenseManager = 9377B1410763CDEF00C57F77 /* Code sense */;
@@ -133,7 +133,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 201397303;
+			PBXPerProjectTemplateStateSaveDate = 201553867;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -310,15 +310,15 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 201397303;
+			PBXWorkspaceStateSaveDate = 201553867;
 		};
 		perUserProjectItems = {
-			93519E940C011D2A00E0542A /* PBXTextBookmark */ = 93519E940C011D2A00E0542A /* PBXTextBookmark */;
-			93519EA90C011DFD00E0542A /* PBXTextBookmark */ = 93519EA90C011DFD00E0542A /* PBXTextBookmark */;
-			93519EBC0C011E7A00E0542A /* PBXTextBookmark */ = 93519EBC0C011E7A00E0542A /* PBXTextBookmark */;
-			93519EBD0C011E7A00E0542A /* PBXTextBookmark */ = 93519EBD0C011E7A00E0542A /* PBXTextBookmark */;
-			93519EBE0C011E7A00E0542A /* PBXTextBookmark */ = 93519EBE0C011E7A00E0542A /* PBXTextBookmark */;
-			93A75FDA0C01120300108FD4 /* PBXTextBookmark */ = 93A75FDA0C01120300108FD4 /* PBXTextBookmark */;
+			9343E9580C037A0E00A471F8 /* PBXTextBookmark */ = 9343E9580C037A0E00A471F8 /* PBXTextBookmark */;
+			9343E9770C037AB000A471F8 /* PBXTextBookmark */ = 9343E9770C037AB000A471F8 /* PBXTextBookmark */;
+			9343E9780C037AB000A471F8 /* PBXTextBookmark */ = 9343E9780C037AB000A471F8 /* PBXTextBookmark */;
+			9343E9790C037AB000A471F8 /* PBXTextBookmark */ = 9343E9790C037AB000A471F8 /* PBXTextBookmark */;
+			9391F6CA0C0377A9001900CF /* PBXTextBookmark */ = 9391F6CA0C0377A9001900CF /* PBXTextBookmark */;
+			9391F6CB0C0377A9001900CF /* PBXTextBookmark */ = 9391F6CB0C0377A9001900CF /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77 /* Source Control */;
 		userBuildSettings = {
@@ -338,7 +338,15 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	93519E870C011AEF00E0542A /* AutoStarX.cpp:167 */ = {
+	9343E9580C037A0E00A471F8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: expected primary-expression before '>' token";
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		rLen = 1;
+		rLoc = 656;
+		rType = 1;
+	};
+	9343E9720C037A4700A471F8 /* AutoStarX.cpp:665 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -346,64 +354,44 @@
 		continueAfterActions = 0;
 		delayBeforeContinue = 0;
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		functionName = "AutoStarX::commandHandler()";
+		functionName = "AutoStarX::loadROMFile()";
 		hitCount = 1;
-		lineNumber = 167;
+		lineNumber = 665;
 		location = AutoStarX.ob;
-		modificationTime = 201399860.820051;
+		modificationTime = 201554510.744219;
 		state = 1;
 	};
-	93519E940C011D2A00E0542A /* PBXTextBookmark */ = {
+	9343E9770C037AB000A471F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX::commandHandler";
-		rLen = 25;
-		rLoc = 2222;
+		name = "AutoStarX.cpp: 171";
+		rLen = 0;
+		rLoc = 4784;
 		rType = 0;
-		vrLen = 2025;
-		vrLoc = 3277;
+		vrLen = 2342;
+		vrLoc = 2983;
 	};
-	93519EA90C011DFD00E0542A /* PBXTextBookmark */ = {
+	9343E9780C037AB000A471F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 69";
+		name = "AutoStarX.h: loadROMFile";
 		rLen = 0;
-		rLoc = 1487;
+		rLoc = 4328;
 		rType = 0;
-		vrLen = 745;
-		vrLoc = 1206;
+		vrLen = 1411;
+		vrLoc = 3018;
 	};
-	93519EBC0C011E7A00E0542A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 70";
-		rLen = 0;
-		rLoc = 1503;
-		rType = 0;
-		vrLen = 724;
-		vrLoc = 1206;
-	};
-	93519EBD0C011E7A00E0542A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 177";
-		rLen = 0;
-		rLoc = 4527;
-		rType = 0;
-		vrLen = 2030;
-		vrLoc = 3277;
-	};
-	93519EBE0C011E7A00E0542A /* PBXTextBookmark */ = {
+	9343E9790C037AB000A471F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
 		name = "SerialPort.cpp: 249";
 		rLen = 0;
 		rLoc = 6874;
 		rType = 0;
-		vrLen = 1029;
+		vrLen = 1025;
 		vrLoc = 6377;
 	};
-	93633DB107D290BF009E3AD7 /* AutoStarX.cpp:202 */ = {
+	93633DF307D2984E009E3AD7 /* AutoStarX.cpp:134 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -413,24 +401,9 @@
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::commandHandler()";
 		hitCount = 1;
-		lineNumber = 202;
+		lineNumber = 134;
 		location = AutoStarX.ob;
-		modificationTime = 201399857.828563;
-		state = 1;
-	};
-	93633DF307D2984E009E3AD7 /* AutoStarX.cpp:177 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		delayBeforeContinue = 0;
-		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		functionName = "AutoStarX::commandHandler()";
-		hitCount = 1;
-		lineNumber = 177;
-		location = AutoStarX.ob;
-		modificationTime = 201399857.845921;
+		modificationTime = 201554582.257409;
 		state = 1;
 	};
 	9377B1330763CDD900C57F77 /* AutoStarX */ = {
@@ -488,7 +461,7 @@
 			sepNavWindowFrame = "{{729, 105}, {750, 558}}";
 		};
 	};
-	9378A2C20C00FEC80009217D /* AutoStarX.cpp:961 */ = {
+	9378A2C20C00FEC80009217D /* AutoStarX.cpp:974 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -498,26 +471,27 @@
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::setupFlash()";
 		hitCount = 1;
-		lineNumber = 961;
+		lineNumber = 974;
 		location = AutoStarX.ob;
-		modificationTime = 201399857.87421;
+		modificationTime = 201554487.740124;
 		state = 1;
 	};
 	937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */ = {
 		isa = XCBreakpointsBucket;
 		name = "Project Breakpoints";
 		objects = (
-			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:202 */,
-			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:177 */,
-			9378A2C20C00FEC80009217D /* AutoStarX.cpp:961 */,
+			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:134 */,
+			9378A2C20C00FEC80009217D /* AutoStarX.cpp:974 */,
+			9391F6170C035CDA001900CF /* AutoStarX.cpp:134 */,
+			9343E9720C037A4700A471F8 /* AutoStarX.cpp:665 */,
 		);
 	};
 	937D9DA20A58C01E00E77F03 /* SerialPort.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {898, 4102}}";
 			sepNavSelRange = "{6874, 0}";
-			sepNavVisRect = "{{0, 3178}, {898, 717}}";
-			sepNavWindowFrame = "{{760, 83}, {937, 846}}";
+			sepNavVisRect = "{{0, 3178}, {898, 703}}";
+			sepNavWindowFrame = "{{265, 0}, {937, 832}}";
 		};
 	};
 	937D9DA50A58C03800E77F03 /* SerialPort.h */ = {
@@ -528,14 +502,39 @@
 			sepNavWindowFrame = "{{394, 64}, {937, 846}}";
 		};
 	};
-	93A75FDA0C01120300108FD4 /* PBXTextBookmark */ = {
+	9391F6170C035CDA001900CF /* AutoStarX.cpp:134 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		delayBeforeContinue = 0;
+		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		functionName = "AutoStarX::commandHandler()";
+		hitCount = 1;
+		lineNumber = 134;
+		location = AutoStarX.ob;
+		modificationTime = 201554487.782445;
+		state = 1;
+	};
+	9391F6CA0C0377A9001900CF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "AutoStarX.h: 14";
+		rLen = 0;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 649;
+		vrLoc = 0;
+	};
+	9391F6CB0C0377A9001900CF /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 30";
+		name = "SerialPort.cpp: 249";
 		rLen = 0;
-		rLoc = 485;
+		rLoc = 6874;
 		rType = 0;
-		vrLen = 1029;
+		vrLen = 1025;
 		vrLoc = 6377;
 	};
 	93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {
@@ -548,18 +547,18 @@
 	};
 	93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 2814}}";
-			sepNavSelRange = "{1503, 0}";
-			sepNavVisRect = "{{0, 852}, {711, 429}}";
-			sepNavWindowFrame = "{{222, 402}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {711, 3024}}";
+			sepNavSelRange = "{4328, 0}";
+			sepNavVisRect = "{{0, 1818}, {711, 429}}";
+			sepNavWindowFrame = "{{402, 110}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 16758}}";
-			sepNavSelRange = "{4527, 0}";
-			sepNavVisRect = "{{0, 1926}, {951, 838}}";
-			sepNavWindowFrame = "{{186, 71}, {990, 967}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1514, 16800}}";
+			sepNavSelRange = "{4784, 0}";
+			sepNavVisRect = "{{0, 1897}, {951, 703}}";
+			sepNavWindowFrame = "{{1344, 41}, {990, 832}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 /* Serial.cpp */ = {

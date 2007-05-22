@@ -94,7 +94,7 @@ AutoStarX::~AutoStarX()
     if(bConnected)
         AutoStarDisconnect();
 	if(newRom)
-		delete newRom;
+		free(newRom);
 	if(mRomFullPath)
 		delete mRomFullPath;
 	
@@ -107,8 +107,9 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 	HICommandExtended commandStruct;
 	UInt32	CommandID;
 	OSErr err;
+	
+	
     bool wrong;
-	FileSelector Fselector;
 	OSStatus result=eventNotHandledErr;
 
 	// get a pointer to the object itself to be able to access private member variable and functions
@@ -128,70 +129,8 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 		{
 		case 'open':  // get the file name and its size
 				{
-				self->mFileSpec=Fselector.FileSelect();
-				FSpMakeFSRef(&self->mFileSpec,&self->mROMfileRef);
-				if(self->mRomFullPath)
-					delete self->mRomFullPath;
-				self->mRomFullPath=new UInt8[255];
-				FSRefMakePath(&self->mROMfileRef, self->mRomFullPath,255);
-				// set the rom file path control to the full file path
-				SetControlData (self->mRomFile, 
-								kControlEditTextPart, 
-								kControlEditTextTextTag, 
-								strlen ((const char *)(self->mRomFullPath)), 
-								self->mRomFullPath);
-				// we need to open the file to get its size
-				err=FSpOpenDF(&self->mFileSpec, fsRdPerm ,&self->mROMFileHandle);
-				if(err)
-					{
-                    break;
-                    }
-                // get file size    
-                err=GetEOF(self->mROMFileHandle,&self->mfSize);
-				if(err)
-					{
-                   break;
-                    }
+				self->loadROMFile();
 				
-				if(self->newRom)
-					{
-					free(self->newRom);
-					self->newRom=NULL;
-					}
-				// Alloc some memory for the file
-				self->newRom=(Byte *)malloc(self->mfSize);
-				memset(self->newRom,0,self->mfSize);
-                // we need to load the file in memory here
-                FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
-				
-				self->romHeader= (ROM_header *) self->newRom;
-
-				//set the version in the control
-				SetControlData (self->mFileRomVersion, 
-								kControlEditTextPart, 
-								kControlEditTextTextTag, 
-								4, 
-								self->romHeader->version);
-				
-                // what autostar this rom is for ?
-                switch(self->romHeader->origin[1])
-                    {
-                        case 0x00:    // autostar 495 & 497
-                                self->romType=1;
-                                break;
-                        case 0x80:    // autostar II
-                                self->romType=2;
-                                break;
-                        default :           // unknown rom file
-                                self->romType=0xffff;
-                                break;
-                    }
-                
-                // close the file after reading it
-                err=FSClose(self->mROMFileHandle);
-                if(self->bConnected)
-                    ActivateControl(self->mFlashButton);
-                self->bFilename=true;
 				break;
 				}
 				
@@ -208,7 +147,7 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                         switch(self->deviceType)
                             {
                             case 1: // autostar 495 & 497
-                                result=self->HIObjectThreadControllerCreate(self, setupFlash, Flash, termFlash, 967680, NULL, NULL);
+                                result=self->HIObjectThreadControllerCreate(self, setupFlash, Flash, termFlash, self->nbPages*PAGESIZE, NULL, NULL);
                                 if(result==noErr)
                                     {
                                     // set the progress bar max length and initial value 
@@ -218,7 +157,7 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                                     // if page is all $FF, do not write
                                     // so we have 30 pages x 32K (minus the 512 bytes)
                                     // so 30x(32768-512) = 967680 byte to write
-                                    SetControl32BitMaximum(self->mFlashProgress, 967680);
+                                    SetControl32BitMaximum(self->mFlashProgress, self->nbPages*PAGESIZE);
                                     self->DeActivateControls();
                                     }
                                 break;
@@ -701,6 +640,80 @@ void AutoStarX::SetSerialPortsControls(ControlRef control)
 	
 }
 
+//
+// load the rom file
+//
+
+int AutoStarX::loadROMFile()
+{
+	FileSelector Fselector;
+	ssize_t nb_read;
+	
+	mFileSpec=Fselector.FileSelect();
+	FSpMakeFSRef(&mFileSpec,&mROMfileRef);
+	if(mRomFullPath)
+		delete mRomFullPath;
+	mRomFullPath=new char[255];
+	FSRefMakePath(&mROMfileRef, (UInt8 *)mRomFullPath,255);
+	// set the rom file path control to the full file path
+	SetControlData (mRomFile, 
+					kControlEditTextPart, 
+					kControlEditTextTextTag, 
+					strlen ((const char *)(mRomFullPath)), 
+					mRomFullPath);
+
+	stat(mRomFullPath,&f_stat);
+	mfSize=f_stat.st_size;
+	mROMFileHandle=open(mRomFullPath,O_RDONLY);
+
+	if(mROMFileHandle<0)
+		{
+		return -1;
+		}
+
+	if(newRom)
+		{
+		free(newRom);
+		newRom=NULL;
+		}
+	// Alloc some memory for the file
+	romSize=mfSize;
+	nbPages= (int)(ceil(( (double)(mfSize)-4096.0)/PAGESIZE));
+	mfSize= (nbPages*PAGESIZE)+4096;
+	newRom=(Byte *)malloc(mfSize);
+	memset(newRom,0xff,mfSize);
+	// load the file in memory here
+	nb_read=read(mROMFileHandle,newRom,romSize);
+	close(mROMFileHandle);
+
+	romHeader= (ROM_header *) newRom;
+
+	//set the version in the control
+	SetControlData (mFileRomVersion, 
+					kControlEditTextPart, 
+					kControlEditTextTextTag, 
+					4, 
+					romHeader->version);
+
+	// what autostar this rom is for ?
+	switch(romHeader->origin[1])
+		{
+			case 0x00:    // autostar 495 & 497
+					romType=1;
+					break;
+			case 0x80:    // autostar II
+					romType=2;
+					break;
+			default :           // unknown rom file
+					romType=0xffff;
+					break;
+		}
+
+	if(bConnected)
+		ActivateControl(mFlashButton);
+	bFilename=true;
+
+}
 
 // 
 // connect to the AutoStarX at 9600 bauds and get device type and ROM version
@@ -964,15 +977,18 @@ void *AutoStarX::setupFlash(void *p)
 pascal OSStatus AutoStarX::Flash(void *userData)
 {
 	Byte doublepages;
-    Byte page;
+    int page;
     int i,j;
     SInt32 progress;
 	Byte ioBuffer[64];
 	Byte cmd[70];	// 5 byte command + 64 byte of data maximum
     Byte *ff_data;
 	unsigned short addr;
-	int erase_dbl_page;
     
+	unsigned short m_pageAddrStart = 0x8000;
+	unsigned short m_eePromStart   = 0xB600;
+	unsigned short m_eePromEnd     = 0xB800; 
+	
     GeneralTaskWorkParamsPtr params=(GeneralTaskWorkParamsPtr)userData;
     
      // get a pointer to the object itself to be able to access private member variable and functions
@@ -984,128 +1000,115 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 	memset(ff_data,0xff,BLOCKSIZE);
     progress=0;
 
-#ifndef __TEST
-
+	#ifndef __TEST
+	
     // we start on page 2 so it's 1 double page and then write 2 pages as we need to erase a double page each time
-    for( doublepages=1;doublepages<16;doublepages++)
+    for( page=self->startPage; page < self->nbPages ; page++)
         {
         // update the progress bar and status
         self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);	
 
-		// we need to test if the page is full set to $FF 
-		// and if yes not erase it a go to the next double page
-		erase_dbl_page=0;
-		for(i=0;i<32768;i+=BLOCKSIZE)
+		// erase double page
+		if ((page % 2) == 0)
 			{
-			//erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2][i]),ff_data,BLOCKSIZE);
-			//erase_dbl_page+=memcmp(&(self->newRom->pages[doublepages*2+1][i]),ff_data,BLOCKSIZE);
-			if(erase_dbl_page)
-				break;
-			}
+			#ifdef __COM_DEBUG
+			printf("command = E doublepage =%X\n",doublepages);
+			#endif
+
+			// erase double page
+			cmd[0]=0x45;    // E (1 byte response)
+			cmd[1]=doublepages;
+			cmd[2]=0;
+			if(!self->mPortIO->SendData(cmd,2))
+				{
+				self->AutoStarDisconnect();
+				//
+				self->ActivateControls();
+				// quiting the trhread
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+				self->bFlashing=false;
+				return kNSLSchedulerError;
+				}
+			#ifdef __COM_DEBUG
+			printf("command = E doublepage =%X command sent\n",doublepages);
+			#endif
+			usleep(1000000); // a second
 			
-		if(!erase_dbl_page)
-            {
-            progress+=(32768*2);
-			continue;
-            }
+			if(!self->mPortIO->ReadData(ioBuffer,1))
+				{
+				self->AutoStarDisconnect();
+				self->ActivateControls();
+				// quiting the trhread
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+				self->bFlashing=false;
+				delete ff_data;
+				return kNSLSchedulerError;
+				}
 
-#ifdef __COM_DEBUG
-                printf("command = E doublepage =%X\n",doublepages);
-#endif
+			#ifdef __COM_DEBUG
+			printf("command = E doublepage =%X result= %c\n",doublepages,ioBuffer[0]);
+			#endif
+				
+			// check if answer is "Y"
+			if(ioBuffer[0]!='Y') // page has been erased
+				{
+				// if not we don't try to write
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
+				continue;
+				}
 
-        // erase double page
-		cmd[0]=0x45;    // E (1 byte response)
-		cmd[1]=doublepages;
-		cmd[2]=0;
-		if(!self->mPortIO->SendData(cmd,2))
-			{
-			self->AutoStarDisconnect();
-			//
-            self->ActivateControls();
-            // quiting the trhread
-            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
-            self->bFlashing=false;
-            return kNSLSchedulerError;
+			#ifdef __COM_DEBUG
+			printf("command = E doublepage =%X   ERASE OK\n",doublepages);
+			#endif
 			}
-#ifdef __COM_DEBUG
-                printf("command = E doublepage =%X command sent\n",doublepages);
-#endif
-        usleep(1000000); // a second
-        
-		if(!self->mPortIO->ReadData(ioBuffer,1))
-			{
-			self->AutoStarDisconnect();
-            self->ActivateControls();
-            // quiting the trhread
-            self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
-            self->bFlashing=false;
-            delete ff_data;
-            return kNSLSchedulerError;
-			}
-
-#ifdef __COM_DEBUG
-                printf("command = E doublepage =%X result= %c\n",doublepages,ioBuffer[0]);
-#endif
-			
-		// check if answer is "Y"
-		if(ioBuffer[0]!='Y') // page has been erased
-			{
-			// if not we don't try to write
-			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
-			continue;
-			}
-
-#ifdef __COM_DEBUG
-                printf("command = E doublepage =%X   ERASE OK\n",doublepages);
-#endif
 
 		
 		for(j=0;j<2;j++)
 			{
 			// start write page
-			addr=0x8000;
+			addr=m_pageAddrStart;
 			page=doublepages*2+j;
 			// we write "BLOCKSIZE" byte each time
-			for(i=0;i<32768;i+=BLOCKSIZE)		
+			for(i=0;i<PAGESIZE;i+=BLOCKSIZE)		
 				{
                 // update the progress bar and status								
                 self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
 
-				// we need to avoid the 512 byte of eeprom at B600-B7FF
+				// we need to avoid the 512 byte of eeprom at B600-B7FF  => 495 and 497 only..
 				// it should be mark by all FF in the file but testing for it is safer
-				if( (addr>0xB5FF) && (addr<0xB800) )
+				if( (addr>=m_eePromStart) && (addr<m_eePromEnd) )
 					{
 					// set addr after the eeprom, increment i and progress by 512
-                    addr=0xB800;
-                    i+=512-BLOCKSIZE;   // new value for i
+                    addr=m_eePromEnd;
+                    i+= m_eePromEnd - m_eePromStart - BLOCKSIZE;   // new value for i
                     progress+=512;
 					continue;
 					}
 
-#ifdef __COM_DEBUG
-                printf("command = %W page =%X addresse=%02X%02X size = %02X\n",page,(Byte)((addr&0xFF00)>>8),(Byte)(addr&0xFF),BLOCKSIZE);
-#endif
+				#ifdef __COM_DEBUG
+				printf("command = %W page =%X addresse=%02X%02X size = %02X\n",page,(Byte)((addr&0xFF00)>>8),(Byte)(addr&0xFF),BLOCKSIZE);
+				#endif
 
 				progress+=BLOCKSIZE;
 
 				// we don't write block that are all $FF
-/*				if( ! memcmp(&(self->newRom->pages[page][i]),ff_data,BLOCKSIZE))
+				if( ! memcmp(self->newRom + page*PAGESIZE  +i ,ff_data,BLOCKSIZE))
 					{
 					// increment addr
 					addr+=BLOCKSIZE;
-#ifdef __COM_DEBUG
-                    printf("all $FF\n");
-#endif				
+					#ifdef __COM_DEBUG
+					printf("all $FF\n");
+					#endif				
                     continue;
 					}
-					*/
+					
 				// write data
 				cmd[0]=0x57;    // W (1 byte response)
 				cmd[1]=page;
 				cmd[2]=(Byte)((addr&0xFF00)>>8);		// HI part address
 				cmd[3]=(Byte)(addr&0xFF);		// LOW part address
 				cmd[4]=BLOCKSIZE;			// nb byte
-				// memcpy(&cmd[5],&(self->newRom->pages[page][i]),BLOCKSIZE);
+				memcpy(&cmd[5],self->newRom + page*PAGESIZE  +i,BLOCKSIZE);
 				if(!self->mPortIO->SendData(cmd,69))
 					{
 					self->AutoStarDisconnect();
@@ -1150,7 +1153,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 			
         }
 
-#endif				
+	#endif				
 
     
     // quiting the trhread
