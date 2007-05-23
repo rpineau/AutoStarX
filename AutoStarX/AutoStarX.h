@@ -17,7 +17,7 @@
 
 #include "controls.h"
 // #define __TEST
-// #define __COM_DEBUG
+#define __COM_DEBUG
 
 #define BLOCKSIZE	0x40
 #define PAGESIZE	32768
@@ -100,6 +100,7 @@ typedef struct
 	EventTargetRef threadControllerTarget;
 	SInt32 progress;
 	SInt32 page;
+	SInt32 maxPage;
     void *myClass;
 	} GeneralTaskWorkParams, *GeneralTaskWorkParamsPtr;
 
@@ -190,8 +191,8 @@ private:
     bool    bConnected;
     bool    bFilename;
     bool    bFlashing;
+
 	// ROM data to be flashed.
-	
 	Byte *newRom;
 	ROM_header *romHeader;
 	

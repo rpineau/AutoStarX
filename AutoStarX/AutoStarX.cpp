@@ -33,6 +33,7 @@ AutoStarX::AutoStarX()
     bConnected=false;
     bFilename=false;
     newRom=NULL;
+	romHeader=NULL;
     mRomFullPath=NULL; 
     mPortIO=NULL;   
     bFlashing=false;    
@@ -93,8 +94,8 @@ AutoStarX::~AutoStarX()
 {        
     if(bConnected)
         AutoStarDisconnect();
-	if(newRom)
-		free(newRom);
+	if(romHeader)
+		free(romHeader);
 	if(mRomFullPath)
 		delete mRomFullPath;
 	
@@ -130,7 +131,6 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 		case 'open':  // get the file name and its size
 				{
 				self->loadROMFile();
-				
 				break;
 				}
 				
@@ -458,12 +458,12 @@ void  AutoStarX::UpdateUI(ThreadControllerData * myData)
                 ErrorAlert(CFSTR("Communication error !"),CFSTR("The autostar isn't responding to the flashing commands. Check all connections and restart the autostar in safe load mode (press Enter end down close to ? and power on the autostar)"));
                 // SendEventToUI(kEventTerminateThread, (GeneralTaskWorkParamsPtr)params, 0, -1);
                 break;
-        case 33:
+        case -2:
                 theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("Upgrade done"), NULL);
                 break;
             
         default:
-            theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("writing page %u/30"), params->page-1);
+            theCFString = CFStringCreateWithFormat(NULL, NULL, CFSTR("writing page %u/%u"), params->page,nbPages);
             break;
         }
         
@@ -671,10 +671,11 @@ int AutoStarX::loadROMFile()
 		return -1;
 		}
 
-	if(newRom)
+	if(romHeader)
 		{
-		free(newRom);
+		free(romHeader);
 		newRom=NULL;
+		romHeader=NULL;
 		}
 	// Alloc some memory for the file
 	romSize=mfSize;
@@ -687,7 +688,8 @@ int AutoStarX::loadROMFile()
 	close(mROMFileHandle);
 
 	romHeader= (ROM_header *) newRom;
-
+	newRom+=4096;
+	
 	//set the version in the control
 	SetControlData (mFileRomVersion, 
 					kControlEditTextPart, 
@@ -976,9 +978,8 @@ void *AutoStarX::setupFlash(void *p)
 
 pascal OSStatus AutoStarX::Flash(void *userData)
 {
-	Byte doublepages;
     int page;
-    int i,j;
+    int i;
     SInt32 progress;
 	Byte ioBuffer[64];
 	Byte cmd[70];	// 5 byte command + 64 byte of data maximum
@@ -989,11 +990,13 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 	unsigned short m_eePromStart   = 0xB600;
 	unsigned short m_eePromEnd     = 0xB800; 
 	
+	
     GeneralTaskWorkParamsPtr params=(GeneralTaskWorkParamsPtr)userData;
     
      // get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(((GeneralTaskWorkParamsPtr)userData)->myClass);
 
+	self->startPage=self->romHeader->origin[1];
     self->bFlashing=true;
 	
     ff_data=new Byte[BLOCKSIZE];
@@ -1012,12 +1015,12 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 		if ((page % 2) == 0)
 			{
 			#ifdef __COM_DEBUG
-			printf("command = E doublepage =%X\n",doublepages);
+			printf("command = E doublepage =%X\n",page/2);
 			#endif
 
 			// erase double page
 			cmd[0]=0x45;    // E (1 byte response)
-			cmd[1]=doublepages;
+			cmd[1]=page/2;
 			cmd[2]=0;
 			if(!self->mPortIO->SendData(cmd,2))
 				{
@@ -1030,7 +1033,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 				return kNSLSchedulerError;
 				}
 			#ifdef __COM_DEBUG
-			printf("command = E doublepage =%X command sent\n",doublepages);
+			printf("command = E doublepage =%X command sent\n",page/2);
 			#endif
 			usleep(1000000); // a second
 			
@@ -1046,109 +1049,118 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 				}
 
 			#ifdef __COM_DEBUG
-			printf("command = E doublepage =%X result= %c\n",doublepages,ioBuffer[0]);
+			printf("command = E doublepage =%X result= %c\n",page/2,ioBuffer[0]);
 			#endif
 				
 			// check if answer is "Y"
 			if(ioBuffer[0]!='Y') // page has been erased
 				{
-				// if not we don't try to write
-				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
-				continue;
+				// safe loader on a 495/497 ?
+				if (page==0)
+					{
+					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
+					page+=1; //skip the next pasge too
+					continue;
+					}
+				else // if not we don't try to write
+					{
+					self->AutoStarDisconnect();
+					self->ActivateControls();
+					// quiting the trhread
+					self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+					self->bFlashing=false;
+					delete ff_data;
+					return kNSLSchedulerError;
+					}
 				}
 
 			#ifdef __COM_DEBUG
-			printf("command = E doublepage =%X   ERASE OK\n",doublepages);
+			printf("command = E doublepage =%X   ERASE OK\n",page/2);
 			#endif
 			}
 
 		
-		for(j=0;j<2;j++)
+		// start write page
+		addr=m_pageAddrStart;
+		// we write "BLOCKSIZE" byte each time
+		for(i=0;i<PAGESIZE;i+=BLOCKSIZE)		
 			{
-			// start write page
-			addr=m_pageAddrStart;
-			page=doublepages*2+j;
-			// we write "BLOCKSIZE" byte each time
-			for(i=0;i<PAGESIZE;i+=BLOCKSIZE)		
+			// update the progress bar and status								
+			self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
+
+			// we need to avoid the 512 byte of eeprom at B600-B7FF  => 495 and 497 only..
+			// it should be mark by all FF in the file but testing for it is safer
+			if( (addr>=m_eePromStart) && (addr<m_eePromEnd) )
 				{
-                // update the progress bar and status								
-                self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, progress, page);
+				// set addr after the eeprom, increment i and progress by 512
+				addr=m_eePromEnd;
+				i+= m_eePromEnd - m_eePromStart - BLOCKSIZE;   // new value for i
+				progress+=512;
+				continue;
+				}
 
-				// we need to avoid the 512 byte of eeprom at B600-B7FF  => 495 and 497 only..
-				// it should be mark by all FF in the file but testing for it is safer
-				if( (addr>=m_eePromStart) && (addr<m_eePromEnd) )
-					{
-					// set addr after the eeprom, increment i and progress by 512
-                    addr=m_eePromEnd;
-                    i+= m_eePromEnd - m_eePromStart - BLOCKSIZE;   // new value for i
-                    progress+=512;
-					continue;
-					}
+			//#ifdef __COM_DEBUG
+			//printf("command = %W page =%X addresse=%02X%02X size = %02X\n",page,(Byte)((addr&0xFF00)>>8),(Byte)(addr&0xFF),BLOCKSIZE);
+			//#endif
 
-				#ifdef __COM_DEBUG
-				printf("command = %W page =%X addresse=%02X%02X size = %02X\n",page,(Byte)((addr&0xFF00)>>8),(Byte)(addr&0xFF),BLOCKSIZE);
-				#endif
+			progress+=BLOCKSIZE;
 
-				progress+=BLOCKSIZE;
-
-				// we don't write block that are all $FF
-				if( ! memcmp(self->newRom + page*PAGESIZE  +i ,ff_data,BLOCKSIZE))
-					{
-					// increment addr
-					addr+=BLOCKSIZE;
-					#ifdef __COM_DEBUG
-					printf("all $FF\n");
-					#endif				
-                    continue;
-					}
-					
-				// write data
-				cmd[0]=0x57;    // W (1 byte response)
-				cmd[1]=page;
-				cmd[2]=(Byte)((addr&0xFF00)>>8);		// HI part address
-				cmd[3]=(Byte)(addr&0xFF);		// LOW part address
-				cmd[4]=BLOCKSIZE;			// nb byte
-				memcpy(&cmd[5],self->newRom + page*PAGESIZE  +i,BLOCKSIZE);
-				if(!self->mPortIO->SendData(cmd,69))
-					{
-					self->AutoStarDisconnect();
-                    self->ActivateControls();
-                    // quiting the trhread
-                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
-                    self->bFlashing=false;
-                    delete ff_data;
-					return kNSLSchedulerError;
-					}
-					
-				if(!self->mPortIO->ReadData(ioBuffer,1))
-					{
-					self->AutoStarDisconnect();
-                    self->ActivateControls();
-                    // quiting the trhread
-                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
-                    self->bFlashing=false;
-                    delete ff_data;
-                    return kNSLSchedulerError;
-					}
-					
-				// check if answer is "Y"
-				if(ioBuffer[0]!='Y') // Data have been writen ?
-					{
-					// if not we have a problem .. we stop it all
-					self->AutoStarDisconnect();
-					//reactivate controls
-                    self->AutoStarDisconnect();
-                    self->ActivateControls();
-					// quiting the trhread
-                    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
-                    self->bFlashing=false;
-                    delete ff_data;
-					return kNSLSchedulerError;
-					}
+			// we don't write block that are all $FF
+			if( ! memcmp(self->newRom + page*PAGESIZE  +i ,ff_data,BLOCKSIZE))
+				{
 				// increment addr
 				addr+=BLOCKSIZE;
-				
+				//#ifdef __COM_DEBUG
+				//printf("all $FF\n");
+				//#endif				
+				continue;
 				}
+				
+			// write data
+			cmd[0]=0x57;    // W (1 byte response)
+			cmd[1]=page;
+			cmd[2]=(Byte)((addr&0xFF00)>>8);		// HI part address
+			cmd[3]=(Byte)(addr&0xFF);		// LOW part address
+			cmd[4]=BLOCKSIZE;			// nb byte
+			memcpy(&cmd[5],self->newRom + page*PAGESIZE  +i,BLOCKSIZE);
+			if(!self->mPortIO->SendData(cmd,69))
+				{
+				self->AutoStarDisconnect();
+				self->ActivateControls();
+				// quiting the trhread
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+				self->bFlashing=false;
+				delete ff_data;
+				return kNSLSchedulerError;
+				}
+				
+			if(!self->mPortIO->ReadData(ioBuffer,1))
+				{
+				self->AutoStarDisconnect();
+				self->ActivateControls();
+				// quiting the trhread
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+				self->bFlashing=false;
+				delete ff_data;
+				return kNSLSchedulerError;
+				}
+				
+			// check if answer is "Y"
+			if(ioBuffer[0]!='Y') // Data have been writen ?
+				{
+				// if not we have a problem .. we stop it all
+				self->AutoStarDisconnect();
+				//reactivate controls
+				self->AutoStarDisconnect();
+				self->ActivateControls();
+				// quiting the trhread
+				self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -1);
+				self->bFlashing=false;
+				delete ff_data;
+				return kNSLSchedulerError;
+				}
+			// increment addr
+			addr+=BLOCKSIZE;
 			}
 			
         }
@@ -1157,7 +1169,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
 
     
     // quiting the trhread
-    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, 33);
+    self->SendEventToUI(kEventUpdateThreadUI, (GeneralTaskWorkParamsPtr)params, 0, -2);
     self->bFlashing=false;
     delete ff_data;
 
@@ -1165,7 +1177,7 @@ pascal OSStatus AutoStarX::Flash(void *userData)
     self->ActivateControls();
 
 	// iteration is finished, we send the appropriate event to the main thread.
-	self->SendEventToUI(kEventTerminateThread, (GeneralTaskWorkParamsPtr)params, 0, 33);
+	self->SendEventToUI(kEventTerminateThread, (GeneralTaskWorkParamsPtr)params, 0, -2);
     
     return noErr;
 }
