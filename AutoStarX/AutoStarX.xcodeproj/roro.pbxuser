@@ -135,7 +135,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 201590323;
+			PBXPerProjectTemplateStateSaveDate = 202602021;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -312,99 +312,64 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 201590323;
+			PBXWorkspaceStateSaveDate = 202602021;
 		};
 		perUserProjectItems = {
-			9343E9580C037A0E00A471F8 = 9343E9580C037A0E00A471F8 /* PBXTextBookmark */;
-			9343E9770C037AB000A471F8 = 9343E9770C037AB000A471F8 /* PBXTextBookmark */;
-			9343E9780C037AB000A471F8 = 9343E9780C037AB000A471F8 /* PBXTextBookmark */;
 			9343E9790C037AB000A471F8 = 9343E9790C037AB000A471F8 /* PBXTextBookmark */;
-			934CADC40C04074E00241783 /* PBXTextBookmark */ = 934CADC40C04074E00241783 /* PBXTextBookmark */;
-			934CADC50C04074E00241783 /* PBXTextBookmark */ = 934CADC50C04074E00241783 /* PBXTextBookmark */;
-			934CADC60C04074E00241783 /* PBXTextBookmark */ = 934CADC60C04074E00241783 /* PBXTextBookmark */;
-			934CADD60C04086500241783 /* PBXTextBookmark */ = 934CADD60C04086500241783 /* PBXTextBookmark */;
-			934CADDC0C04087C00241783 /* PBXTextBookmark */ = 934CADDC0C04087C00241783 /* PBXTextBookmark */;
-			934CADDD0C04087C00241783 /* PBXTextBookmark */ = 934CADDD0C04087C00241783 /* PBXTextBookmark */;
-			934CADDE0C04087C00241783 /* PBXTextBookmark */ = 934CADDE0C04087C00241783 /* PBXTextBookmark */;
-			934CADDF0C04087C00241783 /* PBXTextBookmark */ = 934CADDF0C04087C00241783 /* PBXTextBookmark */;
-			934CADE00C04089C00241783 /* PBXTextBookmark */ = 934CADE00C04089C00241783 /* PBXTextBookmark */;
-			934CADE10C04089C00241783 /* PBXTextBookmark */ = 934CADE10C04089C00241783 /* PBXTextBookmark */;
-			934CADE20C04089C00241783 /* PBXTextBookmark */ = 934CADE20C04089C00241783 /* PBXTextBookmark */;
-			934CADEC0C04096000241783 /* PBXTextBookmark */ = 934CADEC0C04096000241783 /* PBXTextBookmark */;
-			934CADF00C04097100241783 /* PBXTextBookmark */ = 934CADF00C04097100241783 /* PBXTextBookmark */;
-			934CADF10C04097100241783 /* PBXTextBookmark */ = 934CADF10C04097100241783 /* PBXTextBookmark */;
-			934CADF20C04097100241783 /* PBXTextBookmark */ = 934CADF20C04097100241783 /* PBXTextBookmark */;
-			934CADF30C04098300241783 /* PBXTextBookmark */ = 934CADF30C04098300241783 /* PBXTextBookmark */;
-			934CADF40C04098300241783 /* PBXTextBookmark */ = 934CADF40C04098300241783 /* PBXTextBookmark */;
-			934CADF50C04098300241783 /* PBXTextBookmark */ = 934CADF50C04098300241783 /* PBXTextBookmark */;
-			934CADF70C040A5D00241783 /* PBXTextBookmark */ = 934CADF70C040A5D00241783 /* PBXTextBookmark */;
-			934CADF80C040A5D00241783 /* PBXTextBookmark */ = 934CADF80C040A5D00241783 /* PBXTextBookmark */;
-			934CAE000C040ADF00241783 /* PBXTextBookmark */ = 934CAE000C040ADF00241783 /* PBXTextBookmark */;
-			934CAE010C040ADF00241783 /* PBXTextBookmark */ = 934CAE010C040ADF00241783 /* PBXTextBookmark */;
-			934CAE020C040ADF00241783 /* PBXTextBookmark */ = 934CAE020C040ADF00241783 /* PBXTextBookmark */;
-			934CAE050C040C4B00241783 /* PBXTextBookmark */ = 934CAE050C040C4B00241783 /* PBXTextBookmark */;
-			934CAE060C040C4B00241783 /* PBXTextBookmark */ = 934CAE060C040C4B00241783 /* PBXTextBookmark */;
-			934CAE070C040C4B00241783 /* PBXTextBookmark */ = 934CAE070C040C4B00241783 /* PBXTextBookmark */;
-			934CAE090C040C6C00241783 /* PBXTextBookmark */ = 934CAE090C040C6C00241783 /* PBXTextBookmark */;
-			934CAE0A0C040C8200241783 /* PBXTextBookmark */ = 934CAE0A0C040C8200241783 /* PBXTextBookmark */;
-			934CAE0B0C040C8B00241783 /* PBXTextBookmark */ = 934CAE0B0C040C8B00241783 /* PBXTextBookmark */;
-			934CAE0C0C040C8B00241783 /* PBXTextBookmark */ = 934CAE0C0C040C8B00241783 /* PBXTextBookmark */;
-			934CAE0D0C040C8B00241783 /* PBXTextBookmark */ = 934CAE0D0C040C8B00241783 /* PBXTextBookmark */;
-			934CAE110C040D4B00241783 /* PBXTextBookmark */ = 934CAE110C040D4B00241783 /* PBXTextBookmark */;
-			934CAE120C040D4B00241783 /* PBXTextBookmark */ = 934CAE120C040D4B00241783 /* PBXTextBookmark */;
-			934CAE130C040D4B00241783 /* PBXTextBookmark */ = 934CAE130C040D4B00241783 /* PBXTextBookmark */;
-			934CAE140C040D4B00241783 /* PBXTextBookmark */ = 934CAE140C040D4B00241783 /* PBXTextBookmark */;
-			934CAE200C040D9C00241783 /* PBXTextBookmark */ = 934CAE200C040D9C00241783 /* PBXTextBookmark */;
-			934CAE270C040DC500241783 /* PBXTextBookmark */ = 934CAE270C040DC500241783 /* PBXTextBookmark */;
-			934CAE280C040DC500241783 /* PBXTextBookmark */ = 934CAE280C040DC500241783 /* PBXTextBookmark */;
-			934CAE290C040DC500241783 /* PBXTextBookmark */ = 934CAE290C040DC500241783 /* PBXTextBookmark */;
-			934CAE2A0C040DC500241783 /* PBXTextBookmark */ = 934CAE2A0C040DC500241783 /* PBXTextBookmark */;
-			934CAE2B0C040DD700241783 /* PBXTextBookmark */ = 934CAE2B0C040DD700241783 /* PBXTextBookmark */;
-			934CAE2C0C040DD700241783 /* PBXTextBookmark */ = 934CAE2C0C040DD700241783 /* PBXTextBookmark */;
-			934CAE2D0C040DD700241783 /* PBXTextBookmark */ = 934CAE2D0C040DD700241783 /* PBXTextBookmark */;
-			934CAE2F0C040E3100241783 /* PBXTextBookmark */ = 934CAE2F0C040E3100241783 /* PBXTextBookmark */;
-			934CAE300C040E3100241783 /* PBXTextBookmark */ = 934CAE300C040E3100241783 /* PBXTextBookmark */;
-			934CAE310C040EB500241783 /* PBXTextBookmark */ = 934CAE310C040EB500241783 /* PBXTextBookmark */;
-			934CAE320C040EB500241783 /* PBXTextBookmark */ = 934CAE320C040EB500241783 /* PBXTextBookmark */;
-			934CAE330C040EB500241783 /* PBXTextBookmark */ = 934CAE330C040EB500241783 /* PBXTextBookmark */;
-			934CAE340C040ECF00241783 /* PBXTextBookmark */ = 934CAE340C040ECF00241783 /* PBXTextBookmark */;
-			934CAE350C040ECF00241783 /* PBXTextBookmark */ = 934CAE350C040ECF00241783 /* PBXTextBookmark */;
-			934CAE360C040ECF00241783 /* PBXTextBookmark */ = 934CAE360C040ECF00241783 /* PBXTextBookmark */;
-			934CAE370C040ED200241783 /* PBXTextBookmark */ = 934CAE370C040ED200241783 /* PBXTextBookmark */;
-			934CAE380C040ED200241783 /* PBXTextBookmark */ = 934CAE380C040ED200241783 /* PBXTextBookmark */;
-			934CAE390C040ED200241783 /* PBXTextBookmark */ = 934CAE390C040ED200241783 /* PBXTextBookmark */;
-			934CAE400C04111B00241783 /* PBXTextBookmark */ = 934CAE400C04111B00241783 /* PBXTextBookmark */;
-			934CAE410C04111B00241783 /* PBXTextBookmark */ = 934CAE410C04111B00241783 /* PBXTextBookmark */;
-			934CAE420C04111B00241783 /* PBXTextBookmark */ = 934CAE420C04111B00241783 /* PBXTextBookmark */;
-			934CAE460C04118900241783 /* PBXTextBookmark */ = 934CAE460C04118900241783 /* PBXTextBookmark */;
-			934CAE470C04118900241783 /* PBXTextBookmark */ = 934CAE470C04118900241783 /* PBXTextBookmark */;
-			934CAE480C04118900241783 /* PBXTextBookmark */ = 934CAE480C04118900241783 /* PBXTextBookmark */;
-			934CAE500C0412CB00241783 /* PBXTextBookmark */ = 934CAE500C0412CB00241783 /* PBXTextBookmark */;
-			934CAE510C0412CB00241783 /* PBXTextBookmark */ = 934CAE510C0412CB00241783 /* PBXTextBookmark */;
-			934CAE520C0412CB00241783 /* PBXTextBookmark */ = 934CAE520C0412CB00241783 /* PBXTextBookmark */;
-			934CAE550C04130300241783 /* PBXTextBookmark */ = 934CAE550C04130300241783 /* PBXTextBookmark */;
-			934CAE560C04130300241783 /* PBXTextBookmark */ = 934CAE560C04130300241783 /* PBXTextBookmark */;
-			934CAE570C04130300241783 /* PBXTextBookmark */ = 934CAE570C04130300241783 /* PBXTextBookmark */;
-			934CAE5F0C0416B300241783 /* PBXTextBookmark */ = 934CAE5F0C0416B300241783 /* PBXTextBookmark */;
-			934CAE600C0416B300241783 /* PBXTextBookmark */ = 934CAE600C0416B300241783 /* PBXTextBookmark */;
-			934CAE610C0416B300241783 /* PBXTextBookmark */ = 934CAE610C0416B300241783 /* PBXTextBookmark */;
-			934CAE620C0416B300241783 /* PBXTextBookmark */ = 934CAE620C0416B300241783 /* PBXTextBookmark */;
-			934CAE670C04176700241783 /* PBXTextBookmark */ = 934CAE670C04176700241783 /* PBXTextBookmark */;
-			934CAE680C04176700241783 /* PBXTextBookmark */ = 934CAE680C04176700241783 /* PBXTextBookmark */;
-			934CAE690C04176700241783 /* PBXTextBookmark */ = 934CAE690C04176700241783 /* PBXTextBookmark */;
-			934CAE6A0C04176700241783 /* PBXTextBookmark */ = 934CAE6A0C04176700241783 /* PBXTextBookmark */;
-			934CAE6D0C04191B00241783 /* PBXTextBookmark */ = 934CAE6D0C04191B00241783 /* PBXTextBookmark */;
-			934CAE6E0C04191B00241783 /* PBXTextBookmark */ = 934CAE6E0C04191B00241783 /* PBXTextBookmark */;
-			934CAE6F0C04191B00241783 /* PBXTextBookmark */ = 934CAE6F0C04191B00241783 /* PBXTextBookmark */;
-			934CAE730C04197E00241783 /* PBXTextBookmark */ = 934CAE730C04197E00241783 /* PBXTextBookmark */;
-			934CAE7B0C0419E100241783 /* PBXTextBookmark */ = 934CAE7B0C0419E100241783 /* PBXTextBookmark */;
-			934CAE7C0C0419E100241783 /* PBXTextBookmark */ = 934CAE7C0C0419E100241783 /* PBXTextBookmark */;
-			934CAE7D0C0419E100241783 /* PBXTextBookmark */ = 934CAE7D0C0419E100241783 /* PBXTextBookmark */;
-			934CAE7E0C0419E600241783 /* PBXTextBookmark */ = 934CAE7E0C0419E600241783 /* PBXTextBookmark */;
-			934CAE7F0C0419E600241783 /* PBXTextBookmark */ = 934CAE7F0C0419E600241783 /* PBXTextBookmark */;
-			934CAE800C0419E600241783 /* PBXTextBookmark */ = 934CAE800C0419E600241783 /* PBXTextBookmark */;
-			9391F6CA0C0377A9001900CF = 9391F6CA0C0377A9001900CF /* PBXTextBookmark */;
-			9391F6CB0C0377A9001900CF = 9391F6CB0C0377A9001900CF /* PBXTextBookmark */;
+			934CAE200C040D9C00241783 = 934CAE200C040D9C00241783 /* PBXTextBookmark */;
+			934CAE730C04197E00241783 = 934CAE730C04197E00241783 /* PBXTextBookmark */;
+			934CAE810C041A2800241783 = 934CAE810C041A2800241783 /* PBXTextBookmark */;
+			934CAE820C041A2800241783 = 934CAE820C041A2800241783 /* PBXTextBookmark */;
+			934CAE830C041A2800241783 = 934CAE830C041A2800241783 /* PBXTextBookmark */;
+			939B55100C137A37007D181A /* PBXTextBookmark */ = 939B55100C137A37007D181A /* PBXTextBookmark */;
+			939B55140C137A48007D181A /* PBXTextBookmark */ = 939B55140C137A48007D181A /* PBXTextBookmark */;
+			939B55170C137A4D007D181A /* PBXTextBookmark */ = 939B55170C137A4D007D181A /* PBXTextBookmark */;
+			939B55180C137A4D007D181A /* PBXTextBookmark */ = 939B55180C137A4D007D181A /* PBXTextBookmark */;
+			939B55190C137A4D007D181A /* PBXTextBookmark */ = 939B55190C137A4D007D181A /* PBXTextBookmark */;
+			939B551A0C137A4D007D181A /* PBXTextBookmark */ = 939B551A0C137A4D007D181A /* PBXTextBookmark */;
+			939B551D0C137A4D007D181A /* PBXTextBookmark */ = 939B551D0C137A4D007D181A /* PBXTextBookmark */;
+			939B551E0C137A4D007D181A /* PBXTextBookmark */ = 939B551E0C137A4D007D181A /* PBXTextBookmark */;
+			939B55210C137A4D007D181A /* PBXTextBookmark */ = 939B55210C137A4D007D181A /* PBXTextBookmark */;
+			939B55220C137A4D007D181A /* PBXTextBookmark */ = 939B55220C137A4D007D181A /* PBXTextBookmark */;
+			939B55250C137A4D007D181A /* PBXTextBookmark */ = 939B55250C137A4D007D181A /* PBXTextBookmark */;
+			939B55280C137A4D007D181A /* PBXTextBookmark */ = 939B55280C137A4D007D181A /* PBXTextBookmark */;
+			939B552B0C137A7B007D181A /* PBXTextBookmark */ = 939B552B0C137A7B007D181A /* PBXTextBookmark */;
+			939B552C0C137A7B007D181A /* PBXTextBookmark */ = 939B552C0C137A7B007D181A /* PBXTextBookmark */;
+			939B552D0C137A7B007D181A /* PBXTextBookmark */ = 939B552D0C137A7B007D181A /* PBXTextBookmark */;
+			939B552E0C137A7B007D181A /* PBXTextBookmark */ = 939B552E0C137A7B007D181A /* PBXTextBookmark */;
+			939B552F0C137A7B007D181A /* PBXTextBookmark */ = 939B552F0C137A7B007D181A /* PBXTextBookmark */;
+			939B55300C137A7B007D181A /* PBXTextBookmark */ = 939B55300C137A7B007D181A /* PBXTextBookmark */;
+			939B55310C137A7B007D181A /* PBXTextBookmark */ = 939B55310C137A7B007D181A /* PBXTextBookmark */;
+			939B55330C137B46007D181A /* PBXTextBookmark */ = 939B55330C137B46007D181A /* PBXTextBookmark */;
+			939B55360C137BC1007D181A /* PBXTextBookmark */ = 939B55360C137BC1007D181A /* PBXTextBookmark */;
+			939B55370C137BC1007D181A /* PBXTextBookmark */ = 939B55370C137BC1007D181A /* PBXTextBookmark */;
+			939B55380C137BC1007D181A /* PBXTextBookmark */ = 939B55380C137BC1007D181A /* PBXTextBookmark */;
+			939B55390C137BC1007D181A /* PBXTextBookmark */ = 939B55390C137BC1007D181A /* PBXTextBookmark */;
+			939B553A0C137BC1007D181A /* PBXTextBookmark */ = 939B553A0C137BC1007D181A /* PBXTextBookmark */;
+			939B553B0C137BC1007D181A /* PBXTextBookmark */ = 939B553B0C137BC1007D181A /* PBXTextBookmark */;
+			939B55410C137BD8007D181A /* PBXTextBookmark */ = 939B55410C137BD8007D181A /* PBXTextBookmark */;
+			939B55420C137BE4007D181A /* PBXTextBookmark */ = 939B55420C137BE4007D181A /* PBXTextBookmark */;
+			939B55430C137BE4007D181A /* PBXTextBookmark */ = 939B55430C137BE4007D181A /* PBXTextBookmark */;
+			939B55440C137BE4007D181A /* PBXTextBookmark */ = 939B55440C137BE4007D181A /* PBXTextBookmark */;
+			939B55450C137BE4007D181A /* PBXTextBookmark */ = 939B55450C137BE4007D181A /* PBXTextBookmark */;
+			939B55460C137BE4007D181A /* PBXTextBookmark */ = 939B55460C137BE4007D181A /* PBXTextBookmark */;
+			939B554A0C137BF7007D181A /* PBXTextBookmark */ = 939B554A0C137BF7007D181A /* PBXTextBookmark */;
+			939B554B0C137BFF007D181A /* PBXTextBookmark */ = 939B554B0C137BFF007D181A /* PBXTextBookmark */;
+			939B554C0C137BFF007D181A /* PBXTextBookmark */ = 939B554C0C137BFF007D181A /* PBXTextBookmark */;
+			939B554D0C137BFF007D181A /* PBXTextBookmark */ = 939B554D0C137BFF007D181A /* PBXTextBookmark */;
+			939B554E0C137BFF007D181A /* PBXTextBookmark */ = 939B554E0C137BFF007D181A /* PBXTextBookmark */;
+			939B554F0C137BFF007D181A /* PBXTextBookmark */ = 939B554F0C137BFF007D181A /* PBXTextBookmark */;
+			939B55540C137C4C007D181A /* PBXTextBookmark */ = 939B55540C137C4C007D181A /* PBXTextBookmark */;
+			939B55550C137C4C007D181A /* PBXTextBookmark */ = 939B55550C137C4C007D181A /* PBXTextBookmark */;
+			939B55560C137C4C007D181A /* PBXTextBookmark */ = 939B55560C137C4C007D181A /* PBXTextBookmark */;
+			939B55570C137C4C007D181A /* PBXTextBookmark */ = 939B55570C137C4C007D181A /* PBXTextBookmark */;
+			939B55580C137C4C007D181A /* PBXTextBookmark */ = 939B55580C137C4C007D181A /* PBXTextBookmark */;
+			939B55590C137C4C007D181A /* PBXTextBookmark */ = 939B55590C137C4C007D181A /* PBXTextBookmark */;
+			939B55710C137DB1007D181A /* PBXTextBookmark */ = 939B55710C137DB1007D181A /* PBXTextBookmark */;
+			939B55720C137DB1007D181A /* PBXTextBookmark */ = 939B55720C137DB1007D181A /* PBXTextBookmark */;
+			939B55730C137DB1007D181A /* PBXTextBookmark */ = 939B55730C137DB1007D181A /* PBXTextBookmark */;
+			939B55740C137DB1007D181A /* PBXTextBookmark */ = 939B55740C137DB1007D181A /* PBXTextBookmark */;
+			939B55750C137DB1007D181A /* PBXTextBookmark */ = 939B55750C137DB1007D181A /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77 /* Source Control */;
 		userBuildSettings = {
@@ -424,34 +389,6 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	9343E9580C037A0E00A471F8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: expected primary-expression before '>' token";
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 656;
-		rType = 1;
-	};
-	9343E9770C037AB000A471F8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 171";
-		rLen = 0;
-		rLoc = 4802;
-		rType = 0;
-		vrLen = 2342;
-		vrLoc = 2983;
-	};
-	9343E9780C037AB000A471F8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: loadROMFile";
-		rLen = 0;
-		rLoc = 4342;
-		rType = 0;
-		vrLen = 1411;
-		vrLoc = 3018;
-	};
 	9343E9790C037AB000A471F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
@@ -461,44 +398,6 @@
 		rType = 0;
 		vrLen = 1025;
 		vrLoc = 6377;
-	};
-	934CADC40C04074E00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX::Flash";
-		rLen = 16;
-		rLoc = 29307;
-		rType = 0;
-		vrLen = 1469;
-		vrLoc = 29868;
-	};
-	934CADC50C04074E00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: loadROMFile";
-		rLen = 0;
-		rLoc = 4342;
-		rType = 0;
-		vrLen = 1372;
-		vrLoc = 3057;
-	};
-	934CADC60C04074E00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CADD60C04086500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "warning: unused variable 'startPage'";
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 991;
-		rType = 1;
 	};
 	934CADDB0C04087700241783 /* AutoStarX.cpp:999 */ = {
 		isa = PBXFileBreakpoint;
@@ -514,312 +413,6 @@
 		location = AutoStarX.ob;
 		modificationTime = 201595362.000644;
 		state = 1;
-	};
-	934CADDC0C04087C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 990";
-		rLen = 0;
-		rLoc = 29640;
-		rType = 0;
-		vrLen = 1477;
-		vrLoc = 29066;
-	};
-	934CADDD0C04087C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: loadROMFile";
-		rLen = 0;
-		rLoc = 4342;
-		rType = 0;
-		vrLen = 1372;
-		vrLoc = 3057;
-	};
-	934CADDE0C04087C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CADDF0C04087C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CADE00C04089C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 990";
-		rLen = 0;
-		rLoc = 29640;
-		rType = 0;
-		vrLen = 1477;
-		vrLoc = 29066;
-	};
-	934CADE10C04089C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CADE20C04089C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CADEC0C04096000241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "warning: unused variable 'j'";
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 981;
-		rType = 1;
-	};
-	934CADF00C04097100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 979";
-		rLen = 0;
-		rLoc = 29365;
-		rType = 0;
-		vrLen = 2093;
-		vrLoc = 28975;
-	};
-	934CADF10C04097100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CADF20C04097100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CADF30C04098300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 979";
-		rLen = 0;
-		rLoc = 29365;
-		rType = 0;
-		vrLen = 2093;
-		vrLoc = 28975;
-	};
-	934CADF40C04098300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CADF50C04098300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CADF70C040A5D00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: 'doublepages' was not declared in this scope";
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 1022;
-		rType = 1;
-	};
-	934CADF80C040A5D00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1020";
-		rLen = 0;
-		rLoc = 30644;
-		rType = 0;
-		vrLen = 143;
-		vrLoc = 30497;
-	};
-	934CAE000C040ADF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 690";
-		rLen = 0;
-		rLoc = 21903;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 20776;
-	};
-	934CAE010C040ADF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CAE020C040ADF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE050C040C4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 690";
-		rLen = 0;
-		rLoc = 21903;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 20776;
-	};
-	934CAE060C040C4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CAE070C040C4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE090C040C6C00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1021";
-		rLen = 0;
-		rLoc = 30644;
-		rType = 0;
-		vrLen = 147;
-		vrLoc = 30503;
-	};
-	934CAE0A0C040C8200241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1021";
-		rLen = 0;
-		rLoc = 30644;
-		rType = 0;
-		vrLen = 147;
-		vrLoc = 30503;
-	};
-	934CAE0B0C040C8B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 690";
-		rLen = 0;
-		rLoc = 21903;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 20776;
-	};
-	934CAE0C0C040C8B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CAE0D0C040C8B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE110C040D4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 498;
-		vrLoc = 4946;
-	};
-	934CAE120C040D4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = nbPages;
-		rLen = 7;
-		rLoc = 5425;
-		rType = 0;
-		vrLen = 497;
-		vrLoc = 4946;
-	};
-	934CAE130C040D4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 465";
-		rLen = 0;
-		rLoc = 15641;
-		rType = 0;
-		vrLen = 3061;
-		vrLoc = 12998;
-	};
-	934CAE140C040D4B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
 	};
 	934CAE160C040D5D00241783 /* AutoStarX.cpp:1059 */ = {
 		isa = PBXFileBreakpoint;
@@ -844,184 +437,6 @@
 		rLoc = 1017;
 		rType = 1;
 	};
-	934CAE270C040DC500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1076";
-		rLen = 0;
-		rLoc = 32210;
-		rType = 0;
-		vrLen = 2050;
-		vrLoc = 33468;
-	};
-	934CAE280C040DC500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = nbPages;
-		rLen = 7;
-		rLoc = 5425;
-		rType = 0;
-		vrLen = 497;
-		vrLoc = 4946;
-	};
-	934CAE290C040DC500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE2A0C040DC500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE2B0C040DD700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1076";
-		rLen = 0;
-		rLoc = 32210;
-		rType = 0;
-		vrLen = 2050;
-		vrLoc = 33468;
-	};
-	934CAE2C0C040DD700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE2D0C040DD700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE2F0C040E3100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "error: 'doublepages' was not declared in this scope";
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		rLen = 1;
-		rLoc = 1017;
-		rType = 1;
-	};
-	934CAE300C040E3100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1016";
-		rLen = 0;
-		rLoc = 30548;
-		rType = 0;
-		vrLen = 135;
-		vrLoc = 30406;
-	};
-	934CAE310C040EB500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1076";
-		rLen = 0;
-		rLoc = 32210;
-		rType = 0;
-		vrLen = 2189;
-		vrLoc = 31736;
-	};
-	934CAE320C040EB500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE330C040EB500241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE340C040ECF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1076";
-		rLen = 0;
-		rLoc = 32210;
-		rType = 0;
-		vrLen = 2189;
-		vrLoc = 31736;
-	};
-	934CAE350C040ECF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE360C040ECF00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE370C040ED200241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1076";
-		rLen = 0;
-		rLoc = 32210;
-		rType = 0;
-		vrLen = 2189;
-		vrLoc = 31736;
-	};
-	934CAE380C040ED200241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE390C040ED200241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
 	934CAE3D0C040FFE00241783 /* AutoStarX.cpp:97 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
@@ -1034,238 +449,8 @@
 		hitCount = 1;
 		lineNumber = 97;
 		location = AutoStarX.ob;
-		modificationTime = 201595362.071917;
+		modificationTime = 201595371.856236;
 		state = 1;
-	};
-	934CAE400C04111B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE410C04111B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE420C04111B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1060";
-		rLen = 0;
-		rLoc = 31783;
-		rType = 0;
-		vrLen = 2135;
-		vrLoc = 30506;
-	};
-	934CAE460C04118900241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1046";
-		rLen = 0;
-		rLoc = 31387;
-		rType = 0;
-		vrLen = 2135;
-		vrLoc = 30506;
-	};
-	934CAE470C04118900241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE480C04118900241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE500C0412CB00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1102";
-		rLen = 0;
-		rLoc = 33077;
-		rType = 0;
-		vrLen = 2291;
-		vrLoc = 31842;
-	};
-	934CAE510C0412CB00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE520C0412CB00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE550C04130300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1113";
-		rLen = 0;
-		rLoc = 33331;
-		rType = 0;
-		vrLen = 2297;
-		vrLoc = 31842;
-	};
-	934CAE560C04130300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE570C04130300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE5F0C0416B300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 1178";
-		rLen = 0;
-		rLoc = 35187;
-		rType = 0;
-		vrLen = 1874;
-		vrLoc = 33954;
-	};
-	934CAE600C0416B300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: __COM_DEBUG";
-		rLen = 0;
-		rLoc = 307;
-		rType = 0;
-		vrLen = 646;
-		vrLoc = 0;
-	};
-	934CAE610C0416B300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = threadControllerTarget;
-		rLen = 22;
-		rLoc = 2070;
-		rType = 0;
-		vrLen = 517;
-		vrLoc = 1821;
-	};
-	934CAE620C0416B300241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE670C04176700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = params;
-		rLen = 6;
-		rLoc = 16482;
-		rType = 0;
-		vrLen = 2918;
-		vrLoc = 14068;
-	};
-	934CAE680C04176700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = threadControllerTarget;
-		rLen = 22;
-		rLoc = 2070;
-		rType = 0;
-		vrLen = 517;
-		vrLoc = 1821;
-	};
-	934CAE690C04176700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 103";
-		rLen = 0;
-		rLoc = 2142;
-		rType = 0;
-		vrLen = 508;
-		vrLoc = 1821;
-	};
-	934CAE6A0C04176700241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE6D0C04191B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = params;
-		rLen = 6;
-		rLoc = 16482;
-		rType = 0;
-		vrLen = 2918;
-		vrLoc = 14068;
-	};
-	934CAE6E0C04191B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 103";
-		rLen = 0;
-		rLoc = 2142;
-		rType = 0;
-		vrLen = 508;
-		vrLoc = 1821;
-	};
-	934CAE6F0C04191B00241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
 	};
 	934CAE730C04197E00241783 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1275,7 +460,7 @@
 		rLoc = 195;
 		rType = 1;
 	};
-	934CAE7B0C0419E100241783 /* PBXTextBookmark */ = {
+	934CAE810C041A2800241783 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "AutoStarX.cpp: 678";
@@ -1285,7 +470,7 @@
 		vrLen = 1584;
 		vrLoc = 20832;
 	};
-	934CAE7C0C0419E100241783 /* PBXTextBookmark */ = {
+	934CAE820C041A2800241783 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
 		name = romHeader;
@@ -1295,37 +480,7 @@
 		vrLen = 466;
 		vrLoc = 4993;
 	};
-	934CAE7D0C0419E100241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
-		name = "SerialPort.cpp: 249";
-		rLen = 0;
-		rLoc = 6874;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
-	};
-	934CAE7E0C0419E600241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
-		name = "AutoStarX.cpp: 678";
-		rLen = 0;
-		rLoc = 21536;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 20832;
-	};
-	934CAE7F0C0419E600241783 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = romHeader;
-		rLen = 9;
-		rLoc = 5213;
-		rType = 0;
-		vrLen = 466;
-		vrLoc = 4993;
-	};
-	934CAE800C0419E600241783 /* PBXTextBookmark */ = {
+	934CAE830C041A2800241783 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
 		name = "SerialPort.cpp: 249";
@@ -1475,8 +630,8 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {898, 4102}}";
 			sepNavSelRange = "{6874, 0}";
-			sepNavVisRect = "{{0, 3178}, {898, 703}}";
-			sepNavWindowFrame = "{{265, 0}, {937, 832}}";
+			sepNavVisRect = "{{0, 0}, {898, 703}}";
+			sepNavWindowFrame = "{{759, 346}, {937, 832}}";
 		};
 	};
 	937D9DA50A58C03800E77F03 /* SerialPort.h */ = {
@@ -1487,25 +642,541 @@
 			sepNavWindowFrame = "{{394, 64}, {937, 846}}";
 		};
 	};
-	9391F6CA0C0377A9001900CF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
-		name = "AutoStarX.h: 14";
-		rLen = 0;
-		rLoc = 237;
-		rType = 0;
-		vrLen = 649;
-		vrLoc = 0;
+	939B54F10C13769D007D181A /* AutostarModel.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {946, 639}}";
+			sepNavSelRange = "{189, 0}";
+			sepNavVisRect = "{{0, 0}, {946, 639}}";
+			sepNavWindowFrame = "{{689, 313}, {985, 768}}";
+		};
 	};
-	9391F6CB0C0377A9001900CF /* PBXTextBookmark */ = {
+	939B54F20C13769D007D181A /* AutostarModel.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {946, 639}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {946, 639}}";
+			sepNavWindowFrame = "{{29, 125}, {985, 768}}";
+		};
+	};
+	939B54F80C137766007D181A /* Autostar.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {946, 639}}";
+			sepNavSelRange = "{275, 0}";
+			sepNavVisRect = "{{0, 0}, {946, 639}}";
+		};
+	};
+	939B54F90C137766007D181A /* Autostar.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {946, 639}}";
+			sepNavSelRange = "{237, 13}";
+			sepNavVisRect = "{{0, 0}, {946, 639}}";
+		};
+	};
+	939B55100C137A37007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: AutostarModel: No such file or directory";
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		rLen = 1;
+		rLoc = 11;
+		rType = 1;
+	};
+	939B55140C137A48007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'm_mode' was not declared in this scope";
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		rLen = 1;
+		rLoc = 13;
+		rType = 1;
+	};
+	939B55170C137A4D007D181A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
 		name = "SerialPort.cpp: 249";
 		rLen = 0;
 		rLoc = 6874;
 		rType = 0;
-		vrLen = 1025;
-		vrLoc = 6377;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B55180C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "AutoStarX.h: 186";
+		rLen = 0;
+		rLoc = 4992;
+		rType = 0;
+		vrLen = 852;
+		vrLoc = 4605;
+	};
+	939B55190C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1211;
+		vrLoc = 1821;
+	};
+	939B551A0C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B551D0C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F10C13769D007D181A /* AutostarModel.h */;
+		rLen = 0;
+		rLoc = "-2147483622";
+		rType = 0;
+	};
+	939B551E0C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F10C13769D007D181A /* AutostarModel.h */;
+		name = "AutostarModel.h: 14";
+		rLen = 0;
+		rLoc = 189;
+		rType = 0;
+		vrLen = 193;
+		vrLoc = 0;
+	};
+	939B55210C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F20C13769D007D181A /* AutostarModel.cpp */;
+		rLen = 0;
+		rLoc = 2147483647;
+		rType = 0;
+	};
+	939B55220C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F20C13769D007D181A /* AutostarModel.cpp */;
+		name = "AutostarModel.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 168;
+		vrLoc = 0;
+	};
+	939B55250C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: 12";
+		rLen = 0;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 481;
+		vrLoc = 0;
+	};
+	939B55280C137A4D007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = "m_mode\t\t\t\t= UNKNOWN;";
+		rLen = 0;
+		rLoc = 181;
+		rType = 0;
+		vrLen = 338;
+		vrLoc = 0;
+	};
+	939B552B0C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B552C0C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1211;
+		vrLoc = 1821;
+	};
+	939B552D0C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B552E0C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F10C13769D007D181A /* AutostarModel.h */;
+		name = "AutostarModel.h: 14";
+		rLen = 0;
+		rLoc = 189;
+		rType = 0;
+		vrLen = 193;
+		vrLoc = 0;
+	};
+	939B552F0C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F20C13769D007D181A /* AutostarModel.cpp */;
+		name = "AutostarModel.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 168;
+		vrLoc = 0;
+	};
+	939B55300C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: 30";
+		rLen = 0;
+		rLoc = 553;
+		rType = 0;
+		vrLen = 494;
+		vrLoc = 0;
+	};
+	939B55310C137A7B007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = m_modelName;
+		rLen = 11;
+		rLoc = 202;
+		rType = 0;
+		vrLen = 316;
+		vrLoc = 0;
+	};
+	939B55330C137B46007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'm_mode' was not declared in this scope";
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		rLen = 1;
+		rLoc = 13;
+		rType = 1;
+	};
+	939B55360C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B55370C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1279;
+		vrLoc = 1715;
+	};
+	939B55380C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B55390C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: 30";
+		rLen = 0;
+		rLoc = 553;
+		rType = 0;
+		vrLen = 494;
+		vrLoc = 0;
+	};
+	939B553A0C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: m_modelName";
+		rLen = 0;
+		rLoc = 552;
+		rType = 0;
+		vrLen = 504;
+		vrLoc = 0;
+	};
+	939B553B0C137BC1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = "Autostar.cpp: 15";
+		rLen = 0;
+		rLoc = 235;
+		rType = 0;
+		vrLen = 341;
+		vrLoc = 0;
+	};
+	939B55410C137BD8007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'CFString' does not name a type";
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		rLen = 1;
+		rLoc = 32;
+		rType = 1;
+	};
+	939B55420C137BE4007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B55430C137BE4007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1279;
+		vrLoc = 1715;
+	};
+	939B55440C137BE4007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B55450C137BE4007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: m_modelName";
+		rLen = 0;
+		rLoc = 540;
+		rType = 0;
+		vrLen = 504;
+		vrLoc = 0;
+	};
+	939B55460C137BE4007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = "Autostar.cpp: 15";
+		rLen = 0;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 323;
+		vrLoc = 0;
+	};
+	939B554A0C137BF7007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'm_hbxSafeMode' was not declared in this scope";
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		rLen = 1;
+		rLoc = 15;
+		rType = 1;
+	};
+	939B554B0C137BFF007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B554C0C137BFF007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1279;
+		vrLoc = 1715;
+	};
+	939B554D0C137BFF007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B554E0C137BFF007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: 31";
+		rLen = 0;
+		rLoc = 572;
+		rType = 0;
+		vrLen = 523;
+		vrLoc = 0;
+	};
+	939B554F0C137BFF007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = m_hbxSafeMode;
+		rLen = 13;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 323;
+		vrLoc = 0;
+	};
+	939B55540C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B55550C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 1279;
+		vrLoc = 1715;
+	};
+	939B55560C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 956;
+		vrLoc = 4348;
+	};
+	939B55570C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B55580C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: m_hbxSafeMode";
+		rLen = 0;
+		rLoc = 572;
+		rType = 0;
+		vrLen = 528;
+		vrLoc = 0;
+	};
+	939B55590C137C4C007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = m_hbxSafeMode;
+		rLen = 13;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 323;
+		vrLoc = 0;
+	};
+	939B555C0C137CF4007D181A /* Model494_497.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {805, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {805, 702}}";
+			sepNavWindowFrame = "{{111, 258}, {844, 831}}";
+		};
+	};
+	939B55610C137D04007D181A /* Model494.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {805, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {805, 702}}";
+			sepNavWindowFrame = "{{134, 237}, {844, 831}}";
+		};
+	};
+	939B55660C137D11007D181A /* Model497.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {805, 702}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {805, 702}}";
+			sepNavWindowFrame = "{{157, 216}, {844, 831}}";
+		};
+	};
+	939B556B0C137D1C007D181A /* ModelLX.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {805, 702}}";
+			sepNavSelRange = "{160, 0}";
+			sepNavVisRect = "{{0, 0}, {805, 702}}";
+			sepNavWindowFrame = "{{180, 195}, {844, 831}}";
+		};
+	};
+	939B55710C137DB1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */;
+		name = "SerialPort.cpp: 249";
+		rLen = 0;
+		rLoc = 6874;
+		rType = 0;
+		vrLen = 1041;
+		vrLoc = 0;
+	};
+	939B55720C137DB1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "SerialPortIO *mPortIO;";
+		rLen = 22;
+		rLoc = 5058;
+		rType = 0;
+		vrLen = 956;
+		vrLoc = 4348;
+	};
+	939B55730C137DB1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = /SerialPort.h;
+		rLen = 13;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 1178;
+		vrLoc = 0;
+	};
+	939B55740C137DB1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F80C137766007D181A /* Autostar.h */;
+		name = "Autostar.h: 15";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 0;
+	};
+	939B55750C137DB1007D181A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
+		name = m_hbxSafeMode;
+		rLen = 13;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 323;
+		vrLoc = 0;
 	};
 	93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {
 		uiCtxt = {
@@ -1517,18 +1188,18 @@
 	};
 	93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {711, 3038}}";
-			sepNavSelRange = "{5213, 9}";
-			sepNavVisRect = "{{0, 2609}, {711, 429}}";
-			sepNavWindowFrame = "{{402, 110}, {750, 558}}";
+			sepNavIntBoundsRect = "{{0, 0}, {946, 3038}}";
+			sepNavSelRange = "{5058, 22}";
+			sepNavVisRect = "{{0, 2203}, {946, 639}}";
+			sepNavWindowFrame = "{{887, 249}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1514, 16968}}";
-			sepNavSelRange = "{21536, 0}";
-			sepNavVisRect = "{{0, 9023}, {1220, 1037}}";
-			sepNavWindowFrame = "{{1344, 41}, {990, 832}}";
+			sepNavSelRange = "{219, 13}";
+			sepNavVisRect = "{{0, 0}, {805, 702}}";
+			sepNavWindowFrame = "{{141, 12}, {1259, 1166}}";
 		};
 	};
 	93E5E4EF077526FC00F37742 /* Serial.cpp */ = {

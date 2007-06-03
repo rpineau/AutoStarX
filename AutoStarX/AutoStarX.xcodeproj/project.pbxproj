@@ -15,6 +15,12 @@
 		93085FA307740B3D00A0BC0B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */; };
 		9377B1560763CE9B00C57F77 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9377B1550763CE9B00C57F77 /* IOKit.framework */; };
 		937D9DA30A58C01E00E77F03 /* SerialPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 937D9DA20A58C01E00E77F03 /* SerialPort.cpp */; };
+		939B54F30C13769D007D181A /* AutostarModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B54F20C13769D007D181A /* AutostarModel.cpp */; };
+		939B54FA0C137766007D181A /* Autostar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B54F90C137766007D181A /* Autostar.cpp */; };
+		939B555E0C137CF4007D181A /* Model494_497.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B555D0C137CF4007D181A /* Model494_497.cpp */; };
+		939B55630C137D04007D181A /* Model494.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B55620C137D04007D181A /* Model494.cpp */; };
+		939B55680C137D11007D181A /* Model497.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B55670C137D11007D181A /* Model497.cpp */; };
+		939B556D0C137D1C007D181A /* ModelLX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 939B556C0C137D1C007D181A /* ModelLX.cpp */; };
 		93E5E4F0077526FC00F37742 /* AutoStarX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */; };
 		93E5E4F1077526FC00F37742 /* Serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93E5E4EF077526FC00F37742 /* Serial.cpp */; };
 		93E5E4F30775270F00F37742 /* FileSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93E5E4F20775270F00F37742 /* FileSelector.cpp */; };
@@ -34,6 +40,18 @@
 		9377B1550763CE9B00C57F77 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		937D9DA20A58C01E00E77F03 /* SerialPort.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = SerialPort.cpp; path = Autostar/SerialPort.cpp; sourceTree = "<group>"; };
 		937D9DA50A58C03800E77F03 /* SerialPort.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SerialPort.h; path = Autostar/SerialPort.h; sourceTree = "<group>"; };
+		939B54F10C13769D007D181A /* AutostarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutostarModel.h; path = Autostar/AutostarModel.h; sourceTree = "<group>"; };
+		939B54F20C13769D007D181A /* AutostarModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AutostarModel.cpp; path = Autostar/AutostarModel.cpp; sourceTree = "<group>"; };
+		939B54F80C137766007D181A /* Autostar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Autostar.h; path = Autostar/Autostar.h; sourceTree = "<group>"; };
+		939B54F90C137766007D181A /* Autostar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Autostar.cpp; path = Autostar/Autostar.cpp; sourceTree = "<group>"; };
+		939B555C0C137CF4007D181A /* Model494_497.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model494_497.h; path = Autostar/Model494_497.h; sourceTree = "<group>"; };
+		939B555D0C137CF4007D181A /* Model494_497.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model494_497.cpp; path = Autostar/Model494_497.cpp; sourceTree = "<group>"; };
+		939B55610C137D04007D181A /* Model494.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model494.h; path = Autostar/Model494.h; sourceTree = "<group>"; };
+		939B55620C137D04007D181A /* Model494.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model494.cpp; path = Autostar/Model494.cpp; sourceTree = "<group>"; };
+		939B55660C137D11007D181A /* Model497.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model497.h; path = Autostar/Model497.h; sourceTree = "<group>"; };
+		939B55670C137D11007D181A /* Model497.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model497.cpp; path = Autostar/Model497.cpp; sourceTree = "<group>"; };
+		939B556B0C137D1C007D181A /* ModelLX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelLX.h; path = Autostar/ModelLX.h; sourceTree = "<group>"; };
+		939B556C0C137D1C007D181A /* ModelLX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModelLX.cpp; path = Autostar/ModelLX.cpp; sourceTree = "<group>"; };
 		93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AutoStarX_Prefix.pch; sourceTree = "<group>"; };
 		93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AutoStarX.h; sourceTree = "<group>"; };
 		93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = AutoStarX.cpp; sourceTree = "<group>"; };
@@ -116,6 +134,12 @@
 		937D9DA10A58BFF800E77F03 /* Autostar */ = {
 			isa = PBXGroup;
 			children = (
+				939B54F90C137766007D181A /* Autostar.cpp */,
+				939B54F20C13769D007D181A /* AutostarModel.cpp */,
+				939B556C0C137D1C007D181A /* ModelLX.cpp */,
+				939B55670C137D11007D181A /* Model497.cpp */,
+				939B55620C137D04007D181A /* Model494.cpp */,
+				939B555D0C137CF4007D181A /* Model494_497.cpp */,
 				937D9DA20A58C01E00E77F03 /* SerialPort.cpp */,
 			);
 			name = Autostar;
@@ -124,6 +148,12 @@
 		937D9DA40A58C02900E77F03 /* Autostar */ = {
 			isa = PBXGroup;
 			children = (
+				939B556B0C137D1C007D181A /* ModelLX.h */,
+				939B55660C137D11007D181A /* Model497.h */,
+				939B55610C137D04007D181A /* Model494.h */,
+				939B555C0C137CF4007D181A /* Model494_497.h */,
+				939B54F10C13769D007D181A /* AutostarModel.h */,
+				939B54F80C137766007D181A /* Autostar.h */,
 				937D9DA50A58C03800E77F03 /* SerialPort.h */,
 			);
 			name = Autostar;
@@ -199,6 +229,12 @@
 				93E5E4F1077526FC00F37742 /* Serial.cpp in Sources */,
 				93E5E4F30775270F00F37742 /* FileSelector.cpp in Sources */,
 				937D9DA30A58C01E00E77F03 /* SerialPort.cpp in Sources */,
+				939B54F30C13769D007D181A /* AutostarModel.cpp in Sources */,
+				939B54FA0C137766007D181A /* Autostar.cpp in Sources */,
+				939B555E0C137CF4007D181A /* Model494_497.cpp in Sources */,
+				939B55630C137D04007D181A /* Model494.cpp in Sources */,
+				939B55680C137D11007D181A /* Model497.cpp in Sources */,
+				939B556D0C137D1C007D181A /* ModelLX.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
