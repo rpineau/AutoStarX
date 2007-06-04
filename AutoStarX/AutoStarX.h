@@ -14,6 +14,7 @@
 #include <unistd.h>
 
 #include <Carbon/Carbon.h>
+#include "Autostar/Autostar.h"
 
 #include "controls.h"
 // #define __TEST
@@ -107,7 +108,8 @@ typedef struct
      
 // main structure for data storage
 
-class AutoStarX {
+class AutoStarX
+{
 
 public:
     AutoStarX();
@@ -125,6 +127,8 @@ public:
 
     virtual void UpdateUI(ThreadControllerData * myData);
     
+	Autostar m_autostar;
+	
 private:
 	
     // other function
@@ -153,7 +157,8 @@ private:
     virtual void SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page);
 	
 	virtual int loadROMFile();
-	
+
+	virtual void SetASType();	// set type of Autostar (1 or 2)
 
 // Nib reference
     IBNibRef 		mNibRef;	
@@ -186,7 +191,6 @@ private:
     //Serial port data
     CFMutableArrayRef   mPortArray;
     SerialPort  *mPorts;
-    SerialPortIO *mPortIO;
     
     bool    bConnected;
     bool    bFilename;
@@ -209,7 +213,7 @@ private:
 	struct stat f_stat;
 	int nbPages;
 	int startPage;
-	
+	ASType m_ASType;
 	
 };
 

@@ -10,8 +10,6 @@
 
 #include "FileSelector.h"
 #include "Serial.h"
-#include "Autostar/SerialPort.h"
-
 #include "AutoStarX.h"
 
 
@@ -35,7 +33,6 @@ AutoStarX::AutoStarX()
     newRom=NULL;
 	romHeader=NULL;
     mRomFullPath=NULL; 
-    mPortIO=NULL;   
     bFlashing=false;    
     // InitCursor();
     
@@ -717,6 +714,7 @@ int AutoStarX::loadROMFile()
 
 }
 
+
 // 
 // connect to the AutoStarX at 9600 bauds and get device type and ROM version
 //
@@ -725,94 +723,32 @@ void AutoStarX::AutoStarConnect()
     SInt32 index;
 	bool bSafeLoad;
     char bsdPath[255];
-    Byte ioBuffer[64];
-    Byte cmd[2];
-	int i;
+	eAutostarStat err;
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
 
     //get the bsd path at index -1 (index are going from 1 to n in the popup but from 0 to n-1 in the array)
     CFStringGetCString(mPorts->getPortPath(index-1),bsdPath,255,kCFStringEncodingASCII);
+	err = m_autostar.ConnectToAutostar(bsdPath);
+	if (err!=AUTOSTAR_OK)
+		{
+		switch(err)
+			{
+			case WRITE_ERROR :
+				ErrorAlert(CFSTR("Write error !"));
+				break;
+			case READ_ERROR :
+				ErrorAlert(CFSTR("Read error !"));
+				break;
+			default :
+				ErrorAlert(CFSTR("Communication error !"),CFSTR("The serial port is used by another application"));
+			}
+		return;
+		}
 
-    mPortIO=new SerialPortIO(bsdPath);
-    // open port at 9600  
-    if(! mPortIO->OpenSerialPort(bsdPath, 9600))
-        { // error opening port
-        ErrorAlert(CFSTR("Communication error !"),CFSTR("The serial port is used by another application"));
-        return;
-        }
-        
     bConnected=true;
-    bSafeLoad=true;
-	// flush all data before starting
-	mPortIO->ReadData(ioBuffer,64);
-
-    for(i=0;i<11;i++)
-        {
-        // check AutoStarX status : cmd=0x06
-        cmd[0]=0x06;    // ^F (1 byte response)
-        cmd[1]=0;
-        if(!mPortIO->SendData(cmd,1))
-            {
-            AutoStarDisconnect();		
-            ErrorAlert(CFSTR("Write error !"));
-            return;
-            }
-        usleep(100000);
-        if(!mPortIO->ReadData(ioBuffer,1))
-            {
-            AutoStarDisconnect();
-            ErrorAlert(CFSTR("Read error !"));
-            return;
-            }
- 
-        if(ioBuffer[0]!='?')
-            {
-            bSafeLoad=false;
-            break;
-            }            
-
-        } 
-
-    if(ioBuffer[0]!='D' && !bSafeLoad) // not in download mode
-        {
-        // switch to download mode
-        cmd[0]=0x04;    // ^D (1 byte response)
-        cmd[1]=0;
-		if(!mPortIO->SendData(cmd,1))
-			{
-			AutoStarDisconnect();
-			ErrorAlert(CFSTR("Write error !"));
-            return;
-			}
-		usleep(500000);	
-		if(!mPortIO->ReadData(ioBuffer,1))
-			{
-			AutoStarDisconnect();
-			ErrorAlert(CFSTR("Read error !"));
-            return;
-			}
-
-        }
-    // otherwize we are already in download mode !!!!  most probably in safe load
-    
-    // get device type (495, 497, ....)
-    cmd[0]='T';    // ask for AutoStarX type 0x0F=497 0x0A=495 0x05=??? (1 byte response)
-    cmd[1]=0;
-    if(!mPortIO->SendData(cmd,1))
-		{
-		AutoStarDisconnect();
-		ErrorAlert(CFSTR("Write error !"));
-        return;
-		}
-	usleep(500000);
-	if(!mPortIO->ReadData(ioBuffer,1))
-		{
-		AutoStarDisconnect();
-		ErrorAlert(CFSTR("Read error !"));
-        return;
-		}
-		
+    m_ASType=m_autostar.CheckDownLoadMode();
+	
     // set the device type control to the AutoStarX type
     switch(ioBuffer[0])
         {
@@ -867,6 +803,9 @@ void AutoStarX::AutoStarConnect()
     
 }
 
+//
+// Disconnect autostar
+//
 void AutoStarX::AutoStarDisconnect()
 {
     Byte cmd[2];
@@ -888,7 +827,9 @@ void AutoStarX::AutoStarDisconnect()
     mPortIO=NULL;
 }
 
-
+//
+// Reset Autostar
+//
 void AutoStarX::AutoStarReset()
 {
     Byte cmd[16];
@@ -942,6 +883,12 @@ void AutoStarX::AutoStarReset()
 
 }
 
+//
+// Set the type of autostar
+//
+void AutoStarX::SetASType()
+{
+}
 
 
 void AutoStarX::ErrorAlert(CFStringRef error)

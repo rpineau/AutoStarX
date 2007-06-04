@@ -262,7 +262,22 @@ bool SerialPortIO:: SendData(Byte * dataOut, int length)
 }
  
  
- 
+bool SerialPortIO::SendData(unsigned char *out, unsigned int outcnt, unsigned char *in, unsigned int &incnt)
+{
+	bool res;
+	
+	res=SendData(out,outcnt);
+	if(!res)
+		return res;
+		
+	usleep(500000);
+	
+	res=ReadData(in,incnt);
+	
+	return res;
+	
+}
+
 //
 // Change the speed of an open connection
 //

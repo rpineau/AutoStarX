@@ -21,6 +21,8 @@
 #include <sys/time.h>
 #include <time.h>
 
+enum eSerialStat {COM_OK, BAD_PORT, NO_RESPONSE};
+
 class SerialPortIO
 {
 
@@ -33,7 +35,7 @@ public:
     virtual bool SetSpeed(int speed);
     virtual bool SendData(Byte * dataOut, int length);
     virtual bool ReadData(Byte * dataIn, int length);
-    
+    virtual bool SendData(unsigned char *out, unsigned int outcnt, unsigned char *in, unsigned int &incnt);
     
 private:
     // Hold the original termios attributes so we can reset them

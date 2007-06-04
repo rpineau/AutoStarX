@@ -52,6 +52,7 @@
 		939B55670C137D11007D181A /* Model497.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model497.cpp; path = Autostar/Model497.cpp; sourceTree = "<group>"; };
 		939B556B0C137D1C007D181A /* ModelLX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelLX.h; path = Autostar/ModelLX.h; sourceTree = "<group>"; };
 		939B556C0C137D1C007D181A /* ModelLX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModelLX.cpp; path = Autostar/ModelLX.cpp; sourceTree = "<group>"; };
+		939B55780C137FA8007D181A /* AutostarStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutostarStat.h; path = Autostar/AutostarStat.h; sourceTree = "<group>"; };
 		93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AutoStarX_Prefix.pch; sourceTree = "<group>"; };
 		93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AutoStarX.h; sourceTree = "<group>"; };
 		93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = AutoStarX.cpp; sourceTree = "<group>"; };
@@ -148,12 +149,13 @@
 		937D9DA40A58C02900E77F03 /* Autostar */ = {
 			isa = PBXGroup;
 			children = (
+				939B55780C137FA8007D181A /* AutostarStat.h */,
+				939B54F80C137766007D181A /* Autostar.h */,
 				939B556B0C137D1C007D181A /* ModelLX.h */,
 				939B55660C137D11007D181A /* Model497.h */,
 				939B55610C137D04007D181A /* Model494.h */,
 				939B555C0C137CF4007D181A /* Model494_497.h */,
 				939B54F10C13769D007D181A /* AutostarModel.h */,
-				939B54F80C137766007D181A /* Autostar.h */,
 				937D9DA50A58C03800E77F03 /* SerialPort.h */,
 			);
 			name = Autostar;
