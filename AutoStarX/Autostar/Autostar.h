@@ -41,6 +41,7 @@ public:
 	
 	eAutostarStat m_lastError;
 	eAutostarMode m_mode;
+	const char* getModelName(char *buffer);
 	
 protected:
 	SerialPortIO *mPortIO;	

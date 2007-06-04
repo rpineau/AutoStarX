@@ -723,7 +723,9 @@ void AutoStarX::AutoStarConnect()
     SInt32 index;
 	bool bSafeLoad;
     char bsdPath[255];
+	char asName[255];
 	eAutostarStat err;
+	
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
 
@@ -747,23 +749,31 @@ void AutoStarX::AutoStarConnect()
 		}
 
     bConnected=true;
-    m_ASType=m_autostar.CheckDownLoadMode();
+    bSafeLoad=m_autostar.CheckDownLoadMode();
+	m_ASType=m_autostar.GetModel();
+	m_autostar.getModelName(asName);
 	
     // set the device type control to the AutoStarX type
-    switch(ioBuffer[0])
+    switch(m_ASType)
         {
-        case 0x0f:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
-            deviceType=1;
+        case TYPE_AUTOSTAR:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (asName), asName);
+            deviceType=TYPE_AUTOSTAR;
             break;
             
-        case 0x0A:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
-            deviceType=1;
+        case TYPE_AUTOSTAR2:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (asName), asName);
+            deviceType=TYPE_AUTOSTAR2;
             break;
+			
+        case TYPE_RCX:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (asName), asName);
+            deviceType=TYPE_RCX;
+            break;
+			
         default:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
-            deviceType=0xFFFF;
+            deviceType=TYPE_UNKNOWN;
             break;
         }
 

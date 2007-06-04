@@ -341,6 +341,10 @@ eAutostarStat Autostar::SendDownloadMode()
 	return	AUTOSTAR_OK;		
 }
 
+const char* Autostar::getModelName(char *buffer)
+{
+	return CFStringGetCString(m_modelName,buffer, sizeof(buffer), kCFStringEncodingASCII);
+}
 
 ASType Autostar::GetModel()
 {

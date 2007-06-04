@@ -16,8 +16,8 @@
 			8D0C4E890486CD37000505A6 /* AutoStarX */,
 		);
 		breakpoints = (
-			934CADDB0C04087700241783 /* AutoStarX.cpp:946 */,
-			934CAE160C040D5D00241783 /* AutoStarX.cpp:1006 */,
+			934CADDB0C04087700241783 /* AutoStarX.cpp:956 */,
+			934CAE160C040D5D00241783 /* AutoStarX.cpp:1016 */,
 			934CAE3D0C040FFE00241783 /* AutoStarX.cpp:94 */,
 		);
 		breakpointsGroup = 937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */;
@@ -535,7 +535,7 @@
 		vrLen = 1025;
 		vrLoc = 6377;
 	};
-	934CADDB0C04087700241783 /* AutoStarX.cpp:946 */ = {
+	934CADDB0C04087700241783 /* AutoStarX.cpp:956 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -545,12 +545,12 @@
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::Flash()";
 		hitCount = 1;
-		lineNumber = 946;
+		lineNumber = 956;
 		location = AutoStarX.ob;
 		modificationTime = 201595362.000644;
 		state = 1;
 	};
-	934CAE160C040D5D00241783 /* AutoStarX.cpp:1006 */ = {
+	934CAE160C040D5D00241783 /* AutoStarX.cpp:1016 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -560,7 +560,7 @@
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::Flash()";
 		hitCount = 1;
-		lineNumber = 1006;
+		lineNumber = 1016;
 		location = AutoStarX.ob;
 		modificationTime = 201595362.023037;
 		state = 1;
@@ -570,7 +570,7 @@
 		comments = "error: 'doublepages' was not declared in this scope";
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		rLen = 1;
-		rLoc = 964;
+		rLoc = 974;
 		rType = 1;
 	};
 	934CAE3D0C040FFE00241783 /* AutoStarX.cpp:94 */ = {
@@ -757,8 +757,8 @@
 		isa = XCBreakpointsBucket;
 		name = "Project Breakpoints";
 		objects = (
-			934CADDB0C04087700241783 /* AutoStarX.cpp:946 */,
-			934CAE160C040D5D00241783 /* AutoStarX.cpp:1006 */,
+			934CADDB0C04087700241783 /* AutoStarX.cpp:956 */,
+			934CAE160C040D5D00241783 /* AutoStarX.cpp:1016 */,
 			934CAE3D0C040FFE00241783 /* AutoStarX.cpp:94 */,
 		);
 	};
@@ -803,9 +803,9 @@
 	};
 	939B54F90C137766007D181A /* Autostar.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {932, 6062}}";
-			sepNavSelRange = "{6524, 42}";
-			sepNavVisRect = "{{0, 4047}, {932, 1049}}";
+			sepNavIntBoundsRect = "{{0, 0}, {977, 6048}}";
+			sepNavSelRange = "{7735, 51}";
+			sepNavVisRect = "{{0, 4774}, {977, 333}}";
 		};
 	};
 	939B55100C137A37007D181A /* PBXTextBookmark */ = {
@@ -973,7 +973,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: 30";
 		rLen = 0;
-		rLoc = 1186;
+		rLoc = 1227;
 		rType = 0;
 		vrLen = 494;
 		vrLoc = 0;
@@ -1031,7 +1031,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: 30";
 		rLen = 0;
-		rLoc = 1186;
+		rLoc = 1227;
 		rType = 0;
 		vrLen = 494;
 		vrLoc = 0;
@@ -1041,7 +1041,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_modelName";
 		rLen = 0;
-		rLoc = 1185;
+		rLoc = 1226;
 		rType = 0;
 		vrLen = 504;
 		vrLoc = 0;
@@ -1061,7 +1061,7 @@
 		comments = "error: 'CFString' does not name a type";
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		rLen = 1;
-		rLoc = 49;
+		rLoc = 50;
 		rType = 1;
 	};
 	939B55420C137BE4007D181A /* PBXTextBookmark */ = {
@@ -1099,7 +1099,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_modelName";
 		rLen = 0;
-		rLoc = 1173;
+		rLoc = 1214;
 		rType = 0;
 		vrLen = 504;
 		vrLoc = 0;
@@ -1157,7 +1157,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: 31";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1246;
 		rType = 0;
 		vrLen = 523;
 		vrLoc = 0;
@@ -1217,7 +1217,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_hbxSafeMode";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1246;
 		rType = 0;
 		vrLen = 528;
 		vrLoc = 0;
@@ -1431,7 +1431,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: 36";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 626;
 		vrLoc = 0;
@@ -1451,7 +1451,7 @@
 		comments = "error: ISO C++ forbids declaration of 'AutostarStat' with no type";
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		rLen = 0;
-		rLoc = 50;
+		rLoc = 51;
 		rType = 1;
 	};
 	939B55940C138043007D181A /* PBXBookmark */ = {
@@ -1497,7 +1497,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_stat";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 0;
@@ -1567,7 +1567,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_stat";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 0;
@@ -1655,7 +1655,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_stat";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 0;
@@ -1725,7 +1725,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_stat";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 0;
@@ -1775,7 +1775,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_stat";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 640;
 		vrLoc = 0;
@@ -1785,7 +1785,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: 38";
 		rLen = 0;
-		rLoc = 1278;
+		rLoc = 1319;
 		rType = 0;
 		vrLen = 670;
 		vrLoc = 0;
@@ -1943,7 +1943,7 @@
 		comments = "error: ISO C++ forbids declaration of 'AutostarStat' with no type";
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		rLen = 0;
-		rLoc = 50;
+		rLoc = 51;
 		rType = 1;
 	};
 	939B55F80C138C65007D181A /* PBXTextBookmark */ = {
@@ -1979,7 +1979,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_hbxSafeMode";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 0;
@@ -2009,7 +2009,7 @@
 		comments = "error: 'mPortIO' was not declared in this scope";
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		rLen = 1;
-		rLoc = 732;
+		rLoc = 734;
 		rType = 1;
 	};
 	939B56100C13940F007D181A /* PBXTextBookmark */ = {
@@ -2027,7 +2027,7 @@
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "AutoStarX.cpp: 735";
 		rLen = 0;
-		rLoc = 22890;
+		rLoc = 22911;
 		rType = 0;
 		vrLen = 1390;
 		vrLoc = 22444;
@@ -2037,7 +2037,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = "Autostar.h: m_hbxSafeMode";
 		rLen = 0;
-		rLoc = 1219;
+		rLoc = 1260;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 0;
@@ -2095,7 +2095,7 @@
 		comments = "error: 'ioBuffer' was not declared in this scope";
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		rLen = 1;
-		rLoc = 752;
+		rLoc = 756;
 		rType = 1;
 	};
 	939B56660C139AD6007D181A /* PBXTextBookmark */ = {
@@ -2112,8 +2112,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "oBuffer[0]";
-		rLen = 10;
-		rLoc = 23354;
+		rLen = 0;
+		rLoc = 23442;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 23032;
@@ -2182,8 +2182,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "oBuffer[0]";
-		rLen = 10;
-		rLoc = 23354;
+		rLen = 0;
+		rLoc = 23442;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 23032;
@@ -2242,8 +2242,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "oBuffer[0]";
-		rLen = 10;
-		rLoc = 23354;
+		rLen = 0;
+		rLoc = 23442;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 23032;
@@ -2306,8 +2306,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = "oBuffer[0]";
-		rLen = 10;
-		rLoc = 23354;
+		rLen = 0;
+		rLoc = 23442;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 23032;
@@ -2317,7 +2317,7 @@
 		fRef = 939B54F80C137766007D181A /* Autostar.h */;
 		name = mPortIO;
 		rLen = 7;
-		rLoc = 1128;
+		rLoc = 1169;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 133;
@@ -2385,7 +2385,7 @@
 		comments = "error: 'ioBuffer' was not declared in this scope";
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		rLen = 1;
-		rLoc = 752;
+		rLoc = 756;
 		rType = 1;
 	};
 	939B56E60C13A310007D181A /* PBXTextBookmark */ = {
@@ -2393,7 +2393,7 @@
 		comments = "error: no matching function for call to 'Autostar::SendCommand(eAutostarCmnd, NULL, Byte [64], int)'";
 		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
 		rLen = 1;
-		rLoc = 355;
+		rLoc = 359;
 		rType = 1;
 	};
 	939B56EF0C13A395007D181A /* PBXTextBookmark */ = {
@@ -2420,8 +2420,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = m_ASType;
-		rLen = 8;
-		rLoc = 23242;
+		rLen = 0;
+		rLoc = 23272;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 22447;
@@ -2451,7 +2451,7 @@
 		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
 		name = "Autostar.cpp: 328";
 		rLen = 0;
-		rLoc = 7352;
+		rLoc = 7493;
 		rType = 0;
 		vrLen = 1393;
 		vrLoc = 6231;
@@ -2498,7 +2498,7 @@
 		comments = "error: 'SendDownloadMode' was not declared in this scope";
 		fRef = 939B54F90C137766007D181A /* Autostar.cpp */;
 		rLen = 1;
-		rLoc = 372;
+		rLoc = 376;
 		rType = 1;
 	};
 	939B57080C13A3D7007D181A /* PBXTextBookmark */ = {
@@ -2515,8 +2515,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = m_ASType;
-		rLen = 8;
-		rLoc = 23242;
+		rLen = 0;
+		rLoc = 23272;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 22447;
@@ -2585,8 +2585,8 @@
 		isa = PBXTextBookmark;
 		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		name = m_ASType;
-		rLen = 8;
-		rLoc = 23242;
+		rLen = 0;
+		rLoc = 23272;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 22447;
