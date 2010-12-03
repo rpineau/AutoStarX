@@ -9,7 +9,6 @@
 
 #include <Carbon/Carbon.h>
 #include "SerialPort.h"
-#include "AutostarStat.h"
 #include "AutostarModel.h"
 #include "Model494.h"
 #include "Model497.h"
