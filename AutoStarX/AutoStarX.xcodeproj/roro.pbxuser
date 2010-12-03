@@ -19,7 +19,6 @@
 			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:192 */,
 			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:167 */,
 		);
-		breakpointsGroup = 937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */;
 		codeSenseManager = 9377B1410763CDEF00C57F77 /* Code sense */;
 		executables = (
 			9377B1330763CDD900C57F77 /* AutoStarX */,
@@ -109,7 +108,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 173585752;
+			PBXPerProjectTemplateStateSaveDate = 313046856;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -286,7 +285,7 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 173585752;
+			PBXWorkspaceStateSaveDate = 313046856;
 		};
 		perUserProjectItems = {
 			93633D7C07D28BB5009E3AD7 = 93633D7C07D28BB5009E3AD7 /* PBXTextBookmark */;
@@ -326,12 +325,15 @@
 		isa = PBXFileBreakpoint;
 		breakpointStyle = 0;
 		continueAfterActions = 0;
+		countType = 0;
 		delayBeforeContinue = 0;
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::commandHandler()";
 		hitCount = 0;
+		ignoreCount = 0;
 		lineNumber = 192;
 		modificationTime = 0;
+		originalNumberOfMultipleMatches = 0;
 		state = 1;
 	};
 	93633DD007D2923E009E3AD7 /* AutoStarX.cpp */ = {
@@ -352,12 +354,15 @@
 		isa = PBXFileBreakpoint;
 		breakpointStyle = 0;
 		continueAfterActions = 0;
+		countType = 0;
 		delayBeforeContinue = 0;
 		fileReference = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
 		functionName = "AutoStarX::commandHandler()";
 		hitCount = 0;
+		ignoreCount = 0;
 		lineNumber = 167;
 		modificationTime = 0;
+		originalNumberOfMultipleMatches = 0;
 		state = 1;
 	};
 	93633DFC07D2995E009E3AD7 /* PBXTextBookmark */ = {
@@ -382,15 +387,18 @@
 	};
 	9377B1330763CDD900C57F77 /* AutoStarX */ = {
 		isa = PBXExecutable;
-		activeArgIndex = 2147483647;
 		activeArgIndices = (
 		);
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
 		dylibVariantSuffix = "";
@@ -403,6 +411,7 @@
 		name = AutoStarX;
 		savedGlobals = {
 		};
+		showTypeColumn = 0;
 		sourceDirectories = (
 		);
 	};
@@ -411,6 +420,9 @@
 		fallbackIsa = XCSourceControlManager;
 		isSCMEnabled = 0;
 		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
 		};
 		scmType = "";
 	};
@@ -425,14 +437,6 @@
 			sepNavVisRect = "{{0, 285}, {711, 428}}";
 			sepNavWindowFrame = "{{729, 105}, {750, 558}}";
 		};
-	};
-	937D9D470A58B5F700E77F03 /* XCBreakpointsBucket */ = {
-		isa = XCBreakpointsBucket;
-		name = "Project Breakpoints";
-		objects = (
-			93633DB107D290BF009E3AD7 /* AutoStarX.cpp:192 */,
-			93633DF307D2984E009E3AD7 /* AutoStarX.cpp:167 */,
-		);
 	};
 	93E5E4E9077526CC00F37742 /* AutoStarX_Prefix.pch */ = {
 		uiCtxt = {
