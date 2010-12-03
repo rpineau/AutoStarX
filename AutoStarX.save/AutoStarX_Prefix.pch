@@ -1,5 +1,0 @@
-//
-// Prefix header for all source files of the 'AutoStarX' target in the 'AutoStarX' project.
-//
-
-#include <Carbon/Carbon.h>
