@@ -56,11 +56,13 @@ OSErr SerialPort::FindPorts(io_iterator_t *matchingServices)
         printf("IOMasterPort returned %d\n", kernResult);
         return kernResult;
         }
-        
+
+	//
+	// Look for RS232 & CDC device
+	//
+	
     // function IOServiceMatching
     // Create a matching dictionary that specifies an IOService class match.
-
-    // Serial devices are instances of class IOSerialBSDClient
     classesToMatch = IOServiceMatching(kIOSerialBSDServiceValue);
     if (classesToMatch == NULL)
         {
@@ -71,7 +73,7 @@ OSErr SerialPort::FindPorts(io_iterator_t *matchingServices)
 	// Sets the value of the key in the dictionary.
         CFDictionarySetValue(classesToMatch,
                              CFSTR(kIOSerialBSDTypeKey),
-                             CFSTR(kIOSerialBSDRS232Type));
+                             CFSTR(kIOSerialBSDAllTypes));
         }
     
         // function IOServiceGetMatchingServices
@@ -82,6 +84,7 @@ OSErr SerialPort::FindPorts(io_iterator_t *matchingServices)
         {
         printf("IOServiceGetMatchingServices returned %d\n", kernResult);
         }
+
 	return kernResult;
 }
 
