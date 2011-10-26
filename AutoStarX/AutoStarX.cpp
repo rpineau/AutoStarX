@@ -167,7 +167,11 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                 switch(self->newRom->key)
                     {
                         case 0x00000000:    // autostar 495 & 497
-                                self->romType=1;
+								// check the verion of the rom to make sure it's for a 497 and not a 497EP
+								if (strncmp("4",(const char *)self->newRom->version,1) == 0)
+									self->romType=1;
+							if (strncmp("5",(const char *)self->newRom->version,1) == 0)
+									self->romType=0xffff;
                                 break;
                         case 0x00028000:    // autostar II
                                 self->romType=2;
@@ -222,6 +226,8 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                                 break;
                             }
                         }
+					else
+						wrong=true;
                     }
                 else
                     wrong=true;
