@@ -798,7 +798,6 @@ void AutoStarX::AutoStarConnect()
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Write error !"));
 			return;
-			
 		}
 			
         // set the rom version control to the AutoStarX current version
@@ -840,7 +839,8 @@ void AutoStarX::AutoStarReset()
     Byte cmd[16];
     int timeout;
     Byte ioBuffer[64];
-    
+    UInt32 count;
+	
     cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
     cmd[1]=0;
     mPortIO->SendData(cmd,1);
@@ -863,26 +863,12 @@ void AutoStarX::AutoStarReset()
     mPortIO->ReadData(ioBuffer,16);
     
     // get ROM version :GVN#
-    cmd[0]=':';    // ask for ROM version (5 bytes response)
-    cmd[1]='G';
-    cmd[2]='V';
-    cmd[3]='N';
-    cmd[4]='#';
-    
-    if(!mPortIO->SendData(cmd,5))
-		{
+	if(m_autostar.SendCommand(VERSION, NULL, ioBuffer, count)) {
 		AutoStarDisconnect();
-        ErrorAlert(CFSTR("Write error !"));
-        return;
-		}
-		
-	if(!mPortIO->ReadData(ioBuffer,5))
-		{
-		AutoStarDisconnect();
-        ErrorAlert(CFSTR("Read error !"));
-        return;
-		}
-		
+		ErrorAlert(CFSTR("Write error !"));
+		return;
+	}
+			
     // set the rom version control to the AutoStarX current version
     SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
 
