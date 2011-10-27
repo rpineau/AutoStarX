@@ -698,14 +698,22 @@ int AutoStarX::loadROMFile()
 	switch(romHeader->origin[1])
 		{
 			case 0x00:    // autostar 495 & 497
-					romType=1;
-					break;
+				switch(romHeader->version[0])
+					{
+						case '4':
+							romType = 1;
+							break;
+						case '5':
+							romType = 0xffff;
+							break;
+					}
+				break;
 			case 0x80:    // autostar II
-					romType=2;
-					break;
+				romType=2;
+				break;
 			default :           // unknown rom file
-					romType=0xffff;
-					break;
+				romType=0xffff;
+				break;
 		}
 
 	if(bConnected)
@@ -724,6 +732,9 @@ void AutoStarX::AutoStarConnect()
 	bool bSafeLoad;
     char bsdPath[255];
 	char asName[255];
+	Byte ioBuffer[64];
+	UInt32 count;
+	
 	eAutostarStat err;
 	
     // Get current selected port index
@@ -781,23 +792,15 @@ void AutoStarX::AutoStarConnect()
      
     if(!bSafeLoad)
         {
-        // get ROM version
-        cmd[0]='V';    // ask for ROM version (4 bytes response)
-        cmd[1]=0;
-        if(!mPortIO->SendData(cmd,1))
-            {
-            AutoStarDisconnect();
-            ErrorAlert(CFSTR("Write error !"));
-            return;
-            }
-        usleep(500000);    
-        if(!mPortIO->ReadData(ioBuffer,4))
-            {
-            AutoStarDisconnect();
-            ErrorAlert(CFSTR("Read error !"));
-            return;
-            }
-        
+
+		// get ROM version
+		if(m_autostar.SendCommand(VERSION, NULL, ioBuffer, count)) {
+			AutoStarDisconnect();
+			ErrorAlert(CFSTR("Write error !"));
+			return;
+			
+		}
+			
         // set the rom version control to the AutoStarX current version
         SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
         }
@@ -818,23 +821,15 @@ void AutoStarX::AutoStarConnect()
 //
 void AutoStarX::AutoStarDisconnect()
 {
-    Byte cmd[2];
-    
-    cmd[0]='I'; // Initialize .. proper way of exiting download mode (0 byte response)
-    cmd[1]=0;
-    if (mPortIO!=NULL)
-        {
-        mPortIO->SendData(cmd,1);
-        mPortIO->CloseSerialPort();
-        }
+	if(m_autostar.isConnected()) {
+		m_autostar.DisconnectFromAutostar();
+	}
     bConnected=false;
     DeactivateControl(mFlashButton);
     ActivateControl(mSerialPort);
     SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
     SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, strlen (""), "");
     SetControlTitleWithCFString(mConnectButton,CFSTR("Connect"));
-    delete mPortIO;
-    mPortIO=NULL;
 }
 
 //

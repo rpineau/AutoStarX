@@ -16,8 +16,8 @@
 			8D0C4E890486CD37000505A6 /* AutoStarX */,
 		);
 		breakpoints = (
-			934CADDB0C04087700241783 /* AutoStarX.cpp:956 */,
-			934CAE160C040D5D00241783 /* AutoStarX.cpp:1016 */,
+			934CADDB0C04087700241783 /* AutoStarX.cpp:951 */,
+			934CAE160C040D5D00241783 /* AutoStarX.cpp:1011 */,
 			934CAE3D0C040FFE00241783 /* AutoStarX.cpp:94 */,
 		);
 		codeSenseManager = 9377B1410763CDEF00C57F77 /* Code sense */;
@@ -134,7 +134,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 313046986;
+			PBXPerProjectTemplateStateSaveDate = 341370654;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -311,11 +311,15 @@
 					};
 				},
 			);
-			PBXWorkspaceStateSaveDate = 313046986;
+			PBXWorkspaceStateSaveDate = 341370654;
 		};
 		perUserProjectItems = {
-			9385C9B612A8B7FB0048BBB6 /* XCBuildMessageTextBookmark */ = 9385C9B612A8B7FB0048BBB6 /* XCBuildMessageTextBookmark */;
-			9385C9BE12A8B80C0048BBB6 /* PBXTextBookmark */ = 9385C9BE12A8B80C0048BBB6 /* PBXTextBookmark */;
+			932CD7161458E851007CFD89 /* XCBuildMessageTextBookmark */ = 932CD7161458E851007CFD89 /* XCBuildMessageTextBookmark */;
+			932CD7171458E861007CFD89 /* XCBuildMessageTextBookmark */ = 932CD7171458E861007CFD89 /* XCBuildMessageTextBookmark */;
+			932CD7181458E861007CFD89 /* PBXTextBookmark */ = 932CD7181458E861007CFD89 /* PBXTextBookmark */;
+			932CD71D1458E861007CFD89 /* PBXTextBookmark */ = 932CD71D1458E861007CFD89 /* PBXTextBookmark */;
+			932CD7201458E861007CFD89 /* PBXTextBookmark */ = 932CD7201458E861007CFD89 /* PBXTextBookmark */;
+			932CD7211458E861007CFD89 /* PBXTextBookmark */ = 932CD7211458E861007CFD89 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 9377B1400763CDEF00C57F77 /* Source Control */;
 		userBuildSettings = {
@@ -335,7 +339,62 @@
 			sepNavWindowFrame = "{{203, 447}, {750, 558}}";
 		};
 	};
-	934CADDB0C04087700241783 /* AutoStarX.cpp:956 */ = {
+	932CD7161458E851007CFD89 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'cmd' was not declared in this scope";
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 801;
+		rType = 1;
+	};
+	932CD7171458E861007CFD89 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'cmd' was not declared in this scope";
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 801;
+		rType = 1;
+	};
+	932CD7181458E861007CFD89 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = "AutoStarX.cpp: 793";
+		rLen = 0;
+		rLoc = 24515;
+		rType = 0;
+		vrLen = 231;
+		vrLoc = 24421;
+	};
+	932CD71D1458E861007CFD89 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EE077526FC00F37742 /* AutoStarX.cpp */;
+		name = "AutoStarX.cpp: 793";
+		rLen = 0;
+		rLoc = 24515;
+		rType = 0;
+		vrLen = 1546;
+		vrLoc = 23808;
+	};
+	932CD7201458E861007CFD89 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+		rType = 0;
+	};
+	932CD7211458E861007CFD89 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93E5E4EA077526CC00F37742 /* AutoStarX.h */;
+		name = "AutoStarX.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 832;
+		vrLoc = 1102;
+	};
+	934CADDB0C04087700241783 /* AutoStarX.cpp:951 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -347,13 +406,13 @@
 		functionName = "AutoStarX::Flash()";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 956;
+		lineNumber = 951;
 		location = AutoStarX.ob;
 		modificationTime = 201595362.000644;
-		originalNumberOfMultipleMatches = 0;
-		state = 1;
+		originalNumberOfMultipleMatches = 1;
+		state = 0;
 	};
-	934CAE160C040D5D00241783 /* AutoStarX.cpp:1016 */ = {
+	934CAE160C040D5D00241783 /* AutoStarX.cpp:1011 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -365,7 +424,7 @@
 		functionName = "AutoStarX::Flash()";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 1016;
+		lineNumber = 1011;
 		location = AutoStarX.ob;
 		modificationTime = 201595362.023037;
 		originalNumberOfMultipleMatches = 0;
@@ -539,25 +598,6 @@
 			sepNavWindowFrame = "{{181, 133}, {937, 846}}";
 		};
 	};
-	9385C9B612A8B7FB0048BBB6 /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "AutostarStat.h: No such file or directory";
-		fRef = 939B54F80C137766007D181A /* Autostar.h */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 11;
-		rType = 1;
-	};
-	9385C9BE12A8B80C0048BBB6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 939B54F80C137766007D181A /* Autostar.h */;
-		name = "Autostar.h: 12";
-		rLen = 0;
-		rLoc = 184;
-		rType = 0;
-		vrLen = 1668;
-		vrLoc = 0;
-	};
 	939B54F10C13769D007D181A /* AutostarModel.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {946, 639}}";
@@ -632,16 +672,18 @@
 	};
 	93E5E4EA077526CC00F37742 /* AutoStarX.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {946, 3094}}";
-			sepNavSelRange = "{5545, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {691, 3332}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1102, 832}";
 			sepNavVisRect = "{{0, 188}, {946, 639}}";
 			sepNavWindowFrame = "{{887, 249}, {750, 558}}";
 		};
 	};
 	93E5E4EE077526FC00F37742 /* AutoStarX.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1514, 16226}}";
-			sepNavSelRange = "{23242, 8}";
+			sepNavIntBoundsRect = "{{0, 0}, {714, 16268}}";
+			sepNavSelRange = "{24498, 0}";
+			sepNavVisRange = "{24436, 231}";
 			sepNavVisRect = "{{0, 10086}, {805, 702}}";
 			sepNavWindowFrame = "{{141, 12}, {1259, 1166}}";
 		};

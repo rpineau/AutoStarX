@@ -36,7 +36,7 @@ public:
 	Autostar();
 	virtual ~Autostar();
 
-	eAutostarStat SendCommand(eAutostarCmnd cmd, Byte *data, Byte *resp, unsigned int &count);
+	eAutostarStat SendCommand(eAutostarCmnd cmd, Byte *data, Byte *resp, UInt32 &count);
 	
 	eAutostarStat ConnectToAutostar(const char *bsdPath);
 	void DisconnectFromAutostar();
@@ -46,6 +46,7 @@ public:
 	eAutostarStat m_lastError;
 	eAutostarMode m_mode;
 	bool getModelName(char *buffer);
+	bool isConnected();
 	
 protected:
 	SerialPortIO *mPortIO;	

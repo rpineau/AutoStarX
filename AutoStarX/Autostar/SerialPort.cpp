@@ -262,7 +262,7 @@ bool SerialPortIO:: SendData(Byte * dataOut, int length)
 }
  
  
-bool SerialPortIO::SendData(unsigned char *out, unsigned int outcnt, unsigned char *in, unsigned int &incnt)
+bool SerialPortIO::SendData(unsigned char *out, unsigned int outcnt, unsigned char *in, UInt32 &incnt)
 {
 	bool res;
 	

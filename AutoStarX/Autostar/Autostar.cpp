@@ -41,7 +41,7 @@ Autostar::~Autostar()
 //	Output		:Autostar status
 //
 ////////////////////////////////////////////
-eAutostarStat Autostar::SendCommand(eAutostarCmnd cmd, Byte *data, Byte *resp, unsigned int &count)
+eAutostarStat Autostar::SendCommand(eAutostarCmnd cmd, Byte *data, Byte *resp, UInt32 &count)
 {
 	unsigned char cmdStr[10];
 	unsigned int respCnt;
@@ -432,4 +432,9 @@ ASType Autostar::GetModel()
 
 	return TYPE_UNKNOWN;
 	
+}
+
+bool Autostar::isConnected()
+{
+	return m_connected;
 }
