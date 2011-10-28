@@ -44,8 +44,8 @@ Autostar::~Autostar()
 eAutostarStat Autostar::SendCommand(eAutostarCmnd cmd, Byte *data, Byte *resp, UInt32 &count)
 {
 	unsigned char cmdStr[10];
-	unsigned int respCnt;
-	unsigned int sndCnt;
+	UInt32 respCnt;
+	UInt32 sndCnt;
 	bool serialStatus;
 	
 	switch(cmd)
@@ -316,7 +316,7 @@ eAutostarStat Autostar::SendDownloadMode()
 {
 	unsigned char			resp[5];
 	eAutostarStat	stat;
-	unsigned int	len;
+	UInt32	len;
 
 // if we are not already in download then send the command
 	if (m_mode != DOWNLOAD)			
@@ -351,7 +351,7 @@ ASType Autostar::GetModel()
     Byte ioBuffer[64];
 	bool doAgain;
 	eAutostarStat serialStatus;
-	unsigned int retLen=1;
+	UInt32 retLen=1;
 	
 	if (!m_connected)
 		return ERROR;
