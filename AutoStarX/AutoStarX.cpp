@@ -689,8 +689,13 @@ void AutoStarX::loadAutostarROMFile()
 					// check the verion of the rom to make sure it's for a 497 and not a 497EP
 					if (strncmp("4",(const char *)newRom->version,1) == 0)
 						romType=AS_495_497;
-				if (strncmp("5",(const char *)newRom->version,1) == 0)
-						romType=AS_497EP;
+					if (strncmp("5",(const char *)newRom->version,1) == 0) {
+						// make sure there is an index.
+						if (memcmp(indexes, newRom+0x60, 16))
+							romType=AS_497EP;
+						else
+							romType=AS_Uknown;
+					}
 					break;
 			// need to be fixed for big endian v little endian : intel : 0x800200
 			case 0x00028000:    // autostar II PPC
