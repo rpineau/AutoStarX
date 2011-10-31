@@ -653,8 +653,8 @@ void AutoStarX::loadAutostarROMFile()
 	FSpMakeFSRef(&mFileSpec,&mROMfileRef);
 	if(mRomFullPath)
 		delete mRomFullPath;
-	mRomFullPath=new UInt8[255];
-	FSRefMakePath(&mROMfileRef, mRomFullPath,255);
+	mRomFullPath=new char[255];
+	FSRefMakePath(&mROMfileRef, (UInt8 *)mRomFullPath,255);
 	// set the rom file path control to the full file path
 	SetControlData (mRomFile, 
 					kControlEditTextPart, 

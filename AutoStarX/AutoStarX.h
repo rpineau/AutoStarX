@@ -194,7 +194,7 @@ private:
 	FSSpec mFileSpec;
 	short mROMFileHandle;
 	FSRef mROMfileRef;
-	UInt8 *mRomFullPath;
+	char *mRomFullPath;
     long mfSize;
 	
 };
