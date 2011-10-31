@@ -108,7 +108,9 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
     bool wrong;
 	FileSelector Fselector;
 	OSStatus result=eventNotHandledErr;
-
+	Byte indexes[16];
+	
+	memset(indexes,0,16);
 	// get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
     
@@ -166,12 +168,13 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                 // what autostar this rom is for ?
                 switch(self->newRom->key)
                     {
-                        case 0x00000000:    // autostar 495 & 497
+                        case 0x00000000:    // autostar 495 & 497, 497EP, Audiostar
+								
 								// check the verion of the rom to make sure it's for a 497 and not a 497EP
 								if (strncmp("4",(const char *)self->newRom->version,1) == 0)
-									self->romType=1;
+									self->romType=1; // 495, 497
 							if (strncmp("5",(const char *)self->newRom->version,1) == 0)
-									self->romType=0xffff;
+									self->romType=3; // 497EP
                                 break;
                         case 0x00028000:    // autostar II
                                 self->romType=2;
@@ -754,8 +757,9 @@ void AutoStarX::AutoStarConnect()
 
         } 
 
-    if(ioBuffer[0]!='D' && !bSafeLoad) // not in download mode
+    if(ioBuffer[0]!='D' && ioBuffer[0]!='B' && !bSafeLoad) // not in download mode (D = download or safe mode, B = 497EP in interactive mode)
         {
+		// get autostart string 
         // switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)
         cmd[1]=0;
@@ -792,27 +796,9 @@ void AutoStarX::AutoStarConnect()
 		ErrorAlert(CFSTR("Read error !"));
         return;
 		}
-		
-    // set the device type control to the AutoStarX type
-    switch(ioBuffer[0])
-        {
-        case 0x0f:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
-            deviceType=1;
-            break;
-            
-        case 0x0A:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
-            deviceType=1;
-            break;
-        default:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
-            deviceType=0xFFFF;
-            break;
-        }
+	
+	deviceType = ioBuffer[0];
 
-        
-     
     if(!bSafeLoad)
         {
         // get ROM version
@@ -831,7 +817,46 @@ void AutoStarX::AutoStarConnect()
             ErrorAlert(CFSTR("Read error !"));
             return;
             }
-        
+
+    // set the device type control to the AutoStarX type
+	printf("ioBuffer[0] = %c", ioBuffer[0]);
+    switch(deviceType)
+        {
+        case 0x07:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("494"), "494");
+            deviceType=0;
+            break;
+        case 0x0A:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
+            deviceType=1;
+            break;
+        case 0x0f:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
+            deviceType=1;
+            break;
+        case 0x0e:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Autostar II (not supported)"), "Autostar II (not supported)");
+            deviceType=2;
+            break;
+        case 0x1f:
+			if (ioBuffer[0] == '5') {
+				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497EP (not supported)"), "497EP (not supported)");
+				deviceType=3;
+			}
+			else if (ioBuffer[0] == 'A') {
+				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Audiostar (not supported)"), "Audiostar (not supported)");
+				deviceType=4;
+			}
+			else {
+				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
+			}
+            break;
+        default:
+            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
+            deviceType=0xFFFF;
+            break;
+        }
+
         // set the rom version control to the AutoStarX current version
         SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);
         }
