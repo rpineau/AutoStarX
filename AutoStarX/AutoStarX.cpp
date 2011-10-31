@@ -106,11 +106,8 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 	UInt32	CommandID;
 	OSErr err;
     bool wrong;
-	FileSelector Fselector;
 	OSStatus result=eventNotHandledErr;
-	Byte indexes[16];
 	
-	memset(indexes,0,16);
 	// get a pointer to the object itself to be able to access private member variable and functions
     AutoStarX* self = static_cast<AutoStarX*>(userData);
     
@@ -128,67 +125,7 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
 		{
 		case 'open':  // get the file name and its size
 				{
-				self->mFileSpec=Fselector.FileSelect();
-				FSpMakeFSRef(&self->mFileSpec,&self->mROMfileRef);
-				if(self->mRomFullPath)
-					delete self->mRomFullPath;
-				self->mRomFullPath=new UInt8[255];
-				FSRefMakePath(&self->mROMfileRef, self->mRomFullPath,255);
-				// set the rom file path control to the full file path
-				SetControlData (self->mRomFile, 
-								kControlEditTextPart, 
-								kControlEditTextTextTag, 
-								strlen ((const char *)(self->mRomFullPath)), 
-								self->mRomFullPath);
-				// we need to open the file to get its size
-				err=FSpOpenDF(&self->mFileSpec, fsRdPerm ,&self->mROMFileHandle);
-				if(err)
-					{
-                    break;
-                    }
-                // get file size    
-                err=GetEOF(self->mROMFileHandle,&self->mfSize);
-				if(err)
-					{
-                   break;
-                    }
-				
-				if(self->newRom)
-					delete self->newRom;
-				self->newRom= new ROM;
-
-                // we need to load the file in memory here
-                FSRead(self->mROMFileHandle,&self->mfSize,(void *)(self->newRom));
-				//set the version in the control
-				SetControlData (self->mFileRomVersion, 
-								kControlEditTextPart, 
-								kControlEditTextTextTag, 
-								4, 
-								self->newRom->version);
-                // what autostar this rom is for ?
-                switch(self->newRom->key)
-                    {
-                        case 0x00000000:    // autostar 495 & 497, 497EP, Audiostar
-								
-								// check the verion of the rom to make sure it's for a 497 and not a 497EP
-								if (strncmp("4",(const char *)self->newRom->version,1) == 0)
-									self->romType=1; // 495, 497
-							if (strncmp("5",(const char *)self->newRom->version,1) == 0)
-									self->romType=3; // 497EP
-                                break;
-                        case 0x00028000:    // autostar II
-                                self->romType=2;
-                                break;
-                        default :           // unknown rom file
-                                self->romType=0xffff;
-                                break;
-                    }
-                
-                // close the file after reading it
-                err=FSClose(self->mROMFileHandle);
-                if(self->bConnected)
-                    ActivateControl(self->mFlashButton);
-                self->bFilename=true;
+				self->loadAutostarROMFile();
 				break;
 				}
 				
@@ -700,6 +637,77 @@ void AutoStarX::SetSerialPortsControls(ControlRef control)
 	
 }
 
+//
+// Load the ROM file, check fr what device it is
+//
+
+void AutoStarX::loadAutostarROMFile()
+{
+	OSErr err;
+	FileSelector Fselector;
+	Byte indexes[16];
+
+	memset(indexes,0,16);
+
+	mFileSpec=Fselector.FileSelect();
+	FSpMakeFSRef(&mFileSpec,&mROMfileRef);
+	if(mRomFullPath)
+		delete mRomFullPath;
+	mRomFullPath=new UInt8[255];
+	FSRefMakePath(&mROMfileRef, mRomFullPath,255);
+	// set the rom file path control to the full file path
+	SetControlData (mRomFile, 
+					kControlEditTextPart, 
+					kControlEditTextTextTag, 
+					strlen ((const char *)(mRomFullPath)), 
+					mRomFullPath);
+	// we need to open the file to get its size
+	err=FSpOpenDF(&mFileSpec, fsRdPerm ,&mROMFileHandle);
+	if(err)
+		return;
+	// get file size    
+	err=GetEOF(mROMFileHandle,&mfSize);
+	if(err)
+		return;
+	if(newRom)
+		delete newRom;
+	newRom= new ROM;
+
+	// we need to load the file in memory here
+	FSRead(mROMFileHandle,&mfSize,(void *)(newRom));
+	//set the version in the control
+	SetControlData (mFileRomVersion, 
+					kControlEditTextPart, 
+					kControlEditTextTextTag, 
+					4, 
+					newRom->version);
+	// what autostar this rom is for ?
+	switch(newRom->key)
+		{
+			case 0x00000000:    // autostar 495 & 497, 497EP, Audiostar
+					
+					// check the verion of the rom to make sure it's for a 497 and not a 497EP
+					if (strncmp("4",(const char *)newRom->version,1) == 0)
+						romType=1; // 495, 497
+				if (strncmp("5",(const char *)newRom->version,1) == 0)
+						romType=3; // 497EP
+					break;
+			// need to be fixed for big endian v little endian : intel : 0x800200
+			case 0x00028000:    // autostar II
+					romType=2;
+					break;
+			default :           // unknown rom file
+					romType=0xffff;
+					break;
+		}
+	
+	// close the file after reading it
+	err=FSClose(mROMFileHandle);
+	if(bConnected)
+		ActivateControl(mFlashButton);
+	bFilename=true;
+
+}
 
 // 
 // connect to the AutoStarX at 9600 bauds and get device type and ROM version

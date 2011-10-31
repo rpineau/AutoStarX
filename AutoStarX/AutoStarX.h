@@ -65,8 +65,8 @@ static EventTypeSpec kFactoryEvents[] =
                     
 typedef struct ROM {
 	// header
-	unsigned long key;  // 4 byte
-	unsigned long checksum; // 4 byte
+	UInt32 key;  // 4 byte
+	UInt32 checksum; // 4 byte
 	Byte version[4];
 	Byte padding[4084];
 	// data pages
@@ -143,7 +143,8 @@ private:
     virtual void HIObjectThreadControllerTermThread(HIObjectRef threadController);
     virtual CFStringRef GetThreadControllerClass();
     virtual void SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page);
-
+	virtual void loadAutostarROMFile();
+	
 // Nib reference
     IBNibRef 		mNibRef;	
 // Window
