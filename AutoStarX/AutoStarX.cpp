@@ -688,17 +688,17 @@ void AutoStarX::loadAutostarROMFile()
 					
 					// check the verion of the rom to make sure it's for a 497 and not a 497EP
 					if (strncmp("4",(const char *)newRom->version,1) == 0)
-						romType=1; // 495, 497
+						romType=AS_495_497;
 				if (strncmp("5",(const char *)newRom->version,1) == 0)
-						romType=3; // 497EP
+						romType=AS_497EP;
 					break;
 			// need to be fixed for big endian v little endian : intel : 0x800200
 			case 0x00028000:    // autostar II PPC
 			case 0x00800200:    // autostar II Intel
-					romType=2;
+					romType=AS_II;
 					break;
 			default :           // unknown rom file
-					romType=0xffff;
+					romType=AS_Uknown;
 					break;
 		}
 	
@@ -833,28 +833,28 @@ void AutoStarX::AutoStarConnect()
         {
         case 0x07:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("494"), "494");
-            deviceType=0;
+            deviceType=AS_494;
             break;
         case 0x0A:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
-            deviceType=1;
+            deviceType=AS_495_497;
             break;
         case 0x0f:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
-            deviceType=1;
+            deviceType=AS_495_497;
             break;
         case 0x0e:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Autostar II (not supported)"), "Autostar II (not supported)");
-            deviceType=2;
+            deviceType=AS_II;
             break;
         case 0x1f:
 			if (ioBuffer[0] == '5') {
 				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497EP (not supported)"), "497EP (not supported)");
-				deviceType=3;
+				deviceType=AS_497EP;
 			}
 			else if (ioBuffer[0] == 'A') {
 				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Audiostar (not supported)"), "Audiostar (not supported)");
-				deviceType=4;
+				deviceType=Audiostar;
 			}
 			else {
 				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
@@ -862,7 +862,7 @@ void AutoStarX::AutoStarConnect()
             break;
         default:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
-            deviceType=0xFFFF;
+            deviceType=AS_Uknown;
             break;
         }
 

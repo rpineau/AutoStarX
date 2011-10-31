@@ -73,6 +73,8 @@ typedef struct ROM {
 	Byte pages[96][32768];  // 32 pages for 495 & 495 , 96 pages for autostar II
 } ROM;
 
+enum AS_Type {AS_494, AS_495_497, AS_II, AS_497EP, Audiostar, AS_Uknown};
+
 typedef CALLBACK_API_C( void * , SetUpProc )(void *);
 typedef CALLBACK_API_C( void, TermProc )(void *);
 
