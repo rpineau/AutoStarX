@@ -646,7 +646,7 @@ void AutoStarX::loadAutostarROMFile()
 	OSErr err;
 	FileSelector Fselector;
 	Byte indexes[16];
-
+	
 	memset(indexes,0,16);
 
 	mFileSpec=Fselector.FileSelect();
@@ -685,26 +685,42 @@ void AutoStarX::loadAutostarROMFile()
 	switch(newRom->key)
 		{
 			case 0x00000000:    // autostar 495 & 497, 497EP, Audiostar
-					
-					// check the verion of the rom to make sure it's for a 497 and not a 497EP
-					if (strncmp("4",(const char *)newRom->version,1) == 0)
-						romType=AS_495_497;
-					if (strncmp("5",(const char *)newRom->version,1) == 0) {
+				// check the verion of the rom to make sure it's for a 497 and not a 497EP
+				if (!memcmp(indexes, (Byte *)(newRom)+0x60, 16)) {
+					if (searchPaternInArray((const char *)(newRom), mfSize , "Proc. Tra", strlen("Proc. Tra")))
+						if (strncmp("4",(const char *)newRom->version,1) == 0)
+							romType=AS_495_497;
+				}
+				else {
+					// the test order is important !!!!
+					if (searchPaternInArray((const char *)(newRom), mfSize, "AUDIOSTAR", strlen("AUDIOSTAR"))) {
 						// make sure there is an index.
-						if (memcmp(indexes, newRom+0x60, 16))
-							romType=AS_497EP;
-						else
-							romType=AS_Uknown;
+						romType=Audiostar;
 					}
-					break;
+					else if (searchPaternInArray((const char *)(newRom), mfSize, "497EP", strlen("497EP"))) {
+						// make sure there is an index.
+								romType=AS_497EP;
+					}
+					else
+						romType=AS_Unknown;
+				}
+		
+				break;
+
 			// need to be fixed for big endian v little endian : intel : 0x800200
 			case 0x00028000:    // autostar II PPC
 			case 0x00800200:    // autostar II Intel
+				if (searchPaternInArray((const char *)(newRom), mfSize, "RCX400", strlen("RCX400")))
 					romType=AS_II;
-					break;
+
+				else if (searchPaternInArray((const char *)(newRom), mfSize, "LX200 GPS", strlen("LX200 GPS")))
+					romType=AS_II;
+				
+				break;
+
 			default :           // unknown rom file
-					romType=AS_Uknown;
-					break;
+				romType=AS_Unknown;
+				break;
 		}
 	
 	// close the file after reading it
@@ -867,7 +883,7 @@ void AutoStarX::AutoStarConnect()
             break;
         default:
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
-            deviceType=AS_Uknown;
+            deviceType=AS_Unknown;
             break;
         }
 
@@ -1222,4 +1238,18 @@ void AutoStarX::DeActivateControls()
     DeactivateControl(mConnectButton);
     DeactivateControl(mRomOpen);
     DeactivateControl(mQuit);
+}
+
+
+bool AutoStarX::searchPaternInArray(const char *array, UInt32 lenA, const char *patern, UInt32 lenP)
+{
+	std::string needle(patern, lenP);
+	std::string haystack(array, lenA);
+	
+	std::size_t n = haystack.find(needle);
+	
+	if (n == std::string::npos)// not found
+		return false;
+	else // position is n
+		return true;
 }

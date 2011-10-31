@@ -8,6 +8,8 @@
  */
 
 #include <Carbon/Carbon.h>
+#include <iostream>
+#include <string>
 
 #include "controls.h"
 // #define __TEST
@@ -70,10 +72,10 @@ typedef struct ROM {
 	Byte version[4];
 	Byte padding[4084];
 	// data pages
-	Byte pages[96][32768];  // 32 pages for 495 & 495 , 96 pages for autostar II
+	Byte pages[128][32768];  // 32 pages for 495 & 495 , 96 pages for autostar II, 128 for others...
 } ROM;
 
-enum AS_Type {AS_494, AS_495_497, AS_II, AS_497EP, Audiostar, AS_Uknown};
+enum AS_Type {AS_494, AS_495_497, AS_II, AS_497EP, Audiostar, AS_Unknown};
 
 typedef CALLBACK_API_C( void * , SetUpProc )(void *);
 typedef CALLBACK_API_C( void, TermProc )(void *);
@@ -146,7 +148,7 @@ private:
     virtual CFStringRef GetThreadControllerClass();
     virtual void SendEventToUI(UInt32 kind, GeneralTaskWorkParamsPtr params, SInt32 progress, SInt32 page);
 	virtual void loadAutostarROMFile();
-	
+	virtual bool searchPaternInArray(const char *array, UInt32 lenA, const char *patern, UInt32 lenP);
 // Nib reference
     IBNibRef 		mNibRef;	
 // Window
