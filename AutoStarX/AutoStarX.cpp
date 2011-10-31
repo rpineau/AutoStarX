@@ -693,7 +693,8 @@ void AutoStarX::loadAutostarROMFile()
 						romType=3; // 497EP
 					break;
 			// need to be fixed for big endian v little endian : intel : 0x800200
-			case 0x00028000:    // autostar II
+			case 0x00028000:    // autostar II PPC
+			case 0x00800200:    // autostar II Intel
 					romType=2;
 					break;
 			default :           // unknown rom file
