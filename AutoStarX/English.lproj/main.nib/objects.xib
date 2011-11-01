@@ -34,8 +34,8 @@
       <ostype name="command">RVer</ostype>
       <boolean name="isUnicode">TRUE</boolean>
       <string name="title">3.2e</string>
-      <string name="viewFrame">121 59 185 16 </string>
-      <string name="bounds">111 141 127 326 </string>
+      <string name="viewFrame">121 59 251 16 </string>
+      <string name="bounds">111 141 127 392 </string>
     </object>
     <object class="IBCarbonMenuItem" id="127">
       <string name="title">File</string>
@@ -128,8 +128,8 @@
           <ostype name="command">UVer</ostype>
           <boolean name="isUnicode">TRUE</boolean>
           <string name="title">497</string>
-          <string name="viewFrame">121 33 185 16 </string>
-          <string name="bounds">85 141 101 326 </string>
+          <string name="viewFrame">121 33 251 16 </string>
+          <string name="bounds">85 141 101 392 </string>
         </object>
         <reference idRef="216"/>
       </array>

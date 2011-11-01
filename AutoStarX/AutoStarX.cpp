@@ -33,7 +33,9 @@ AutoStarX::AutoStarX()
     bFilename=false;
     newRom=NULL;
     mRomFullPath=NULL;    
-    bFlashing=false;    
+    bFlashing=false;   
+	mAutostarString=NULL;
+	
     InitCursor();
     
     // Create a Nib reference passing the name of the nib file (without the .nib extension)
@@ -753,9 +755,15 @@ void AutoStarX::AutoStarConnect()
     SInt32 index;
 	bool bSafeLoad;
     char bsdPath[255];
+	char displayString[64];
     Byte ioBuffer[64];
     Byte cmd[2];
 	int i;
+	
+	if(mAutostarString)
+		delete mAutostarString;
+	mAutostarString = new char[255];
+
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
 
@@ -803,8 +811,26 @@ void AutoStarX::AutoStarConnect()
 
     if(ioBuffer[0]!='D' && ioBuffer[0]!='B' && !bSafeLoad) // not in download mode (D = download or safe mode, B = 497EP in interactive mode)
         {
-		// get autostart string 
-        // switch to download mode
+		// get autostart string. Send :GVP#
+		cmd[0] = ':';
+		cmd[1] = 'V';
+		cmd[2] = 'P';
+		cmd[3] = '#';
+		cmd[4] = 0;
+		if(!mPorts->SendData(cmd,1)) {
+			AutoStarDisconnect();
+			ErrorAlert(CFSTR("Write error !"));
+			return;
+		}
+		usleep(500000);    
+		if(!mPorts->ReadData(ioBuffer,4)) {
+			AutoStarDisconnect();
+			ErrorAlert(CFSTR("Read error !"));
+			return;
+		}
+		strncpy((char *)ioBuffer,mAutostarString,254);
+			
+		// switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)
         cmd[1]=0;
 		if(!mPorts->SendData(cmd,1))
@@ -843,20 +869,17 @@ void AutoStarX::AutoStarConnect()
 	
 	deviceType = ioBuffer[0];
 
-    if(!bSafeLoad)
-        {
-        // get ROM version
+    if(!bSafeLoad) {
+		// get ROM version
         cmd[0]='V';    // ask for ROM version (4 bytes response)
         cmd[1]=0;
-        if(!mPorts->SendData(cmd,1))
-            {
+        if(!mPorts->SendData(cmd,1)) {
             AutoStarDisconnect();
             ErrorAlert(CFSTR("Write error !"));
             return;
             }
         usleep(500000);    
-        if(!mPorts->ReadData(ioBuffer,4))
-            {
+        if(!mPorts->ReadData(ioBuffer,4)) {
             AutoStarDisconnect();
             ErrorAlert(CFSTR("Read error !"));
             return;
@@ -867,39 +890,43 @@ void AutoStarX::AutoStarConnect()
     switch(deviceType)
         {
         case 0x07:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("494"), "494");
+			strncpy(displayString,"Autostar 494",64);
             deviceType=AS_494;
             break;
         case 0x0A:
+			strncpy(displayString,"Autostar 495",64);
             SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("495"), "495");
             deviceType=AS_495_497;
             break;
         case 0x0f:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497"), "497");
+			strncpy(displayString,"Autostar 497",64);
             deviceType=AS_495_497;
             break;
         case 0x0e:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Autostar II (not supported)"), "Autostar II (not supported)");
+			strncpy(displayString,"Autostar II (not supported)",64);
             deviceType=AS_II;
             break;
         case 0x1f:
 			if (ioBuffer[0] == '5') {
-				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("497EP (not supported)"), "497EP (not supported)");
+				strncpy(displayString,"Autostar 497EP (not supported)",64);
 				deviceType=AS_497EP;
 			}
 			else if (ioBuffer[0] == 'A') {
-				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Audiostar (not supported)"), "Audiostar (not supported)");
+				strncpy(displayString,"Audiostar (not supported)",64);
 				deviceType=Audiostar;
 			}
 			else {
-				SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
+				strncpy(displayString,"Other (not supported)",64);
 			}
             break;
         default:
-            SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen ("Other"), "Other");
+		   strncpy(displayString,"Other (not supported)",64);
             deviceType=AS_Unknown;
             break;
         }
+
+		if (strlen(displayString))
+		   SetControlData (mAStarVersion, kControlEditTextPart, kControlEditTextTextTag, strlen(displayString), displayString);
 
         // set the rom version control to the AutoStarX current version
         SetControlData (mRomVersion, kControlEditTextPart, kControlEditTextTextTag, 4, ioBuffer);

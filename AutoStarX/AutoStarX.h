@@ -197,7 +197,8 @@ private:
 	FSRef mROMfileRef;
 	char *mRomFullPath;
     long mfSize;
-	
+	char *mAutostarString;
+
 };
 
 
