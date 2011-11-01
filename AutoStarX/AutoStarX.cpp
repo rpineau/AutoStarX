@@ -646,8 +646,10 @@ void AutoStarX::loadAutostarROMFile()
 	OSErr err;
 	FileSelector Fselector;
 	Byte indexes[16];
+	char displayName[PATH_DISPLAY_LEN+1];
 	
 	memset(indexes,0,16);
+	memset(displayName,0,PATH_DISPLAY_LEN+1);
 
 	mFileSpec=Fselector.FileSelect();
 	FSpMakeFSRef(&mFileSpec,&mROMfileRef);
@@ -655,12 +657,24 @@ void AutoStarX::loadAutostarROMFile()
 		delete mRomFullPath;
 	mRomFullPath=new char[255];
 	FSRefMakePath(&mROMfileRef, (UInt8 *)mRomFullPath,255);
+	
+	if (strlen ((const char *)(mRomFullPath)) > PATH_DISPLAY_LEN-1) {
+		// build a path we can display
+		strncpy(displayName,mRomFullPath, PATH_DISPLAY_LEN/2 - strlen(" .. ")/2);
+		strncpy(displayName + PATH_DISPLAY_LEN/2 - strlen(" .. ")/2, " .. ",strlen(" .. "));
+		strncpy(displayName + PATH_DISPLAY_LEN/2 - strlen(" .. ")/2  + strlen(" .. "), 
+				mRomFullPath + strlen(mRomFullPath) - (PATH_DISPLAY_LEN/2 - strlen(" .. ")/2),
+				PATH_DISPLAY_LEN/2 - strlen(" .. ")/2);
+	}
+   else
+	   strncpy(displayName, mRomFullPath, PATH_DISPLAY_LEN-1);
+	
 	// set the rom file path control to the full file path
 	SetControlData (mRomFile, 
 					kControlEditTextPart, 
 					kControlEditTextTextTag, 
-					strlen ((const char *)(mRomFullPath)), 
-					mRomFullPath);
+					strlen ((const char *)(displayName)), 
+					displayName);
 	// we need to open the file to get its size
 	err=FSpOpenDF(&mFileSpec, fsRdPerm ,&mROMFileHandle);
 	if(err)

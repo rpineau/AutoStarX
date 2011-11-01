@@ -16,6 +16,7 @@
 // #define __COM_DEBUG
 
 #define BLOCKSIZE  0x40
+#define PATH_DISPLAY_LEN 40
 
 // constant
 static const OSType    kApplicationSignature  = FOUR_CHAR_CODE('Astr');
