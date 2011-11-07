@@ -140,6 +140,10 @@ pascal OSStatus AutoStarX::commandHandler(EventHandlerCallRef myHandler, EventRe
                     {
                     if(self->deviceType==self->romType)
                         {
+						if ( self->deviceType!=AS_495_497)  {
+							self->ErrorAlert(CFSTR("Wrong device!"),CFSTR("Only the Autostar 495 and 497 are supported in this version."));
+							break;
+						}
                         wrong=false;
                         switch(self->deviceType)
                             {
@@ -757,12 +761,12 @@ void AutoStarX::AutoStarConnect()
     char bsdPath[255];
 	char displayString[64];
     Byte ioBuffer[64];
-    Byte cmd[2];
+    Byte cmd[16];
 	int i;
 	
 	if(mAutostarString)
 		delete mAutostarString;
-	mAutostarString = new char[255];
+	mAutostarString = new char[64];
 
     // Get current selected port index
     index=GetControl32BitValue(mSerialPort);
@@ -813,22 +817,24 @@ void AutoStarX::AutoStarConnect()
         {
 		// get autostart string. Send :GVP#
 		cmd[0] = ':';
-		cmd[1] = 'V';
-		cmd[2] = 'P';
-		cmd[3] = '#';
-		cmd[4] = 0;
-		if(!mPorts->SendData(cmd,1)) {
+		cmd[1] = 'G';
+		cmd[2] = 'V';
+		cmd[3] = 'P';
+		cmd[4] = '#';
+		cmd[5] = 0;
+		if(!mPorts->SendData(cmd,5)) {
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Write error !"));
 			return;
 		}
-		usleep(500000);    
-		if(!mPorts->ReadData(ioBuffer,4)) {
+		usleep(500000);
+		memset(ioBuffer, 0, 64);
+		if(!mPorts->ReadData(ioBuffer,63)) {
 			AutoStarDisconnect();
 			ErrorAlert(CFSTR("Read error !"));
 			return;
 		}
-		strncpy((char *)ioBuffer,mAutostarString,254);
+		strncpy(mAutostarString,(char *)ioBuffer,63);
 			
 		// switch to download mode
         cmd[0]=0x04;    // ^D (1 byte response)

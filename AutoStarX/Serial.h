@@ -50,7 +50,7 @@ public:
     virtual CFStringRef getPortPath(int index);
     virtual bool SetSpeed(int speed);
     virtual bool SendData(Byte * dataOut, int length);
-    virtual bool ReadData(Byte * dataIn, int length);
+    virtual int ReadData(Byte * dataIn, int length);
     
     //public data
     CFMutableArrayRef   mPortArray;
