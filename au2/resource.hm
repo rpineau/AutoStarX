@@ -1,9 +1,0 @@
-// Microsoft Developer Studio generated Help ID include file.
-// Used by AU2.rc
-//
-#define HIDC_BUTTON_TOHBX               0x806503f4    // IDD_AU2_FORM
-#define HIDC_BUTTON_TOHBX_ALL           0x80650410    // IDD_AU2_FORM
-#define HIDC_BUTTON_TOHBX_REFRESH       0x80650411    // IDD_AU2_FORM
-#define HIDC_BUTTON_TOLIB               0x806503f5    // IDD_AU2_FORM
-#define HIDC_BUTTON_TOLIB_ALL           0x806503f8    // IDD_AU2_FORM
-#define HIDC_BUTTON_TOLIB_REFRESH       0x806503f9    // IDD_AU2_FORM
